@@ -78,7 +78,7 @@ private:
         //Position
         _Float32 x_pos = msg_odom->pose.pose.position.x;
         _Float32 y_pos = msg_odom->pose.pose.position.y;
-        _Float32 z_pos = msg_odom->pose.pose.position.z;
+        //_Float32 z_pos = msg_odom->pose.pose.position.z;
         
         //Orientation
         _Float32 x_orient = msg_odom->pose.pose.orientation.x;

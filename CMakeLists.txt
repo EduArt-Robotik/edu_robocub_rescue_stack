@@ -11,6 +11,23 @@ find_package(rclcpp REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(nav_msgs REQUIRED)
+# uncomment the following section in order to fill in
+# further dependencies manually.
+# find_package(<dependency> REQUIRED)
+
+add_executable(edu_robocup_rescue_stack_node src/edu_robocup_rescue_stack_node.cpp)
+
+ament_target_dependencies(edu_robocup_rescue_stack_node rclcpp geometry_msgs nav_msgs std_msgs)
+
+target_include_directories(edu_robocup_rescue_stack_node PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+  
+
+target_compile_features(edu_robocup_rescue_stack_node PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+
+install(TARGETS edu_robocup_rescue_stack_node
+  DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -23,15 +40,5 @@ if(BUILD_TESTING)
   set(ament_cmake_cpplint_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
 endif()
-
-add_executable(edu_robocup_rescue_stack_node.cpp /home/daniel/ros2_ws/src/edu_robocup_rescue_stack/edu_robocup_rescue_stack/edu_robocup_rescue_stack_node.cpp)
-ament_target_dependencies(edu_robocup_rescue_stack_node.cpp rclcpp geometry_msgs nav_msgs std_msgs)
-
-install(TARGETS edu_robocup_rescue_stack_node.cpp 
-  DESTINATION lib/${PROJECT_NAME}
-)
-install(DIRECTORY launch
-  DESTINATION share/${PROJECT_NAME}/
-)
 
 ament_package()
