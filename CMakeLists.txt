@@ -15,7 +15,7 @@ find_package(nav_msgs REQUIRED)
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
-add_executable(edu_robocup_rescue_stack_node src/edu_robocup_rescue_stack_node.cpp)
+add_executable(edu_robocup_rescue_stack_node src/edu_robocup_rescue_stack_node.cpp src/localistionControl.cpp)
 
 ament_target_dependencies(edu_robocup_rescue_stack_node rclcpp geometry_msgs nav_msgs std_msgs)
 
@@ -28,7 +28,9 @@ target_compile_features(edu_robocup_rescue_stack_node PUBLIC c_std_99 cxx_std_17
 
 install(TARGETS edu_robocup_rescue_stack_node
   DESTINATION lib/${PROJECT_NAME})
-
+install(DIRECTORY launch
+  DESTINATION share/${PROJECT_NAME}/
+)
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights
