@@ -1,7 +1,20 @@
 #include "localisationControl.h"
 
-#define _USE_MATH_DEFINES
+    LocalisationControl::LocalisationControl(): Node("localisation_control")
+{
+    
+    //subscriber
+    subscriber_odom_=this->create_subscription<nav_msgs::msg::Odometry>("/odom", 1, std::bind(&LocalisationControl::odom_callback, this, std::placeholders::_1));
+    subscriber_velocity_=this->create_subscription<geometry_msgs::msg::Twist>("/cmd_vel", 1, std::bind(&LocalisationControl::velocity_callback, this, std::placeholders::_1));
+    subscriber_state_est_=this->create_subscription<std_msgs::msg::Float64MultiArray>("/state_est", 1, std::bind(&LocalisationControl::state_est_callback, this, std::placeholders::_1));
+    
+    //publisher
+    publisher_state_est_ = this->create_publisher<std_msgs::msg::Float64MultiArray>("/state_est", 10);
+    publisher_vel_ = this->create_publisher<geometry_msgs::msg::Twist>("/cmd_vel", 10);
 
+    //timer
+    timer_ = this->create_wall_timer(50ms, std::bind(&LocalisationControl::timer_callback, this));
+}
 
 void LocalisationControl::odom_callback(const nav_msgs::msg::Odometry::SharedPtr msg_odom) 
 {   
