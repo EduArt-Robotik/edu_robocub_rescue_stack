@@ -13,7 +13,7 @@
     publisher_vel_ = this->create_publisher<geometry_msgs::msg::Twist>("/cmd_vel", 10);
 
     //timer
-    timer_ = this->create_wall_timer(50ms, std::bind(&LocalisationControl::timer_callback, this));
+    //timer_ = this->create_wall_timer(50ms, std::bind(&LocalisationControl::timer_callback, this));
 }
 
 void LocalisationControl::odom_callback(const nav_msgs::msg::Odometry::SharedPtr msg_odom) 
@@ -67,11 +67,22 @@ void LocalisationControl::odom_callback(const nav_msgs::msg::Odometry::SharedPtr
 }
 
 
-void LocalisationControl::timer_callback()
+/*void LocalisationControl::timer_callback()
 {
-    //destination pose
+
+
+}*/
+
+void LocalisationControl::state_est_callback(std_msgs::msg::Float64MultiArray::SharedPtr state_vec_msg) 
+{
+    //estimated pose
+    x = state_vec_msg->data[0];
+    y = state_vec_msg->data[1];
+    yaw_z = state_vec_msg->data[2];
+
+           //destination pose
     x_dest = 10.0;
-    y_dest = 1.0;
+    y_dest = 2.0;
 
     delta_x = x_dest - x;
     delta_y = y_dest - y;
@@ -115,15 +126,6 @@ void LocalisationControl::timer_callback()
         message.angular.z = 0.0;
     }
     publisher_vel_->publish(message);
-
-}
-
-void LocalisationControl::state_est_callback(std_msgs::msg::Float64MultiArray::SharedPtr state_vec_msg) 
-{
-    //estimated pose
-    x = state_vec_msg->data[0];
-    y = state_vec_msg->data[1];
-    yaw_z = state_vec_msg->data[2];
 }
 
 void LocalisationControl::publish_estimated_state(std_msgs::msg::Float64MultiArray state_vec_msg)
@@ -134,6 +136,8 @@ void LocalisationControl::publish_estimated_state(std_msgs::msg::Float64MultiArr
     //message.data includes x-,y-coordinate and orientation around the z-axis yaw_z
     //pitch_y and role_x are calculated and can be added
     publisher_state_est_->publish(message_pose);
+
+ 
 }
 
 void LocalisationControl::velocity_callback(const geometry_msgs::msg::Twist::SharedPtr msg_vel) 
