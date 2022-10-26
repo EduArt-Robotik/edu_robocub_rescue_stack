@@ -1,7 +1,8 @@
 # edu_robotcub_stack
 
-##launch
+## launch
 ros2 launch edu_robocup_rescue_stack edu_control.launch.py 
 
-#Team
+## Team
+
 Katarina, Jakob, Daniel
