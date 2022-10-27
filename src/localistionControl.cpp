@@ -10,8 +10,9 @@
     yaw_rate = 0;
     x = 0;
     y = 0;
-    x_dest = 3;
-    y_dest = 3;
+    x_dest = 8.0;
+    y_dest = -10.0;
+    
     //subscriber
     subscriber_odom_= this->create_subscription<nav_msgs::msg::Odometry>("/odom", 1, std::bind(&LocalisationControl::odom_callback, this, std::placeholders::_1));
     subscriber_velocity_= this->create_subscription<geometry_msgs::msg::Twist>("/cmd_vel", 1, std::bind(&LocalisationControl::velocity_callback, this, std::placeholders::_1));
@@ -78,6 +79,11 @@ void LocalisationControl::odom_callback(const nav_msgs::msg::Odometry::SharedPtr
 
 void LocalisationControl::timer_callback()
 {
+    
+    
+    
+    
+
     _Float32 delta_x = x_dest - x;
     _Float32 delta_y = y_dest - y;
     
@@ -111,16 +117,20 @@ void LocalisationControl::timer_callback()
         message.linear.x = 0.1;
     }
     else {
-        message.linear.x = (delta_dist) / 5.0;
+        message.linear.x = (delta_dist) / 10.0;
         if(message.linear.x < 0.4){
-            message.linear.x  = 0.4;
+            message.linear.x  = 0.3;    //geändert von 0.4
         }
     } 
     if ((delta_dist < 0.1)) {
         message.linear.x = 0.0;
         message.angular.z = 0.0;
+
+
     }
     publisher_vel_->publish(message);
+
+
 
 }
 
