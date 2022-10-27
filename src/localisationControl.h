@@ -24,7 +24,7 @@ private:
 
     void timer_callback();
 
-    void state_est_callback(std_msgs::msg::Float64MultiArray::SharedPtr state_vec_msg);
+    //void state_est_callback(std_msgs::msg::Float64MultiArray::SharedPtr state_vec_msg);
 
     void publish_estimated_state(std_msgs::msg::Float64MultiArray state_vec_msg);
 
@@ -43,11 +43,6 @@ private:
     rclcpp::TimerBase::SharedPtr timer_;
 
     //Initialisierung Variablen
-    _Float32 t0;
-    _Float32 t1;
-    _Float32 t2;
-    _Float32 t3;
-    _Float32 t4;
     _Float32 roll_x;
     _Float32 pitch_y;
     _Float32 yaw_z;
@@ -59,10 +54,5 @@ private:
     rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr publisher_vel_;
     _Float32 x_dest;
     _Float32 y_dest;
-
-    _Float32 delta_x;
-    _Float32 delta_y;
-    _Float32 delta_dist;
-    _Float32 delta_phi;
 
 };
