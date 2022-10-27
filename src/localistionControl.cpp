@@ -22,7 +22,7 @@
     publisher_vel_ = this->create_publisher<geometry_msgs::msg::Twist>("/cmd_vel", 10);
 
     //timer
-    timer_ = this->create_wall_timer(200ms, std::bind(&LocalisationControl::timer_callback, this));
+    timer_ = this->create_wall_timer(50ms, std::bind(&LocalisationControl::timer_callback, this));
 }
 
 void LocalisationControl::odom_callback(const nav_msgs::msg::Odometry::SharedPtr msg_odom) 
@@ -108,12 +108,12 @@ void LocalisationControl::timer_callback()
     message.angular.z = delta_phi;
     
     if(delta_phi > 0.005 ) {
-        message.linear.x = 0.0;
+        message.linear.x = 0.1;
     }
-    else if((delta_phi < 0.005) ){
+    else {
         message.linear.x = (delta_dist) / 5.0;
-        if(message.linear.x < 0.3){
-            message.linear.x  = 0.3;
+        if(message.linear.x < 0.4){
+            message.linear.x  = 0.4;
         }
     } 
     if ((delta_dist < 0.1)) {
