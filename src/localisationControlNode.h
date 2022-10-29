@@ -9,13 +9,15 @@
 #define _USE_MATH_DEFINES
 #include <cmath>
 
+#include "localisation.h"
+
 //using namespace std::chrono_literals; 
 using namespace std;
 
-class LocalisationControl : public rclcpp::Node 
+class LocalisationControlNode : public rclcpp::Node 
 {
     public:
-    LocalisationControl();
+    LocalisationControlNode();
 
 private:
 
@@ -38,21 +40,12 @@ private:
 
     //Initialisierung Publisher
     rclcpp::Publisher<std_msgs::msg::Float64MultiArray>::SharedPtr publisher_state_est_;
+    rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr publisher_vel_;
 
     //Initialisierung Timer
     rclcpp::TimerBase::SharedPtr timer_;
 
-    //Initialisierung Variablen
-    _Float32 roll_x;
-    _Float32 pitch_y;
-    _Float32 yaw_z;
-    _Float32 v;
-    _Float32 yaw_rate;
-    std_msgs::msg::Float64MultiArray obs_state_vector_x_y_yaw;
-    _Float32 x;
-    _Float32 y;
-    rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr publisher_vel_;
-    _Float32 x_dest;
-    _Float32 y_dest;
-
+    //Initialisierung Variablen 
+    Control *m_control;
+    Localisation *m_localisation;
 };
