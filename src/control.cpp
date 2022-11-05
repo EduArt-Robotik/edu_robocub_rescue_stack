@@ -41,11 +41,17 @@ void Control::calculateAngleSpeed() {
     
     m_angle = delta_phi;
     
-    if(delta_phi > 0.005 ) {
-        m_speed = 0.1;
+    if((delta_phi > 0.07) || (delta_phi < -0.07)) {
+        m_speed = 0.01;
+        m_times = 200;
     }
+   
     else {
-        m_speed = (delta_dist) / 10.0;
+        m_times = m_times -10;
+     if( m_times < 10){
+        m_times = 10;
+     }
+        m_speed = (delta_dist) / (float) m_times;
         if(m_speed < 0.3){
             m_speed  = 0.3;   
         }
