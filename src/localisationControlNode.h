@@ -38,6 +38,7 @@ private:
     rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr subscriber_velocity_;
     rclcpp::Subscription<std_msgs::msg::Float64MultiArray>::SharedPtr subscriber_state_est_;
 
+
     //Initialisierung Publisher
     rclcpp::Publisher<std_msgs::msg::Float64MultiArray>::SharedPtr publisher_state_est_;
     rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr publisher_vel_;
