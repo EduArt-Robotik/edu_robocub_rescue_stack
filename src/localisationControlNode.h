@@ -5,13 +5,14 @@
 #include <chrono> 
 #include <vector>
 #include <iostream> 
-
+#include <memory>
 #define _USE_MATH_DEFINES
 #include <cmath>
+#include "lifecycle_msgs/msg/transition_event.hpp"
 
 #include "localisation.h"
 
-//using namespace std::chrono_literals; 
+
 using namespace std;
 
 class LocalisationControlNode : public rclcpp::Node 
@@ -32,12 +33,16 @@ private:
 
     void velocity_callback(const geometry_msgs::msg::Twist::SharedPtr msg_vel);
 
+    void transition_amcl_callback(lifecycle_msgs::msg::TransitionEvent::SharedPtr transition);
+    void transition_map_server_callback(lifecycle_msgs::msg::TransitionEvent::SharedPtr transition);
+
 
     //Initialisierung Subscriber
     rclcpp::Subscription<nav_msgs::msg::Odometry>::SharedPtr subscriber_odom_;
     rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr subscriber_velocity_;
     rclcpp::Subscription<std_msgs::msg::Float64MultiArray>::SharedPtr subscriber_state_est_;
-
+    //rclcpp::Subscription<lifecycle_msgs::msg::TransitionEvent>::SharedPtr subscriber_transition_amcl;
+    //rclcpp::Subscription<lifecycle_msgs::msg::TransitionEvent>::SharedPtr subscriber_transition_map_server;
 
     //Initialisierung Publisher
     rclcpp::Publisher<std_msgs::msg::Float64MultiArray>::SharedPtr publisher_state_est_;

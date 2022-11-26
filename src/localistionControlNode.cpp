@@ -9,11 +9,12 @@ LocalisationControlNode::LocalisationControlNode(): Node("localisation_control")
     subscriber_odom_= this->create_subscription<nav_msgs::msg::Odometry>("/odom", 1, std::bind(&LocalisationControlNode::odom_callback, this, std::placeholders::_1));
     subscriber_velocity_= this->create_subscription<geometry_msgs::msg::Twist>("/cmd_vel", 1, std::bind(&LocalisationControlNode::velocity_callback, this, std::placeholders::_1));
     //subscriber_state_est_=this->create_subscription<std_msgs::msg::Float64MultiArray>("/state_est", 1, std::bind(&LocalisationControlNode::state_est_callback, this, std::placeholders::_1));
-    
+    //subscriber_transition_amcl = this->create_subscription<lifecycle_msgs::msg::TransitionEvent>("/amcl/transition_event", 1, std::bind(&LocalisationControlNode::transition_amcl_callback, this, std::placeholders::_1));
+    //subscriber_transition_map_server = this->create_subscription<lifecycle_msgs::msg::TransitionEvent>("/map_server/transition_event", 1, std::bind(&LocalisationControlNode::transition_map_server_callback, this, std::placeholders::_1));
+
     //publisher
     publisher_state_est_ = this->create_publisher<std_msgs::msg::Float64MultiArray>("/state_est", 10);
     publisher_vel_ = this->create_publisher<geometry_msgs::msg::Twist>("/cmd_vel", 10);
-
     //timer
     timer_ = this->create_wall_timer(50ms, std::bind(&LocalisationControlNode::timer_callback, this));
 }
@@ -66,7 +67,17 @@ void LocalisationControlNode::publish_estimated_state(std_msgs::msg::Float64Mult
 
 void LocalisationControlNode::velocity_callback(const geometry_msgs::msg::Twist::SharedPtr msg_vel) 
 {
+    std::cout <<"velocitiy callback" << msg_vel->linear.x <<std::endl;
     //output angular/linear velocity
     //v = msg_vel->linear.x;
     //yaw_rate = msg_vel->angular.z;
+}
+
+void LocalisationControlNode::transition_amcl_callback(lifecycle_msgs::msg::TransitionEvent::SharedPtr transition){
+    std::cout <<"amcl transition callback: from state" << transition->start_state.label.c_str()<< "to "<< transition->goal_state.label.c_str() <<std::endl;
+}
+
+void LocalisationControlNode::transition_map_server_callback(lifecycle_msgs::msg::TransitionEvent::SharedPtr transition){
+    std::cout <<"map_server transition callback: from state" << transition->start_state.label.c_str()<< "to " <<transition->goal_state.label.c_str() <<std::endl;
+
 }
