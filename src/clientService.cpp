@@ -1,19 +1,20 @@
-#include "amclService.h"
+#include "clientService.h"
 
-AmclService::AmclService(std::shared_ptr<rclcpp::Client<lifecycle_msgs::srv::GetState>> client_get_state,
-        std::shared_ptr<rclcpp::Client<lifecycle_msgs::srv::ChangeState>> client_change_state)
+ClientService::ClientService(std::shared_ptr<rclcpp::Client<lifecycle_msgs::srv::GetState>> client_get_state,
+        std::shared_ptr<rclcpp::Client<lifecycle_msgs::srv::ChangeState>> client_change_state, std::string nodeName)
 {
     m_client_get_state = client_get_state;
     m_client_change_state = client_change_state;
+    m_nodeName = nodeName;
 }
 
-unsigned int AmclService::get_state(std::chrono::seconds timeout )
+unsigned int ClientService::get_state(std::chrono::seconds timeout )
 {
     auto request = std::make_shared<lifecycle_msgs::srv::GetState::Request>();
 
     if (!m_client_get_state->wait_for_service(timeout))
     {
-      std::cout<<"Service "<<m_client_get_state->get_service_name()<<" not available"<<std::endl;
+      std::cout<<"Service "<<m_client_get_state->get_service_name() << " not available"<<std::endl;
       return lifecycle_msgs::msg::State::PRIMARY_STATE_UNKNOWN;
     }
 
@@ -23,7 +24,7 @@ unsigned int AmclService::get_state(std::chrono::seconds timeout )
 
     if (future_status != std::future_status::ready)
     {
-      std::cout<<"Server timed out while getting current state for node "<<amcl_node<<std::endl;
+      std::cout<<"Server timed out while getting current state for node "<<m_nodeName<<std::endl;
 
       return lifecycle_msgs::msg::State::PRIMARY_STATE_UNKNOWN;
     }
@@ -31,18 +32,18 @@ unsigned int AmclService::get_state(std::chrono::seconds timeout )
     if (future_result.get())
     {
       auto state = future_result.get()->current_state.id;
-      std::cout<<"Node "<<amcl_node<<" has current state "<<future_result.get()->current_state.label.c_str();
+      std::cout<<"Node "<<m_nodeName<<" has current state "<<future_result.get()->current_state.label.c_str();
 
       return state;
     }
     else{
-      std::cout<<"Failed to get current state for node "<<amcl_node<<std::endl;
+      std::cout<<"Failed to get current state for node "<<m_nodeName<<std::endl;
 
       return lifecycle_msgs::msg::State::PRIMARY_STATE_UNKNOWN;
     }
 }
 
-bool AmclService::change_state(std::uint8_t transition, std::chrono::seconds timeout )
+bool ClientService::change_state(std::uint8_t transition, std::chrono::seconds timeout )
 {
     auto request = std::make_shared<lifecycle_msgs::srv::ChangeState::Request>();
     request->transition.id = transition;
@@ -59,7 +60,7 @@ bool AmclService::change_state(std::uint8_t transition, std::chrono::seconds tim
 
     if (future_status!=std::future_status::ready)
     {
-      std::cout<<"Server timed out while getting current state for node "<<amcl_node<<std::endl;
+      std::cout<<"Server timed out while getting current state for node "<<m_nodeName<<std::endl;
 
       return false;
     }
@@ -71,14 +72,14 @@ bool AmclService::change_state(std::uint8_t transition, std::chrono::seconds tim
     }
     else{
       
-      std::cout<<"Failed to get trigger transition"<< static_cast<unsigned int>(transition)<<"for node "<<amcl_node<<std::endl;
+      std::cout<<"Failed to get trigger transition"<< static_cast<unsigned int>(transition)<<"for node "<<m_nodeName<<std::endl;
 
       return false;
     }
 }
 
 
-template <typename FutureT, typename WaitTimeT>std::future_status AmclService::wait_for_result
+template <typename FutureT, typename WaitTimeT>std::future_status ClientService::wait_for_result
     ( FutureT & future,  WaitTimeT time_to_wait)
 {
     auto end = std::chrono::steady_clock::now() + time_to_wait;

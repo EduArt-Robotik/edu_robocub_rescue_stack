@@ -45,16 +45,22 @@ private:
     //Initalising Client
     std::shared_ptr<rclcpp::Client<lifecycle_msgs::srv::GetState>> amcl_get_state;
     std::shared_ptr<rclcpp::Client<lifecycle_msgs::srv::ChangeState>> amcl_change_state;
+
+    std::shared_ptr<rclcpp::Client<lifecycle_msgs::srv::GetState>> map_server_get_state;
+    std::shared_ptr<rclcpp::Client<lifecycle_msgs::srv::ChangeState>> map_server_change_state;
+
     //Initialisierung Timer
     rclcpp::TimerBase::SharedPtr timer_;
 
     //Initialisierung Variablen 
     Control *m_control;
     Localisation *m_localisation;
-    AmclService *m_amclService;
+    ClientService *m_amclService;
+    ClientService *m_mapServerService;
 
+    static constexpr char const * amcl_get_state_topic = "/amcl/get_state";
+    static constexpr char const * amcl_change_state_topic = "/amcl/change_state";
 
-    //
-    static constexpr char const * amcl_get_state_topic = "amcl/get_state";
-    static constexpr char const * amcl_change_state_topic = "amcl/change_state";
+    static constexpr char const * map_server_get_state_topic = "/map_server/get_state";
+    static constexpr char const * map_server_change_state_topic = "/map_server/change_state";
 };

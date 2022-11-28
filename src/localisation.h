@@ -1,5 +1,5 @@
 #include "control.h"
-#include "amclService.h"
+#include "clientService.h"
 
 class Localisation{
 
@@ -17,13 +17,14 @@ class Localisation{
     float m_pitch_y;
     float m_yaw_z;
     Control *m_control; 
-    AmclService *  m_amclService;
+    ClientService *m_amclService;
+    ClientService *m_mapServerService;
 
     void calcualateYawZ();
     bool amclSetup();
 
     public:
-    Localisation(Control *control, AmclService *amclService);
+    Localisation(Control *control, ClientService *amclService, ClientService *mapServerService);
 
     void setPosOrientation(float x, float y, float x_orient, float y_orient, float z_orient, float w_orient);
     float getX();

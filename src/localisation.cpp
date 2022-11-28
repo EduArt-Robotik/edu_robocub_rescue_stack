@@ -1,6 +1,6 @@
 #include "localisation.h"
 
-Localisation::Localisation(Control *control, AmclService *amclService){
+Localisation::Localisation(Control *control, ClientService *amclService, ClientService *mapServerService){
     m_x = 0;
     m_y = 0;
     m_x_orient = 0;
@@ -13,6 +13,9 @@ Localisation::Localisation(Control *control, AmclService *amclService){
 
     m_control = control;
     m_amclService = amclService;
+    m_mapServerService = mapServerService;
+
+    amclSetup();
 }
 void Localisation::setPosOrientation(float x, float y, float x_orient, float y_orient, float z_orient, float w_orient){
     m_x = x;
@@ -68,22 +71,38 @@ float Localisation::getYawZ(){
 
 bool Localisation::amclSetup()
 {
-    //configure
-    unsigned int state = m_amclService->get_state();
+    //configure amcl
+    unsigned int amclState = m_amclService->get_state();
 
-    if(state == lifecycle_msgs::msg::State::PRIMARY_STATE_UNCONFIGURED){
+    if(amclState == lifecycle_msgs::msg::State::PRIMARY_STATE_UNCONFIGURED){
         if(!m_amclService->change_state(lifecycle_msgs::msg::Transition::TRANSITION_CONFIGURE))
         {
         return false;
         }
 
-        state = m_amclService->get_state();
+        amclState = m_amclService->get_state();
     }
     else {
         return false;
     }
-    //activate
-    if( state == lifecycle_msgs::msg::State::PRIMARY_STATE_INACTIVE){
+
+    //configure map Server
+    unsigned int mapServerState = m_mapServerService->get_state();
+
+    if(mapServerState == lifecycle_msgs::msg::State::PRIMARY_STATE_UNCONFIGURED){
+        if(!m_mapServerService->change_state(lifecycle_msgs::msg::Transition::TRANSITION_CONFIGURE))
+        {
+        return false;
+        }
+
+        mapServerState = m_mapServerService->get_state();
+    }
+    else {
+        return false;
+    }
+
+    //activate amcl
+    if( amclState == lifecycle_msgs::msg::State::PRIMARY_STATE_INACTIVE){
         if(!m_amclService->change_state(lifecycle_msgs::msg::Transition::TRANSITION_ACTIVATE))
         {
         return false;
@@ -97,6 +116,23 @@ bool Localisation::amclSetup()
     else{
         return false;
     }
+
+    //activate map Server
+    if( mapServerState == lifecycle_msgs::msg::State::PRIMARY_STATE_INACTIVE){
+        if(!m_mapServerService->change_state(lifecycle_msgs::msg::Transition::TRANSITION_ACTIVATE))
+        {
+        return false;
+        }
+
+        if (!m_mapServerService->get_state())
+        {
+        return false;
+        }
+    }
+    else{
+        return false;
+    }
+
 
     return true;
 }   
