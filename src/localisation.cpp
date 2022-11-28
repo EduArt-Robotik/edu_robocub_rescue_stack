@@ -70,29 +70,20 @@ bool Localisation::amclSetup()
 {
     //configure
     unsigned int state = m_amclService->get_state();
-    if (!state)
-    {
-      return false;
-    }
 
-    if(state == 0){
+    if(state == lifecycle_msgs::msg::State::PRIMARY_STATE_UNCONFIGURED){
         if(!m_amclService->change_state(lifecycle_msgs::msg::Transition::TRANSITION_CONFIGURE))
         {
         return false;
         }
 
         state = m_amclService->get_state();
-        if (!state)
-        {
-        return false;
-        }
-
     }
     else {
         return false;
     }
-    
-    if( state == 1){
+    //activate
+    if( state == lifecycle_msgs::msg::State::PRIMARY_STATE_INACTIVE){
         if(!m_amclService->change_state(lifecycle_msgs::msg::Transition::TRANSITION_ACTIVATE))
         {
         return false;
@@ -106,6 +97,7 @@ bool Localisation::amclSetup()
     else{
         return false;
     }
+
     return true;
 }   
   
