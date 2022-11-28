@@ -12,7 +12,6 @@
 
 #include "localisation.h"
 
-
 using namespace std;
 
 class LocalisationControlNode : public rclcpp::Node 
@@ -33,25 +32,29 @@ private:
 
     void velocity_callback(const geometry_msgs::msg::Twist::SharedPtr msg_vel);
 
-    void transition_amcl_callback(lifecycle_msgs::msg::TransitionEvent::SharedPtr transition);
-    void transition_map_server_callback(lifecycle_msgs::msg::TransitionEvent::SharedPtr transition);
-
 
     //Initialisierung Subscriber
     rclcpp::Subscription<nav_msgs::msg::Odometry>::SharedPtr subscriber_odom_;
     rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr subscriber_velocity_;
     rclcpp::Subscription<std_msgs::msg::Float64MultiArray>::SharedPtr subscriber_state_est_;
-    //rclcpp::Subscription<lifecycle_msgs::msg::TransitionEvent>::SharedPtr subscriber_transition_amcl;
-    //rclcpp::Subscription<lifecycle_msgs::msg::TransitionEvent>::SharedPtr subscriber_transition_map_server;
 
     //Initialisierung Publisher
     rclcpp::Publisher<std_msgs::msg::Float64MultiArray>::SharedPtr publisher_state_est_;
     rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr publisher_vel_;
 
+    //Initalising Client
+    std::shared_ptr<rclcpp::Client<lifecycle_msgs::srv::GetState>> amcl_get_state;
+    std::shared_ptr<rclcpp::Client<lifecycle_msgs::srv::ChangeState>> amcl_change_state;
     //Initialisierung Timer
     rclcpp::TimerBase::SharedPtr timer_;
 
     //Initialisierung Variablen 
     Control *m_control;
     Localisation *m_localisation;
+    AmclService *m_amclService;
+
+
+    //
+    static constexpr char const * amcl_get_state_topic = "amcl/get_state";
+    static constexpr char const * amcl_change_state_topic = "amcl/change_state";
 };

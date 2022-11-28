@@ -1,9 +1,15 @@
 #include "localisationControlNode.h"
 
+
 LocalisationControlNode::LocalisationControlNode(): Node("localisation_control")
 {
+    //client
+    amcl_get_state = this->create_client<lifecycle_msgs::srv::GetState>(amcl_get_state_topic);
+    amcl_change_state = this->create_client<lifecycle_msgs::srv::ChangeState>(amcl_change_state_topic);
+
     m_control = new Control();
-    m_localisation = new Localisation(m_control);
+    m_amclService = new AmclService(amcl_get_state, amcl_change_state);
+    m_localisation = new Localisation(m_control, m_amclService);
     
     //subscriber
     subscriber_odom_= this->create_subscription<nav_msgs::msg::Odometry>("/odom", 1, std::bind(&LocalisationControlNode::odom_callback, this, std::placeholders::_1));
@@ -17,6 +23,7 @@ LocalisationControlNode::LocalisationControlNode(): Node("localisation_control")
     publisher_vel_ = this->create_publisher<geometry_msgs::msg::Twist>("/cmd_vel", 10);
     //timer
     timer_ = this->create_wall_timer(50ms, std::bind(&LocalisationControlNode::timer_callback, this));
+    
 }
 
 void LocalisationControlNode::odom_callback(const nav_msgs::msg::Odometry::SharedPtr msg_odom) 
@@ -73,11 +80,3 @@ void LocalisationControlNode::velocity_callback(const geometry_msgs::msg::Twist:
     //yaw_rate = msg_vel->angular.z;
 }
 
-void LocalisationControlNode::transition_amcl_callback(lifecycle_msgs::msg::TransitionEvent::SharedPtr transition){
-    std::cout <<"amcl transition callback: from state" << transition->start_state.label.c_str()<< "to "<< transition->goal_state.label.c_str() <<std::endl;
-}
-
-void LocalisationControlNode::transition_map_server_callback(lifecycle_msgs::msg::TransitionEvent::SharedPtr transition){
-    std::cout <<"map_server transition callback: from state" << transition->start_state.label.c_str()<< "to " <<transition->goal_state.label.c_str() <<std::endl;
-
-}

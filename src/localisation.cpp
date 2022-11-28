@@ -1,6 +1,6 @@
 #include "localisation.h"
 
-Localisation::Localisation(Control *control){
+Localisation::Localisation(Control *control, AmclService *amclService){
     m_x = 0;
     m_y = 0;
     m_x_orient = 0;
@@ -12,6 +12,7 @@ Localisation::Localisation(Control *control){
     m_yaw_z = 0;
 
     m_control = control;
+    m_amclService = amclService;
 }
 void Localisation::setPosOrientation(float x, float y, float x_orient, float y_orient, float z_orient, float w_orient){
     m_x = x;
@@ -64,3 +65,131 @@ float Localisation::getY(){
 float Localisation::getYawZ(){
     return m_yaw_z;
 }
+
+bool Localisation::amclSetup()
+{
+    //configure
+    unsigned int state = m_amclService->get_state();
+    if (!state)
+    {
+      return false;
+    }
+
+    if(state == 0){
+        if(!m_amclService->change_state(lifecycle_msgs::msg::Transition::TRANSITION_CONFIGURE))
+        {
+        return false;
+        }
+
+        state = m_amclService->get_state();
+        if (!state)
+        {
+        return false;
+        }
+
+    }
+    else {
+        return false;
+    }
+    
+    if( state == 1){
+        if(!m_amclService->change_state(lifecycle_msgs::msg::Transition::TRANSITION_ACTIVATE))
+        {
+        return false;
+        }
+
+        if (!m_amclService->get_state())
+        {
+        return false;
+        }
+    }
+    else{
+        return false;
+    }
+    return true;
+}   
+  
+/*
+  //activate
+  {
+    time_between_state_changes.sleep();
+    if(!service_client->change_state(lifecycle_msgs::msg::Transition::TRANSITION_ACTIVATE))
+    {
+      return;
+    }
+
+    if (!service_client->get_state())
+    {
+      return;
+    }
+  }
+
+  //deactivate
+  {
+    time_between_state_changes.sleep();
+    if(!service_client->change_state(lifecycle_msgs::msg::Transition::TRANSITION_DEACTIVATE))
+    {
+      return;
+    }
+
+    if (!service_client->get_state())
+    {
+      return;
+    }
+  }
+
+  //activate
+  {
+    time_between_state_changes.sleep();
+    if(!service_client->change_state(lifecycle_msgs::msg::Transition::TRANSITION_ACTIVATE))
+    {
+      return;
+    }
+
+    if (!service_client->get_state())
+    {
+      return;
+    }
+  }
+
+  //deactivate
+  {
+    time_between_state_changes.sleep();
+    if(!service_client->change_state(lifecycle_msgs::msg::Transition::TRANSITION_DEACTIVATE))
+    {
+      return;
+    }
+
+    if (!service_client->get_state())
+    {
+      return;
+    }
+  }
+
+  //cleanup
+  {
+    time_between_state_changes.sleep();
+    if(!service_client->change_state(lifecycle_msgs::msg::Transition::TRANSITION_CLEANUP))
+    {
+      return;
+    }
+
+    if (!service_client->get_state())
+    {
+      return;
+    }
+  }
+
+  //unconfigured shutdown
+  {
+    time_between_state_changes.sleep();
+    if(!service_client->change_state(lifecycle_msgs::msg::Transition::TRANSITION_UNCONFIGURED_SHUTDOWN))
+    {
+      return;
+    }
+
+    if (!service_client->get_state())
+    {
+      return;
+    }
+  }*/
