@@ -17,6 +17,7 @@ Localisation::Localisation(Control *control, ClientService *amclService, ClientS
 
     amclSetup();
 }
+
 void Localisation::setPosOrientation(float x, float y, float x_orient, float y_orient, float z_orient, float w_orient){
     m_x = x;
     m_y = y;
@@ -72,8 +73,10 @@ float Localisation::getYawZ(){
 bool Localisation::amclSetup()
 {
     //configure amcl
-    unsigned int amclState = m_amclService->get_state();
+    std::cout << "0"<<std::endl;
 
+    unsigned int amclState = m_amclService->get_state();
+    std::cout << "1"<<std::endl;
     if(amclState == lifecycle_msgs::msg::State::PRIMARY_STATE_UNCONFIGURED){
         if(!m_amclService->change_state(lifecycle_msgs::msg::Transition::TRANSITION_CONFIGURE))
         {

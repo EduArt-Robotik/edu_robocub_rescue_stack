@@ -14,7 +14,7 @@ unsigned int ClientService::get_state(std::chrono::seconds timeout )
 
     if (!m_client_get_state->wait_for_service(timeout))
     {
-      std::cout<<"Service "<<m_client_get_state->get_service_name() << " not available"<<std::endl;
+      std::cout << "Service "<< m_client_get_state->get_service_name() << " not available"<<std::endl;
       return lifecycle_msgs::msg::State::PRIMARY_STATE_UNKNOWN;
     }
 
@@ -24,7 +24,7 @@ unsigned int ClientService::get_state(std::chrono::seconds timeout )
 
     if (future_status != std::future_status::ready)
     {
-      std::cout<<"Server timed out while getting current state for node "<<m_nodeName<<std::endl;
+      std::cout << "Server timed out while getting current state for node " << m_nodeName << std::endl;
 
       return lifecycle_msgs::msg::State::PRIMARY_STATE_UNKNOWN;
     }
@@ -94,7 +94,16 @@ template <typename FutureT, typename WaitTimeT>std::future_status ClientService:
         break;
         }
         status = future.wait_for((time_left< wait_period)? time_left: wait_period);
-
+  
+    if(status == std::future_status::ready){
+      std::cout<<"status "<< 0 <<std::endl;
+    }
+    if(status == std::future_status::timeout){
+      std::cout<<"status "<<1<<std::endl;
+    }
+    if(status == std::future_status::deferred){
+      std::cout<<"status "<<2<<std::endl;
+    }
     }
     while(rclcpp::ok() && status!=std::future_status::ready);
     return status;
