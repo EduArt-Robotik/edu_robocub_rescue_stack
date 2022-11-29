@@ -18,6 +18,8 @@ LocalisationControlNode::LocalisationControlNode(): Node("localisation_control")
     //subscriber
     subscriber_odom_= this->create_subscription<nav_msgs::msg::Odometry>("/odom", 1, std::bind(&LocalisationControlNode::odom_callback, this, std::placeholders::_1));
     subscriber_velocity_= this->create_subscription<geometry_msgs::msg::Twist>("/cmd_vel", 1, std::bind(&LocalisationControlNode::velocity_callback, this, std::placeholders::_1));
+    subscriber_amcl_pose_= this->create_subscription<geometry_msgs::msg::PoseWithCovarianceStamped>("/amcl_pose", 1, std::bind(&LocalisationControlNode::amcl_pose_callback, this, std::placeholders::_1));
+    
     //subscriber_state_est_=this->create_subscription<std_msgs::msg::Float64MultiArray>("/state_est", 1, std::bind(&LocalisationControlNode::state_est_callback, this, std::placeholders::_1));
     //subscriber_transition_amcl = this->create_subscription<lifecycle_msgs::msg::TransitionEvent>("/amcl/transition_event", 1, std::bind(&LocalisationControlNode::transition_amcl_callback, this, std::placeholders::_1));
     //subscriber_transition_map_server = this->create_subscription<lifecycle_msgs::msg::TransitionEvent>("/map_server/transition_event", 1, std::bind(&LocalisationControlNode::transition_map_server_callback, this, std::placeholders::_1));
@@ -25,9 +27,13 @@ LocalisationControlNode::LocalisationControlNode(): Node("localisation_control")
     //publisher
     publisher_state_est_ = this->create_publisher<std_msgs::msg::Float64MultiArray>("/state_est", 10);
     publisher_vel_ = this->create_publisher<geometry_msgs::msg::Twist>("/cmd_vel", 10);
+    publisher_initialpose_ = this->create_publisher<geometry_msgs::msg::PoseWithCovarianceStamped>("/initialpose", 10);
+
+
     //timer
     timer_ = this->create_wall_timer(50ms, std::bind(&LocalisationControlNode::timer_callback, this));
-    
+
+ 
 }
 
 void LocalisationControlNode::odom_callback(const nav_msgs::msg::Odometry::SharedPtr msg_odom) 
@@ -43,13 +49,13 @@ void LocalisationControlNode::odom_callback(const nav_msgs::msg::Odometry::Share
     float z_orient = msg_odom->pose.pose.orientation.z;
     float w_orient = msg_odom->pose.pose.orientation.w;
     
-    m_localisation->setPosOrientation(x, y, x_orient, y_orient, z_orient, w_orient);
+    //m_localisation->setPosOrientation(x, y, x_orient, y_orient, z_orient, w_orient);
 
     std_msgs::msg::Float64MultiArray obs_state_vector_x_y_yaw;
     obs_state_vector_x_y_yaw.data = {m_localisation->getX(), m_localisation->getY(), m_localisation->getYawZ()};
 
     //Input for function publish_estimated_state
-    publish_estimated_state(obs_state_vector_x_y_yaw);
+    //publish_estimated_state(obs_state_vector_x_y_yaw);
 }
 
 
@@ -60,7 +66,17 @@ void LocalisationControlNode::timer_callback()
     message.linear.x = m_control->getSpeed();
     message.angular.z = m_control->getAngle();
 
-    publisher_vel_->publish(message);
+    //publisher_vel_->publish(message);
+    m_initpose_wait++;
+    m_initpose_wait = m_initpose_wait % 800;
+    if((! m_amcl_startet )&& (m_initpose_wait == 799)){
+        auto initpose = geometry_msgs::msg::Pose();
+        initpose.position.x = 0;
+        initpose.position.y = 0;
+        m_amcl_startet = true;
+        publish_initalpose(initpose);
+    }
+    
 }
 
 
@@ -84,3 +100,16 @@ void LocalisationControlNode::velocity_callback(const geometry_msgs::msg::Twist:
     //yaw_rate = msg_vel->angular.z;
 }
 
+void LocalisationControlNode::amcl_pose_callback(const geometry_msgs::msg::PoseWithCovarianceStamped::SharedPtr msg_amcl_pose){
+    m_amcl_startet = true;
+}
+
+void LocalisationControlNode::publish_initalpose(geometry_msgs::msg::Pose pose_msg)
+{
+    //publishing the pose
+    auto pose_with_cov_msg = geometry_msgs::msg::PoseWithCovarianceStamped();
+    pose_with_cov_msg.header.frame_id = "map";
+    pose_with_cov_msg.pose.pose = pose_msg;
+    
+    publisher_initialpose_->publish(pose_with_cov_msg);
+}

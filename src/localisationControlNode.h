@@ -1,4 +1,6 @@
 #include "geometry_msgs/msg/twist.hpp"
+#include "geometry_msgs/msg/pose_with_covariance_stamped.hpp"
+#include "geometry_msgs/msg/pose.hpp"
 #include <nav_msgs/msg/odometry.hpp>
 #include "std_msgs/msg/float64_multi_array.hpp"
 #include "rclcpp/rclcpp.hpp"
@@ -26,21 +28,31 @@ private:
 
     void timer_callback();
 
+    void velocity_callback(const geometry_msgs::msg::Twist::SharedPtr msg_vel);
+
+    void amcl_pose_callback(const geometry_msgs::msg::PoseWithCovarianceStamped::SharedPtr msg_amcl_pose);
+    
     //void state_est_callback(std_msgs::msg::Float64MultiArray::SharedPtr state_vec_msg);
 
     void publish_estimated_state(std_msgs::msg::Float64MultiArray state_vec_msg);
 
-    void velocity_callback(const geometry_msgs::msg::Twist::SharedPtr msg_vel);
+    void publish_initalpose(geometry_msgs::msg::Pose pose_msg);
+
+
+
 
 
     //Initialisierung Subscriber
     rclcpp::Subscription<nav_msgs::msg::Odometry>::SharedPtr subscriber_odom_;
     rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr subscriber_velocity_;
     rclcpp::Subscription<std_msgs::msg::Float64MultiArray>::SharedPtr subscriber_state_est_;
+    rclcpp::Subscription<geometry_msgs::msg::PoseWithCovarianceStamped>::SharedPtr subscriber_amcl_pose_;
+
 
     //Initialisierung Publisher
     rclcpp::Publisher<std_msgs::msg::Float64MultiArray>::SharedPtr publisher_state_est_;
     rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr publisher_vel_;
+    rclcpp::Publisher<geometry_msgs::msg::PoseWithCovarianceStamped>::SharedPtr publisher_initialpose_;
 
     //Initalising Client
     std::shared_ptr<rclcpp::Client<lifecycle_msgs::srv::GetState>> amcl_get_state;
@@ -57,6 +69,9 @@ private:
     Localisation *m_localisation;
     ClientService *m_amclService;
     ClientService *m_mapServerService;
+
+    bool m_amcl_startet = false;
+    int m_initpose_wait = 0;
 
     static constexpr char const * amcl_get_state_topic = "/amcl/get_state";
     static constexpr char const * amcl_change_state_topic = "/amcl/change_state";

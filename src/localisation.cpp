@@ -15,7 +15,8 @@ Localisation::Localisation(Control *control, ClientService *amclService, ClientS
     m_amclService = amclService;
     m_mapServerService = mapServerService;
 
-    amclSetup();
+    
+    //amclSetup();
 }
 
 void Localisation::setPosOrientation(float x, float y, float x_orient, float y_orient, float z_orient, float w_orient){
@@ -69,7 +70,7 @@ float Localisation::getY(){
 float Localisation::getYawZ(){
     return m_yaw_z;
 }
-
+/*
 bool Localisation::amclSetup()
 {
     //configure amcl
@@ -138,89 +139,4 @@ bool Localisation::amclSetup()
 
 
     return true;
-}   
-  
-/*
-  //activate
-  {
-    time_between_state_changes.sleep();
-    if(!service_client->change_state(lifecycle_msgs::msg::Transition::TRANSITION_ACTIVATE))
-    {
-      return;
-    }
-
-    if (!service_client->get_state())
-    {
-      return;
-    }
-  }
-
-  //deactivate
-  {
-    time_between_state_changes.sleep();
-    if(!service_client->change_state(lifecycle_msgs::msg::Transition::TRANSITION_DEACTIVATE))
-    {
-      return;
-    }
-
-    if (!service_client->get_state())
-    {
-      return;
-    }
-  }
-
-  //activate
-  {
-    time_between_state_changes.sleep();
-    if(!service_client->change_state(lifecycle_msgs::msg::Transition::TRANSITION_ACTIVATE))
-    {
-      return;
-    }
-
-    if (!service_client->get_state())
-    {
-      return;
-    }
-  }
-
-  //deactivate
-  {
-    time_between_state_changes.sleep();
-    if(!service_client->change_state(lifecycle_msgs::msg::Transition::TRANSITION_DEACTIVATE))
-    {
-      return;
-    }
-
-    if (!service_client->get_state())
-    {
-      return;
-    }
-  }
-
-  //cleanup
-  {
-    time_between_state_changes.sleep();
-    if(!service_client->change_state(lifecycle_msgs::msg::Transition::TRANSITION_CLEANUP))
-    {
-      return;
-    }
-
-    if (!service_client->get_state())
-    {
-      return;
-    }
-  }
-
-  //unconfigured shutdown
-  {
-    time_between_state_changes.sleep();
-    if(!service_client->change_state(lifecycle_msgs::msg::Transition::TRANSITION_UNCONFIGURED_SHUTDOWN))
-    {
-      return;
-    }
-
-    if (!service_client->get_state())
-    {
-      return;
-    }
-  }*/
+}   */

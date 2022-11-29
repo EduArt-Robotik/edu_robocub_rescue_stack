@@ -84,7 +84,7 @@ template <typename FutureT, typename WaitTimeT>std::future_status ClientService:
 {
     auto end = std::chrono::steady_clock::now() + time_to_wait;
     std::chrono::milliseconds wait_period(100);
-    std::future_status status = std::future_status::timeout;
+    std::future_status status = std::future_status::deferred;
     do{
         auto now = std::chrono::steady_clock::now();
         auto time_left = end - now;
@@ -95,15 +95,15 @@ template <typename FutureT, typename WaitTimeT>std::future_status ClientService:
         }
         status = future.wait_for((time_left< wait_period)? time_left: wait_period);
   
-    if(status == std::future_status::ready){
-      std::cout<<"status "<< 0 <<std::endl;
-    }
-    if(status == std::future_status::timeout){
-      std::cout<<"status "<<1<<std::endl;
-    }
-    if(status == std::future_status::deferred){
-      std::cout<<"status "<<2<<std::endl;
-    }
+      if(status == std::future_status::ready){
+        std::cout<<"status "<< 0 <<std::endl;
+      }
+      if(status == std::future_status::timeout){
+        std::cout<<"status "<<1<<std::endl;
+      }
+      if(status == std::future_status::deferred){
+        std::cout<<"status "<<2<<std::endl;
+      }
     }
     while(rclcpp::ok() && status!=std::future_status::ready);
     return status;

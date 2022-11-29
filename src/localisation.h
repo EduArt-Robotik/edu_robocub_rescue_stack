@@ -21,7 +21,7 @@ class Localisation{
     ClientService *m_mapServerService;
 
     void calcualateYawZ();
-    bool amclSetup();
+    //bool amclSetup();
 
     public:
     Localisation(Control *control, ClientService *amclService, ClientService *mapServerService);
