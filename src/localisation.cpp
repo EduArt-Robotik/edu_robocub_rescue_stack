@@ -55,7 +55,7 @@ void Localisation::calcualateYawZ(){
     m_yaw_z = atan2(t3, t4);
     
     //Ausgabe
-    std::cout << "yaw_z:" << m_yaw_z << std::endl;
+    //std::cout << "yaw_z:" << m_yaw_z << std::endl;
     m_control->setPosYaw(m_x, m_y, m_yaw_z);
 }
 
@@ -70,6 +70,22 @@ float Localisation::getY(){
 float Localisation::getYawZ(){
     return m_yaw_z;
 }
+
+float Localisation::getXOrient(){
+    return m_x_orient;
+}
+
+float Localisation::getYOrient(){
+    return m_y_orient;
+}
+
+float Localisation::getZOrient(){
+    return m_z_orient;
+}
+float Localisation::getWOrient(){
+    return m_w_orient;
+}
+
 /*
 bool Localisation::amclSetup()
 {

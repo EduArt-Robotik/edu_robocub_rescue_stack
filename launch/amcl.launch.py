@@ -20,7 +20,7 @@ def generate_launch_description():
     declare_path_map = DeclareLaunchArgument(
         'map_file',
         default_value=os.path.join(get_package_share_directory('edu_robocup_rescue_stack'),
-                                   'config', 'map1.yaml'),
+                                   'config', 'map2.yaml'),
         )
 
     map_server = Node(
@@ -83,7 +83,7 @@ def generate_launch_description():
     ld.add_action(static_transform_publisher_map_odom_node)
     ld.add_action(static_transform_publisher_odom_base_frame_node)
     ld.add_action(static_transform_publisher_base_frame_laser_link_node)
-    #d.add_action(lifecycle_manager_node)
+    ld.add_action(lifecycle_manager_node)
     ld.add_action(start_localisation_control_node)
 
 

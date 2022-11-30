@@ -30,4 +30,9 @@ class Localisation{
     float getX();
     float getY();
     float getYawZ();
+    float getXOrient();
+    float getYOrient();
+    float getZOrient();
+    float getWOrient();
+
 };
