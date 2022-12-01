@@ -1,6 +1,6 @@
 #include "localisation.h"
 
-Localisation::Localisation(Control *control, ClientService *amclService, ClientService *mapServerService){
+Localisation::Localisation(Control *control){
     m_x = 0;
     m_y = 0;
     m_x_orient = 0;
@@ -12,10 +12,21 @@ Localisation::Localisation(Control *control, ClientService *amclService, ClientS
     m_yaw_z = 0;
 
     m_control = control;
-    m_amclService = amclService;
-    m_mapServerService = mapServerService;
+  
+    //amclSetup();
+}
 
-    
+Localisation::Localisation(){
+    m_x = 0;
+    m_y = 0;
+    m_x_orient = 0;
+    m_y_orient = 0;
+    m_z_orient = 0;
+    m_w_orient = 0;
+    m_roll_x = 0;
+    m_pitch_y = 0;
+    m_yaw_z = 0;
+  
     //amclSetup();
 }
 
@@ -55,8 +66,10 @@ void Localisation::calcualateYawZ(){
     m_yaw_z = atan2(t3, t4);
     
     //Ausgabe
-    //std::cout << "yaw_z:" << m_yaw_z << std::endl;
-    m_control->setPosYaw(m_x, m_y, m_yaw_z);
+    std::cout << "yaw_z:" << m_yaw_z << std::endl;
+    if(m_control != nullptr){
+        m_control->setPosYaw(m_x, m_y, m_yaw_z);
+    }
 }
 
 float Localisation::getX(){

@@ -23,24 +23,17 @@ class LocalisationControlNode : public rclcpp::Node
 
 private:
 
-    
+    //callback
     void odom_callback(const nav_msgs::msg::Odometry::SharedPtr msg_odom);
+    void velocity_callback(const geometry_msgs::msg::Twist::SharedPtr msg_vel);
+    void amcl_pose_callback(const geometry_msgs::msg::PoseWithCovarianceStamped::SharedPtr msg_amcl_pose);
+    //void state_est_callback(std_msgs::msg::Float64MultiArray::SharedPtr state_vec_msg);
 
     void timer_callback();
 
-    void velocity_callback(const geometry_msgs::msg::Twist::SharedPtr msg_vel);
-
-    void amcl_pose_callback(const geometry_msgs::msg::PoseWithCovarianceStamped::SharedPtr msg_amcl_pose);
-    
-    //void state_est_callback(std_msgs::msg::Float64MultiArray::SharedPtr state_vec_msg);
-
+    //publisher
     void publish_estimated_state(std_msgs::msg::Float64MultiArray state_vec_msg);
-
     void publish_initalpose(geometry_msgs::msg::Pose pose_msg);
-
-
-
-
 
     //Initialisierung Subscriber
     rclcpp::Subscription<nav_msgs::msg::Odometry>::SharedPtr subscriber_odom_;
@@ -54,28 +47,17 @@ private:
     rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr publisher_vel_;
     rclcpp::Publisher<geometry_msgs::msg::PoseWithCovarianceStamped>::SharedPtr publisher_initialpose_;
 
-    //Initalising Client
-    std::shared_ptr<rclcpp::Client<lifecycle_msgs::srv::GetState>> amcl_get_state;
-    std::shared_ptr<rclcpp::Client<lifecycle_msgs::srv::ChangeState>> amcl_change_state;
-
-    std::shared_ptr<rclcpp::Client<lifecycle_msgs::srv::GetState>> map_server_get_state;
-    std::shared_ptr<rclcpp::Client<lifecycle_msgs::srv::ChangeState>> map_server_change_state;
-
     //Initialisierung Timer
     rclcpp::TimerBase::SharedPtr timer_;
 
     //Initialisierung Variablen 
     Control *m_control;
     Localisation *m_localisation;
-    ClientService *m_amclService;
-    ClientService *m_mapServerService;
+    
+    Control *m_control_odom;
+
+    Localisation *m_localisation_odom;
 
     bool m_amcl_startet = false;
     int m_initpose_wait = 0;
-
-    static constexpr char const * amcl_get_state_topic = "/amcl/get_state";
-    static constexpr char const * amcl_change_state_topic = "/amcl/change_state";
-
-    static constexpr char const * map_server_get_state_topic = "/map_server/get_state";
-    static constexpr char const * map_server_change_state_topic = "/map_server/change_state";
 };

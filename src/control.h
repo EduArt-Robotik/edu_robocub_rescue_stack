@@ -18,7 +18,9 @@ class Control
     float m_x_dest;
     float m_y_dest;
     int m_times = 10;
+    int m_navigation;
     void calculateAngleSpeed() ;
+    void control_navigation();
 
     public:
     Control();

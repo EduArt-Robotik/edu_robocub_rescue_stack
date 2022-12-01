@@ -3,18 +3,12 @@
 
 LocalisationControlNode::LocalisationControlNode(): Node("localisation_control")
 {
-    //client
-    amcl_get_state = this->create_client<lifecycle_msgs::srv::GetState>(amcl_get_state_topic);
-    amcl_change_state = this->create_client<lifecycle_msgs::srv::ChangeState>(amcl_change_state_topic);
-
-    map_server_get_state = this->create_client<lifecycle_msgs::srv::GetState>(map_server_get_state_topic);
-    map_server_change_state = this->create_client<lifecycle_msgs::srv::ChangeState>(map_server_change_state_topic);
 
     m_control = new Control();
-    m_amclService = new ClientService(amcl_get_state, amcl_change_state, "amcl");
-    m_mapServerService = new ClientService(map_server_get_state, map_server_change_state, "map_service");
-    m_localisation = new Localisation(m_control, m_amclService, m_mapServerService);
-    
+    m_localisation = new Localisation(m_control);
+    m_control_odom = new Control();
+    m_localisation_odom = new Localisation(m_control_odom);
+
     //subscriber
     subscriber_odom_= this->create_subscription<nav_msgs::msg::Odometry>("/odom", 1, std::bind(&LocalisationControlNode::odom_callback, this, std::placeholders::_1));
     subscriber_velocity_= this->create_subscription<geometry_msgs::msg::Twist>("/cmd_vel", 1, std::bind(&LocalisationControlNode::velocity_callback, this, std::placeholders::_1));
@@ -28,7 +22,6 @@ LocalisationControlNode::LocalisationControlNode(): Node("localisation_control")
     publisher_state_est_ = this->create_publisher<std_msgs::msg::Float64MultiArray>("/state_est", 10);
     publisher_vel_ = this->create_publisher<geometry_msgs::msg::Twist>("/cmd_vel", 10);
     publisher_initialpose_ = this->create_publisher<geometry_msgs::msg::PoseWithCovarianceStamped>("/initialpose", 10);
-
 
     //timer
     timer_ = this->create_wall_timer(50ms, std::bind(&LocalisationControlNode::timer_callback, this));
@@ -49,10 +42,10 @@ void LocalisationControlNode::odom_callback(const nav_msgs::msg::Odometry::Share
     float z_orient = msg_odom->pose.pose.orientation.z;
     float w_orient = msg_odom->pose.pose.orientation.w;
     
-    m_localisation->setPosOrientation(x, y, x_orient, y_orient, z_orient, w_orient);
+    //m_localisation_odom->setPosOrientation(x, y, x_orient, y_orient, z_orient, w_orient);
 
     std_msgs::msg::Float64MultiArray obs_state_vector_x_y_yaw;
-    obs_state_vector_x_y_yaw.data = {m_localisation->getX(), m_localisation->getY(), m_localisation->getYawZ()};
+    obs_state_vector_x_y_yaw.data = {m_localisation_odom->getX(), m_localisation_odom->getY(), m_localisation_odom->getYawZ()};
 
     //Input for function publish_estimated_state
     //publish_estimated_state(obs_state_vector_x_y_yaw);
@@ -61,21 +54,27 @@ void LocalisationControlNode::odom_callback(const nav_msgs::msg::Odometry::Share
 
 void LocalisationControlNode::timer_callback()
 {
-    auto message = geometry_msgs::msg::Twist();
-    
-    message.linear.x = m_control->getSpeed();
-    message.angular.z = m_control->getAngle();
+   
 
-    //publisher_vel_->publish(message);
-    m_initpose_wait++;
-    m_initpose_wait = m_initpose_wait % 100;
-    if((! m_amcl_startet )&& (m_initpose_wait == 99)){
-        auto initpose = geometry_msgs::msg::Pose();
-        initpose.position.x = 0.0;
-        initpose.position.y = 0.0;
-        initpose.orientation.w = 0.000000001;
-        publish_initalpose(initpose);
+    if(m_amcl_startet){
+        auto message = geometry_msgs::msg::Twist();
+        message.linear.x = m_control->getSpeed();
+        message.angular.z = m_control->getAngle();
+        publisher_vel_->publish(message);
+
+    }
+    else{
+        m_initpose_wait++;
+        m_initpose_wait = m_initpose_wait % 100;
+        if(m_initpose_wait == 99){
+            auto initpose = geometry_msgs::msg::Pose();
+            initpose.position.x = 0.0;
+            initpose.position.y = 0.0;
+            initpose.orientation.w = 0.000000001;
+            publish_initalpose(initpose);
     }  
+    }
+    
 }
 
 void LocalisationControlNode::publish_estimated_state(std_msgs::msg::Float64MultiArray state_vec_msg)
@@ -98,14 +97,16 @@ void LocalisationControlNode::velocity_callback(const geometry_msgs::msg::Twist:
 }
 
 void LocalisationControlNode::amcl_pose_callback(const geometry_msgs::msg::PoseWithCovarianceStamped::SharedPtr msg_amcl_pose){
+
     m_amcl_startet = true;
-    std::cout << "Amcl: x:" <<msg_amcl_pose->pose.pose.position.x << ", y: " << msg_amcl_pose->pose.pose.position.y << 
+
+    /*std::cout << "Amcl: x:" <<msg_amcl_pose->pose.pose.position.x << ", y: " << msg_amcl_pose->pose.pose.position.y << 
     ", x Orient: " << msg_amcl_pose->pose.pose.orientation.x<< ", y Orient: " << msg_amcl_pose->pose.pose.orientation.y
     << ", z Orient: " << msg_amcl_pose->pose.pose.orientation.z<< ", w Orient: " << msg_amcl_pose->pose.pose.orientation.w<<std::endl;
     std::cout <<", odom: x " << m_localisation->getX() <<", y: "<< m_localisation->getY()<< ", x Orient: " << m_localisation->getXOrient()<< ", y Orient: " << m_localisation->getYOrient()
-    << ", z Orient: " << m_localisation->getXOrient()<< ", w Orient: " << m_localisation->getXOrient()<<std::endl;
-    std::cout <<"odom: x " << m_localisation->getX() <<", y: "<< m_localisation->getY()<< ", x Orient: " << m_localisation->getXOrient()<< ", y Orient: " << m_localisation->getYOrient()
-    << ", YawZ: " << m_localisation->getYawZ() << std::endl;
+    << ", z Orient: " << m_localisation->getXOrient()<< ", w Orient: " << m_localisation->getXOrient()<<std::endl;*/
+    
+
 
     //Position
     float x = msg_amcl_pose->pose.pose.position.x;
@@ -119,8 +120,18 @@ void LocalisationControlNode::amcl_pose_callback(const geometry_msgs::msg::PoseW
     float w_orient = msg_amcl_pose->pose.pose.orientation.w;
     
     m_localisation->setPosOrientation(x, y, x_orient, y_orient, z_orient, w_orient);
-    std::cout << "Amcl: x:" <<msg_amcl_pose->pose.pose.position.x << ", y: " << msg_amcl_pose->pose.pose.position.y << 
-    ", YawZ: " << m_localisation->getYawZ()<<std::endl;
+
+
+    if( (abs(x - m_localisation_odom->getX() ) > 0.2) ||
+    (abs(y - m_localisation_odom->getY() ) > 0.2)  ||
+    (abs(m_localisation->getYawZ() - m_localisation_odom->getYawZ() ) > 0.2) ) {
+
+        std::cout <<"odom: x " << m_localisation->getX() <<", y: "<< m_localisation->getY()<< ", x Orient: " << m_localisation->getXOrient()<< ", y Orient: " << m_localisation->getYOrient()
+            << ", YawZ: " << m_localisation->getYawZ() << std::endl;
+
+        std::cout << "Amcl: x:" <<msg_amcl_pose->pose.pose.position.x << ", y: " << msg_amcl_pose->pose.pose.position.y << 
+            ", YawZ: " << m_localisation->getYawZ()<<std::endl;
+    }
 }
 
 void LocalisationControlNode::publish_initalpose(geometry_msgs::msg::Pose pose_msg)

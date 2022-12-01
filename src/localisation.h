@@ -24,7 +24,9 @@ class Localisation{
     //bool amclSetup();
 
     public:
-    Localisation(Control *control, ClientService *amclService, ClientService *mapServerService);
+    Localisation(Control *control);
+    Localisation();
+
 
     void setPosOrientation(float x, float y, float x_orient, float y_orient, float z_orient, float w_orient);
     float getX();
