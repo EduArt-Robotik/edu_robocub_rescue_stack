@@ -1,6 +1,6 @@
 #include "localisation.h"
 
-Localisation::Localisation(Control *control){
+Localisation::Localisation( ){
     m_x = 0;
     m_y = 0;
     m_x_orient = 0;
@@ -11,24 +11,10 @@ Localisation::Localisation(Control *control){
     m_pitch_y = 0;
     m_yaw_z = 0;
 
-    m_control = control;
   
     //amclSetup();
 }
 
-Localisation::Localisation(){
-    m_x = 0;
-    m_y = 0;
-    m_x_orient = 0;
-    m_y_orient = 0;
-    m_z_orient = 0;
-    m_w_orient = 0;
-    m_roll_x = 0;
-    m_pitch_y = 0;
-    m_yaw_z = 0;
-  
-    //amclSetup();
-}
 
 void Localisation::setPosOrientation(float x, float y, float x_orient, float y_orient, float z_orient, float w_orient){
     m_x = x;
@@ -40,6 +26,15 @@ void Localisation::setPosOrientation(float x, float y, float x_orient, float y_o
 
     calcualateYawZ();
 }
+
+void Localisation::setOrientation( float x_orient, float y_orient, float z_orient, float w_orient){
+    m_x_orient = x_orient;
+    m_y_orient = y_orient;
+    m_z_orient = z_orient;
+    m_w_orient = w_orient; 
+    calcualateYawZ();
+}
+
 
 void Localisation::calcualateYawZ(){
     //convert quaternion in euler angle
@@ -66,10 +61,10 @@ void Localisation::calcualateYawZ(){
     m_yaw_z = atan2(t3, t4);
     
     //Ausgabe
-    std::cout << "yaw_z:" << m_yaw_z << std::endl;
-    if(m_control != nullptr){
-        m_control->setPosYaw(m_x, m_y, m_yaw_z);
-    }
+    //std::cout << "yaw_z:" << m_yaw_z << std::endl;
+    /*if(m_control != nullptr){
+        m_control->setPosYawPitch(m_x,m_y, m_yaw_z, m_pitch_y);
+    }*/
 }
 
 float Localisation::getX(){
@@ -99,6 +94,9 @@ float Localisation::getWOrient(){
     return m_w_orient;
 }
 
+float Localisation::getPichtY(){
+    return m_pitch_y;
+}
 /*
 bool Localisation::amclSetup()
 {

@@ -16,7 +16,6 @@ class Localisation{
     float m_roll_x;
     float m_pitch_y;
     float m_yaw_z;
-    Control *m_control; 
     ClientService *m_amclService;
     ClientService *m_mapServerService;
 
@@ -24,17 +23,19 @@ class Localisation{
     //bool amclSetup();
 
     public:
-    Localisation(Control *control);
     Localisation();
 
 
     void setPosOrientation(float x, float y, float x_orient, float y_orient, float z_orient, float w_orient);
+    void setOrientation( float x_orient, float y_orient, float z_orient, float w_orient);
+
     float getX();
     float getY();
     float getYawZ();
     float getXOrient();
     float getYOrient();
     float getZOrient();
-    float getWOrient();
+    float getWOrient();  
+    float getPichtY();
 
 };

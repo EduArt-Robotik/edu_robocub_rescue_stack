@@ -1,8 +1,8 @@
 #include "geometry_msgs/msg/twist.hpp"
-#include "geometry_msgs/msg/pose_with_covariance_stamped.hpp"
 #include "geometry_msgs/msg/pose.hpp"
 #include <nav_msgs/msg/odometry.hpp>
 #include "std_msgs/msg/float64_multi_array.hpp"
+#include "sensor_msgs/msg/imu.hpp"
 #include "rclcpp/rclcpp.hpp"
 #include <chrono> 
 #include <vector>
@@ -27,6 +27,8 @@ private:
     void odom_callback(const nav_msgs::msg::Odometry::SharedPtr msg_odom);
     void velocity_callback(const geometry_msgs::msg::Twist::SharedPtr msg_vel);
     void amcl_pose_callback(const geometry_msgs::msg::PoseWithCovarianceStamped::SharedPtr msg_amcl_pose);
+    void imu_callback(const sensor_msgs::msg::Imu::SharedPtr msg_imu);
+
     //void state_est_callback(std_msgs::msg::Float64MultiArray::SharedPtr state_vec_msg);
 
     void timer_callback();
@@ -40,6 +42,7 @@ private:
     rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr subscriber_velocity_;
     rclcpp::Subscription<std_msgs::msg::Float64MultiArray>::SharedPtr subscriber_state_est_;
     rclcpp::Subscription<geometry_msgs::msg::PoseWithCovarianceStamped>::SharedPtr subscriber_amcl_pose_;
+    rclcpp::Subscription<sensor_msgs::msg::Imu>::SharedPtr subscriber_imu_;
 
 
     //Initialisierung Publisher
@@ -52,10 +55,8 @@ private:
 
     //Initialisierung Variablen 
     Control *m_control;
-    Localisation *m_localisation;
-    
-    Control *m_control_odom;
-
+    Localisation *m_localisation_amcl;
+    Localisation *m_localisation_imu;
     Localisation *m_localisation_odom;
 
     bool m_amcl_startet = false;
