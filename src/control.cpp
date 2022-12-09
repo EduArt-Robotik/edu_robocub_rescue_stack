@@ -1,3 +1,4 @@
+
 #include "control.h"
 
 
@@ -25,7 +26,7 @@ void Control::calculateAngleSpeed() {
     float delta_dist = sqrt((delta_x*delta_x) + (delta_y*delta_y));
     
     //Ausgabe
-    std::cout << "delta_dist:" << delta_dist << std::endl;
+    //std::cout << "delta_dist:" << delta_dist << std::endl;
     
     float delta_phi = (atan2(delta_y, delta_x))- m_yaw_z; 
     
@@ -37,7 +38,7 @@ void Control::calculateAngleSpeed() {
         delta_phi -= 2*M_PI;
         };
 
-    std::cout << "delta_phi:" << delta_phi << std::endl;
+    //std::cout << "delta_phi:" << delta_phi << std::endl;
     
     m_angle = delta_phi;
     

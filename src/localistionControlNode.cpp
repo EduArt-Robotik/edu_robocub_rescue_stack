@@ -2,21 +2,32 @@
 
 LocalisationControlNode::LocalisationControlNode(): Node("localisation_control")
 {
+    
     m_control = new Control();
     m_localisation = new Localisation(m_control);
-    
+    m_navigation = new Navigation();
     //subscriber
     subscriber_odom_= this->create_subscription<nav_msgs::msg::Odometry>("/odom", 1, std::bind(&LocalisationControlNode::odom_callback, this, std::placeholders::_1));
     subscriber_velocity_= this->create_subscription<geometry_msgs::msg::Twist>("/cmd_vel", 1, std::bind(&LocalisationControlNode::velocity_callback, this, std::placeholders::_1));
     //subscriber_state_est_=this->create_subscription<std_msgs::msg::Float64MultiArray>("/state_est", 1, std::bind(&LocalisationControlNode::state_est_callback, this, std::placeholders::_1));
-    
+    subscriber_laserscan_ = this->create_subscription<sensor_msgs::msg::LaserScan>("/demo/laser/out", rclcpp::QoS(rclcpp::SensorDataQoS()), std::bind(&LocalisationControlNode::scan_callback, this, std::placeholders::_1));
+    //###########NEU##############
+
+    subscriber_amcl_pose_= this->create_subscription<geometry_msgs::msg::PoseWithCovarianceStamped>("/amcl_pose", 1, std::bind(&LocalisationControlNode::amcl_pose_callback, this, std::placeholders::_1));
+
     //publisher
     publisher_state_est_ = this->create_publisher<std_msgs::msg::Float64MultiArray>("/state_est", 10);
     publisher_vel_ = this->create_publisher<geometry_msgs::msg::Twist>("/cmd_vel", 10);
-
+    publisher_slam_scan_ = this->create_publisher<sensor_msgs::msg::LaserScan>("/scan", 10);
+    //###########NEU##############
+    publisher_goal_pose_ = this->create_publisher<geometry_msgs::msg::PoseStamped>("/goal_pose", 10);
+    publisher_initial_pose_= this->create_publisher<geometry_msgs::msg::PoseStamped>("/initialpose", 10);
     //timer
-    timer_ = this->create_wall_timer(50ms, std::bind(&LocalisationControlNode::timer_callback, this));
-}
+    timer_ = this->create_wall_timer(500ms, std::bind(&LocalisationControlNode::timer_callback, this));
+    m_initial_pose_set = true;
+    m_goal_send = true;
+    m_wait = 0;
+    }
 
 void LocalisationControlNode::odom_callback(const nav_msgs::msg::Odometry::SharedPtr msg_odom) 
 {   
@@ -40,16 +51,16 @@ void LocalisationControlNode::odom_callback(const nav_msgs::msg::Odometry::Share
     publish_estimated_state(obs_state_vector_x_y_yaw);
 }
 
-
 void LocalisationControlNode::timer_callback()
 {
+    setting_goal_pose();
+
     auto message = geometry_msgs::msg::Twist();
     
     message.linear.x = m_control->getSpeed();
     message.angular.z = m_control->getAngle();
-
-    publisher_vel_->publish(message);
-}
+    
+    }
 
 
 
@@ -70,3 +81,91 @@ void LocalisationControlNode::velocity_callback(const geometry_msgs::msg::Twist:
     //v = msg_vel->linear.x;
     //yaw_rate = msg_vel->angular.z;
 }
+
+
+void LocalisationControlNode::scan_callback(sensor_msgs::msg::LaserScan msg_scan)
+{
+    auto msg_slam_scan = sensor_msgs::msg::LaserScan();
+    msg_slam_scan.ranges  = msg_scan.ranges;
+
+    publisher_slam_scan_->publish(msg_slam_scan);
+
+}
+
+void LocalisationControlNode::amcl_pose_callback(const geometry_msgs::msg::PoseWithCovarianceStamped::SharedPtr msg_amcl_pose)
+{
+    auto amcl_pose = msg_amcl_pose->pose;
+    m_navigation->setamclX(amcl_pose.pose.position.x);
+    m_navigation->setamclY(amcl_pose.pose.position.y);
+}
+
+
+
+void LocalisationControlNode::setting_goal_pose(){
+
+    std::cout << "goal_pose_setting" << m_initial_pose_set << std::endl;
+    
+    if(m_initial_pose_set == true){
+        
+        auto initial_pose = geometry_msgs::msg::PoseStamped();
+    
+        //initial_pose.header.stamp = now();
+        initial_pose.header.frame_id = "map";
+    
+        //initial position
+        initial_pose.pose.position.x = 0;
+        initial_pose.pose.position.y = 0;
+        initial_pose.pose.position.z = 0;
+    
+        //initial orientation
+        initial_pose.pose.orientation.x = 0;
+        initial_pose.pose.orientation.y = 0;
+        initial_pose.pose.orientation.z = 0;
+        initial_pose.pose.orientation.w = 0; 
+
+        publisher_initial_pose_->publish(initial_pose);
+
+        m_initial_pose_set = false;
+
+        
+    } 
+
+    
+
+    //send goal_pose after 2sec
+    m_wait = m_wait + 500;
+    //std::cout << "m_wait:" << m_wait << std::endl;
+
+    if(m_wait == 2000){
+        m_goal_send = true;
+    }
+
+    if(m_goal_send){
+        auto goal_pose = geometry_msgs::msg::PoseStamped();
+        
+        //goal_pose.header.stamp = now();
+        goal_pose.header.frame_id = "map";
+        
+        //initial position
+        goal_pose.pose.position.x = m_navigation->getGoalPosX();
+        goal_pose.pose.position.y = m_navigation->getGoalPosY();
+        goal_pose.pose.position.z = m_navigation->getGoalPosZ();
+        
+        //initial orientation
+        goal_pose.pose.orientation.x = m_navigation->getGoalOriX();
+        goal_pose.pose.orientation.y = m_navigation->getGoalOriY();
+        goal_pose.pose.orientation.z = m_navigation->getGoalOriZ();
+        goal_pose.pose.orientation.w = m_navigation->getGoalOriW(); 
+
+        publisher_goal_pose_->publish(goal_pose);
+
+        std::cout << "goal pose setted:" << std::endl;
+        std::cout << "goalX:" << goal_pose.pose.position.x << std::endl;
+        std::cout << "goalY:" << goal_pose.pose.position.y << std::endl;
+        m_goal_send = false;
+        }
+
+    m_goal_send = m_navigation->getPoseSend();
+        
+}
+

@@ -5,6 +5,7 @@
 #include <chrono> 
 #include <vector>
 #include <iostream> 
+#include "geometry_msgs/msg/pose_stamped.hpp"
 
 class Control
 {
@@ -18,10 +19,19 @@ class Control
     float m_x_dest;
     float m_y_dest;
     int m_times = 10;
-    void calculateAngleSpeed() ;
+    float m_dist0;
+    float m_dist45;
+    float m_dist90;
+    float m_dist135;
+    float m_dist180;
+
+
+    void calculateAngleSpeed();
 
     public:
     Control();
+    
+    //void scanned_distances(float dist0, float dist45, float dist90, float dist135, float dist180);
     void setPosYaw(float x,float y,float yaw_z);
     void setYawZ(float yaw_z);
     void setX(float x);

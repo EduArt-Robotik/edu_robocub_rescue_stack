@@ -49,7 +49,7 @@ void Localisation::calcualateYawZ(){
     m_yaw_z = atan2(t3, t4);
     
     //Ausgabe
-    std::cout << "yaw_z:" << m_yaw_z << std::endl;
+    //std::cout << "yaw_z:" << m_yaw_z << std::endl;
     m_control->setPosYaw(m_x, m_y, m_yaw_z);
 }
 
