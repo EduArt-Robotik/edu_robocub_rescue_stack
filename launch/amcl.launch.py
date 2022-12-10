@@ -56,8 +56,7 @@ def generate_launch_description():
     static_transform_publisher_base_frame_laser_link_node = Node(
             package='tf2_ros',
             executable='static_transform_publisher',
-            arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_frame', '--child-frame-id', 'laser_link']
-        )
+            arguments = ['--x', '0.1', '--y', '0', '--z', '0.16', '--yaw', '-0.4', '--pitch', '0', '--roll', '0', '--frame-id', 'base_frame', '--child-frame-id', 'laser_link']        )
 
     
     start_localisation_control_node = Node (
@@ -80,8 +79,8 @@ def generate_launch_description():
     ld.add_action(declare_path_map)
     ld.add_action(map_server)
     ld.add_action(amcl_node)
-    ld.add_action(static_transform_publisher_map_odom_node)
-    ld.add_action(static_transform_publisher_odom_base_frame_node)
+    #ld.add_action(static_transform_publisher_map_odom_node)
+    #ld.add_action(static_transform_publisher_odom_base_frame_node)
     ld.add_action(static_transform_publisher_base_frame_laser_link_node)
     ld.add_action(lifecycle_manager_node)
     ld.add_action(start_localisation_control_node)

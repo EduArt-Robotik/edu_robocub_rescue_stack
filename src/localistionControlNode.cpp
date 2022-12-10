@@ -113,9 +113,9 @@ void LocalisationControlNode::amcl_pose_callback(const geometry_msgs::msg::PoseW
     /*std::cout << "Amcl: x:" <<msg_amcl_pose->pose.pose.position.x << ", y: " << msg_amcl_pose->pose.pose.position.y << 
     ", x Orient: " << msg_amcl_pose->pose.pose.orientation.x<< ", y Orient: " << msg_amcl_pose->pose.pose.orientation.y
     << ", z Orient: " << msg_amcl_pose->pose.pose.orientation.z<< ", w Orient: " << msg_amcl_pose->pose.pose.orientation.w<<std::endl;*/
-    std::cout <<", odom: x " << m_localisation_odom->getX() <<", y: "<< m_localisation_odom->getY()<< ", x Orient: " << 
+    /*std::cout <<", odom: x " << m_localisation_odom->getX() <<", y: "<< m_localisation_odom->getY()<< ", x Orient: " << 
     m_localisation_odom->getXOrient()<<", y Orient: " << m_localisation_odom->getYOrient()
-    << ", z Orient: " << m_localisation_odom->getXOrient()<< ", w Orient: " << m_localisation_odom->getXOrient()<<std::endl;
+    << ", z Orient: " << m_localisation_odom->getXOrient()<< ", w Orient: " << m_localisation_odom->getXOrient()<<std::endl;*/
     
     //Position
     float x = msg_amcl_pose->pose.pose.position.x;

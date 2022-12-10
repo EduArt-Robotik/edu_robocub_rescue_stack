@@ -32,7 +32,7 @@ void Control::calculateAngleSpeed() {
         }
     }
     if(m_navigation == 2){
-        if(m_y < 0.65 && m_x < 3.6){
+        /*if(m_y < 0.65 && m_x < 3.6){
             m_initialpose.position.x = 3.7;
             m_initialpose.position.y = 1.0;
 
@@ -42,7 +42,7 @@ void Control::calculateAngleSpeed() {
 
             m_initialpose.orientation.w = 0.128785;
             m_newInitialpose = true;
-        }
+        }*/
     }
 
     if( m_navigation == 2 || m_navigation == 3){
@@ -92,7 +92,7 @@ void Control::calculateAngleSpeed() {
      if( m_times < 20){
         m_times = 20;
      }
-        m_speed = (delta_dist) * m_speed_var / (float) m_times;
+        m_speed = (delta_dist) / (float) m_times;
         if(m_speed < 0.3){
             m_speed  = 0.3;   
         }
