@@ -168,4 +168,3 @@ void LocalisationControlNode::setting_goal_pose(){
     m_goal_send = m_navigation->getPoseSend();
         
 }
-

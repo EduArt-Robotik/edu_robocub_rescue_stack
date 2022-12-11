@@ -1,0 +1,8 @@
+source;share/edu_robocup_rescue_stack/hook/cmake_prefix_path.ps1
+source;share/edu_robocup_rescue_stack/hook/cmake_prefix_path.dsv
+source;share/edu_robocup_rescue_stack/hook/cmake_prefix_path.sh
+source;share/edu_robocup_rescue_stack/local_setup.bash
+source;share/edu_robocup_rescue_stack/local_setup.dsv
+source;share/edu_robocup_rescue_stack/local_setup.ps1
+source;share/edu_robocup_rescue_stack/local_setup.sh
+source;share/edu_robocup_rescue_stack/local_setup.zsh
