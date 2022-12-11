@@ -1,5 +1,6 @@
 #include "geometry_msgs/msg/twist.hpp"
 #include "sensor_msgs/msg/laser_scan.hpp"
+#include "sensor_msgs/msg/imu.hpp"
 #include <nav_msgs/msg/odometry.hpp>
 #include "std_msgs/msg/float64_multi_array.hpp"
 #include "rclcpp/rclcpp.hpp"
@@ -41,6 +42,8 @@ class LocalisationControlNode : public rclcpp::Node
 
     void odom_callback(const nav_msgs::msg::Odometry::SharedPtr msg_odom);
 
+    void imu_callback(const sensor_msgs::msg::Imu::SharedPtr msg_imu);
+
     void timer_callback();
 
     //void state_est_callback(std_msgs::msg::Float64MultiArray::SharedPtr state_vec_msg);
@@ -64,7 +67,7 @@ class LocalisationControlNode : public rclcpp::Node
     rclcpp::Subscription<sensor_msgs::msg::LaserScan>::SharedPtr subscriber_laserscan_;
     //###########NEU##############
     rclcpp::Subscription<geometry_msgs::msg::PoseWithCovarianceStamped>::SharedPtr subscriber_amcl_pose_;
-
+    rclcpp::Subscription<sensor_msgs::msg::Imu>::SharedPtr subscriber_imu_;
     //Initialisierung Publisher
     rclcpp::Publisher<std_msgs::msg::Float64MultiArray>::SharedPtr publisher_state_est_;
     rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr publisher_vel_;

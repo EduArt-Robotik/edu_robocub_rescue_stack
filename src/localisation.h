@@ -22,7 +22,7 @@ class Localisation{
     public:
     Localisation(Control *control);
 
-    void setPosOrientation(float x, float y, float x_orient, float y_orient, float z_orient, float w_orient);
+    void setPosOrientation(float x_orient, float y_orient, float z_orient, float w_orient); //float x, float y, 
     float getX();
     float getY();
     float getYawZ();

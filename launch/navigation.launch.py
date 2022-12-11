@@ -33,7 +33,7 @@ def generate_launch_description():
     # Create our own temporary YAML files that include substitutions
     param_substitutions = {
         'use_sim_time': use_sim_time,
-        'yaml_filename': map_file}
+         'yaml_filename': map_file}
 
 
     

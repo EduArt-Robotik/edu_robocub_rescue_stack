@@ -20,7 +20,7 @@ def generate_launch_description():
     declare_path_map = DeclareLaunchArgument(
         'map_file',
         default_value=os.path.join(get_package_share_directory('edu_robocup_rescue_stack'),
-                                   'config', 'map2.yaml'),
+                                   'map', 'map4.yaml'),
         )
 
     map_server = Node(

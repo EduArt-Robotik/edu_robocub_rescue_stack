@@ -33,12 +33,16 @@ class Navigation //: public rclcpp::Node
 
     bool m_goal_achived;
     bool m_new_goal_set;
+    bool m_goal2_set;
+    bool m_goal3_set;
+    bool m_goal4_set;
     bool m_goal_send;
     int m_wait;
+    int m_tact;
     
     void terminal_output();
     void navigate();
-    void calc_tolerance();
+    void calc_tolerance(double pX, double pY);
     
     //rclcpp::TimerBase::SharedPtr nav_timer;
     //void nav_timer_callback();
@@ -49,6 +53,8 @@ class Navigation //: public rclcpp::Node
 
     void setamclX(double x);
     void setamclY(double y);
+    void setGoalsended(bool goalsended);
+    void setTact(int wait);
     
     double getGoalPosX();
     double getGoalPosY();
@@ -60,6 +66,7 @@ class Navigation //: public rclcpp::Node
     double getGoalOriW();
     bool getNewGoalSet();
     bool getPoseSend();
+
 
 };
 

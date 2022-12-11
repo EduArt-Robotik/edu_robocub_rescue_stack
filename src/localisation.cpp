@@ -13,9 +13,9 @@ Localisation::Localisation(Control *control){
 
     m_control = control;
 }
-void Localisation::setPosOrientation(float x, float y, float x_orient, float y_orient, float z_orient, float w_orient){
-    m_x = x;
-    m_y = y;
+void Localisation::setPosOrientation(float x_orient, float y_orient, float z_orient, float w_orient){  //float x, float y,
+    m_x = 1; //FALSCH GEÄNDET -> muss x sein
+    m_y = 1; //FALSCH GEÄNDET -> muss y sein
     m_x_orient = x_orient;
     m_y_orient = y_orient;
     m_z_orient = z_orient;
@@ -49,7 +49,12 @@ void Localisation::calcualateYawZ(){
     m_yaw_z = atan2(t3, t4);
     
     //Ausgabe
+    
+    //std::cout << "roll_x:" << m_roll_x<< std::endl;
+    //std::cout << "pitch_y:" << m_pitch_y << std::endl;
     //std::cout << "yaw_z:" << m_yaw_z << std::endl;
+
+
     m_control->setPosYaw(m_x, m_y, m_yaw_z);
 }
 
