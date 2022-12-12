@@ -8,6 +8,16 @@ LocalisationControlNode::LocalisationControlNode(): Node("localisation_control")
     m_localisation_odom = new Localisation();
     m_localisation_imu = new Localisation();
 
+     //client
+    amcl_get_state = this->create_client<lifecycle_msgs::srv::GetState>(amcl_get_state_topic);
+    amcl_change_state = this->create_client<lifecycle_msgs::srv::ChangeState>(amcl_change_state_topic);
+
+    map_server_get_state = this->create_client<lifecycle_msgs::srv::GetState>(map_server_get_state_topic);
+    map_server_change_state = this->create_client<lifecycle_msgs::srv::ChangeState>(map_server_change_state_topic);
+
+    m_amclService = new ClientService(amcl_get_state, amcl_change_state, "amcl");
+    m_mapServerService = new ClientService(map_server_get_state, map_server_change_state, "map_service");
+
     //subscriber
     subscriber_odom_= this->create_subscription<nav_msgs::msg::Odometry>("/odom", 1, std::bind(&LocalisationControlNode::odom_callback, this, std::placeholders::_1));
     subscriber_velocity_= this->create_subscription<geometry_msgs::msg::Twist>("/cmd_vel", 1, std::bind(&LocalisationControlNode::velocity_callback, this, std::placeholders::_1));
@@ -25,6 +35,8 @@ LocalisationControlNode::LocalisationControlNode(): Node("localisation_control")
 
     //timer
     timer_ = this->create_wall_timer(50ms, std::bind(&LocalisationControlNode::timer_callback, this)); 
+
+    m_mapServerService->activateService();
 }
 
 void LocalisationControlNode::odom_callback(const nav_msgs::msg::Odometry::SharedPtr msg_odom) 

@@ -8,6 +8,27 @@ ClientService::ClientService(std::shared_ptr<rclcpp::Client<lifecycle_msgs::srv:
     m_nodeName = nodeName;
 }
 
+bool ClientService::activateService(){
+  std::thread(activateServiceTask());
+  return true;
+}
+
+void ClientService::activateServiceTask(){
+  unsigned int state =get_state();
+  if(state ==  lifecycle_msgs::msg::State::PRIMARY_STATE_ACTIVE){
+          std::cout <<  m_nodeName << " is already active " <<std::endl;
+  }
+  else if (state == lifecycle_msgs::msg::State::PRIMARY_STATE_INACTIVE){
+    change_state(lifecycle_msgs::msg::State::TRANSITION_STATE_ACTIVATING);
+  }
+  else if ( state == lifecycle_msgs::msg::State::PRIMARY_STATE_UNCONFIGURED){
+        change_state(lifecycle_msgs::msg::State::TRANSITION_STATE_CONFIGURING);
+    change_state(lifecycle_msgs::msg::State::TRANSITION_STATE_ACTIVATING);
+    
+  }
+
+}
+
 unsigned int ClientService::get_state(std::chrono::seconds timeout )
 {
     auto request = std::make_shared<lifecycle_msgs::srv::GetState::Request>();

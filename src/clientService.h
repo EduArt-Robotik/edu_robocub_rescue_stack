@@ -17,12 +17,18 @@ class ClientService{
     ClientService(std::shared_ptr<rclcpp::Client<lifecycle_msgs::srv::GetState>> client_get_state,
         std::shared_ptr<rclcpp::Client<lifecycle_msgs::srv::ChangeState>> client_change_state, std::string nodeName);
 
-    unsigned int get_state(std::chrono::seconds timeout = 3s);
-    bool change_state(std::uint8_t transition, std::chrono::seconds timeout = 3s);
+
+    bool activateService();
+    bool deactiveService();
  
     private:
+
+    void activateServiceTask();
+    void deactiveServiceTask();
     std::shared_ptr<rclcpp::Client<lifecycle_msgs::srv::GetState>> m_client_get_state;
     std::shared_ptr<rclcpp::Client<lifecycle_msgs::srv::ChangeState>> m_client_change_state;
+    unsigned int get_state(std::chrono::seconds timeout = 3s);
+    bool change_state(std::uint8_t transition, std::chrono::seconds timeout = 3s);
 
     template <typename FutureT, typename WaitTimeT> std::future_status wait_for_result
     (FutureT & future,WaitTimeT time_to_wait);
