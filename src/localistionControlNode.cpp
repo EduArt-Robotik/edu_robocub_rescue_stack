@@ -35,8 +35,7 @@ LocalisationControlNode::LocalisationControlNode(): Node("localisation_control")
 
     //timer
     timer_ = this->create_wall_timer(50ms, std::bind(&LocalisationControlNode::timer_callback, this)); 
-
-    m_mapServerService->activateService();
+    
 }
 
 void LocalisationControlNode::odom_callback(const nav_msgs::msg::Odometry::SharedPtr msg_odom) 
