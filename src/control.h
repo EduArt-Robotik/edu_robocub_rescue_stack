@@ -6,6 +6,7 @@
 #include <chrono> 
 #include <vector>
 #include <iostream> 
+#include "clientService.h"
 
 class Control
 {
@@ -25,8 +26,11 @@ class Control
     void calculateAngleSpeed() ;
     void control_navigation();
     geometry_msgs::msg::Pose m_initialpose;
+    ClientService *m_map1ServerService;
+    ClientService *m_map2ServerService;
+    ClientService *m_map3ServerService;
     public:
-    Control();
+    Control(ClientService *map1ServerService, ClientService *map2ServerService, ClientService *map3ServerService);
     void setPosYaw(float x,float y,float yaw_z);
     void setPitch(float pitch_y);
     void setYawZ(float yaw_z);
@@ -39,5 +43,6 @@ class Control
     geometry_msgs::msg::Pose getInitialpose();
     float m_speed_var;
     int m_wait = 0;
-    
+
+    ClientService *m_activeMapServer;
 };

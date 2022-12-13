@@ -3,20 +3,31 @@
 
 LocalisationControlNode::LocalisationControlNode(): Node("localisation_control")
 {
-    m_control = new Control();
-    m_localisation_amcl = new Localisation();
-    m_localisation_odom = new Localisation();
-    m_localisation_imu = new Localisation();
-
      //client
     amcl_get_state = this->create_client<lifecycle_msgs::srv::GetState>(amcl_get_state_topic);
     amcl_change_state = this->create_client<lifecycle_msgs::srv::ChangeState>(amcl_change_state_topic);
 
-    map_server_get_state = this->create_client<lifecycle_msgs::srv::GetState>(map_server_get_state_topic);
-    map_server_change_state = this->create_client<lifecycle_msgs::srv::ChangeState>(map_server_change_state_topic);
+    map1_server_get_state = this->create_client<lifecycle_msgs::srv::GetState>(map1_server_get_state_topic);
+    map1_server_change_state = this->create_client<lifecycle_msgs::srv::ChangeState>(map1_server_change_state_topic);
+
+    map2_server_get_state = this->create_client<lifecycle_msgs::srv::GetState>(map2_server_get_state_topic);
+    map2_server_change_state = this->create_client<lifecycle_msgs::srv::ChangeState>(map2_server_change_state_topic);
+
+    map3_server_get_state = this->create_client<lifecycle_msgs::srv::GetState>(map3_server_get_state_topic);
+    map3_server_change_state = this->create_client<lifecycle_msgs::srv::ChangeState>(map3_server_change_state_topic);
 
     m_amclService = new ClientService(amcl_get_state, amcl_change_state, "amcl");
-    m_mapServerService = new ClientService(map_server_get_state, map_server_change_state, "map_service");
+    m_map1ServerService = new ClientService(map1_server_get_state, map1_server_change_state, "map1_service");
+    m_map2ServerService = new ClientService(map2_server_get_state, map2_server_change_state, "map2_service");
+    m_map3ServerService = new ClientService(map3_server_get_state, map3_server_change_state, "map3_service");
+
+
+    m_control = new Control(m_map1ServerService, m_map2ServerService, m_map3ServerService);
+    m_localisation_amcl = new Localisation();
+    m_localisation_odom = new Localisation();
+    m_localisation_imu = new Localisation();
+
+    
 
     //subscriber
     subscriber_odom_= this->create_subscription<nav_msgs::msg::Odometry>("/odom", 1, std::bind(&LocalisationControlNode::odom_callback, this, std::placeholders::_1));
@@ -73,6 +84,10 @@ void LocalisationControlNode::imu_callback(const sensor_msgs::msg::Imu::SharedPt
 
 void LocalisationControlNode::timer_callback()
 {
+    if(m_control->m_activeMapServer->getState() != lifecycle_msgs::msg::State::PRIMARY_STATE_ACTIVE && m_control->m_activeMapServer->getStateChange() == false
+    &&m_control->m_activeMapServer->getStateGet() == false) {
+        m_control->m_activeMapServer->activateService();
+    }
     if(m_amcl_startet){
 
         auto message = geometry_msgs::msg::Twist();
@@ -82,7 +97,6 @@ void LocalisationControlNode::timer_callback()
         if(m_control->newInitialpose()){
             publish_initalpose(m_control->getInitialpose());
         }
-
     }
     else{
         m_initpose_wait++;

@@ -1,5 +1,4 @@
 #include "control.h"
-#include "clientService.h"
 
 class Localisation{
 

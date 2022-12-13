@@ -3,16 +3,20 @@
 /*
 navigation: 
 0 geradeaus fahren
-1 winkel fahren - vor knick
-2 winkel fahren - nach knick
-3 nach unten Fahren
-4 geradeaus fahren
+1 rampe hoch fahren
+3 winkel fahren - vor knick
+4 winkel fahren - nach knick
+5 nach unten Fahren
+6 geradeaus fahren
 5 winkel fahren - vor knick
 6 winkel fahren - nach knick
 7 nach unten fahren
 */
 
-Control::Control() {
+Control::Control(ClientService *map1ServerService, ClientService *map2ServerService, ClientService *map3ServerService) {
+    m_map1ServerService = map1ServerService;
+    m_map2ServerService = map2ServerService;
+    m_map3ServerService = map3ServerService;
     m_yaw_z = 0;
     m_x = 0;
     m_y = 0;
@@ -22,16 +26,25 @@ Control::Control() {
     m_y_dest = 0;
     m_navigation = 0;
     m_speed_var = 1;
+
+    m_activeMapServer = m_map1ServerService;
 }
 
 void Control::calculateAngleSpeed() {
 
-    if( m_navigation == 1){
+    if(m_navigation == 0){
+        if(m_x > 2){   
+            control_navigation();
+            m_activeMapServer = m_map2ServerService;
+            m_map1ServerService->deactiveService();
+        }
+    }
+    if( m_navigation == 2){
         if( m_pitch_y >= 0.10){
             control_navigation();
         }
     }
-    if(m_navigation == 2){
+    if(m_navigation == 3){
         /*if(m_y < 0.65 && m_x < 3.6){
             m_initialpose.position.x = 3.7;
             m_initialpose.position.y = 1.0;
@@ -45,7 +58,7 @@ void Control::calculateAngleSpeed() {
         }*/
     }
 
-    if( m_navigation == 2 || m_navigation == 3){
+    if( m_navigation == 3 || m_navigation == 4){
         // amcl thinks it is on the other side of the ramp
     }
 
