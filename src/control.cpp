@@ -6,12 +6,14 @@ navigation:
 1 rampe hoch fahren
 2 winkel fahren - vor knick
 3 rampe runter fahren
-4 gerade Fahren
-5 gerade zurück fahren
-6 rampe hoch fahren
-7 winkel fahren - vor knick
-8 rampe nach unten fahren
-9 geradeaus fahren zurück
+4 gerade Fahren zu point
+5 gerade Fahren zu ende
+6 gerade zurück fahren
+7 rampe hoch fahren
+8 winkel fahren - vor knick
+9 rampe nach unten fahren
+10 geradeaus fahren zu point
+11 geradeaus fahren zu start
 */
 
 Control::Control(ClientService *map1ServerService, ClientService *map2ServerService, ClientService *map3ServerService, ClientService *map4ServerService) {
@@ -43,7 +45,7 @@ void Control::calculateAngleSpeed() {
         }
     }
     else if( m_navigation == 2){
-        if( (m_pitch_y >= 0.10 )&& (m_y > 0.5) && (m_x > 2.5) ) {
+        if( (m_pitch_y >= 0.10 )&& (m_y > 0.4) && (m_x > 2.5) ) {
             control_navigation();
             m_slowDown = 100;
             m_slowDownReduce = 2;
@@ -61,7 +63,7 @@ void Control::calculateAngleSpeed() {
             m_map3ServerService->deactiveService();
         }  
     }
-    else if(m_navigation == 5){
+    else if(m_navigation == 6){
         if(m_x < 4 && (m_pitch_y < 0.2 || m_pitch_y > -0.2) &&  (m_roll_x > -0.2 )) {
             m_slowDown = 200;
             m_slowDownReduce = 20;
@@ -70,8 +72,8 @@ void Control::calculateAngleSpeed() {
             m_map4ServerService->deactiveService();
         }  
     }
-    else if( m_navigation == 7){
-        if( (m_pitch_y >= 0.10 )&& (m_y < 0.5) && (m_x > 4) ) {
+    else if( m_navigation == 8){
+        if( (m_pitch_y >= 0.10 )&& (m_y < 0.7) && (m_x < 4) ) {
             control_navigation();
             m_slowDown = 100;
             m_slowDownReduce = 2;
@@ -79,13 +81,13 @@ void Control::calculateAngleSpeed() {
             m_map3ServerService->deactiveService();
         }
     }
-    else if(m_navigation == 8){
+    else if(m_navigation == 9){
         if(m_x < 2 && (m_pitch_y < 0.2 || m_pitch_y > -0.2) &&  (m_roll_x > -0.2 || m_roll_x < 0.2)) {
             m_slowDown = 200;
             m_slowDownReduce = 20;
             control_navigation();
-            m_activeMapServer = m_map4ServerService;
-            m_map3ServerService->deactiveService();
+            m_activeMapServer = m_map1ServerService;
+            m_map2ServerService->deactiveService();
         }  
     }
 
@@ -132,7 +134,7 @@ void Control::calculateAngleSpeed() {
             m_speed  = 0.3;   
         }
     } 
-    if ((delta_dist < 0.1)) {
+    if ((delta_dist < 0.2)) {
         control_navigation();
         calculateAngleSpeed();
     }
@@ -141,9 +143,9 @@ void Control::calculateAngleSpeed() {
 
 void Control::control_navigation(){
     m_navigation++;
-    m_navigation = m_navigation%10;
+    m_navigation = m_navigation%12;
     if( m_navigation == 0 ){
-        m_x_dest = 3.05;
+        m_x_dest = 2.9;
         m_y_dest = 0;
         m_speed_var = 1;
     }
@@ -152,25 +154,34 @@ void Control::control_navigation(){
         m_map1ServerService->deactiveService();
     }
     if( m_navigation == 2 ){
-        m_x_dest = 3.35;
+        m_x_dest = 3.2;
         m_y_dest = 1.3;
         m_speed_var = 1;
     }
     if( m_navigation == 3 ){
-        m_x_dest = 5.5;
+        m_x_dest = 5;
         m_y_dest = 1.3;
         m_speed_var = 1;
     }
     if( m_navigation == 5 ){
-        m_x_dest = 3.5;
-        m_y_dest = 1.1;
+        m_x_dest = 6;
+        m_y_dest = 1.3;
+        m_speed_var = 1;
     }
-    if( m_navigation == 7 ){
-        m_x_dest = 3.0;
-        m_y_dest = 0;
+    if( m_navigation == 6 ){
+        m_x_dest = 3.6;
+        m_y_dest = 1.2;
     }
     if( m_navigation == 8 ){
-        m_x_dest = 0;
+        m_x_dest = 3.3;
+        m_y_dest = 0;
+    }
+    if( m_navigation == 9 ){
+        m_x_dest = 1;
+        m_y_dest = 0;
+    }
+    if( m_navigation == 11 ){
+        m_x_dest = 0.3;
         m_y_dest = 0;
     }
 
