@@ -63,7 +63,7 @@ private:
     ClientService *m_map1ServerService;
     ClientService *m_map2ServerService;
     ClientService *m_map3ServerService;
-
+    ClientService *m_map4ServerService;
 
     bool m_amcl_startet = false;
     int m_initpose_wait = 0;
@@ -80,6 +80,9 @@ private:
     static constexpr char const * map3_server_get_state_topic = "/map3_server/get_state";
     static constexpr char const * map3_server_change_state_topic = "/map3_server/change_state";
 
+    static constexpr char const * map4_server_get_state_topic = "/map4_server/get_state";
+    static constexpr char const * map4_server_change_state_topic = "/map4_server/change_state";
+
      //Initalising Client
     std::shared_ptr<rclcpp::Client<lifecycle_msgs::srv::GetState>> amcl_get_state;
     std::shared_ptr<rclcpp::Client<lifecycle_msgs::srv::ChangeState>> amcl_change_state;
@@ -90,4 +93,6 @@ private:
     std::shared_ptr<rclcpp::Client<lifecycle_msgs::srv::ChangeState>> map2_server_change_state;
     std::shared_ptr<rclcpp::Client<lifecycle_msgs::srv::GetState>> map3_server_get_state;
     std::shared_ptr<rclcpp::Client<lifecycle_msgs::srv::ChangeState>> map3_server_change_state;
+    std::shared_ptr<rclcpp::Client<lifecycle_msgs::srv::GetState>> map4_server_get_state;
+    std::shared_ptr<rclcpp::Client<lifecycle_msgs::srv::ChangeState>> map4_server_change_state;
 };

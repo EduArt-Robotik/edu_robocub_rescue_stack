@@ -20,7 +20,7 @@ class Localisation{
 
     void calcualateYawZ();
     //bool amclSetup();
-
+    float anglePi(float angle);
     public:
     Localisation();
 
@@ -36,5 +36,6 @@ class Localisation{
     float getZOrient();
     float getWOrient();  
     float getPichtY();
+    float getRollX();
 
 };

@@ -16,18 +16,19 @@ LocalisationControlNode::LocalisationControlNode(): Node("localisation_control")
     map3_server_get_state = this->create_client<lifecycle_msgs::srv::GetState>(map3_server_get_state_topic);
     map3_server_change_state = this->create_client<lifecycle_msgs::srv::ChangeState>(map3_server_change_state_topic);
 
+    map4_server_get_state = this->create_client<lifecycle_msgs::srv::GetState>(map4_server_get_state_topic);
+    map4_server_change_state = this->create_client<lifecycle_msgs::srv::ChangeState>(map4_server_change_state_topic);
+
     m_amclService = new ClientService(amcl_get_state, amcl_change_state, "amcl");
     m_map1ServerService = new ClientService(map1_server_get_state, map1_server_change_state, "map1_service");
     m_map2ServerService = new ClientService(map2_server_get_state, map2_server_change_state, "map2_service");
     m_map3ServerService = new ClientService(map3_server_get_state, map3_server_change_state, "map3_service");
+    m_map4ServerService = new ClientService(map4_server_get_state, map4_server_change_state, "map4_service");
 
-
-    m_control = new Control(m_map1ServerService, m_map2ServerService, m_map3ServerService);
+    m_control = new Control(m_map1ServerService, m_map2ServerService, m_map3ServerService, m_map4ServerService);
     m_localisation_amcl = new Localisation();
     m_localisation_odom = new Localisation();
     m_localisation_imu = new Localisation();
-
-    
 
     //subscriber
     subscriber_odom_= this->create_subscription<nav_msgs::msg::Odometry>("/odom", 1, std::bind(&LocalisationControlNode::odom_callback, this, std::placeholders::_1));
@@ -78,7 +79,8 @@ void LocalisationControlNode::imu_callback(const sensor_msgs::msg::Imu::SharedPt
     float w_orient = msg_imu->orientation.w;
     
     m_localisation_imu->setOrientation(x_orient, y_orient, z_orient, w_orient);
-    m_control->setPitch(m_localisation_imu->getPichtY());
+    m_control->setPitchY(m_localisation_imu->getPichtY());
+    m_control->setRollX(m_localisation_imu->getRollX());
 }
 
 
@@ -89,7 +91,6 @@ void LocalisationControlNode::timer_callback()
         m_control->m_activeMapServer->activateService();
     }
     if(m_amcl_startet){
-
         auto message = geometry_msgs::msg::Twist();
         message.linear.x = m_control->getSpeed();
         message.angular.z = m_control->getAngle();
@@ -109,7 +110,7 @@ void LocalisationControlNode::timer_callback()
             publish_initalpose(initpose);
         }  
     }
-    
+     
 }
 
 void LocalisationControlNode::publish_estimated_state(std_msgs::msg::Float64MultiArray state_vec_msg)

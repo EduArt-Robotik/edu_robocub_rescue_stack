@@ -33,7 +33,7 @@ class ClientService{
   std::shared_ptr<rclcpp::Client<lifecycle_msgs::srv::GetState>> m_client_get_state;
   std::shared_ptr<rclcpp::Client<lifecycle_msgs::srv::ChangeState>> m_client_change_state;
   void start_get_state(std::chrono::seconds timeout = 3s);
-  void start_change_state(std::uint8_t transition, std::chrono::seconds timeout = 3s);
+  void start_change_state(std::uint8_t transition, std::chrono::seconds timeout = 1s);
 
   template <typename FutureT, typename WaitTimeT> std::future_status wait_for_result
   (FutureT & future,WaitTimeT time_to_wait);
@@ -41,7 +41,7 @@ class ClientService{
   std::string m_nodeName;
   int m_state;
   bool m_state_change;
-    bool m_state_get;
+  bool m_state_get;
 
 };
 

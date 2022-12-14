@@ -17,6 +17,8 @@ def generate_launch_description():
     map1_file = LaunchConfiguration('map1_file')
     map2_file = LaunchConfiguration('map2_file')
     map3_file = LaunchConfiguration('map3_file')
+    map4_file = LaunchConfiguration('map4_file')
+
 
     ld = LaunchDescription()
 
@@ -34,6 +36,12 @@ def generate_launch_description():
         'map3_file',
         default_value=os.path.join(get_package_share_directory('edu_robocup_rescue_stack'), 'config', 'map_ramp_end.yaml'),
         )
+    
+    declare_path_map4 = DeclareLaunchArgument(
+        'map4_file',
+        default_value=os.path.join(get_package_share_directory('edu_robocup_rescue_stack'), 'config', 'map_flat_end.yaml'),
+        )
+
 
 
     map1_server = Node(
@@ -61,6 +69,15 @@ def generate_launch_description():
         package='nav2_map_server',
         executable='map_server',
         name='map3_server',
+        )
+
+    map4_server = Node(
+        parameters=[
+          {'yaml_filename': map4_file},
+        ],
+        package='nav2_map_server',
+        executable='map_server',
+        name='map4_server',
         )
         
     amcl_node =  Node(
@@ -99,9 +116,12 @@ def generate_launch_description():
     ld.add_action(declare_path_map1)
     ld.add_action(declare_path_map2)
     ld.add_action(declare_path_map3)
+    ld.add_action(declare_path_map4)
+
     ld.add_action(map1_server)
     ld.add_action(map2_server)
     ld.add_action(map3_server)
+    ld.add_action(map4_server)
 
     ld.add_action(amcl_node)
     #ld.add_action(static_transform_publisher_map_odom_node)
