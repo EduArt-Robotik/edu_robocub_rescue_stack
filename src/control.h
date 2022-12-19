@@ -46,7 +46,7 @@ class Control
     int getNavigationStep();
     bool newInitialpose();
     geometry_msgs::msg::Pose getInitialpose();
-    float m_speed_var;
+    float m_aim_precision;
     int m_wait = 0;
 
     ClientService *m_activeMapServer;

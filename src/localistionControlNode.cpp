@@ -165,10 +165,10 @@ void LocalisationControlNode::amcl_pose_callback(const geometry_msgs::msg::PoseW
         std::cout <<"contorl " << m_control->getNavigationStep() << std::endl;
 
         std::cout <<"odom: x " << m_localisation_odom->getX() <<", y: "<< m_localisation_odom->getY()
-            << ", YawZ: " << m_localisation_odom->getYawZ() <<", PitchY: " << m_localisation_odom->getPichtY() << std::endl;
+            << ", YawZ: " << m_localisation_odom->getYawZ() <<", PitchY: " << m_localisation_odom->getPichtY() <<", RollX: " << m_localisation_odom->getRollX()<< std::endl;
 
         std::cout << "Amcl  & imu: x:" <<msg_amcl_pose->pose.pose.position.x << ", y: " << msg_amcl_pose->pose.pose.position.y << 
-            ", YawZ: " << m_localisation_amcl->getYawZ() <<", PitchY: " << m_localisation_imu->getPichtY()<<std::endl;
+            ", YawZ: " << m_localisation_amcl->getYawZ() <<", PitchY: " << m_localisation_imu->getPichtY()<<", RollX: " << m_localisation_imu->getRollX()<<std::endl;
     }
 }
 
