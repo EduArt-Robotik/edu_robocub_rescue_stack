@@ -40,7 +40,7 @@ void Localisation::calcualateYawZ(){
     //convert quaternion in euler angle
     float t0 = +2.0 * (m_w_orient * m_x_orient + m_y_orient * m_z_orient);  
     float t1 = +1.0 - 2.0 * (m_x_orient * m_x_orient + m_y_orient * m_y_orient);
-    m_roll_x = anglePi(atan2(t0, t1));
+    m_roll_x = angleOverTwoPi(atan2(t0, t1));
 
     float t2 = +2.0 * (m_w_orient * m_y_orient - m_z_orient * m_x_orient);
     //Fallunterscheidung für asin
@@ -54,14 +54,14 @@ void Localisation::calcualateYawZ(){
     } else {
         t2 = t2;
     }
-    m_pitch_y = anglePi(asin(t2));
+    m_pitch_y = angleOverTwoPi(asin(t2));
 
     float t3 = +2.0 * (m_w_orient * m_z_orient + m_x_orient * m_y_orient);
     float t4 = +1.0 - 2.0 * (m_y_orient * m_y_orient + m_z_orient * m_z_orient);
-    m_yaw_z = anglePi(atan2(t3, t4));
+    m_yaw_z = angleOverTwoPi(atan2(t3, t4));
 }
 
-float Localisation::anglePi(float angle){
+float Localisation::angleOverTwoPi(float angle){
     if(angle < -M_PI){
         angle += 2*M_PI;
         }

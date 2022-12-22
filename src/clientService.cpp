@@ -1,4 +1,7 @@
 #include "clientService.h"
+#include <thread>
+
+using namespace std::chrono_literals;
 
 ClientService::ClientService(std::shared_ptr<rclcpp::Client<lifecycle_msgs::srv::GetState>> client_get_state,
         std::shared_ptr<rclcpp::Client<lifecycle_msgs::srv::ChangeState>> client_change_state, std::string nodeName)
@@ -7,11 +10,12 @@ ClientService::ClientService(std::shared_ptr<rclcpp::Client<lifecycle_msgs::srv:
   m_client_change_state = client_change_state;
   m_nodeName = nodeName;
 
-  start_get_state();
-
   m_state = -1;
   m_state_change = false;
   m_state_get = false;
+
+  std::this_thread::sleep_for(2s);
+  start_get_state();
 }
 
 int ClientService::getState() {
@@ -53,7 +57,7 @@ bool ClientService::activateService(){
   else if (m_state == lifecycle_msgs::msg::State::PRIMARY_STATE_INACTIVE){
    std::cout <<  m_nodeName << " is inactive " <<std::endl;
     start_change_state(lifecycle_msgs::msg::State::PRIMARY_STATE_ACTIVE);       
-
+    return true;
   }
   else if (m_state == lifecycle_msgs::msg::State::PRIMARY_STATE_UNCONFIGURED){
     std::cout <<  m_nodeName << " unconfigured " <<std::endl;
@@ -63,18 +67,19 @@ bool ClientService::activateService(){
     std::cout <<  m_nodeName << " state, not defined : " <<m_state<<std::endl;
     start_get_state();
   }
-
+  return false;
 }
 
 bool ClientService::deactiveService() {
 
   if(m_state ==  lifecycle_msgs::msg::State::PRIMARY_STATE_ACTIVE){
-    start_change_state(lifecycle_msgs::msg::State::PRIMARY_STATE_FINALIZED);       
+    start_change_state(lifecycle_msgs::msg::State::PRIMARY_STATE_FINALIZED);  
+    return true;     
   }
   else{
     std::cout <<  m_nodeName << " state, not defined : " <<m_state<<std::endl;
+    return false;
   }
-
 }
 
 void ClientService::start_get_state(std::chrono::seconds timeout )

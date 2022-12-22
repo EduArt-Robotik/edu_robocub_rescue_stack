@@ -15,12 +15,12 @@ class Localisation{
     float m_roll_x;
     float m_pitch_y;
     float m_yaw_z;
-    ClientService *m_amclService;
-    ClientService *m_mapServerService;
 
     void calcualateYawZ();
-    //bool amclSetup();
-    float anglePi(float angle);
+
+    //Utils
+    float angleOverTwoPi(float angle);
+
     public:
     Localisation();
 
@@ -36,6 +36,5 @@ class Localisation{
     float getZOrient();
     float getWOrient();  
     float getPichtY();
-    float getRollX();
-
+    float getRollX();    
 };

@@ -95,9 +95,6 @@ void LocalisationControlNode::timer_callback()
         message.linear.x = m_control->getSpeed();
         message.angular.z = m_control->getAngle();
         publisher_vel_->publish(message);
-        if(m_control->newInitialpose()){
-            publish_initalpose(m_control->getInitialpose());
-        }
     }
     else{
         m_initpose_wait++;
