@@ -26,12 +26,12 @@ class Control
     int m_slowDown = 10;
     int m_slowDownReduce = 10;
     int m_navigationStep;
-
+    int m_error_clim_up = 0;
     float m_dest_precision;
     int m_driving_direction;
 
     void calculateAngleSpeed() ;
-    void nextNaviagtionStep();
+    void setNaviagtionStep();
 
     ClientService *m_map1ServerService;
     ClientService *m_map2ServerService;
@@ -52,6 +52,9 @@ class Control
     float getAngle();
     float getSpeed();
     int getNavigationStep();
+    void previousNavigationStep();
+    void nextNavigationStep();
+
 
 
     ClientService *m_activeMapServer;
