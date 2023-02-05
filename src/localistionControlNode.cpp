@@ -3,6 +3,9 @@
 
 LocalisationControlNode::LocalisationControlNode(): Node("localisation_control")
 {
+    //needs to wai for mapsserver to get initalized
+    std::this_thread::sleep_for(2s);
+
      //client
     amcl_get_state = this->create_client<lifecycle_msgs::srv::GetState>(amcl_get_state_topic);
     amcl_change_state = this->create_client<lifecycle_msgs::srv::ChangeState>(amcl_change_state_topic);
@@ -91,6 +94,7 @@ void LocalisationControlNode::timer_callback()
         m_control->m_activeMapServer->activateService();
     }
     if(m_amcl_startet){
+        m_control->calculateAngleSpeed();
         auto message = geometry_msgs::msg::Twist();
         message.linear.x = m_control->getSpeed();
         message.angular.z = m_control->getAngle();

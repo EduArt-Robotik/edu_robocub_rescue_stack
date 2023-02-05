@@ -22,7 +22,7 @@ class LocalisationControlNode : public rclcpp::Node
     LocalisationControlNode();
 
 private:
-
+    
     //callback
     void odom_callback(const nav_msgs::msg::Odometry::SharedPtr msg_odom);
     void velocity_callback(const geometry_msgs::msg::Twist::SharedPtr msg_vel);

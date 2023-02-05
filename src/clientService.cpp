@@ -14,7 +14,6 @@ ClientService::ClientService(std::shared_ptr<rclcpp::Client<lifecycle_msgs::srv:
   m_state_change = false;
   m_state_get = false;
 
-  std::this_thread::sleep_for(2s);
   start_get_state();
 }
 

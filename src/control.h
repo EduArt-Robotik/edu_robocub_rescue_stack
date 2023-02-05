@@ -11,6 +11,12 @@
 class Control
 {
     private:
+
+    ClientService *m_map1ServerService;
+    ClientService *m_map2ServerService;
+    ClientService *m_map3ServerService;
+    ClientService *m_map4ServerService;
+
     //direction Variables
     float m_yaw_z;
     float m_pitch_y;
@@ -23,26 +29,22 @@ class Control
     float m_y_dest;
 
     //controlling variables
-    int m_slowDown = 10;
-    int m_slowDownReduce = 10;
+    int m_slowDownSpeed = 10;
+    int m_slowDownSpeedReduce = 10;
+    int m_slowDownTurning;
     int m_navigationStep;
-    int m_error_clim_up = 0;
     float m_dest_precision;
-    int m_driving_direction;
+    int m_driving_direction;    //forward -> 1; backwards -> -1
 
-    void calculateAngleSpeed() ;
     void setNaviagtionStep();
-
-    ClientService *m_map1ServerService;
-    ClientService *m_map2ServerService;
-    ClientService *m_map3ServerService;
-    ClientService *m_map4ServerService;
 
     //Utils
     float angleOverTwoPi(float angle);
 
     public:
     Control(ClientService *map1ServerService, ClientService *map2ServerService, ClientService *map3ServerService, ClientService *map4ServerService);
+    void calculateAngleSpeed() ;
+
     void setPosYaw(float x,float y,float yaw_z);
     void setPitchY(float pitch_y);
     void setYawZ(float yaw_z);
@@ -54,8 +56,6 @@ class Control
     int getNavigationStep();
     void previousNavigationStep();
     void nextNavigationStep();
-
-
 
     ClientService *m_activeMapServer;
 };
