@@ -68,6 +68,7 @@ private:
     bool m_amcl_startet = false;
     int m_initpose_wait = 0;
 
+    //state topic neccessary for getstate and change state 
     static constexpr char const * amcl_get_state_topic = "/amcl/get_state";
     static constexpr char const * amcl_change_state_topic = "/amcl/change_state";
 

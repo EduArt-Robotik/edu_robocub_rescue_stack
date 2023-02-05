@@ -45,6 +45,7 @@ LocalisationControlNode::LocalisationControlNode(): Node("localisation_control")
 
     //publisher
     publisher_state_est_ = this->create_publisher<std_msgs::msg::Float64MultiArray>("/state_est", 10);
+    //publisher for robot angle and speed
     publisher_vel_ = this->create_publisher<geometry_msgs::msg::Twist>("/cmd_vel", 10);
     publisher_initialpose_ = this->create_publisher<geometry_msgs::msg::PoseWithCovarianceStamped>("/initialpose", 10);
 
@@ -94,6 +95,7 @@ void LocalisationControlNode::timer_callback()
         m_control->m_activeMapServer->activateService();
     }
     if(m_amcl_startet){
+        //calculates angle and speed and pubish them
         m_control->calculateAngleSpeed();
         auto message = geometry_msgs::msg::Twist();
         message.linear.x = m_control->getSpeed();
@@ -101,6 +103,7 @@ void LocalisationControlNode::timer_callback()
         publisher_vel_->publish(message);
     }
     else{
+        //change to timer.sleep
         m_initpose_wait++;
         m_initpose_wait = m_initpose_wait % 100;
         if(m_initpose_wait == 99){
@@ -163,13 +166,13 @@ void LocalisationControlNode::amcl_pose_callback(const geometry_msgs::msg::PoseW
     if( (abs(x - m_localisation_odom->getX() ) > 0.2) ||
     (abs(y - m_localisation_odom->getY() ) > 0.2)  ||
     (abs(m_localisation_amcl->getYawZ() - m_localisation_odom->getYawZ() ) > 0.2) ) {
-        std::cout <<"contorl " << m_control->getNavigationStep() << std::endl;
+    std::cout <<"contorl " << m_control->getNavigationStep() << std::endl;
 
-        std::cout <<"odom: x " << m_localisation_odom->getX() <<", y: "<< m_localisation_odom->getY()
-            << ", YawZ: " << m_localisation_odom->getYawZ() <<", PitchY: " << m_localisation_odom->getPichtY() <<", RollX: " << m_localisation_odom->getRollX()<< std::endl;
+    std::cout <<"odom: x " << m_localisation_odom->getX() <<", y: "<< m_localisation_odom->getY()
+        << ", YawZ: " << m_localisation_odom->getYawZ() <<", PitchY: " << m_localisation_odom->getPichtY() <<", RollX: " << m_localisation_odom->getRollX()<< std::endl;
 
-        std::cout << "Amcl  & imu: x:" <<msg_amcl_pose->pose.pose.position.x << ", y: " << msg_amcl_pose->pose.pose.position.y << 
-            ", YawZ: " << m_localisation_amcl->getYawZ() <<", PitchY: " << m_localisation_imu->getPichtY()<<", RollX: " << m_localisation_imu->getRollX()<<std::endl;
+    std::cout << "Amcl  & imu: x:" <<msg_amcl_pose->pose.pose.position.x << ", y: " << msg_amcl_pose->pose.pose.position.y << 
+        ", YawZ: " << m_localisation_amcl->getYawZ() <<", PitchY: " << m_localisation_imu->getPichtY()<<", RollX: " << m_localisation_imu->getRollX()<<std::endl;
     }
 }
 

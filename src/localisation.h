@@ -24,7 +24,6 @@ class Localisation{
     public:
     Localisation();
 
-
     void setPosOrientation(float x, float y, float x_orient, float y_orient, float z_orient, float w_orient);
     void setOrientation( float x_orient, float y_orient, float z_orient, float w_orient);
 

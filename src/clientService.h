@@ -42,6 +42,5 @@ class ClientService{
   int m_state;
   bool m_state_change;
   bool m_state_get;
-
 };
 
