@@ -60,7 +60,7 @@ bool ClientService::activateService(){
   }
   else if (m_state == lifecycle_msgs::msg::State::PRIMARY_STATE_UNCONFIGURED){
     std::cout <<  m_nodeName << " unconfigured " <<std::endl;
-    start_change_state(1);
+    start_change_state(lifecycle_msgs::msg::State::PRIMARY_STATE_UNCONFIGURED);
   }
   else{
     std::cout <<  m_nodeName << " state, not defined : " <<m_state<<std::endl;
