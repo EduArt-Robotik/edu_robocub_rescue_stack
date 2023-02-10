@@ -26,8 +26,12 @@ Ein weiters Problem das mit nur einer Map aufgetreten ist, war der Verwendete AM
 
 ### Maps wechseln
 
-Um die Maps zu wechseln werden beim Starten ( mit amcl_4maps.launch.py) vier Map Server gelaunched, die jeweils eine der vier zuvor erstellten Maps enthalten. Die Map server werden nicht im nav2_lifecycle_manager hinzugefügt, da das Liefcycle management in edu_robocup_rescue_stack_node passiert.
+Um eine Map für das Nav2 System bereit zu stellen wird der Map Server verwendet. Der Map Server Node stellt die Map beim starten bereit. Mit load_map kann auch die Map während der Map Server Node schon läuft, ausgetauscht werden. Statt die Map zu tauschen kann auch statt die Map der ganze MapServer "getauscht" werden, indem die Maps Server aktiviert und deaktiviert werden. Dies ist Möglich da Map Server einne LifecycleNode ist. source https://github.com/ros-planning/navigation2/blob/main/nav2_map_server/src/map_server/map_server.cpp line 65  Eine Liefecycle Node hat vier "primary states": Unconfigured, Inactivate, Active, Finalized. Zu Beginn ist jeder LifecyleNode in dem Unconfigured State der zu dem Inactive State transformiert werden kann. Von dem State aus kann der Node Active werden, indem die Map gepuplished wird und für andere Nodes, wie dem AMCL Node, zu verfügung steht.
+Um die Maps zu wechseln werden beim Starten ( mit amcl_4maps.launch.py) vier Map Server, einen für jede Map, gelaunched. Diese werden aber nicht vom  lifecycle_manager gemanaget, da dies nun im edu_robocup_rescue_stack_node passiert. source: https://design.ros2.org/articles/node_lifecycle.html 
+
 
 #### Terminal
+source: https://index.ros.org/p/lifecycle/
+
 
 #### Implementiert
