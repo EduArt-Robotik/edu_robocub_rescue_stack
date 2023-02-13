@@ -31,7 +31,10 @@ Um die Maps zu wechseln werden beim Starten ( mit amcl_4maps.launch.py) vier Map
 
 
 #### Terminal
+Zum Testzwecken wurde zuerst ein Map wechsel mit commandos in dem Terminal ausgeführt. Um den aktuellen Lifecycle State für den Bsp Node map_server zu erhalten kann ros2 service call /lc_talker/get_state lifecycle_msgs/GetState ausgeführt werden. Um den State von Unconfigured zu Inactive zu wechseln kann ausgeführt ros2 lifecycle set /map_server configure werden. Um eine neue Map zu laden kann ausgeführt werden.
+
 source: https://index.ros.org/p/lifecycle/
 
 
 #### Implementiert
+Zur Implementierung des Mapwechsel mittels Lifecycle Managements wurde die Klasse clientService erstellt. Dort werden die Funktionen activeServices und deactiveService zu verfügung gestellt, mit denen die Map_server aktiviert oder deaktiviert werden können. Bei der Implemntierung wurde sich an dem service_client von thehummingbird inspiriert. source:  Um den aktuellen State zu erhalten und eine state Wechsel zu triggern wird ein asyncsenRequest aufgefürht. Endgegengesetzt zur Implementierung von thehummingbird wurde dabei eine Calbackfunktion übergeben die das Ergenis enthält. 
