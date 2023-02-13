@@ -43,6 +43,7 @@ void Localisation::calcualateYawZ(){
         t2 = t2;
     }
     m_pitch_y = asin(t2);
+    
 
     float t3 = +2.0 * (m_w_orient * m_z_orient + m_x_orient * m_y_orient);
     float t4 = +1.0 - 2.0 * (m_y_orient * m_y_orient + m_z_orient * m_z_orient);
@@ -52,7 +53,7 @@ void Localisation::calcualateYawZ(){
     
     //std::cout << "roll_x:" << m_roll_x<< std::endl;
     //std::cout << "pitch_y:" << m_pitch_y << std::endl;
-    //std::cout << "yaw_z:" << m_yaw_z << std::endl;
+    std::cout << "yaw_z:" << m_yaw_z << std::endl;
 
 
     m_control->setPosYaw(m_x, m_y, m_yaw_z);

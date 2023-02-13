@@ -96,7 +96,12 @@ void LocalisationControlNode::velocity_callback(const geometry_msgs::msg::Twist:
 void LocalisationControlNode::scan_callback(sensor_msgs::msg::LaserScan msg_scan)
 {
     auto msg_slam_scan = sensor_msgs::msg::LaserScan();
-    msg_slam_scan.ranges  = msg_scan.ranges;
+    msg_slam_scan.ranges = msg_scan.ranges;
+
+    std::cout << "msg_slan_scan_0: " << msg_slam_scan.ranges[0] << std::endl;
+    std::cout << "msg_slan_scan_90: " << msg_slam_scan.ranges[500] << std::endl;
+    std::cout << "msg_slan_scan_180: " << msg_slam_scan.ranges[1500] << std::endl;
+    std::cout << "msg_slan_scan_270: " << msg_slam_scan.ranges[1000] << std::endl;
 
     publisher_slam_scan_->publish(msg_slam_scan);
 
@@ -148,7 +153,7 @@ void LocalisationControlNode::setting_goal_pose(){
     m_wait = m_wait + 500;
     m_navigation->setTact(m_wait);
 
-    std::cout << "m_wait:" << m_wait << std::endl;
+    //std::cout << "m_wait:" << m_wait << std::endl;
 
     if(m_wait == 2000){
         m_goal_send = true;
@@ -171,11 +176,11 @@ void LocalisationControlNode::setting_goal_pose(){
         goal_pose.pose.orientation.z = m_navigation->getGoalOriZ();
         goal_pose.pose.orientation.w = m_navigation->getGoalOriW(); 
 
-        publisher_goal_pose_->publish(goal_pose);
+        //publisher_goal_pose_->publish(goal_pose);
 
-        std::cout << "goal pose setted:" << std::endl;
-        std::cout << "goalX:" << goal_pose.pose.position.x << std::endl;
-        std::cout << "goalY:" << goal_pose.pose.position.y << std::endl;
+        //std::cout << "goal pose setted:" << std::endl;
+        //std::cout << "goalX:" << goal_pose.pose.position.x << std::endl;
+        //std::cout << "goalY:" << goal_pose.pose.position.y << std::endl;
         m_goal_send = false;
         m_navigation->setGoalsended(m_goal_send);
         }

@@ -57,7 +57,7 @@ void Navigation::navigate(){
         //m_goal_send = false;
 
         calc_tolerance(m_goal_pX, m_goal_pY);
-        std::cout << "tol1 calculated..." << std::endl;
+        //std::cout << "tol1 calculated..." << std::endl;
     
         if(m_lim_min_x < m_amcl_pX && m_amcl_pX < m_lim_max_x && m_lim_min_y < m_amcl_pY && m_amcl_pY < m_lim_max_y){
             m_wait = m_wait + 50;
@@ -72,7 +72,7 @@ void Navigation::navigate(){
 
         }
 
-    std::cout << "m_goal2_set:" << m_goal2_set << std::endl;
+    //std::cout << "m_goal2_set:" << m_goal2_set << std::endl;
     if(m_goal2_set){
         m_goal_pX = 3.0;
         m_goal_pY = 1.2;
@@ -140,9 +140,9 @@ void Navigation::setamclY(double y){
 
 void Navigation::setTact(int wait){
     m_tact = wait;
-    std::cout << "called navigate" << std::endl;
+    //std::cout << "called navigate" << std::endl;
     navigate();
-    std::cout << "fin of navigation" << std::endl;
+    //std::cout << "fin of navigation" << std::endl;
 }
 
 double Navigation::getGoalPosX(){
