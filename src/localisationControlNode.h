@@ -12,7 +12,6 @@
 #include <cmath>
 #include "lifecycle_msgs/msg/transition_event.hpp"
 
-#include "loadMap.h"
 #include "localisation.h"
 
 using namespace std;
@@ -85,7 +84,7 @@ private:
     static constexpr char const * map4_server_get_state_topic = "/map4_server/get_state";
     static constexpr char const * map4_server_change_state_topic = "/map4_server/change_state";
 
-    static constexpr char const * map_server_load_map_topic = "/map_server/load_map";
+    static constexpr char const * map_server_load_map_topic = "/map1_server/load_map";
 
 
      //Initalising Client

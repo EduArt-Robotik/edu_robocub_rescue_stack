@@ -29,13 +29,13 @@ LocalisationControlNode::LocalisationControlNode(): Node("localisation_control")
     m_map2ServerService = new ClientService(map2_server_get_state, map2_server_change_state, "map2_service");
     m_map3ServerService = new ClientService(map3_server_get_state, map3_server_change_state, "map3_service");
     m_map4ServerService = new ClientService(map4_server_get_state, map4_server_change_state, "map4_service");
+    LoadMap *lp = new LoadMap(map_server_load_map);
 
-    m_control = new Control(m_map1ServerService, m_map2ServerService, m_map3ServerService, m_map4ServerService);
+    m_control = new Control(m_map1ServerService, m_map2ServerService, m_map3ServerService, m_map4ServerService, lp);
     m_localisation_amcl = new Localisation();
     m_localisation_odom = new Localisation();
     m_localisation_imu = new Localisation();
 
-    LoadMap *lp = new LoadMap(map_server_load_map);
 
     //subscriber
     subscriber_odom_= this->create_subscription<nav_msgs::msg::Odometry>("/odom", 1, std::bind(&LocalisationControlNode::odom_callback, this, std::placeholders::_1));

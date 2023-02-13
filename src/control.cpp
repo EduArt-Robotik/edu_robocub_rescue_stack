@@ -18,11 +18,13 @@ navigation:
 13 geradeaus fahren zu start
 */
 
-Control::Control(ClientService *map1ServerService, ClientService *map2ServerService, ClientService *map3ServerService, ClientService *map4ServerService) {
+Control::Control(ClientService *map1ServerService, ClientService *map2ServerService, ClientService *map3ServerService, ClientService *map4ServerService, LoadMap *loadMap) {
     m_map1ServerService = map1ServerService;
     m_map2ServerService = map2ServerService;
     m_map3ServerService = map3ServerService;
     m_map4ServerService = map4ServerService;
+
+    m_loadMap = loadMap;
 
     //Initalize variablen
     m_yaw_z = 0;
@@ -206,8 +208,9 @@ void Control::setNaviagtionStep(){
 
     }
     else if( m_navigationStep == 2 ){
-        m_activeMapServer = m_map2ServerService;
-        m_map1ServerService->deactiveService();
+        /*m_activeMapServer = m_map2ServerService;
+        m_map1ServerService->deactiveService();*/
+        m_loadMap->startLoadMap();
     }
     else if( m_navigationStep == 3 ){
         m_x_dest = 3.6;

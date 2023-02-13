@@ -7,6 +7,7 @@
 #include <vector>
 #include <iostream> 
 #include "clientService.h"
+#include "loadMap.h"
 
 class Control
 {
@@ -16,6 +17,8 @@ class Control
     ClientService *m_map2ServerService;
     ClientService *m_map3ServerService;
     ClientService *m_map4ServerService;
+
+    LoadMap *m_loadMap;
 
     //direction Variables
     float m_yaw_z;
@@ -42,7 +45,7 @@ class Control
     float angleOverTwoPi(float angle);
 
     public:
-    Control(ClientService *map1ServerService, ClientService *map2ServerService, ClientService *map3ServerService, ClientService *map4ServerService);
+    Control(ClientService *map1ServerService, ClientService *map2ServerService, ClientService *map3ServerService, ClientService *map4ServerService, LoadMap *loadMap);
     void calculateAngleSpeed() ;
 
     void setPosYaw(float x,float y,float yaw_z);
