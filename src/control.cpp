@@ -44,7 +44,6 @@ Control::Control(ClientService *map1ServerService, ClientService *map2ServerServ
     m_driving_direction = 1;
 
     m_activeMapServer = m_map1ServerService;
-    m_loadMap->startLoadMap();
 
 }
 
@@ -103,9 +102,7 @@ void Control::calculateAngleSpeed() {
      
         return;
     }
-    else {
-    }
-
+    
     //Incase no map is active
 
     if(m_activeMapServer->getState()!= lifecycle_msgs::msg::State::PRIMARY_STATE_ACTIVE){
@@ -130,23 +127,24 @@ void Control::calculateAngleSpeed() {
     //std::cout << "delta_dest:" << delta_dest << std::endl;
     //driving backwarts: adding 180 degree
     float delta_phi;
+    float temp_yaw_z = m_yaw_z;
     if(m_driving_direction == -1 ){
-        m_yaw_z = m_yaw_z+M_PI;
-        angleOverTwoPi(m_yaw_z);
+    temp_yaw_z = temp_yaw_z+M_PI;
+        temp_yaw_z = angleOverTwoPi(temp_yaw_z);
     }
-    delta_phi = (atan2(delta_y, delta_x))- m_yaw_z; 
+    delta_phi = (atan2(delta_y, delta_x))- temp_yaw_z; 
 
     delta_phi = angleOverTwoPi(delta_phi);
 
 
-    //std::cout << "delta_phi:" << delta_phi << std::endl;
+    std::cout << "delta_phi:" << delta_phi << "  atan2: "<< (atan2(delta_y, delta_x)) <<"  temp_yaw_z: "<<temp_yaw_z<< std::endl;
     
     m_angle = delta_phi;
     
 
     //while turning roboter drives real slow and is slowed down afterwards too
 
-    if(m_slowDownTurning > 1){
+    /*if(m_slowDownTurning > 1){
         
         m_angle = m_angle/m_slowDownTurning;
 
@@ -154,7 +152,7 @@ void Control::calculateAngleSpeed() {
         if(m_slowDownTurning < 1){
             m_slowDownTurning = 1;
         }
-    }
+    }*/
 
     if((delta_phi > m_dest_precision) || (delta_phi < -m_dest_precision)) {
         m_speed = 0.001;
@@ -209,9 +207,9 @@ void Control::setNaviagtionStep(){
 
     }
     else if( m_navigationStep == 2 ){
-        /*m_activeMapServer = m_map2ServerService;
-        m_map1ServerService->deactiveService();*/
-        m_loadMap->startLoadMap();
+        m_activeMapServer = m_map2ServerService;
+        m_map1ServerService->deactiveService();
+        //m_loadMap->startLoadMap();
     }
     else if( m_navigationStep == 3 ){
         m_x_dest = 3.6;
@@ -326,10 +324,11 @@ float Control::getSpeed(){
 }
 
 float Control::angleOverTwoPi(float angle){
-    if(angle < -M_PI){
+
+    while(angle < -M_PI){
         angle += 2*M_PI;
         }
-    if(angle > M_PI){
+    while(angle > M_PI){
         angle -= 2*M_PI;
         };
     return angle;

@@ -31,5 +31,4 @@ void LoadMap::loadMap_callback(const rclcpp::Client<nav2_msgs::srv::LoadMap>::Sh
   }else{
     std::cout <<  "load map not successful" <<std::endl;
   }
-
 }

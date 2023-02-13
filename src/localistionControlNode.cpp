@@ -22,7 +22,7 @@ LocalisationControlNode::LocalisationControlNode(): Node("localisation_control")
     map4_server_get_state = this->create_client<lifecycle_msgs::srv::GetState>(map4_server_get_state_topic);
     map4_server_change_state = this->create_client<lifecycle_msgs::srv::ChangeState>(map4_server_change_state_topic);
 
-    map_server_load_map = this->create_client<nav2_msgs::srv::LoadMap>(map_server_load_map_topic);
+    map_server_load_map = this->create_client<nav2_msgs::srv::LoadMap>(map_server_load_map_topic); // /map_server/load_map
 
     m_amclService = new ClientService(amcl_get_state, amcl_change_state, "amcl");
     m_map1ServerService = new ClientService(map1_server_get_state, map1_server_change_state, "map1_service");
