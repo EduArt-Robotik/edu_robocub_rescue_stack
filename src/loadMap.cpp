@@ -11,7 +11,7 @@ LoadMap::LoadMap(std::shared_ptr<rclcpp::Client<nav2_msgs::srv::LoadMap>> client
 
 void LoadMap::startLoadMap(std::chrono::seconds timeout ){
    auto request = std::make_shared<nav2_msgs::srv::LoadMap::Request>();
-  //request->map_url = "/ros/maps/map.yaml";
+  request->map_url = "/home/daniel/ros2_ws/src/robocub_rescue_stack/config/map_ramp_start.yaml";
 
     if (!m_client_load_map->wait_for_service(timeout))
     {

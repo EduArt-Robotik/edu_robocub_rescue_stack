@@ -44,6 +44,7 @@ Control::Control(ClientService *map1ServerService, ClientService *map2ServerServ
     m_driving_direction = 1;
 
     m_activeMapServer = m_map1ServerService;
+    m_loadMap->startLoadMap();
 
 }
 
