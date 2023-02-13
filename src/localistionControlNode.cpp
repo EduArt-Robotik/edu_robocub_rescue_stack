@@ -21,7 +21,9 @@ LocalisationControlNode::LocalisationControlNode(): Node("localisation_control")
 
     map4_server_get_state = this->create_client<lifecycle_msgs::srv::GetState>(map4_server_get_state_topic);
     map4_server_change_state = this->create_client<lifecycle_msgs::srv::ChangeState>(map4_server_change_state_topic);
-    
+
+    map_server_load_map = this->create_client<nav2_msgs::srv::LoadMap>(map4_server_change_state_topic);
+
     m_amclService = new ClientService(amcl_get_state, amcl_change_state, "amcl");
     m_map1ServerService = new ClientService(map1_server_get_state, map1_server_change_state, "map1_service");
     m_map2ServerService = new ClientService(map2_server_get_state, map2_server_change_state, "map2_service");
@@ -32,6 +34,8 @@ LocalisationControlNode::LocalisationControlNode(): Node("localisation_control")
     m_localisation_amcl = new Localisation();
     m_localisation_odom = new Localisation();
     m_localisation_imu = new Localisation();
+
+    LoadMap *lp = new LoadMap(map_server_load_map);
 
     //subscriber
     subscriber_odom_= this->create_subscription<nav_msgs::msg::Odometry>("/odom", 1, std::bind(&LocalisationControlNode::odom_callback, this, std::placeholders::_1));

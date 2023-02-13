@@ -20,9 +20,9 @@ find_package(nav2_msgs REQUIRED)
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
-add_executable(edu_robocup_rescue_stack_node src/edu_robocup_rescue_stack_node.cpp src/localistionControlNode.cpp src/control.cpp src/localisation.cpp src/clientService.cpp )
+add_executable(edu_robocup_rescue_stack_node src/edu_robocup_rescue_stack_node.cpp src/localistionControlNode.cpp src/control.cpp src/localisation.cpp src/clientService.cpp src/loadMap.cpp)
 
-ament_target_dependencies(edu_robocup_rescue_stack_node rclcpp geometry_msgs nav2_msgs std_msgs lifecycle_msgs rclcpp_lifecycle sensor_msgs)
+ament_target_dependencies(edu_robocup_rescue_stack_node rclcpp geometry_msgs nav2_msgs std_msgs lifecycle_msgs rclcpp_lifecycle sensor_msgs )
 
 target_include_directories(edu_robocup_rescue_stack_node PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>

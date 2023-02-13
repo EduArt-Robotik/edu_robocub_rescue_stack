@@ -81,6 +81,7 @@ bool ClientService::deactiveService() {
   }
 }
 
+
 void ClientService::start_get_state(std::chrono::seconds timeout )
 {
   if(m_state_get == false){

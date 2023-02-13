@@ -12,6 +12,7 @@
 #include <cmath>
 #include "lifecycle_msgs/msg/transition_event.hpp"
 
+#include "loadMap.h"
 #include "localisation.h"
 
 using namespace std;
@@ -84,6 +85,9 @@ private:
     static constexpr char const * map4_server_get_state_topic = "/map4_server/get_state";
     static constexpr char const * map4_server_change_state_topic = "/map4_server/change_state";
 
+    static constexpr char const * map_server_load_map_topic = "/map_server/load_map";
+
+
      //Initalising Client
     std::shared_ptr<rclcpp::Client<lifecycle_msgs::srv::GetState>> amcl_get_state;
     std::shared_ptr<rclcpp::Client<lifecycle_msgs::srv::ChangeState>> amcl_change_state;
@@ -96,4 +100,6 @@ private:
     std::shared_ptr<rclcpp::Client<lifecycle_msgs::srv::ChangeState>> map3_server_change_state;
     std::shared_ptr<rclcpp::Client<lifecycle_msgs::srv::GetState>> map4_server_get_state;
     std::shared_ptr<rclcpp::Client<lifecycle_msgs::srv::ChangeState>> map4_server_change_state;
+    std::shared_ptr<rclcpp::Client<nav2_msgs::srv::LoadMap>> map_server_load_map;
+
 };

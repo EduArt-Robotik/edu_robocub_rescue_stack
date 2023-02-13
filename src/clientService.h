@@ -9,6 +9,7 @@
 #include "lifecycle_msgs/srv/get_state.hpp"
 
 
+
 using namespace std::chrono_literals;
 
 
@@ -26,7 +27,6 @@ class ClientService{
 
 
   private:
-
   void getState_callback(const rclcpp::Client<lifecycle_msgs::srv::GetState>::SharedFuture future);
   void changeState_callback(const rclcpp::Client<lifecycle_msgs::srv::ChangeState>::SharedFuture future);
 
