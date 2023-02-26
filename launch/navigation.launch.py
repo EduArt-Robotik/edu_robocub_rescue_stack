@@ -30,7 +30,7 @@ def generate_launch_description():
     params_file = LaunchConfiguration('params_file')
     mask_yaml_file = LaunchConfiguration('mask')
 
-    lifecycle_nodes = ['amcl', 'map_server' ]   #'costmap_filter_info_server', 'filter_mask_server',
+    lifecycle_nodes = ['amcl']   #'costmap_filter_info_server', 'filter_mask_server', , 'map_server' 
 
 
 
@@ -75,20 +75,20 @@ def generate_launch_description():
 
     declare_mask_yaml_file = DeclareLaunchArgument(
         'mask',
-        default_value=os.path.join(bringup_dir, 'keepout', 'keepout_6.2.yaml')
+        default_value=os.path.join(bringup_dir, 'keepout', 'keepout_6.1.yaml')
     )
 
-    start_lifecycle_manager = Node(
-        package='nav2_lifecycle_manager',
-        executable='lifecycle_manager',
-        name='lifecycle_manager_localization',
-        namespace=namespace,
-        output='screen',
-        emulate_tty=True,
-        parameters=[{'use_sim_time': use_sim_time},
-                    {'autostart': True},
-                    {'node_names': lifecycle_nodes}]
-    )
+    #start_lifecycle_manager = Node(
+    #    package='nav2_lifecycle_manager',
+    #    executable='lifecycle_manager',
+    #    name='lifecycle_manager_localization',
+    #    namespace=namespace,
+    #    output='screen',
+    #    emulate_tty=True,
+    #    parameters=[{'use_sim_time': use_sim_time},
+    #                {'autostart': True},
+    #                {'node_names': lifecycle_nodes}]
+    #)
 
     start_map_server = Node(
         package='nav2_map_server',
@@ -99,12 +99,32 @@ def generate_launch_description():
     )
 
     start_amcl = Node(
+        parameters=[
+           { 'scan_topic': '/demo/laser/out'},
+           { 'base_frame_id': 'base_frame'},
+        ],
         package='nav2_amcl',
         executable='amcl',
         name='amcl',
-        output='screen',
-        parameters=[params_file],
-    )
+        output='screen')
+    
+    #Node(
+    #   package='nav2_amcl',
+    #    executable='amcl',
+    #    name='amcl',
+    #    output='screen',
+    #    parameters=[params_file],
+    #)
+
+    start_lifecycle_manager = Node (
+        parameters=[
+            { 'autostart': True},
+            { 'node_names': ['amcl']},
+        ],
+        package='nav2_lifecycle_manager', 
+        executable='lifecycle_manager',
+        output='screen'
+        )
 
 
 
@@ -130,7 +150,7 @@ def generate_launch_description():
     start_navigation = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(os.path.join(nav2_launch_dir, 'bringup_launch.py')), 
         launch_arguments = {'namespace':namespace,
-                            'use_sim_time': use_sim_time,
+                           'use_sim_time': use_sim_time,
                             'map': map_file,
                             'params_file': params_file,
                             'autostart': autostart}.items()

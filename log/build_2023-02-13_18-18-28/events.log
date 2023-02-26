@@ -1,0 +1,280 @@
+[0.000000] (-) TimerEvent: {}
+[0.000540] (edu_robocup_rescue_stack) JobQueued: {'identifier': 'edu_robocup_rescue_stack', 'dependencies': OrderedDict()}
+[0.004391] (edu_robocup_rescue_stack) JobStarted: {'identifier': 'edu_robocup_rescue_stack'}
+[0.089235] (edu_robocup_rescue_stack) JobProgress: {'identifier': 'edu_robocup_rescue_stack', 'progress': 'cmake'}
+[0.092394] (edu_robocup_rescue_stack) JobProgress: {'identifier': 'edu_robocup_rescue_stack', 'progress': 'build'}
+[0.098336] (edu_robocup_rescue_stack) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack', '--', '-j8', '-l8'], 'cwd': '/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_US:en'), ('USER', 'daniel'), ('LC_TIME', 'de_DE.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('GIT_ASKPASS', '/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/home/daniel/ros2_ws/install/test_msgs/lib:/home/daniel/ros2_ws/install/statistics_msgs/lib:/home/daniel/ros2_ws/install/slam_toolbox/lib:/home/daniel/ros2_ws/install/rosgraph_msgs/lib:/home/daniel/ros2_ws/install/composition_interfaces/lib:/home/daniel/ros2_ws/install/rcl_interfaces/lib:/home/daniel/ros2_ws/install/nav_2d_utils/lib:/home/daniel/ros2_ws/install/nav2_velocity_smoother/lib:/home/daniel/ros2_ws/install/nav2_smac_planner/lib:/home/daniel/ros2_ws/install/nav2_rviz_plugins/lib:/home/daniel/ros2_ws/install/nav2_map_server/lib:/home/daniel/ros2_ws/install/nav2_amcl/lib:/home/daniel/ros2_ws/install/nav2_msgs/lib:/home/daniel/ros2_ws/install/dwb_msgs/lib:/home/daniel/ros2_ws/install/action_msgs/lib:/home/daniel/ros2_ws/install/builtin_interfaces/lib:/home/daniel/ros2_ws/install/nav_2d_msgs/lib:/home/daniel/ros2_ws/install/nav2_voxel_grid/lib:/home/daniel/ros2_ws/install/lifecycle_msgs/lib:/home/daniel/ros2_ws/install/costmap_queue/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/daniel'), ('CHROME_DESKTOP', 'code-url-handler.desktop'), ('OLDPWD', '/home/daniel/ros2_ws/src'), ('TERM_PROGRAM_VERSION', '1.72.0'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('VSCODE_GIT_ASKPASS_MAIN', '/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'de_DE.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/usr/share/code/code'), ('SYSTEMD_EXEC_PID', '1093'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/daniel/ros2_ws/install:/home/daniel/edu_ws_cpp/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'daniel'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'daniel'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/daniel-Surface-Pro-8:@/tmp/.ICE-unix/1068,unix/daniel-Surface-Pro-8:/tmp/.ICE-unix/1068'), ('PAPERSIZE', 'a4'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'de_DE.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/3649984a_24d6_45f1_9457_e0aee2fa72db'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'Unity'), ('LC_TELEPHONE', 'de_DE.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.I0G2Z1'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-b31611c76f.sock'), ('GNOME_TERMINAL_SERVICE', ':1.136'), ('TERM_PROGRAM', 'vscode'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/daniel/ros2_ws/install/test_msgs:/home/daniel/ros2_ws/install/test_interface_files:/home/daniel/ros2_ws/install/statistics_msgs:/home/daniel/ros2_ws/install/slam_toolbox:/home/daniel/ros2_ws/install/composition_interfaces:/home/daniel/ros2_ws/install/rcl_interfaces:/home/daniel/ros2_ws/install/nav_2d_utils:/home/daniel/ros2_ws/install/nav2_velocity_smoother:/home/daniel/ros2_ws/install/nav2_smac_planner:/home/daniel/ros2_ws/install/nav2_rviz_plugins:/home/daniel/ros2_ws/install/nav2_map_server:/home/daniel/ros2_ws/install/nav2_core:/home/daniel/ros2_ws/install/nav2_amcl:/home/daniel/ros2_ws/install/nav2_simple_commander:/home/daniel/ros2_ws/install/nav2_msgs:/home/daniel/ros2_ws/install/dwb_msgs:/home/daniel/ros2_ws/install/action_msgs:/home/daniel/ros2_ws/install/builtin_interfaces:/home/daniel/ros2_ws/install/rosidl_core_runtime:/home/daniel/ros2_ws/install/rosidl_core_generators:/home/daniel/ros2_ws/install/nav_2d_msgs:/home/daniel/ros2_ws/install/nav2_voxel_grid:/home/daniel/ros2_ws/install/nav2_common:/home/daniel/ros2_ws/install/lifecycle_msgs:/home/daniel/ros2_ws/install/edu_simulation:/home/daniel/ros2_ws/install/edu_robocup_rescue_stack:/home/daniel/ros2_ws/install/costmap_queue:/home/daniel/edu_ws_cpp/install/edu_simulate_pkg:/home/daniel/edu_ws_cpp/install/edu_control_pkg:/opt/ros/humble'), ('ORIGINAL_XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('SHELL', '/bin/bash'), ('LC_NAME', 'de_DE.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'de_DE.UTF-8'), ('LC_IDENTIFICATION', 'de_DE.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', '--ms-enable-electron-run-as-node'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/home/daniel/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/daniel/ros2_ws/install/test_msgs/local/lib/python3.10/dist-packages:/home/daniel/ros2_ws/install/statistics_msgs/local/lib/python3.10/dist-packages:/home/daniel/ros2_ws/install/slam_toolbox/local/lib/python3.10/dist-packages:/home/daniel/ros2_ws/install/composition_interfaces/local/lib/python3.10/dist-packages:/home/daniel/ros2_ws/install/rcl_interfaces/local/lib/python3.10/dist-packages:/home/daniel/ros2_ws/install/nav2_simple_commander/lib/python3.10/site-packages:/home/daniel/ros2_ws/install/nav2_msgs/local/lib/python3.10/dist-packages:/home/daniel/ros2_ws/install/dwb_msgs/local/lib/python3.10/dist-packages:/home/daniel/ros2_ws/install/action_msgs/local/lib/python3.10/dist-packages:/home/daniel/ros2_ws/install/builtin_interfaces/local/lib/python3.10/dist-packages:/home/daniel/ros2_ws/install/nav_2d_msgs/local/lib/python3.10/dist-packages:/home/daniel/ros2_ws/install/nav2_common/local/lib/python3.10/dist-packages:/home/daniel/ros2_ws/install/lifecycle_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'de_DE.UTF-8'), ('LC_PAPER', 'de_DE.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/daniel/ros2_ws/install/test_msgs:/home/daniel/ros2_ws/install/test_interface_files:/home/daniel/ros2_ws/install/slam_toolbox:/home/daniel/ros2_ws/install/rosgraph_msgs:/home/daniel/ros2_ws/install/composition_interfaces:/home/daniel/ros2_ws/install/rcl_interfaces:/home/daniel/ros2_ws/install/nav_2d_utils:/home/daniel/ros2_ws/install/nav2_velocity_smoother:/home/daniel/ros2_ws/install/nav2_smac_planner:/home/daniel/ros2_ws/install/nav2_rviz_plugins:/home/daniel/ros2_ws/install/nav2_map_server:/home/daniel/ros2_ws/install/nav2_core:/home/daniel/ros2_ws/install/nav2_amcl:/home/daniel/ros2_ws/install/nav2_msgs:/home/daniel/ros2_ws/install/dwb_msgs:/home/daniel/ros2_ws/install/builtin_interfaces:/home/daniel/ros2_ws/install/rosidl_core_runtime:/home/daniel/ros2_ws/install/rosidl_core_generators:/home/daniel/ros2_ws/install/nav_2d_msgs:/home/daniel/ros2_ws/install/nav2_voxel_grid:/home/daniel/ros2_ws/install/nav2_common:/home/daniel/ros2_ws/install/lifecycle_msgs:/home/daniel/ros2_ws/install/edu_simulation:/home/daniel/ros2_ws/install/edu_robocup_rescue_stack:/home/daniel/ros2_ws/install/costmap_queue:/home/daniel/edu_ws_cpp/install/edu_simulate_pkg:/home/daniel/edu_ws_cpp/install/edu_control_pkg:/home/daniel/ros2_ws/install/statistics_msgs:/home/daniel/ros2_ws/install/nav2_simple_commander:/home/daniel/ros2_ws/install/action_msgs:/opt/ros/humble')]), 'shell': False}
+[0.106598] (-) TimerEvent: {}
+[0.213626] (-) TimerEvent: {}
+[0.249845] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.2 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.315230] (-) TimerEvent: {}
+[0.416168] (-) TimerEvent: {}
+[0.516967] (-) TimerEvent: {}
+[0.617827] (-) TimerEvent: {}
+[0.718718] (-) TimerEvent: {}
+[0.819455] (-) TimerEvent: {}
+[0.920179] (-) TimerEvent: {}
+[0.978629] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Found rclcpp: 16.0.1 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[1.020327] (-) TimerEvent: {}
+[1.092548] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.3 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[1.102993] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.3 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[1.120497] (-) TimerEvent: {}
+[1.132624] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.3 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[1.186933] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[1.220727] (-) TimerEvent: {}
+[1.269462] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.320921] (-) TimerEvent: {}
+[1.421889] (-) TimerEvent: {}
+[1.522849] (-) TimerEvent: {}
+[1.585606] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.0 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[1.593394] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.1 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[1.623121] (-) TimerEvent: {}
+[1.723956] (-) TimerEvent: {}
+[1.824760] (-) TimerEvent: {}
+[1.925597] (-) TimerEvent: {}
+[2.026363] (-) TimerEvent: {}
+[2.066243] (edu_robocup_rescue_stack) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[2.126668] (-) TimerEvent: {}
+[2.227492] (-) TimerEvent: {}
+[2.328449] (-) TimerEvent: {}
+[2.429358] (-) TimerEvent: {}
+[2.530281] (-) TimerEvent: {}
+[2.631167] (-) TimerEvent: {}
+[2.710822] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Found geometry_msgs: 4.2.2 (/opt/ros/humble/share/geometry_msgs/cmake)\n'}
+[2.731422] (-) TimerEvent: {}
+[2.832201] (-) TimerEvent: {}
+[2.871055] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Found nav_msgs: 4.2.2 (/opt/ros/humble/share/nav_msgs/cmake)\n'}
+[2.932396] (-) TimerEvent: {}
+[3.033233] (-) TimerEvent: {}
+[3.134006] (-) TimerEvent: {}
+[3.179622] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Found sensor_msgs: 4.2.2 (/opt/ros/humble/share/sensor_msgs/cmake)\n'}
+[3.234259] (-) TimerEvent: {}
+[3.334947] (-) TimerEvent: {}
+[3.435720] (-) TimerEvent: {}
+[3.504657] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Found tf2_ros: 0.25.1 (/opt/ros/humble/share/tf2_ros/cmake)\n'}
+[3.535846] (-) TimerEvent: {}
+[3.636553] (-) TimerEvent: {}
+[3.737310] (-) TimerEvent: {}
+[3.838128] (-) TimerEvent: {}
+[3.938890] (-) TimerEvent: {}
+[4.039685] (-) TimerEvent: {}
+[4.140383] (-) TimerEvent: {}
+[4.241288] (-) TimerEvent: {}
+[4.342036] (-) TimerEvent: {}
+[4.442922] (-) TimerEvent: {}
+[4.543681] (-) TimerEvent: {}
+[4.644408] (-) TimerEvent: {}
+[4.745058] (-) TimerEvent: {}
+[4.814401] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Found nav2_costmap_2d: 1.1.2 (/opt/ros/humble/share/nav2_costmap_2d/cmake)\n'}
+[4.845200] (-) TimerEvent: {}
+[4.945862] (-) TimerEvent: {}
+[5.046530] (-) TimerEvent: {}
+[5.147349] (-) TimerEvent: {}
+[5.248049] (-) TimerEvent: {}
+[5.348735] (-) TimerEvent: {}
+[5.449533] (-) TimerEvent: {}
+[5.550372] (-) TimerEvent: {}
+[5.651132] (-) TimerEvent: {}
+[5.751943] (-) TimerEvent: {}
+[5.852770] (-) TimerEvent: {}
+[5.953698] (-) TimerEvent: {}
+[6.054497] (-) TimerEvent: {}
+[6.155368] (-) TimerEvent: {}
+[6.177551] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target\n'}
+[6.255556] (-) TimerEvent: {}
+[6.356247] (-) TimerEvent: {}
+[6.456920] (-) TimerEvent: {}
+[6.557680] (-) TimerEvent: {}
+[6.658562] (-) TimerEvent: {}
+[6.759381] (-) TimerEvent: {}
+[6.860007] (-) TimerEvent: {}
+[6.960646] (-) TimerEvent: {}
+[7.061385] (-) TimerEvent: {}
+[7.162235] (-) TimerEvent: {}
+[7.262907] (-) TimerEvent: {}
+[7.363587] (-) TimerEvent: {}
+[7.464444] (-) TimerEvent: {}
+[7.565201] (-) TimerEvent: {}
+[7.666060] (-) TimerEvent: {}
+[7.766823] (-) TimerEvent: {}
+[7.867591] (-) TimerEvent: {}
+[7.968295] (-) TimerEvent: {}
+[8.069135] (-) TimerEvent: {}
+[8.169926] (-) TimerEvent: {}
+[8.270729] (-) TimerEvent: {}
+[8.371456] (-) TimerEvent: {}
+[8.472200] (-) TimerEvent: {}
+[8.572943] (-) TimerEvent: {}
+[8.673637] (-) TimerEvent: {}
+[8.774388] (-) TimerEvent: {}
+[8.875101] (-) TimerEvent: {}
+[8.975831] (-) TimerEvent: {}
+[9.076524] (-) TimerEvent: {}
+[9.109648] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.4 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[9.176752] (-) TimerEvent: {}
+[9.277399] (-) TimerEvent: {}
+[9.378044] (-) TimerEvent: {}
+[9.473217] (edu_robocup_rescue_stack) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[9.474658] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/include>\n'}
+[9.475192] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[9.478154] (-) TimerEvent: {}
+[9.493930] (edu_robocup_rescue_stack) StdoutLine: {'line': b"-- Added test 'flake8' to check Python code syntax and style conventions\n"}
+[9.527173] (edu_robocup_rescue_stack) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[9.538444] (edu_robocup_rescue_stack) StdoutLine: {'line': b"-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257\n"}
+[9.578354] (-) TimerEvent: {}
+[9.641869] (edu_robocup_rescue_stack) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[9.642430] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[9.653348] (edu_robocup_rescue_stack) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[9.655804] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Configuring done\n'}
+[9.678532] (-) TimerEvent: {}
+[9.703624] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Generating done\n'}
+[9.716462] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Build files have been written to: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack\n'}
+[9.778825] (-) TimerEvent: {}
+[9.817478] (edu_robocup_rescue_stack) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target edu_robocup_rescue_stack_node\x1b[0m\n'}
+[9.879060] (-) TimerEvent: {}
+[9.930345] (edu_robocup_rescue_stack) StdoutLine: {'line': b'[ 16%] \x1b[32mBuilding CXX object CMakeFiles/edu_robocup_rescue_stack_node.dir/src/control.cpp.o\x1b[0m\n'}
+[9.932888] (edu_robocup_rescue_stack) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/edu_robocup_rescue_stack_node.dir/src/localistionControlNode.cpp.o\x1b[0m\n'}
+[9.934149] (edu_robocup_rescue_stack) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/edu_robocup_rescue_stack_node.dir/src/edu_robocup_rescue_stack_node.cpp.o\x1b[0m\n'}
+[9.935544] (edu_robocup_rescue_stack) StdoutLine: {'line': b'[ 66%] \x1b[32mBuilding CXX object CMakeFiles/edu_robocup_rescue_stack_node.dir/src/navigation.cpp.o\x1b[0m\n'}
+[9.941887] (edu_robocup_rescue_stack) StdoutLine: {'line': b'[ 83%] \x1b[32mBuilding CXX object CMakeFiles/edu_robocup_rescue_stack_node.dir/src/localisation.cpp.o\x1b[0m\n'}
+[9.979262] (-) TimerEvent: {}
+[10.080017] (-) TimerEvent: {}
+[10.180762] (-) TimerEvent: {}
+[10.281509] (-) TimerEvent: {}
+[10.382448] (-) TimerEvent: {}
+[10.483520] (-) TimerEvent: {}
+[10.584730] (-) TimerEvent: {}
+[10.685768] (-) TimerEvent: {}
+[10.786505] (-) TimerEvent: {}
+[10.887412] (-) TimerEvent: {}
+[10.988914] (-) TimerEvent: {}
+[11.026529] (edu_robocup_rescue_stack) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/control.h:9\x1b[m\x1b[K,\n'}
+[11.027555] (edu_robocup_rescue_stack) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localisation.h:1\x1b[m\x1b[K,\n'}
+[11.028657] (edu_robocup_rescue_stack) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localisationControlNode.h:22\x1b[m\x1b[K,\n'}
+[11.029302] (edu_robocup_rescue_stack) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/edu_robocup_rescue_stack_node.cpp:3\x1b[m\x1b[K:\n'}
+[11.030080] (edu_robocup_rescue_stack) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/loadMap.h:6:10:\x1b[m\x1b[K \x1b[01;31m\x1b[Kfatal error: \x1b[m\x1b[Knav2_msgs/srv/load_map.hpp: No such file or directory\n'}
+[11.030654] (edu_robocup_rescue_stack) StderrLine: {'line': b'    6 | #include \x1b[01;31m\x1b[K"nav2_msgs/srv/load_map.hpp"\x1b[m\x1b[K\n'}
+[11.031108] (edu_robocup_rescue_stack) StderrLine: {'line': b'      |          \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[11.031459] (edu_robocup_rescue_stack) StderrLine: {'line': b'compilation terminated.\n'}
+[11.038726] (edu_robocup_rescue_stack) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/edu_robocup_rescue_stack_node.dir/build.make:76: CMakeFiles/edu_robocup_rescue_stack_node.dir/src/edu_robocup_rescue_stack_node.cpp.o] Error 1\n'}
+[11.040269] (edu_robocup_rescue_stack) StderrLine: {'line': b'gmake[2]: *** Waiting for unfinished jobs....\n'}
+[11.089105] (-) TimerEvent: {}
+[11.189951] (-) TimerEvent: {}
+[11.290732] (-) TimerEvent: {}
+[11.348099] (edu_robocup_rescue_stack) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/control.h:9\x1b[m\x1b[K,\n'}
+[11.348898] (edu_robocup_rescue_stack) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localisation.h:1\x1b[m\x1b[K,\n'}
+[11.349505] (edu_robocup_rescue_stack) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localisation.cpp:1\x1b[m\x1b[K:\n'}
+[11.350049] (edu_robocup_rescue_stack) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/loadMap.h:6:10:\x1b[m\x1b[K \x1b[01;31m\x1b[Kfatal error: \x1b[m\x1b[Knav2_msgs/srv/load_map.hpp: No such file or directory\n'}
+[11.350625] (edu_robocup_rescue_stack) StderrLine: {'line': b'    6 | #include \x1b[01;31m\x1b[K"nav2_msgs/srv/load_map.hpp"\x1b[m\x1b[K\n'}
+[11.351129] (edu_robocup_rescue_stack) StderrLine: {'line': b'      |          \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[11.351603] (edu_robocup_rescue_stack) StderrLine: {'line': b'compilation terminated.\n'}
+[11.362953] (edu_robocup_rescue_stack) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/edu_robocup_rescue_stack_node.dir/build.make:118: CMakeFiles/edu_robocup_rescue_stack_node.dir/src/localisation.cpp.o] Error 1\n'}
+[11.390940] (-) TimerEvent: {}
+[11.462385] (edu_robocup_rescue_stack) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/control.h:9\x1b[m\x1b[K,\n'}
+[11.463932] (edu_robocup_rescue_stack) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/control.cpp:2\x1b[m\x1b[K:\n'}
+[11.464609] (edu_robocup_rescue_stack) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/loadMap.h:6:10:\x1b[m\x1b[K \x1b[01;31m\x1b[Kfatal error: \x1b[m\x1b[Knav2_msgs/srv/load_map.hpp: No such file or directory\n'}
+[11.465197] (edu_robocup_rescue_stack) StderrLine: {'line': b'    6 | #include \x1b[01;31m\x1b[K"nav2_msgs/srv/load_map.hpp"\x1b[m\x1b[K\n'}
+[11.465756] (edu_robocup_rescue_stack) StderrLine: {'line': b'      |          \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[11.466335] (edu_robocup_rescue_stack) StderrLine: {'line': b'compilation terminated.\n'}
+[11.468151] (edu_robocup_rescue_stack) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/control.h:9\x1b[m\x1b[K,\n'}
+[11.468812] (edu_robocup_rescue_stack) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localisation.h:1\x1b[m\x1b[K,\n'}
+[11.469208] (edu_robocup_rescue_stack) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localisationControlNode.h:22\x1b[m\x1b[K,\n'}
+[11.469592] (edu_robocup_rescue_stack) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localistionControlNode.cpp:1\x1b[m\x1b[K:\n'}
+[11.469968] (edu_robocup_rescue_stack) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/loadMap.h:6:10:\x1b[m\x1b[K \x1b[01;31m\x1b[Kfatal error: \x1b[m\x1b[Knav2_msgs/srv/load_map.hpp: No such file or directory\n'}
+[11.470365] (edu_robocup_rescue_stack) StderrLine: {'line': b'    6 | #include \x1b[01;31m\x1b[K"nav2_msgs/srv/load_map.hpp"\x1b[m\x1b[K\n'}
+[11.470740] (edu_robocup_rescue_stack) StderrLine: {'line': b'      |          \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[11.471094] (edu_robocup_rescue_stack) StderrLine: {'line': b'compilation terminated.\n'}
+[11.474017] (edu_robocup_rescue_stack) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/edu_robocup_rescue_stack_node.dir/build.make:104: CMakeFiles/edu_robocup_rescue_stack_node.dir/src/control.cpp.o] Error 1\n'}
+[11.474587] (edu_robocup_rescue_stack) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/edu_robocup_rescue_stack_node.dir/build.make:90: CMakeFiles/edu_robocup_rescue_stack_node.dir/src/localistionControlNode.cpp.o] Error 1\n'}
+[11.491103] (-) TimerEvent: {}
+[11.591807] (-) TimerEvent: {}
+[11.692514] (-) TimerEvent: {}
+[11.793226] (-) TimerEvent: {}
+[11.893973] (-) TimerEvent: {}
+[11.994777] (-) TimerEvent: {}
+[12.095454] (-) TimerEvent: {}
+[12.196200] (-) TimerEvent: {}
+[12.296904] (-) TimerEvent: {}
+[12.397665] (-) TimerEvent: {}
+[12.498486] (-) TimerEvent: {}
+[12.599171] (-) TimerEvent: {}
+[12.699956] (-) TimerEvent: {}
+[12.800660] (-) TimerEvent: {}
+[12.901302] (-) TimerEvent: {}
+[13.002087] (-) TimerEvent: {}
+[13.102876] (-) TimerEvent: {}
+[13.203681] (-) TimerEvent: {}
+[13.304512] (-) TimerEvent: {}
+[13.405280] (-) TimerEvent: {}
+[13.506006] (-) TimerEvent: {}
+[13.606818] (-) TimerEvent: {}
+[13.707647] (-) TimerEvent: {}
+[13.808317] (-) TimerEvent: {}
+[13.908927] (-) TimerEvent: {}
+[14.009649] (-) TimerEvent: {}
+[14.110446] (-) TimerEvent: {}
+[14.211283] (-) TimerEvent: {}
+[14.312140] (-) TimerEvent: {}
+[14.412815] (-) TimerEvent: {}
+[14.513494] (-) TimerEvent: {}
+[14.614304] (-) TimerEvent: {}
+[14.715121] (-) TimerEvent: {}
+[14.815924] (-) TimerEvent: {}
+[14.916627] (-) TimerEvent: {}
+[15.017416] (-) TimerEvent: {}
+[15.118258] (-) TimerEvent: {}
+[15.219189] (-) TimerEvent: {}
+[15.320057] (-) TimerEvent: {}
+[15.420865] (-) TimerEvent: {}
+[15.521610] (-) TimerEvent: {}
+[15.622387] (-) TimerEvent: {}
+[15.723217] (-) TimerEvent: {}
+[15.824121] (-) TimerEvent: {}
+[15.924949] (-) TimerEvent: {}
+[16.025744] (-) TimerEvent: {}
+[16.126482] (-) TimerEvent: {}
+[16.227257] (-) TimerEvent: {}
+[16.327975] (-) TimerEvent: {}
+[16.428816] (-) TimerEvent: {}
+[16.529621] (-) TimerEvent: {}
+[16.630492] (-) TimerEvent: {}
+[16.731391] (-) TimerEvent: {}
+[16.832104] (-) TimerEvent: {}
+[16.932760] (-) TimerEvent: {}
+[17.033517] (-) TimerEvent: {}
+[17.134199] (-) TimerEvent: {}
+[17.234809] (-) TimerEvent: {}
+[17.335498] (-) TimerEvent: {}
+[17.436450] (-) TimerEvent: {}
+[17.537195] (-) TimerEvent: {}
+[17.638059] (-) TimerEvent: {}
+[17.738832] (-) TimerEvent: {}
+[17.839610] (-) TimerEvent: {}
+[17.940326] (-) TimerEvent: {}
+[18.041052] (-) TimerEvent: {}
+[18.141787] (-) TimerEvent: {}
+[18.242540] (-) TimerEvent: {}
+[18.343309] (-) TimerEvent: {}
+[18.444187] (-) TimerEvent: {}
+[18.545007] (-) TimerEvent: {}
+[18.645707] (-) TimerEvent: {}
+[18.746512] (-) TimerEvent: {}
+[18.847248] (-) TimerEvent: {}
+[18.948020] (-) TimerEvent: {}
+[19.048660] (-) TimerEvent: {}
+[19.149418] (-) TimerEvent: {}
+[19.250215] (-) TimerEvent: {}
+[19.351090] (-) TimerEvent: {}
+[19.451776] (-) TimerEvent: {}
+[19.552441] (-) TimerEvent: {}
+[19.653177] (-) TimerEvent: {}
+[19.753930] (-) TimerEvent: {}
+[19.854572] (-) TimerEvent: {}
+[19.955250] (-) TimerEvent: {}
+[19.980187] (edu_robocup_rescue_stack) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/edu_robocup_rescue_stack_node.dir/all] Error 2\n'}
+[19.981131] (edu_robocup_rescue_stack) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[19.989212] (edu_robocup_rescue_stack) CommandEnded: {'returncode': 2}
+[20.055431] (-) TimerEvent: {}
+[20.156715] (-) TimerEvent: {}
+[20.206439] (edu_robocup_rescue_stack) JobEnded: {'identifier': 'edu_robocup_rescue_stack', 'rc': 2}
+[20.218111] (-) EventReactorShutdown: {}

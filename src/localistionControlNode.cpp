@@ -62,7 +62,7 @@ void LocalisationControlNode::odom_callback(const nav_msgs::msg::Odometry::Share
 
 void LocalisationControlNode::timer_callback()
 {
-    setting_goal_pose();
+    //setting_goal_pose();
     
 
     auto message = geometry_msgs::msg::Twist();
@@ -118,7 +118,7 @@ void LocalisationControlNode::amcl_pose_callback(const geometry_msgs::msg::PoseW
 
 
 
-void LocalisationControlNode::setting_goal_pose(){
+/*void LocalisationControlNode::setting_goal_pose(){
 
     //std::cout << "goal_pose_setting" << m_initial_pose_set << std::endl;
     
@@ -188,4 +188,4 @@ void LocalisationControlNode::setting_goal_pose(){
     m_goal_send = m_navigation->getPoseSend();
     
         
-}
+}*/

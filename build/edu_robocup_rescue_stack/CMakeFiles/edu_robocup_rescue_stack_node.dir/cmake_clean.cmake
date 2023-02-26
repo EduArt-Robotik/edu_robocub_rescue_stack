@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/edu_robocup_rescue_stack_node.dir/src/clientService.cpp.o"
+  "CMakeFiles/edu_robocup_rescue_stack_node.dir/src/clientService.cpp.o.d"
   "CMakeFiles/edu_robocup_rescue_stack_node.dir/src/control.cpp.o"
   "CMakeFiles/edu_robocup_rescue_stack_node.dir/src/control.cpp.o.d"
   "CMakeFiles/edu_robocup_rescue_stack_node.dir/src/edu_robocup_rescue_stack_node.cpp.o"

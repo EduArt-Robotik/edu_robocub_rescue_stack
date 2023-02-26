@@ -20,7 +20,7 @@ def generate_launch_description():
     declare_path_map = DeclareLaunchArgument(
         'map_file',
         default_value=os.path.join(get_package_share_directory('edu_robocup_rescue_stack'),
-                                   'config', 'map2.yaml'),
+                                   'map', 'map4.yaml'),
         )
 
     map_server = Node(
@@ -46,7 +46,7 @@ def generate_launch_description():
     static_transform_publisher_base_frame_laser_link_node = Node(
             package='tf2_ros',
             executable='static_transform_publisher',
-            arguments = ['--x', '0.1', '--y', '0', '--z', '0.16', '--yaw', '-0.4', '--pitch', '0', '--roll', '0', '--frame-id', 'base_frame', '--child-frame-id', 'laser_link']
+            arguments = ['--x', '0.1', '--y', '0', '--z', '0.139', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_frame', '--child-frame-id', 'laser_link']
         )
 
     

@@ -1,0 +1,73 @@
+[0.099s] Invoking command in '/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/daniel/ros2_ws/install/statistics_msgs:/home/daniel/ros2_ws/install/nav2_simple_commander:/home/daniel/ros2_ws/install/action_msgs:/opt/ros/humble /usr/bin/cmake --build /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack -- -j8 -l8
+[0.246s] -- Found ament_cmake: 1.3.2 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.975s] -- Found rclcpp: 16.0.1 (/opt/ros/humble/share/rclcpp/cmake)
+[1.089s] -- Found rosidl_generator_c: 3.1.3 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[1.099s] -- Found rosidl_adapter: 3.1.3 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[1.129s] -- Found rosidl_generator_cpp: 3.1.3 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[1.183s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.266s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.581s] -- Found rmw_implementation_cmake: 6.1.0 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[1.589s] -- Found rmw_fastrtps_cpp: 6.2.1 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[2.062s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[2.707s] -- Found geometry_msgs: 4.2.2 (/opt/ros/humble/share/geometry_msgs/cmake)
+[2.867s] -- Found nav_msgs: 4.2.2 (/opt/ros/humble/share/nav_msgs/cmake)
+[3.176s] -- Found sensor_msgs: 4.2.2 (/opt/ros/humble/share/sensor_msgs/cmake)
+[3.501s] -- Found tf2_ros: 0.25.1 (/opt/ros/humble/share/tf2_ros/cmake)
+[4.810s] -- Found nav2_costmap_2d: 1.1.2 (/opt/ros/humble/share/nav2_costmap_2d/cmake)
+[6.174s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[9.106s] -- Found ament_lint_auto: 0.12.4 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[9.469s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[9.471s] -- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/include>
+[9.471s] -- Configured cppcheck exclude dirs and/or files: 
+[9.490s] -- Added test 'flake8' to check Python code syntax and style conventions
+[9.523s] -- Added test 'lint_cmake' to check CMake code style
+[9.534s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[9.638s] -- Added test 'uncrustify' to check C / C++ code style
+[9.638s] -- Configured uncrustify additional arguments: 
+[9.649s] -- Added test 'xmllint' to check XML markup files
+[9.652s] -- Configuring done
+[9.700s] -- Generating done
+[9.712s] -- Build files have been written to: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack
+[9.813s] [35m[1mConsolidate compiler generated dependencies of target edu_robocup_rescue_stack_node[0m
+[9.926s] [ 16%] [32mBuilding CXX object CMakeFiles/edu_robocup_rescue_stack_node.dir/src/control.cpp.o[0m
+[9.929s] [ 50%] [32mBuilding CXX object CMakeFiles/edu_robocup_rescue_stack_node.dir/src/localistionControlNode.cpp.o[0m
+[9.930s] [ 50%] [32mBuilding CXX object CMakeFiles/edu_robocup_rescue_stack_node.dir/src/edu_robocup_rescue_stack_node.cpp.o[0m
+[9.932s] [ 66%] [32mBuilding CXX object CMakeFiles/edu_robocup_rescue_stack_node.dir/src/navigation.cpp.o[0m
+[9.938s] [ 83%] [32mBuilding CXX object CMakeFiles/edu_robocup_rescue_stack_node.dir/src/localisation.cpp.o[0m
+[11.023s] In file included from [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/control.h:9[m[K,
+[11.024s]                  from [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localisation.h:1[m[K,
+[11.025s]                  from [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localisationControlNode.h:22[m[K,
+[11.025s]                  from [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/edu_robocup_rescue_stack_node.cpp:3[m[K:
+[11.026s] [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/loadMap.h:6:10:[m[K [01;31m[Kfatal error: [m[Knav2_msgs/srv/load_map.hpp: No such file or directory
+[11.026s]     6 | #include [01;31m[K"nav2_msgs/srv/load_map.hpp"[m[K
+[11.027s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[11.027s] compilation terminated.
+[11.035s] gmake[2]: *** [CMakeFiles/edu_robocup_rescue_stack_node.dir/build.make:76: CMakeFiles/edu_robocup_rescue_stack_node.dir/src/edu_robocup_rescue_stack_node.cpp.o] Error 1
+[11.037s] gmake[2]: *** Waiting for unfinished jobs....
+[11.344s] In file included from [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/control.h:9[m[K,
+[11.345s]                  from [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localisation.h:1[m[K,
+[11.345s]                  from [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localisation.cpp:1[m[K:
+[11.346s] [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/loadMap.h:6:10:[m[K [01;31m[Kfatal error: [m[Knav2_msgs/srv/load_map.hpp: No such file or directory
+[11.346s]     6 | #include [01;31m[K"nav2_msgs/srv/load_map.hpp"[m[K
+[11.347s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[11.349s] compilation terminated.
+[11.359s] gmake[2]: *** [CMakeFiles/edu_robocup_rescue_stack_node.dir/build.make:118: CMakeFiles/edu_robocup_rescue_stack_node.dir/src/localisation.cpp.o] Error 1
+[11.459s] In file included from [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/control.h:9[m[K,
+[11.460s]                  from [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/control.cpp:2[m[K:
+[11.461s] [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/loadMap.h:6:10:[m[K [01;31m[Kfatal error: [m[Knav2_msgs/srv/load_map.hpp: No such file or directory
+[11.461s]     6 | #include [01;31m[K"nav2_msgs/srv/load_map.hpp"[m[K
+[11.462s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[11.462s] compilation terminated.
+[11.464s] In file included from [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/control.h:9[m[K,
+[11.465s]                  from [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localisation.h:1[m[K,
+[11.465s]                  from [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localisationControlNode.h:22[m[K,
+[11.465s]                  from [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localistionControlNode.cpp:1[m[K:
+[11.466s] [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/loadMap.h:6:10:[m[K [01;31m[Kfatal error: [m[Knav2_msgs/srv/load_map.hpp: No such file or directory
+[11.466s]     6 | #include [01;31m[K"nav2_msgs/srv/load_map.hpp"[m[K
+[11.466s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[11.467s] compilation terminated.
+[11.470s] gmake[2]: *** [CMakeFiles/edu_robocup_rescue_stack_node.dir/build.make:104: CMakeFiles/edu_robocup_rescue_stack_node.dir/src/control.cpp.o] Error 1
+[11.470s] gmake[2]: *** [CMakeFiles/edu_robocup_rescue_stack_node.dir/build.make:90: CMakeFiles/edu_robocup_rescue_stack_node.dir/src/localistionControlNode.cpp.o] Error 1
+[19.976s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/edu_robocup_rescue_stack_node.dir/all] Error 2
+[19.977s] gmake: *** [Makefile:146: all] Error 2
+[19.986s] Invoked command in '/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/daniel/ros2_ws/install/statistics_msgs:/home/daniel/ros2_ws/install/nav2_simple_commander:/home/daniel/ros2_ws/install/action_msgs:/opt/ros/humble /usr/bin/cmake --build /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack -- -j8 -l8

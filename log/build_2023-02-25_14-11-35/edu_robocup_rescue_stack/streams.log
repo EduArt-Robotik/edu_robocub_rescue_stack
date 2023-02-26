@@ -1,0 +1,10 @@
+[0.015s] Invoking command in '/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/daniel/ros2_ws/install/statistics_msgs:/home/daniel/ros2_ws/install/nav2_simple_commander:/home/daniel/ros2_ws/install/action_msgs:/opt/ros/humble /usr/bin/cmake --build /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack -- -j8 -l8
+[0.050s] [35m[1mConsolidate compiler generated dependencies of target edu_robocup_rescue_stack_node[0m
+[0.070s] [ 16%] [32mBuilding CXX object CMakeFiles/edu_robocup_rescue_stack_node.dir/src/control.cpp.o[0m
+[1.712s] [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/control.cpp:17:18:[m[K [01;31m[Kerror: [m[Kdefinition of implicitly-declared ‘[01m[KControl::Control()[m[K’
+[1.712s]    17 | Control::Control([01;31m[K)[m[K{
+[1.712s]       |                  [01;31m[K^[m[K
+[2.025s] gmake[2]: *** [CMakeFiles/edu_robocup_rescue_stack_node.dir/build.make:104: CMakeFiles/edu_robocup_rescue_stack_node.dir/src/control.cpp.o] Error 1
+[2.025s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/edu_robocup_rescue_stack_node.dir/all] Error 2
+[2.025s] gmake: *** [Makefile:146: all] Error 2
+[2.027s] Invoked command in '/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/daniel/ros2_ws/install/statistics_msgs:/home/daniel/ros2_ws/install/nav2_simple_commander:/home/daniel/ros2_ws/install/action_msgs:/opt/ros/humble /usr/bin/cmake --build /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack -- -j8 -l8

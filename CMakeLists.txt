@@ -20,7 +20,7 @@ find_package(nav2_costmap_2d REQUIRED)
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
-add_executable(edu_robocup_rescue_stack_node src/edu_robocup_rescue_stack_node.cpp src/localistionControlNode.cpp src/control.cpp src/localisation.cpp src/navigation.cpp )
+add_executable(edu_robocup_rescue_stack_node src/edu_robocup_rescue_stack_node.cpp src/localistionControlNode.cpp src/control.cpp src/localisation.cpp src/navigation.cpp src/clientService.cpp)
 
 ament_target_dependencies(edu_robocup_rescue_stack_node rclcpp geometry_msgs nav_msgs std_msgs sensor_msgs lifecycle_msgs rclcpp_lifecycle)
 

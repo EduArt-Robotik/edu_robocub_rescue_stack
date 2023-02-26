@@ -1,0 +1,36 @@
+In file included from [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/control.h:9[m[K,
+                 from [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localisation.h:1[m[K,
+                 from [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localisationControlNode.h:22[m[K,
+                 from [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/edu_robocup_rescue_stack_node.cpp:3[m[K:
+[01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/loadMap.h:6:10:[m[K [01;31m[Kfatal error: [m[Knav2_msgs/srv/load_map.hpp: No such file or directory
+    6 | #include [01;31m[K"nav2_msgs/srv/load_map.hpp"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/edu_robocup_rescue_stack_node.dir/build.make:76: CMakeFiles/edu_robocup_rescue_stack_node.dir/src/edu_robocup_rescue_stack_node.cpp.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+In file included from [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/control.h:9[m[K,
+                 from [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localisation.h:1[m[K,
+                 from [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localisation.cpp:1[m[K:
+[01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/loadMap.h:6:10:[m[K [01;31m[Kfatal error: [m[Knav2_msgs/srv/load_map.hpp: No such file or directory
+    6 | #include [01;31m[K"nav2_msgs/srv/load_map.hpp"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/edu_robocup_rescue_stack_node.dir/build.make:118: CMakeFiles/edu_robocup_rescue_stack_node.dir/src/localisation.cpp.o] Error 1
+In file included from [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/control.h:9[m[K,
+                 from [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/control.cpp:2[m[K:
+[01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/loadMap.h:6:10:[m[K [01;31m[Kfatal error: [m[Knav2_msgs/srv/load_map.hpp: No such file or directory
+    6 | #include [01;31m[K"nav2_msgs/srv/load_map.hpp"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+In file included from [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/control.h:9[m[K,
+                 from [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localisation.h:1[m[K,
+                 from [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localisationControlNode.h:22[m[K,
+                 from [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localistionControlNode.cpp:1[m[K:
+[01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/loadMap.h:6:10:[m[K [01;31m[Kfatal error: [m[Knav2_msgs/srv/load_map.hpp: No such file or directory
+    6 | #include [01;31m[K"nav2_msgs/srv/load_map.hpp"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/edu_robocup_rescue_stack_node.dir/build.make:104: CMakeFiles/edu_robocup_rescue_stack_node.dir/src/control.cpp.o] Error 1
+gmake[2]: *** [CMakeFiles/edu_robocup_rescue_stack_node.dir/build.make:90: CMakeFiles/edu_robocup_rescue_stack_node.dir/src/localistionControlNode.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/edu_robocup_rescue_stack_node.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

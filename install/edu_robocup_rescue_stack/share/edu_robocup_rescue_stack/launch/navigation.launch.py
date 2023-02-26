@@ -11,6 +11,7 @@ from ros2run.api import get_executable_path
 #from nav2_common.launch import RewrittenYaml
 from launch_ros.substitutions import FindPackageShare
 from launch.launch_description_sources import PythonLaunchDescriptionSource
+from nav2_common.launch import RewrittenYaml
 
 
 
@@ -27,13 +28,10 @@ def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time')
     autostart = LaunchConfiguration('autostart')
     params_file = LaunchConfiguration('params_file')
+    mask_yaml_file = LaunchConfiguration('mask')
 
-    lifecycle_nodes = ['map_server', 'amcl']
+    lifecycle_nodes = ['amcl']   #'costmap_filter_info_server', 'filter_mask_server', , 'map_server' 
 
-    # Create our own temporary YAML files that include substitutions
-    param_substitutions = {
-        'use_sim_time': use_sim_time,
-        'yaml_filename': map_file}
 
 
     
@@ -67,13 +65,30 @@ def generate_launch_description():
     declare_map_file = DeclareLaunchArgument(
         'map_file',
         default_value=os.path.join(get_package_share_directory('edu_robocup_rescue_stack'),
-                                   'map', 'map4.yaml')
+                                   'map', 'map_6.1.yaml')
     )
 
     declare_map_subscribe_transient_local = DeclareLaunchArgument(
             'map_subscribe_transient_local', default_value='true',
             description='Whether to set the map subscriber QoS to transient local'
     )
+
+    declare_mask_yaml_file = DeclareLaunchArgument(
+        'mask',
+        default_value=os.path.join(bringup_dir, 'keepout', 'keepout_6.1.yaml')
+    )
+
+    #start_lifecycle_manager = Node(
+    #    package='nav2_lifecycle_manager',
+    #    executable='lifecycle_manager',
+    #    name='lifecycle_manager_localization',
+    #    namespace=namespace,
+    #    output='screen',
+    #    emulate_tty=True,
+    #    parameters=[{'use_sim_time': use_sim_time},
+    #                {'autostart': True},
+    #                {'node_names': lifecycle_nodes}]
+    #)
 
     start_map_server = Node(
         package='nav2_map_server',
@@ -84,22 +99,34 @@ def generate_launch_description():
     )
 
     start_amcl = Node(
+        parameters=[
+           { 'scan_topic': '/demo/laser/out'},
+           { 'base_frame_id': 'base_frame'},
+        ],
         package='nav2_amcl',
         executable='amcl',
         name='amcl',
-        output='screen',
-        parameters=[params_file],
-    )
+        output='screen')
+    
+    #Node(
+    #   package='nav2_amcl',
+    #    executable='amcl',
+    #    name='amcl',
+    #    output='screen',
+    #    parameters=[params_file],
+    #)
 
-    start_lifecycle_manager = Node(
-        package='nav2_lifecycle_manager',
+    start_lifecycle_manager = Node (
+        parameters=[
+            { 'autostart': True},
+            { 'node_names': ['amcl']},
+        ],
+        package='nav2_lifecycle_manager', 
         executable='lifecycle_manager',
-        name='lifecycle_manager_localization',
-        output='screen',
-        parameters=[{'use_sim_time': use_sim_time},
-                    {'autostart': True},
-                    {'node_names': lifecycle_nodes}]
-    )
+        output='screen'
+        )
+
+
 
     start_edu_robocup_rescue_stack_node = Node (
         package='edu_robocup_rescue_stack', 
@@ -123,11 +150,39 @@ def generate_launch_description():
     start_navigation = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(os.path.join(nav2_launch_dir, 'bringup_launch.py')), 
         launch_arguments = {'namespace':namespace,
-                            'use_sim_time': use_sim_time,
+                           'use_sim_time': use_sim_time,
                             'map': map_file,
                             'params_file': params_file,
                             'autostart': autostart}.items()
     )
+
+    #param_substitutions = {
+    #    'use_sim_time': use_sim_time,
+    #    'yaml_filename': mask_yaml_file}
+
+    #configured_params = RewrittenYaml(
+    #    source_file=params_file,
+    #    root_key=namespace,
+    #    param_rewrites=param_substitutions,
+    #    convert_types=True)
+    
+    #start_costmap_filter_info_server = Node(
+    #    package='nav2_map_server',
+    #    executable='costmap_filter_info_server',
+    #    namespace=namespace,
+    #    output='screen',
+    #    emulate_tty=True,
+    #    parameters=[configured_params])
+    
+    #start_filter_mask_server = Node(
+    #    package='nav2_map_server',
+    #    executable='map_server',
+    #    name='filter_mask_server',
+    #    namespace=namespace,
+    #    output='screen',
+    #    emulate_tty=True,
+    #    parameters=[configured_params]
+    #)
 
     #start_slam_toolbox = IncludeLaunchDescription(
     #    PythonLaunchDescriptionSource(os.path.join(slamtoolbox_launch_dir, 'online_async_launch.py'))
@@ -141,6 +196,7 @@ def generate_launch_description():
     ld.add_action(declare_params_file)  
     ld.add_action(declare_map_file)
     ld.add_action(declare_map_subscribe_transient_local)
+    #ld.add_action(declare_mask_yaml_file)
     ld.add_action(start_map_server)
     ld.add_action(start_amcl)
     ld.add_action(start_lifecycle_manager)
@@ -148,6 +204,8 @@ def generate_launch_description():
     ld.add_action(start_tf_map_base_frame)
     ld.add_action(start_tf_base_frame_laser_link)
     ld.add_action(start_navigation)
+    #ld.add_action(start_costmap_filter_info_server)
+    #ld.add_action(start_filter_mask_server)
     
 
     return ld

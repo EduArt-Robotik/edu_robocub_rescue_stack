@@ -210,6 +210,30 @@ edu_robocup_rescue_stack_node/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/edu_robocup_rescue_stack_node.dir/build.make CMakeFiles/edu_robocup_rescue_stack_node.dir/build
 .PHONY : edu_robocup_rescue_stack_node/fast
 
+src/clientService.o: src/clientService.cpp.o
+.PHONY : src/clientService.o
+
+# target to build an object file
+src/clientService.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/edu_robocup_rescue_stack_node.dir/build.make CMakeFiles/edu_robocup_rescue_stack_node.dir/src/clientService.cpp.o
+.PHONY : src/clientService.cpp.o
+
+src/clientService.i: src/clientService.cpp.i
+.PHONY : src/clientService.i
+
+# target to preprocess a source file
+src/clientService.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/edu_robocup_rescue_stack_node.dir/build.make CMakeFiles/edu_robocup_rescue_stack_node.dir/src/clientService.cpp.i
+.PHONY : src/clientService.cpp.i
+
+src/clientService.s: src/clientService.cpp.s
+.PHONY : src/clientService.s
+
+# target to generate assembly for a file
+src/clientService.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/edu_robocup_rescue_stack_node.dir/build.make CMakeFiles/edu_robocup_rescue_stack_node.dir/src/clientService.cpp.s
+.PHONY : src/clientService.cpp.s
+
 src/control.o: src/control.cpp.o
 .PHONY : src/control.o
 
@@ -346,6 +370,9 @@ help:
 	@echo "... edu_robocup_rescue_stack_uninstall"
 	@echo "... uninstall"
 	@echo "... edu_robocup_rescue_stack_node"
+	@echo "... src/clientService.o"
+	@echo "... src/clientService.i"
+	@echo "... src/clientService.s"
 	@echo "... src/control.o"
 	@echo "... src/control.i"
 	@echo "... src/control.s"
