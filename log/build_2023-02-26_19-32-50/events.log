@@ -1,0 +1,87 @@
+[0.000000] (-) TimerEvent: {}
+[0.000326] (edu_robocup_rescue_stack) JobQueued: {'identifier': 'edu_robocup_rescue_stack', 'dependencies': OrderedDict()}
+[0.000648] (edu_robocup_rescue_stack) JobStarted: {'identifier': 'edu_robocup_rescue_stack'}
+[0.005303] (edu_robocup_rescue_stack) JobProgress: {'identifier': 'edu_robocup_rescue_stack', 'progress': 'cmake'}
+[0.005705] (edu_robocup_rescue_stack) JobProgress: {'identifier': 'edu_robocup_rescue_stack', 'progress': 'build'}
+[0.006245] (edu_robocup_rescue_stack) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack', '--', '-j8', '-l8'], 'cwd': '/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack', 'env': OrderedDict([('SUDO_GID', '1000'), ('MAIL', '/var/mail/root'), ('LANGUAGE', 'en_US:en'), ('LC_TIME', 'de_DE.UTF-8'), ('USER', 'root'), ('HOME', '/root'), ('LC_MONETARY', 'de_DE.UTF-8'), ('COLORTERM', 'truecolor'), ('SUDO_UID', '1000'), ('LOGNAME', 'root'), ('TERM', 'xterm-256color'), ('PATH', '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin'), ('LC_ADDRESS', 'de_DE.UTF-8'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'de_DE.UTF-8'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.3RK001'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SUDO_COMMAND', '/usr/bin/colcon build'), ('LC_NAME', 'de_DE.UTF-8'), ('SHELL', '/bin/bash'), ('SUDO_USER', 'daniel'), ('LC_MEASUREMENT', 'de_DE.UTF-8'), ('LC_IDENTIFICATION', 'de_DE.UTF-8'), ('PWD', '/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack'), ('LC_NUMERIC', 'de_DE.UTF-8'), ('LC_PAPER', 'de_DE.UTF-8'), ('COLCON', '1')]), 'shell': False}
+[0.042781] (edu_robocup_rescue_stack) StdoutLine: {'line': b'[100%] Built target edu_robocup_rescue_stack_node\n'}
+[0.049014] (edu_robocup_rescue_stack) CommandEnded: {'returncode': 0}
+[0.064953] (edu_robocup_rescue_stack) JobProgress: {'identifier': 'edu_robocup_rescue_stack', 'progress': 'install'}
+[0.070528] (edu_robocup_rescue_stack) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack'], 'cwd': '/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack', 'env': OrderedDict([('SUDO_GID', '1000'), ('MAIL', '/var/mail/root'), ('LANGUAGE', 'en_US:en'), ('LC_TIME', 'de_DE.UTF-8'), ('USER', 'root'), ('HOME', '/root'), ('LC_MONETARY', 'de_DE.UTF-8'), ('COLORTERM', 'truecolor'), ('SUDO_UID', '1000'), ('LOGNAME', 'root'), ('TERM', 'xterm-256color'), ('PATH', '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin'), ('LC_ADDRESS', 'de_DE.UTF-8'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'de_DE.UTF-8'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.3RK001'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SUDO_COMMAND', '/usr/bin/colcon build'), ('LC_NAME', 'de_DE.UTF-8'), ('SHELL', '/bin/bash'), ('SUDO_USER', 'daniel'), ('LC_MEASUREMENT', 'de_DE.UTF-8'), ('LC_IDENTIFICATION', 'de_DE.UTF-8'), ('PWD', '/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack'), ('LC_NUMERIC', 'de_DE.UTF-8'), ('LC_PAPER', 'de_DE.UTF-8'), ('COLCON', '1')]), 'shell': False}
+[0.074283] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.074365] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/lib/edu_robocup_rescue_stack/edu_robocup_rescue_stack_node\n'}
+[0.074433] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//launch\n'}
+[0.074483] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//launch/navigation.launch.py\n'}
+[0.074538] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//launch/edu_control.launch.py\n'}
+[0.074576] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//launch/online_async_launch.py\n'}
+[0.074612] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//launch/amcl.launch.py\n'}
+[0.074647] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//launch/keepout.launch.py\n'}
+[0.074704] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//config\n'}
+[0.074741] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//config/nav2_params.yaml\n'}
+[0.074776] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//config/mapper_params_online_sync.yaml\n'}
+[0.074812] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//params\n'}
+[0.074847] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//params/nav2_edu_params.yaml\n'}
+[0.074882] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//map\n'}
+[0.074947] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//map/map1\n'}
+[0.074981] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//map/map1/map1.yaml\n'}
+[0.075016] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//map/map1/map1.pgm\n'}
+[0.075050] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//map/map_5.3.yaml\n'}
+[0.075084] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//map/map_5.4.yaml\n'}
+[0.075119] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//map/map_6.2.yaml\n'}
+[0.075152] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//map/map_neg.yaml\n'}
+[0.075186] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//map/map1.yaml\n'}
+[0.075220] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//map/map4\n'}
+[0.075255] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//map/map4/map4.yaml\n'}
+[0.075289] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//map/map4/map4.pgm\n'}
+[0.075323] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//map/map_5.2.yaml\n'}
+[0.075357] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//map/map_5.2.pgm\n'}
+[0.075391] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//map/map_5.1.pgm\n'}
+[0.075424] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//map/map_neg.pgm\n'}
+[0.075458] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//map/map_6.1.pgm\n'}
+[0.075492] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//map/map3.yaml\n'}
+[0.075604] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//map/map2.pgm\n'}
+[0.075684] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//map/map_7.1.yaml\n'}
+[0.075724] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//map/map_1671210809.pgm\n'}
+[0.075762] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//map/map3.pgm\n'}
+[0.075813] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//map/map_5.1.yaml\n'}
+[0.075858] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//map/map4.yaml\n'}
+[0.075900] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//map/map_6.4.pgm\n'}
+[0.075944] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//map/map_1671210809.yaml\n'}
+[0.075986] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//map/map_5.4.pgm\n'}
+[0.076030] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//map/map_6.3.pgm\n'}
+[0.076092] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//map/map_7.1.pgm\n'}
+[0.076137] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//map/map_6.2.pgm\n'}
+[0.076223] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//map/map_6.1.yaml\n'}
+[0.076259] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//map/map_6.3.yaml\n'}
+[0.076295] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//map/map_6.4.yaml\n'}
+[0.076331] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//map/map_5.3.pgm\n'}
+[0.076366] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//map/map4.pgm\n'}
+[0.076402] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//map/map2.yaml\n'}
+[0.076437] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//keepout\n'}
+[0.076473] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//keepout/keepout_6.1.yaml\n'}
+[0.076507] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//keepout/keepout_6.2.pgm\n'}
+[0.076542] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//keepout/keepout_6.3.pgm\n'}
+[0.076576] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//keepout/keepout_6.4.yaml\n'}
+[0.076738] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//keepout/keepout_6.2.yaml\n'}
+[0.076820] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//keepout/keepout_6.4.pgm\n'}
+[0.076937] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//keepout/keepout_6.3.yaml\n'}
+[0.076974] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack//keepout/keepout_6.1.pgm\n'}
+[0.077010] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/ament_index/resource_index/package_run_dependencies/edu_robocup_rescue_stack\n'}
+[0.077046] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/ament_index/resource_index/parent_prefix_path/edu_robocup_rescue_stack\n'}
+[0.077082] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack/environment/ament_prefix_path.sh\n'}
+[0.077117] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack/environment/ament_prefix_path.dsv\n'}
+[0.077151] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack/environment/path.sh\n'}
+[0.077187] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack/environment/path.dsv\n'}
+[0.077222] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack/local_setup.bash\n'}
+[0.077256] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack/local_setup.sh\n'}
+[0.077292] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack/local_setup.zsh\n'}
+[0.077325] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack/local_setup.dsv\n'}
+[0.077359] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack/package.dsv\n'}
+[0.077394] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/ament_index/resource_index/packages/edu_robocup_rescue_stack\n'}
+[0.077428] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack/cmake/edu_robocup_rescue_stackConfig.cmake\n'}
+[0.077518] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack/cmake/edu_robocup_rescue_stackConfig-version.cmake\n'}
+[0.077553] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /usr/local/share/edu_robocup_rescue_stack/package.xml\n'}
+[0.077724] (edu_robocup_rescue_stack) CommandEnded: {'returncode': 0}
+[0.099337] (-) TimerEvent: {}
+[0.108746] (edu_robocup_rescue_stack) JobEnded: {'identifier': 'edu_robocup_rescue_stack', 'rc': 0}
+[0.109164] (-) EventReactorShutdown: {}

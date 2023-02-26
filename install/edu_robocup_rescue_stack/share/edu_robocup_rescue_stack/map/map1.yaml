@@ -1,4 +1,4 @@
-image: map1.pgm
+image: /home/ros2_ws/src/edu_robocub_rescue_stack/map/map1.pgm
 mode: trinary
 resolution: 0.05
 origin: [-5.16, -0.313, 0]

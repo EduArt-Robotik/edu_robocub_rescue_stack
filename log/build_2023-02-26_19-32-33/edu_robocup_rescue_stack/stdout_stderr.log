@@ -1,0 +1,9 @@
+[100%] Built target edu_robocup_rescue_stack_node
+-- Install configuration: ""
+-- Up-to-date: /usr/local/lib/edu_robocup_rescue_stack/edu_robocup_rescue_stack_node
+[31mCMake Error at cmake_install.cmake:52 (file):
+  file INSTALL cannot set permissions on
+  "/usr/local/lib/edu_robocup_rescue_stack/edu_robocup_rescue_stack_node":
+  Operation not permitted.
+
+[0m

@@ -1,0 +1,88 @@
+[0.000000] (-) TimerEvent: {}
+[0.000365] (edu_robocup_rescue_stack) JobQueued: {'identifier': 'edu_robocup_rescue_stack', 'dependencies': OrderedDict()}
+[0.000398] (edu_robocup_rescue_stack) JobStarted: {'identifier': 'edu_robocup_rescue_stack'}
+[0.005136] (edu_robocup_rescue_stack) JobProgress: {'identifier': 'edu_robocup_rescue_stack', 'progress': 'cmake'}
+[0.005579] (edu_robocup_rescue_stack) JobProgress: {'identifier': 'edu_robocup_rescue_stack', 'progress': 'build'}
+[0.005997] (edu_robocup_rescue_stack) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack', '--', '-j8', '-l8'], 'cwd': '/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack', 'env': OrderedDict([('SUDO_GID', '1000'), ('MAIL', '/var/mail/root'), ('LANGUAGE', 'en_US:en'), ('LC_TIME', 'de_DE.UTF-8'), ('USER', 'root'), ('HOME', '/root'), ('LC_MONETARY', 'de_DE.UTF-8'), ('COLORTERM', 'truecolor'), ('SUDO_UID', '1000'), ('LOGNAME', 'root'), ('TERM', 'xterm-256color'), ('PATH', '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin'), ('LC_ADDRESS', 'de_DE.UTF-8'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'de_DE.UTF-8'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.3RK001'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SUDO_COMMAND', '/usr/bin/colcon build'), ('LC_NAME', 'de_DE.UTF-8'), ('SHELL', '/bin/bash'), ('SUDO_USER', 'daniel'), ('LC_MEASUREMENT', 'de_DE.UTF-8'), ('LC_IDENTIFICATION', 'de_DE.UTF-8'), ('PWD', '/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack'), ('LC_NUMERIC', 'de_DE.UTF-8'), ('LC_PAPER', 'de_DE.UTF-8'), ('COLCON', '1')]), 'shell': False}
+[0.043262] (edu_robocup_rescue_stack) StdoutLine: {'line': b'[100%] Built target edu_robocup_rescue_stack_node\n'}
+[0.049091] (edu_robocup_rescue_stack) CommandEnded: {'returncode': 0}
+[0.064644] (edu_robocup_rescue_stack) JobProgress: {'identifier': 'edu_robocup_rescue_stack', 'progress': 'install'}
+[0.069579] (edu_robocup_rescue_stack) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack'], 'cwd': '/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack', 'env': OrderedDict([('SUDO_GID', '1000'), ('MAIL', '/var/mail/root'), ('LANGUAGE', 'en_US:en'), ('LC_TIME', 'de_DE.UTF-8'), ('USER', 'root'), ('HOME', '/root'), ('LC_MONETARY', 'de_DE.UTF-8'), ('COLORTERM', 'truecolor'), ('SUDO_UID', '1000'), ('LOGNAME', 'root'), ('TERM', 'xterm-256color'), ('PATH', '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin'), ('LC_ADDRESS', 'de_DE.UTF-8'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'de_DE.UTF-8'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.3RK001'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SUDO_COMMAND', '/usr/bin/colcon build'), ('LC_NAME', 'de_DE.UTF-8'), ('SHELL', '/bin/bash'), ('SUDO_USER', 'daniel'), ('LC_MEASUREMENT', 'de_DE.UTF-8'), ('LC_IDENTIFICATION', 'de_DE.UTF-8'), ('PWD', '/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack'), ('LC_NUMERIC', 'de_DE.UTF-8'), ('LC_PAPER', 'de_DE.UTF-8'), ('COLCON', '1')]), 'shell': False}
+[0.074454] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.074568] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/lib/edu_robocup_rescue_stack/edu_robocup_rescue_stack_node\n'}
+[0.082092] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Set runtime path of "/usr/local/lib/edu_robocup_rescue_stack/edu_robocup_rescue_stack_node" to ""\n'}
+[0.082211] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//launch\n'}
+[0.082262] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//launch/navigation.launch.py\n'}
+[0.082307] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//launch/edu_control.launch.py\n'}
+[0.082351] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//launch/online_async_launch.py\n'}
+[0.082395] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//launch/amcl.launch.py\n'}
+[0.082439] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//launch/keepout.launch.py\n'}
+[0.082483] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//config\n'}
+[0.082542] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//config/nav2_params.yaml\n'}
+[0.082618] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//config/mapper_params_online_sync.yaml\n'}
+[0.082666] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//params\n'}
+[0.082711] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//params/nav2_edu_params.yaml\n'}
+[0.082765] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//map\n'}
+[0.082809] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//map/map1\n'}
+[0.082852] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//map/map1/map1.yaml\n'}
+[0.082895] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//map/map1/map1.pgm\n'}
+[0.082939] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//map/map_5.3.yaml\n'}
+[0.082982] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//map/map_5.4.yaml\n'}
+[0.083026] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//map/map_6.2.yaml\n'}
+[0.083087] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//map/map_neg.yaml\n'}
+[0.083134] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//map/map1.yaml\n'}
+[0.083212] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//map/map4\n'}
+[0.083262] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//map/map4/map4.yaml\n'}
+[0.083306] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//map/map4/map4.pgm\n'}
+[0.083352] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//map/map_5.2.yaml\n'}
+[0.083397] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//map/map_5.2.pgm\n'}
+[0.083464] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//map/map_5.1.pgm\n'}
+[0.083510] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//map/map_neg.pgm\n'}
+[0.083557] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//map/map_6.1.pgm\n'}
+[0.083618] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//map/map3.yaml\n'}
+[0.083675] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//map/map2.pgm\n'}
+[0.083743] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//map/map_7.1.yaml\n'}
+[0.083797] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//map/map_1671210809.pgm\n'}
+[0.083858] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//map/map3.pgm\n'}
+[0.083907] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//map/map_5.1.yaml\n'}
+[0.083968] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//map/map4.yaml\n'}
+[0.084007] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//map/map_6.4.pgm\n'}
+[0.084053] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//map/map_1671210809.yaml\n'}
+[0.084115] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//map/map_5.4.pgm\n'}
+[0.084162] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//map/map_6.3.pgm\n'}
+[0.084209] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//map/map_7.1.pgm\n'}
+[0.084284] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//map/map_6.2.pgm\n'}
+[0.084322] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//map/map_6.1.yaml\n'}
+[0.084368] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//map/map_6.3.yaml\n'}
+[0.084430] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//map/map_6.4.yaml\n'}
+[0.084466] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//map/map_5.3.pgm\n'}
+[0.084501] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//map/map4.pgm\n'}
+[0.084538] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//map/map2.yaml\n'}
+[0.084583] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//keepout\n'}
+[0.084626] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//keepout/keepout_6.1.yaml\n'}
+[0.084670] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//keepout/keepout_6.2.pgm\n'}
+[0.084714] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//keepout/keepout_6.3.pgm\n'}
+[0.084781] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//keepout/keepout_6.4.yaml\n'}
+[0.084821] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//keepout/keepout_6.2.yaml\n'}
+[0.084866] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//keepout/keepout_6.4.pgm\n'}
+[0.084909] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//keepout/keepout_6.3.yaml\n'}
+[0.084964] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack//keepout/keepout_6.1.pgm\n'}
+[0.085007] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/ament_index/resource_index/package_run_dependencies/edu_robocup_rescue_stack\n'}
+[0.085062] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/ament_index/resource_index/parent_prefix_path/edu_robocup_rescue_stack\n'}
+[0.085108] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack/environment/ament_prefix_path.sh\n'}
+[0.085153] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack/environment/ament_prefix_path.dsv\n'}
+[0.085196] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack/environment/path.sh\n'}
+[0.085240] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack/environment/path.dsv\n'}
+[0.085284] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack/local_setup.bash\n'}
+[0.085327] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack/local_setup.sh\n'}
+[0.085371] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack/local_setup.zsh\n'}
+[0.085430] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack/local_setup.dsv\n'}
+[0.085484] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack/package.dsv\n'}
+[0.085520] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/ament_index/resource_index/packages/edu_robocup_rescue_stack\n'}
+[0.085558] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack/cmake/edu_robocup_rescue_stackConfig.cmake\n'}
+[0.085591] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack/cmake/edu_robocup_rescue_stackConfig-version.cmake\n'}
+[0.085625] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /usr/local/share/edu_robocup_rescue_stack/package.xml\n'}
+[0.086770] (edu_robocup_rescue_stack) CommandEnded: {'returncode': 0}
+[0.099668] (-) TimerEvent: {}
+[0.117077] (edu_robocup_rescue_stack) JobEnded: {'identifier': 'edu_robocup_rescue_stack', 'rc': 0}
+[0.117506] (-) EventReactorShutdown: {}
