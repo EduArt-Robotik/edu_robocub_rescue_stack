@@ -54,7 +54,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/edu_robocup_rescue_stack/edu_robocup_rescue_stack_node")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/edu_robocup_rescue_stack/edu_robocup_rescue_stack_node"
-         OLD_RPATH "/home/daniel/ros2_ws/install/rosgraph_msgs/lib:/home/daniel/ros2_ws/install/statistics_msgs/lib:/home/daniel/ros2_ws/install/lifecycle_msgs/lib:/home/daniel/ros2_ws/install/rcl_interfaces/lib:/home/daniel/ros2_ws/install/builtin_interfaces/lib:/opt/ros/humble/lib:"
+         OLD_RPATH "/opt/ros/humble/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/edu_robocup_rescue_stack/edu_robocup_rescue_stack_node")

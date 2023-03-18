@@ -1,0 +1,46 @@
+[01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localisation.cpp:[m[K In member function ‘[01m[Kvoid Localisation::recognize_area()[m[K’:
+[01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localisation.cpp:70:48:[m[K [01;35m[Kwarning: [m[Kleft operand of comma operator has no effect [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-value-Wunused-value]8;;[m[K]
+   70 |     } else if((m_diff_x_y > 0.25)&&(([01;35m[Km_pitch_y >= -0[m[K,2618)&&(m_pitch_y < 0.0))&&((m_yaw_z >= 0.0)&&(abs(m_yaw_z) < (M_PI / 2.0))) || ((m_pitch_y <= 0,2618)&&(m_pitch_y >= 0.0))&&((m_yaw_z >= (M_PI / 2.0))&& (abs(m_yaw_z) <= M_PI))) {
+      |                                      [01;35m[K~~~~~~~~~~^~~~~[m[K
+[01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localisation.cpp:70:146:[m[K [01;35m[Kwarning: [m[Kleft operand of comma operator has no effect [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-value-Wunused-value]8;;[m[K]
+   70 |     } else if((m_diff_x_y > 0.25)&&((m_pitch_y >= -0,2618)&&(m_pitch_y < 0.0))&&((m_yaw_z >= 0.0)&&(abs(m_yaw_z) < (M_PI / 2.0))) || (([01;35m[Km_pitch_y <= 0[m[K,2618)&&(m_pitch_y >= 0.0))&&((m_yaw_z >= (M_PI / 2.0))&& (abs(m_yaw_z) <= M_PI))) {
+      |                                                                                                                                        [01;35m[K~~~~~~~~~~^~~~[m[K
+[01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localisation.cpp:70:79:[m[K [01;35m[Kwarning: [m[Ksuggest parentheses around ‘[01m[K&&[m[K’ within ‘[01m[K||[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wparentheses-Wparentheses]8;;[m[K]
+   70 |     } else if([01;35m[K(m_diff_x_y > 0.25)&&((m_pitch_y >= -0,2618)&&(m_pitch_y < 0.0))&&((m_yaw_z >= 0.0)&&(abs(m_yaw_z) < (M_PI / 2.0)))[m[K || ((m_pitch_y <= 0,2618)&&(m_pitch_y >= 0.0))&&((m_yaw_z >= (M_PI / 2.0))&& (abs(m_yaw_z) <= M_PI))) {
+      |               [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localisation.cpp:73:49:[m[K [01;35m[Kwarning: [m[Kleft operand of comma operator has no effect [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-value-Wunused-value]8;;[m[K]
+   73 |     } else if ((m_diff_x_y > 0.25)&&(([01;35m[Km_pitch_y <= 0[m[K,2618)&&(m_pitch_y > 0.0))&&((abs(m_yaw_z) >= 0.0)&&(abs(m_yaw_z) < (M_PI / 2.0))) || ((m_pitch_y >= -0,2618)&&(m_pitch_y <= 0.0))&&((m_yaw_z >= (M_PI / 2.0))&& (abs(m_yaw_z) <= M_PI))) {
+      |                                       [01;35m[K~~~~~~~~~~^~~~[m[K
+[01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localisation.cpp:73:151:[m[K [01;35m[Kwarning: [m[Kleft operand of comma operator has no effect [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-value-Wunused-value]8;;[m[K]
+   73 |     } else if ((m_diff_x_y > 0.25)&&((m_pitch_y <= 0,2618)&&(m_pitch_y > 0.0))&&((abs(m_yaw_z) >= 0.0)&&(abs(m_yaw_z) < (M_PI / 2.0))) || (([01;35m[Km_pitch_y >= -0[m[K,2618)&&(m_pitch_y <= 0.0))&&((m_yaw_z >= (M_PI / 2.0))&& (abs(m_yaw_z) <= M_PI))) {
+      |                                                                                                                                             [01;35m[K~~~~~~~~~~^~~~~[m[K
+[01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localisation.cpp:73:79:[m[K [01;35m[Kwarning: [m[Ksuggest parentheses around ‘[01m[K&&[m[K’ within ‘[01m[K||[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wparentheses-Wparentheses]8;;[m[K]
+   73 |     } else if ([01;35m[K(m_diff_x_y > 0.25)&&((m_pitch_y <= 0,2618)&&(m_pitch_y > 0.0))&&((abs(m_yaw_z) >= 0.0)&&(abs(m_yaw_z) < (M_PI / 2.0)))[m[K || ((m_pitch_y >= -0,2618)&&(m_pitch_y <= 0.0))&&((m_yaw_z >= (M_PI / 2.0))&& (abs(m_yaw_z) <= M_PI))) {
+      |                [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localistionControlNode.cpp:[m[K In member function ‘[01m[Kvoid LocalisationControlNode::odom_callback(nav_msgs::msg::Odometry_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localistionControlNode.cpp:50:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kx[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+   50 |     float [01;35m[Kx[m[K = msg_odom->pose.pose.position.x;
+      |           [01;35m[K^[m[K
+[01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localistionControlNode.cpp:51:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Ky[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+   51 |     float [01;35m[Ky[m[K = msg_odom->pose.pose.position.y;
+      |           [01;35m[K^[m[K
+[01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localistionControlNode.cpp:55:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kx_orient[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+   55 |     float [01;35m[Kx_orient[m[K = msg_odom->pose.pose.orientation.x;
+      |           [01;35m[K^~~~~~~~[m[K
+[01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localistionControlNode.cpp:56:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Ky_orient[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+   56 |     float [01;35m[Ky_orient[m[K = msg_odom->pose.pose.orientation.y;
+      |           [01;35m[K^~~~~~~~[m[K
+[01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localistionControlNode.cpp:57:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kz_orient[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+   57 |     float [01;35m[Kz_orient[m[K = msg_odom->pose.pose.orientation.z;
+      |           [01;35m[K^~~~~~~~[m[K
+[01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localistionControlNode.cpp:58:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kw_orient[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+   58 |     float [01;35m[Kw_orient[m[K = msg_odom->pose.pose.orientation.w;
+      |           [01;35m[K^~~~~~~~[m[K
+[01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localistionControlNode.cpp:[m[K In member function ‘[01m[Kvoid LocalisationControlNode::timer_callback()[m[K’:
+[01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localistionControlNode.cpp:74:10:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Kmessage[m[K’ set but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-but-set-variable-Wunused-but-set-variable]8;;[m[K]
+   74 |     auto [01;35m[Kmessage[m[K = geometry_msgs::msg::Twist();
+      |          [01;35m[K^~~~~~~[m[K
+[01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localistionControlNode.cpp:[m[K In member function ‘[01m[Kvoid LocalisationControlNode::velocity_callback(geometry_msgs::msg::Twist_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localistionControlNode.cpp:94:92:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kmsg_vel[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   94 | void LocalisationControlNode::velocity_callback([01;35m[Kconst geometry_msgs::msg::Twist::SharedPtr msg_vel[m[K)
+      |                                                 [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~[m[K

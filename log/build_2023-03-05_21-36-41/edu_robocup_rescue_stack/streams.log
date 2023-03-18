@@ -1,0 +1,130 @@
+[0.012s] Invoking command in '/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack -- -j8 -l8
+[0.072s] [35m[1mConsolidate compiler generated dependencies of target edu_robocup_rescue_stack_node[0m
+[0.093s] [ 28%] [32mBuilding CXX object CMakeFiles/edu_robocup_rescue_stack_node.dir/src/edu_robocup_rescue_stack_node.cpp.o[0m
+[0.093s] [ 42%] [32mBuilding CXX object CMakeFiles/edu_robocup_rescue_stack_node.dir/src/localisation.cpp.o[0m
+[0.093s] [ 42%] [32mBuilding CXX object CMakeFiles/edu_robocup_rescue_stack_node.dir/src/localistionControlNode.cpp.o[0m
+[1.918s] [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localisation.cpp:[m[K In member function ‘[01m[Kvoid Localisation::recognize_area()[m[K’:
+[1.918s] [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localisation.cpp:70:48:[m[K [01;35m[Kwarning: [m[Kleft operand of comma operator has no effect [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-value-Wunused-value]8;;[m[K]
+[1.918s]    70 |     } else if((m_diff_x_y > 0.25)&&(([01;35m[Km_pitch_y >= -0[m[K,2618)&&(m_pitch_y < 0.0))&&((m_yaw_z >= 0.0)&&(abs(m_yaw_z) < (M_PI / 2.0))) || ((m_pitch_y <= 0,2618)&&(m_pitch_y >= 0.0))&&((m_yaw_z >= (M_PI / 2.0))&& (abs(m_yaw_z) <= M_PI))) {
+[1.918s]       |                                      [01;35m[K~~~~~~~~~~^~~~~[m[K
+[1.918s] [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localisation.cpp:70:146:[m[K [01;35m[Kwarning: [m[Kleft operand of comma operator has no effect [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-value-Wunused-value]8;;[m[K]
+[1.918s]    70 |     } else if((m_diff_x_y > 0.25)&&((m_pitch_y >= -0,2618)&&(m_pitch_y < 0.0))&&((m_yaw_z >= 0.0)&&(abs(m_yaw_z) < (M_PI / 2.0))) || (([01;35m[Km_pitch_y <= 0[m[K,2618)&&(m_pitch_y >= 0.0))&&((m_yaw_z >= (M_PI / 2.0))&& (abs(m_yaw_z) <= M_PI))) {
+[1.918s]       |                                                                                                                                        [01;35m[K~~~~~~~~~~^~~~[m[K
+[1.918s] [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localisation.cpp:70:79:[m[K [01;35m[Kwarning: [m[Ksuggest parentheses around ‘[01m[K&&[m[K’ within ‘[01m[K||[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wparentheses-Wparentheses]8;;[m[K]
+[1.918s]    70 |     } else if([01;35m[K(m_diff_x_y > 0.25)&&((m_pitch_y >= -0,2618)&&(m_pitch_y < 0.0))&&((m_yaw_z >= 0.0)&&(abs(m_yaw_z) < (M_PI / 2.0)))[m[K || ((m_pitch_y <= 0,2618)&&(m_pitch_y >= 0.0))&&((m_yaw_z >= (M_PI / 2.0))&& (abs(m_yaw_z) <= M_PI))) {
+[1.918s]       |               [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[1.918s] [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localisation.cpp:73:49:[m[K [01;35m[Kwarning: [m[Kleft operand of comma operator has no effect [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-value-Wunused-value]8;;[m[K]
+[1.919s]    73 |     } else if ((m_diff_x_y > 0.25)&&(([01;35m[Km_pitch_y <= 0[m[K,2618)&&(m_pitch_y > 0.0))&&((abs(m_yaw_z) >= 0.0)&&(abs(m_yaw_z) < (M_PI / 2.0))) || ((m_pitch_y >= -0,2618)&&(m_pitch_y <= 0.0))&&((m_yaw_z >= (M_PI / 2.0))&& (abs(m_yaw_z) <= M_PI))) {
+[1.919s]       |                                       [01;35m[K~~~~~~~~~~^~~~[m[K
+[1.919s] [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localisation.cpp:73:151:[m[K [01;35m[Kwarning: [m[Kleft operand of comma operator has no effect [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-value-Wunused-value]8;;[m[K]
+[1.919s]    73 |     } else if ((m_diff_x_y > 0.25)&&((m_pitch_y <= 0,2618)&&(m_pitch_y > 0.0))&&((abs(m_yaw_z) >= 0.0)&&(abs(m_yaw_z) < (M_PI / 2.0))) || (([01;35m[Km_pitch_y >= -0[m[K,2618)&&(m_pitch_y <= 0.0))&&((m_yaw_z >= (M_PI / 2.0))&& (abs(m_yaw_z) <= M_PI))) {
+[1.919s]       |                                                                                                                                             [01;35m[K~~~~~~~~~~^~~~~[m[K
+[1.919s] [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localisation.cpp:73:79:[m[K [01;35m[Kwarning: [m[Ksuggest parentheses around ‘[01m[K&&[m[K’ within ‘[01m[K||[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wparentheses-Wparentheses]8;;[m[K]
+[1.919s]    73 |     } else if ([01;35m[K(m_diff_x_y > 0.25)&&((m_pitch_y <= 0,2618)&&(m_pitch_y > 0.0))&&((abs(m_yaw_z) >= 0.0)&&(abs(m_yaw_z) < (M_PI / 2.0)))[m[K || ((m_pitch_y >= -0,2618)&&(m_pitch_y <= 0.0))&&((m_yaw_z >= (M_PI / 2.0))&& (abs(m_yaw_z) <= M_PI))) {
+[1.919s]       |                [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.205s] [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localistionControlNode.cpp:[m[K In member function ‘[01m[Kvoid LocalisationControlNode::odom_callback(nav_msgs::msg::Odometry_<std::allocator<void> >::SharedPtr)[m[K’:
+[2.206s] [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localistionControlNode.cpp:50:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kx[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[2.206s]    50 |     float [01;35m[Kx[m[K = msg_odom->pose.pose.position.x;
+[2.206s]       |           [01;35m[K^[m[K
+[2.206s] [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localistionControlNode.cpp:51:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Ky[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[2.206s]    51 |     float [01;35m[Ky[m[K = msg_odom->pose.pose.position.y;
+[2.206s]       |           [01;35m[K^[m[K
+[2.206s] [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localistionControlNode.cpp:55:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kx_orient[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[2.206s]    55 |     float [01;35m[Kx_orient[m[K = msg_odom->pose.pose.orientation.x;
+[2.206s]       |           [01;35m[K^~~~~~~~[m[K
+[2.206s] [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localistionControlNode.cpp:56:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Ky_orient[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[2.206s]    56 |     float [01;35m[Ky_orient[m[K = msg_odom->pose.pose.orientation.y;
+[2.206s]       |           [01;35m[K^~~~~~~~[m[K
+[2.206s] [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localistionControlNode.cpp:57:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kz_orient[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[2.207s]    57 |     float [01;35m[Kz_orient[m[K = msg_odom->pose.pose.orientation.z;
+[2.207s]       |           [01;35m[K^~~~~~~~[m[K
+[2.207s] [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localistionControlNode.cpp:58:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kw_orient[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[2.207s]    58 |     float [01;35m[Kw_orient[m[K = msg_odom->pose.pose.orientation.w;
+[2.207s]       |           [01;35m[K^~~~~~~~[m[K
+[2.207s] [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localistionControlNode.cpp:[m[K In member function ‘[01m[Kvoid LocalisationControlNode::timer_callback()[m[K’:
+[2.207s] [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localistionControlNode.cpp:74:10:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Kmessage[m[K’ set but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-but-set-variable-Wunused-but-set-variable]8;;[m[K]
+[2.207s]    74 |     auto [01;35m[Kmessage[m[K = geometry_msgs::msg::Twist();
+[2.207s]       |          [01;35m[K^~~~~~~[m[K
+[2.209s] [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localistionControlNode.cpp:[m[K In member function ‘[01m[Kvoid LocalisationControlNode::velocity_callback(geometry_msgs::msg::Twist_<std::allocator<void> >::SharedPtr)[m[K’:
+[2.209s] [01m[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localistionControlNode.cpp:94:92:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kmsg_vel[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[2.209s]    94 | void LocalisationControlNode::velocity_callback([01;35m[Kconst geometry_msgs::msg::Twist::SharedPtr msg_vel[m[K)
+[2.209s]       |                                                 [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~[m[K
+[16.159s] [ 57%] [32m[1mLinking CXX executable edu_robocup_rescue_stack_node[0m
+[17.414s] [100%] Built target edu_robocup_rescue_stack_node
+[17.421s] Invoked command in '/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack -- -j8 -l8
+[17.447s] Invoking command in '/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack
+[17.452s] -- Install configuration: ""
+[17.453s] -- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/lib/edu_robocup_rescue_stack/edu_robocup_rescue_stack_node
+[17.461s] -- Set runtime path of "/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/lib/edu_robocup_rescue_stack/edu_robocup_rescue_stack_node" to ""
+[17.461s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//launch
+[17.461s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//launch/edu_control.launch.py
+[17.461s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//launch/online_async_launch.py
+[17.461s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//launch/amcl.launch.py
+[17.462s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//launch/keepout.launch.py
+[17.462s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//launch/navigation1.launch.py
+[17.462s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//config
+[17.462s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//config/nav2_params.yaml
+[17.462s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//config/mapper_params_online_sync.yaml
+[17.462s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//params
+[17.462s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//params/nav2_edu_params.yaml
+[17.462s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map
+[17.462s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map1
+[17.462s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map1/map1.yaml
+[17.462s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map1/map1.pgm
+[17.462s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_5.3.yaml
+[17.462s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_5.4.yaml
+[17.462s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_6.2.yaml
+[17.462s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_neg.yaml
+[17.462s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map1.yaml
+[17.462s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map4
+[17.462s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map4/map4.yaml
+[17.462s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map4/map4.pgm
+[17.462s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_5.2.yaml
+[17.463s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_5.2.pgm
+[17.463s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_5.1.pgm
+[17.463s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_neg.pgm
+[17.463s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_6.1.pgm
+[17.463s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map3.yaml
+[17.463s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map2.pgm
+[17.463s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_7.1.yaml
+[17.463s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_1671210809.pgm
+[17.463s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map3.pgm
+[17.463s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_5.1.yaml
+[17.463s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map4.yaml
+[17.463s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_6.4.pgm
+[17.463s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_1671210809.yaml
+[17.463s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_5.4.pgm
+[17.463s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_6.3.pgm
+[17.463s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_7.1.pgm
+[17.463s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_6.2.pgm
+[17.463s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_6.1.yaml
+[17.464s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_6.3.yaml
+[17.464s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_6.4.yaml
+[17.464s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_5.3.pgm
+[17.464s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map4.pgm
+[17.464s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map2.yaml
+[17.464s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//keepout
+[17.464s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//keepout/keepout_6.1.yaml
+[17.464s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//keepout/keepout_6.2.pgm
+[17.464s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//keepout/keepout_6.3.pgm
+[17.464s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//keepout/keepout_6.4.yaml
+[17.464s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//keepout/keepout_6.2.yaml
+[17.464s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//keepout/keepout_6.4.pgm
+[17.465s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//keepout/keepout_6.3.yaml
+[17.465s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//keepout/keepout_6.1.pgm
+[17.465s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/ament_index/resource_index/package_run_dependencies/edu_robocup_rescue_stack
+[17.465s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/ament_index/resource_index/parent_prefix_path/edu_robocup_rescue_stack
+[17.465s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/environment/ament_prefix_path.sh
+[17.465s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/environment/ament_prefix_path.dsv
+[17.465s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/environment/path.sh
+[17.465s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/environment/path.dsv
+[17.465s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/local_setup.bash
+[17.465s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/local_setup.sh
+[17.465s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/local_setup.zsh
+[17.465s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/local_setup.dsv
+[17.465s] -- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/package.dsv
+[17.466s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/ament_index/resource_index/packages/edu_robocup_rescue_stack
+[17.466s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/cmake/edu_robocup_rescue_stackConfig.cmake
+[17.466s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/cmake/edu_robocup_rescue_stackConfig-version.cmake
+[17.466s] -- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/package.xml
+[17.466s] Invoked command in '/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack

@@ -139,19 +139,19 @@ CMakeFiles/edu_robocup_rescue_stack_node.dir/src/navigation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/edu_robocup_rescue_stack_node.dir/src/navigation.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/navigation.cpp -o CMakeFiles/edu_robocup_rescue_stack_node.dir/src/navigation.cpp.s
 
-CMakeFiles/edu_robocup_rescue_stack_node.dir/src/clientService.cpp.o: CMakeFiles/edu_robocup_rescue_stack_node.dir/flags.make
-CMakeFiles/edu_robocup_rescue_stack_node.dir/src/clientService.cpp.o: ../../src/clientService.cpp
-CMakeFiles/edu_robocup_rescue_stack_node.dir/src/clientService.cpp.o: CMakeFiles/edu_robocup_rescue_stack_node.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/edu_robocup_rescue_stack_node.dir/src/clientService.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/edu_robocup_rescue_stack_node.dir/src/clientService.cpp.o -MF CMakeFiles/edu_robocup_rescue_stack_node.dir/src/clientService.cpp.o.d -o CMakeFiles/edu_robocup_rescue_stack_node.dir/src/clientService.cpp.o -c /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/clientService.cpp
+CMakeFiles/edu_robocup_rescue_stack_node.dir/src/loadMap.cpp.o: CMakeFiles/edu_robocup_rescue_stack_node.dir/flags.make
+CMakeFiles/edu_robocup_rescue_stack_node.dir/src/loadMap.cpp.o: ../../src/loadMap.cpp
+CMakeFiles/edu_robocup_rescue_stack_node.dir/src/loadMap.cpp.o: CMakeFiles/edu_robocup_rescue_stack_node.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/edu_robocup_rescue_stack_node.dir/src/loadMap.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/edu_robocup_rescue_stack_node.dir/src/loadMap.cpp.o -MF CMakeFiles/edu_robocup_rescue_stack_node.dir/src/loadMap.cpp.o.d -o CMakeFiles/edu_robocup_rescue_stack_node.dir/src/loadMap.cpp.o -c /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/loadMap.cpp
 
-CMakeFiles/edu_robocup_rescue_stack_node.dir/src/clientService.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/edu_robocup_rescue_stack_node.dir/src/clientService.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/clientService.cpp > CMakeFiles/edu_robocup_rescue_stack_node.dir/src/clientService.cpp.i
+CMakeFiles/edu_robocup_rescue_stack_node.dir/src/loadMap.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/edu_robocup_rescue_stack_node.dir/src/loadMap.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/loadMap.cpp > CMakeFiles/edu_robocup_rescue_stack_node.dir/src/loadMap.cpp.i
 
-CMakeFiles/edu_robocup_rescue_stack_node.dir/src/clientService.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/edu_robocup_rescue_stack_node.dir/src/clientService.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/clientService.cpp -o CMakeFiles/edu_robocup_rescue_stack_node.dir/src/clientService.cpp.s
+CMakeFiles/edu_robocup_rescue_stack_node.dir/src/loadMap.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/edu_robocup_rescue_stack_node.dir/src/loadMap.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/loadMap.cpp -o CMakeFiles/edu_robocup_rescue_stack_node.dir/src/loadMap.cpp.s
 
 # Object files for target edu_robocup_rescue_stack_node
 edu_robocup_rescue_stack_node_OBJECTS = \
@@ -160,7 +160,7 @@ edu_robocup_rescue_stack_node_OBJECTS = \
 "CMakeFiles/edu_robocup_rescue_stack_node.dir/src/control.cpp.o" \
 "CMakeFiles/edu_robocup_rescue_stack_node.dir/src/localisation.cpp.o" \
 "CMakeFiles/edu_robocup_rescue_stack_node.dir/src/navigation.cpp.o" \
-"CMakeFiles/edu_robocup_rescue_stack_node.dir/src/clientService.cpp.o"
+"CMakeFiles/edu_robocup_rescue_stack_node.dir/src/loadMap.cpp.o"
 
 # External object files for target edu_robocup_rescue_stack_node
 edu_robocup_rescue_stack_node_EXTERNAL_OBJECTS =
@@ -170,22 +170,46 @@ edu_robocup_rescue_stack_node: CMakeFiles/edu_robocup_rescue_stack_node.dir/src/
 edu_robocup_rescue_stack_node: CMakeFiles/edu_robocup_rescue_stack_node.dir/src/control.cpp.o
 edu_robocup_rescue_stack_node: CMakeFiles/edu_robocup_rescue_stack_node.dir/src/localisation.cpp.o
 edu_robocup_rescue_stack_node: CMakeFiles/edu_robocup_rescue_stack_node.dir/src/navigation.cpp.o
-edu_robocup_rescue_stack_node: CMakeFiles/edu_robocup_rescue_stack_node.dir/src/clientService.cpp.o
+edu_robocup_rescue_stack_node: CMakeFiles/edu_robocup_rescue_stack_node.dir/src/loadMap.cpp.o
 edu_robocup_rescue_stack_node: CMakeFiles/edu_robocup_rescue_stack_node.dir/build.make
-edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libnav_msgs__rosidl_typesupport_fastrtps_c.so
-edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libnav_msgs__rosidl_typesupport_fastrtps_cpp.so
-edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libnav_msgs__rosidl_typesupport_introspection_c.so
-edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libnav_msgs__rosidl_typesupport_introspection_cpp.so
-edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libnav_msgs__rosidl_typesupport_cpp.so
-edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libnav_msgs__rosidl_generator_py.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libnav2_msgs__rosidl_typesupport_fastrtps_c.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libnav2_msgs__rosidl_typesupport_fastrtps_cpp.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libnav2_msgs__rosidl_typesupport_introspection_c.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libnav2_msgs__rosidl_typesupport_introspection_cpp.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libnav2_msgs__rosidl_typesupport_cpp.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libnav2_msgs__rosidl_generator_py.so
 edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libsensor_msgs__rosidl_typesupport_fastrtps_c.so
 edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libsensor_msgs__rosidl_typesupport_fastrtps_cpp.so
 edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libsensor_msgs__rosidl_typesupport_introspection_c.so
 edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libsensor_msgs__rosidl_typesupport_introspection_cpp.so
 edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libsensor_msgs__rosidl_generator_py.so
 edu_robocup_rescue_stack_node: /opt/ros/humble/lib/librclcpp_lifecycle.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libnav_msgs__rosidl_typesupport_fastrtps_c.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libaction_msgs__rosidl_typesupport_fastrtps_c.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libunique_identifier_msgs__rosidl_typesupport_fastrtps_c.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libnav_msgs__rosidl_typesupport_fastrtps_cpp.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libaction_msgs__rosidl_typesupport_fastrtps_cpp.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libunique_identifier_msgs__rosidl_typesupport_fastrtps_cpp.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libnav_msgs__rosidl_typesupport_introspection_c.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libaction_msgs__rosidl_typesupport_introspection_c.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libunique_identifier_msgs__rosidl_typesupport_introspection_c.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libnav_msgs__rosidl_typesupport_introspection_cpp.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libaction_msgs__rosidl_typesupport_introspection_cpp.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libunique_identifier_msgs__rosidl_typesupport_introspection_cpp.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libnav_msgs__rosidl_typesupport_cpp.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libaction_msgs__rosidl_typesupport_cpp.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libunique_identifier_msgs__rosidl_typesupport_cpp.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libnav_msgs__rosidl_generator_py.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libnav2_msgs__rosidl_typesupport_c.so
 edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libnav_msgs__rosidl_typesupport_c.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libnav2_msgs__rosidl_generator_c.so
 edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libnav_msgs__rosidl_generator_c.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libaction_msgs__rosidl_generator_py.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libaction_msgs__rosidl_typesupport_c.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libaction_msgs__rosidl_generator_c.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libunique_identifier_msgs__rosidl_generator_py.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libunique_identifier_msgs__rosidl_typesupport_c.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libunique_identifier_msgs__rosidl_generator_c.so
 edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libgeometry_msgs__rosidl_typesupport_fastrtps_c.so
 edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libstd_msgs__rosidl_typesupport_fastrtps_c.so
 edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libgeometry_msgs__rosidl_typesupport_fastrtps_cpp.so
@@ -207,54 +231,54 @@ edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libgeometry_msgs__rosidl_type
 edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libstd_msgs__rosidl_typesupport_cpp.so
 edu_robocup_rescue_stack_node: /opt/ros/humble/lib/librclcpp.so
 edu_robocup_rescue_stack_node: /opt/ros/humble/lib/liblibstatistics_collector.so
-edu_robocup_rescue_stack_node: /home/daniel/ros2_ws/install/rosgraph_msgs/lib/librosgraph_msgs__rosidl_typesupport_fastrtps_c.so
-edu_robocup_rescue_stack_node: /home/daniel/ros2_ws/install/rosgraph_msgs/lib/librosgraph_msgs__rosidl_typesupport_fastrtps_cpp.so
-edu_robocup_rescue_stack_node: /home/daniel/ros2_ws/install/rosgraph_msgs/lib/librosgraph_msgs__rosidl_typesupport_introspection_c.so
-edu_robocup_rescue_stack_node: /home/daniel/ros2_ws/install/rosgraph_msgs/lib/librosgraph_msgs__rosidl_typesupport_introspection_cpp.so
-edu_robocup_rescue_stack_node: /home/daniel/ros2_ws/install/rosgraph_msgs/lib/librosgraph_msgs__rosidl_typesupport_cpp.so
-edu_robocup_rescue_stack_node: /home/daniel/ros2_ws/install/rosgraph_msgs/lib/librosgraph_msgs__rosidl_generator_py.so
-edu_robocup_rescue_stack_node: /home/daniel/ros2_ws/install/rosgraph_msgs/lib/librosgraph_msgs__rosidl_typesupport_c.so
-edu_robocup_rescue_stack_node: /home/daniel/ros2_ws/install/rosgraph_msgs/lib/librosgraph_msgs__rosidl_generator_c.so
-edu_robocup_rescue_stack_node: /home/daniel/ros2_ws/install/statistics_msgs/lib/libstatistics_msgs__rosidl_typesupport_fastrtps_c.so
-edu_robocup_rescue_stack_node: /home/daniel/ros2_ws/install/statistics_msgs/lib/libstatistics_msgs__rosidl_typesupport_fastrtps_cpp.so
-edu_robocup_rescue_stack_node: /home/daniel/ros2_ws/install/statistics_msgs/lib/libstatistics_msgs__rosidl_typesupport_introspection_c.so
-edu_robocup_rescue_stack_node: /home/daniel/ros2_ws/install/statistics_msgs/lib/libstatistics_msgs__rosidl_typesupport_introspection_cpp.so
-edu_robocup_rescue_stack_node: /home/daniel/ros2_ws/install/statistics_msgs/lib/libstatistics_msgs__rosidl_typesupport_cpp.so
-edu_robocup_rescue_stack_node: /home/daniel/ros2_ws/install/statistics_msgs/lib/libstatistics_msgs__rosidl_generator_py.so
-edu_robocup_rescue_stack_node: /home/daniel/ros2_ws/install/statistics_msgs/lib/libstatistics_msgs__rosidl_typesupport_c.so
-edu_robocup_rescue_stack_node: /home/daniel/ros2_ws/install/statistics_msgs/lib/libstatistics_msgs__rosidl_generator_c.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/librosgraph_msgs__rosidl_typesupport_fastrtps_c.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/librosgraph_msgs__rosidl_typesupport_fastrtps_cpp.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/librosgraph_msgs__rosidl_typesupport_introspection_c.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/librosgraph_msgs__rosidl_typesupport_introspection_cpp.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/librosgraph_msgs__rosidl_typesupport_cpp.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/librosgraph_msgs__rosidl_generator_py.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/librosgraph_msgs__rosidl_typesupport_c.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/librosgraph_msgs__rosidl_generator_c.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libstatistics_msgs__rosidl_typesupport_fastrtps_c.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libstatistics_msgs__rosidl_typesupport_fastrtps_cpp.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libstatistics_msgs__rosidl_typesupport_introspection_c.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libstatistics_msgs__rosidl_typesupport_introspection_cpp.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libstatistics_msgs__rosidl_typesupport_cpp.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libstatistics_msgs__rosidl_generator_py.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libstatistics_msgs__rosidl_typesupport_c.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libstatistics_msgs__rosidl_generator_c.so
 edu_robocup_rescue_stack_node: /opt/ros/humble/lib/librcl_lifecycle.so
-edu_robocup_rescue_stack_node: /home/daniel/ros2_ws/install/lifecycle_msgs/lib/liblifecycle_msgs__rosidl_typesupport_fastrtps_c.so
-edu_robocup_rescue_stack_node: /home/daniel/ros2_ws/install/lifecycle_msgs/lib/liblifecycle_msgs__rosidl_typesupport_introspection_c.so
-edu_robocup_rescue_stack_node: /home/daniel/ros2_ws/install/lifecycle_msgs/lib/liblifecycle_msgs__rosidl_typesupport_fastrtps_cpp.so
-edu_robocup_rescue_stack_node: /home/daniel/ros2_ws/install/lifecycle_msgs/lib/liblifecycle_msgs__rosidl_typesupport_introspection_cpp.so
-edu_robocup_rescue_stack_node: /home/daniel/ros2_ws/install/lifecycle_msgs/lib/liblifecycle_msgs__rosidl_typesupport_cpp.so
-edu_robocup_rescue_stack_node: /home/daniel/ros2_ws/install/lifecycle_msgs/lib/liblifecycle_msgs__rosidl_generator_py.so
-edu_robocup_rescue_stack_node: /home/daniel/ros2_ws/install/lifecycle_msgs/lib/liblifecycle_msgs__rosidl_typesupport_c.so
-edu_robocup_rescue_stack_node: /home/daniel/ros2_ws/install/lifecycle_msgs/lib/liblifecycle_msgs__rosidl_generator_c.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/liblifecycle_msgs__rosidl_typesupport_fastrtps_c.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/liblifecycle_msgs__rosidl_typesupport_introspection_c.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/liblifecycle_msgs__rosidl_typesupport_fastrtps_cpp.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/liblifecycle_msgs__rosidl_typesupport_introspection_cpp.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/liblifecycle_msgs__rosidl_typesupport_cpp.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/liblifecycle_msgs__rosidl_generator_py.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/liblifecycle_msgs__rosidl_typesupport_c.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/liblifecycle_msgs__rosidl_generator_c.so
 edu_robocup_rescue_stack_node: /opt/ros/humble/lib/librcl.so
-edu_robocup_rescue_stack_node: /home/daniel/ros2_ws/install/rcl_interfaces/lib/librcl_interfaces__rosidl_typesupport_fastrtps_c.so
-edu_robocup_rescue_stack_node: /home/daniel/ros2_ws/install/builtin_interfaces/lib/libbuiltin_interfaces__rosidl_typesupport_fastrtps_c.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/librcl_interfaces__rosidl_typesupport_fastrtps_c.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libbuiltin_interfaces__rosidl_typesupport_fastrtps_c.so
 edu_robocup_rescue_stack_node: /opt/ros/humble/lib/librosidl_typesupport_fastrtps_c.so
-edu_robocup_rescue_stack_node: /home/daniel/ros2_ws/install/rcl_interfaces/lib/librcl_interfaces__rosidl_typesupport_introspection_c.so
-edu_robocup_rescue_stack_node: /home/daniel/ros2_ws/install/builtin_interfaces/lib/libbuiltin_interfaces__rosidl_typesupport_introspection_c.so
-edu_robocup_rescue_stack_node: /home/daniel/ros2_ws/install/rcl_interfaces/lib/librcl_interfaces__rosidl_typesupport_fastrtps_cpp.so
-edu_robocup_rescue_stack_node: /home/daniel/ros2_ws/install/builtin_interfaces/lib/libbuiltin_interfaces__rosidl_typesupport_fastrtps_cpp.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/librcl_interfaces__rosidl_typesupport_introspection_c.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libbuiltin_interfaces__rosidl_typesupport_introspection_c.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/librcl_interfaces__rosidl_typesupport_fastrtps_cpp.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libbuiltin_interfaces__rosidl_typesupport_fastrtps_cpp.so
 edu_robocup_rescue_stack_node: /opt/ros/humble/lib/librosidl_typesupport_fastrtps_cpp.so
 edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libfastcdr.so.1.0.24
-edu_robocup_rescue_stack_node: /home/daniel/ros2_ws/install/rcl_interfaces/lib/librcl_interfaces__rosidl_typesupport_introspection_cpp.so
-edu_robocup_rescue_stack_node: /home/daniel/ros2_ws/install/builtin_interfaces/lib/libbuiltin_interfaces__rosidl_typesupport_introspection_cpp.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/librcl_interfaces__rosidl_typesupport_introspection_cpp.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libbuiltin_interfaces__rosidl_typesupport_introspection_cpp.so
 edu_robocup_rescue_stack_node: /opt/ros/humble/lib/librosidl_typesupport_introspection_cpp.so
 edu_robocup_rescue_stack_node: /opt/ros/humble/lib/librosidl_typesupport_introspection_c.so
-edu_robocup_rescue_stack_node: /home/daniel/ros2_ws/install/rcl_interfaces/lib/librcl_interfaces__rosidl_typesupport_cpp.so
-edu_robocup_rescue_stack_node: /home/daniel/ros2_ws/install/builtin_interfaces/lib/libbuiltin_interfaces__rosidl_typesupport_cpp.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/librcl_interfaces__rosidl_typesupport_cpp.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libbuiltin_interfaces__rosidl_typesupport_cpp.so
 edu_robocup_rescue_stack_node: /opt/ros/humble/lib/librosidl_typesupport_cpp.so
-edu_robocup_rescue_stack_node: /home/daniel/ros2_ws/install/rcl_interfaces/lib/librcl_interfaces__rosidl_generator_py.so
-edu_robocup_rescue_stack_node: /home/daniel/ros2_ws/install/rcl_interfaces/lib/librcl_interfaces__rosidl_typesupport_c.so
-edu_robocup_rescue_stack_node: /home/daniel/ros2_ws/install/rcl_interfaces/lib/librcl_interfaces__rosidl_generator_c.so
-edu_robocup_rescue_stack_node: /home/daniel/ros2_ws/install/builtin_interfaces/lib/libbuiltin_interfaces__rosidl_generator_py.so
-edu_robocup_rescue_stack_node: /home/daniel/ros2_ws/install/builtin_interfaces/lib/libbuiltin_interfaces__rosidl_typesupport_c.so
-edu_robocup_rescue_stack_node: /home/daniel/ros2_ws/install/builtin_interfaces/lib/libbuiltin_interfaces__rosidl_generator_c.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/librcl_interfaces__rosidl_generator_py.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/librcl_interfaces__rosidl_typesupport_c.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/librcl_interfaces__rosidl_generator_c.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libbuiltin_interfaces__rosidl_generator_py.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libbuiltin_interfaces__rosidl_typesupport_c.so
+edu_robocup_rescue_stack_node: /opt/ros/humble/lib/libbuiltin_interfaces__rosidl_generator_c.so
 edu_robocup_rescue_stack_node: /opt/ros/humble/lib/librosidl_typesupport_c.so
 edu_robocup_rescue_stack_node: /usr/lib/x86_64-linux-gnu/libpython3.10.so
 edu_robocup_rescue_stack_node: /opt/ros/humble/lib/librcl_yaml_param_parser.so

@@ -210,30 +210,6 @@ edu_robocup_rescue_stack_node/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/edu_robocup_rescue_stack_node.dir/build.make CMakeFiles/edu_robocup_rescue_stack_node.dir/build
 .PHONY : edu_robocup_rescue_stack_node/fast
 
-src/clientService.o: src/clientService.cpp.o
-.PHONY : src/clientService.o
-
-# target to build an object file
-src/clientService.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/edu_robocup_rescue_stack_node.dir/build.make CMakeFiles/edu_robocup_rescue_stack_node.dir/src/clientService.cpp.o
-.PHONY : src/clientService.cpp.o
-
-src/clientService.i: src/clientService.cpp.i
-.PHONY : src/clientService.i
-
-# target to preprocess a source file
-src/clientService.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/edu_robocup_rescue_stack_node.dir/build.make CMakeFiles/edu_robocup_rescue_stack_node.dir/src/clientService.cpp.i
-.PHONY : src/clientService.cpp.i
-
-src/clientService.s: src/clientService.cpp.s
-.PHONY : src/clientService.s
-
-# target to generate assembly for a file
-src/clientService.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/edu_robocup_rescue_stack_node.dir/build.make CMakeFiles/edu_robocup_rescue_stack_node.dir/src/clientService.cpp.s
-.PHONY : src/clientService.cpp.s
-
 src/control.o: src/control.cpp.o
 .PHONY : src/control.o
 
@@ -281,6 +257,30 @@ src/edu_robocup_rescue_stack_node.s: src/edu_robocup_rescue_stack_node.cpp.s
 src/edu_robocup_rescue_stack_node.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/edu_robocup_rescue_stack_node.dir/build.make CMakeFiles/edu_robocup_rescue_stack_node.dir/src/edu_robocup_rescue_stack_node.cpp.s
 .PHONY : src/edu_robocup_rescue_stack_node.cpp.s
+
+src/loadMap.o: src/loadMap.cpp.o
+.PHONY : src/loadMap.o
+
+# target to build an object file
+src/loadMap.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/edu_robocup_rescue_stack_node.dir/build.make CMakeFiles/edu_robocup_rescue_stack_node.dir/src/loadMap.cpp.o
+.PHONY : src/loadMap.cpp.o
+
+src/loadMap.i: src/loadMap.cpp.i
+.PHONY : src/loadMap.i
+
+# target to preprocess a source file
+src/loadMap.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/edu_robocup_rescue_stack_node.dir/build.make CMakeFiles/edu_robocup_rescue_stack_node.dir/src/loadMap.cpp.i
+.PHONY : src/loadMap.cpp.i
+
+src/loadMap.s: src/loadMap.cpp.s
+.PHONY : src/loadMap.s
+
+# target to generate assembly for a file
+src/loadMap.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/edu_robocup_rescue_stack_node.dir/build.make CMakeFiles/edu_robocup_rescue_stack_node.dir/src/loadMap.cpp.s
+.PHONY : src/loadMap.cpp.s
 
 src/localisation.o: src/localisation.cpp.o
 .PHONY : src/localisation.o
@@ -370,15 +370,15 @@ help:
 	@echo "... edu_robocup_rescue_stack_uninstall"
 	@echo "... uninstall"
 	@echo "... edu_robocup_rescue_stack_node"
-	@echo "... src/clientService.o"
-	@echo "... src/clientService.i"
-	@echo "... src/clientService.s"
 	@echo "... src/control.o"
 	@echo "... src/control.i"
 	@echo "... src/control.s"
 	@echo "... src/edu_robocup_rescue_stack_node.o"
 	@echo "... src/edu_robocup_rescue_stack_node.i"
 	@echo "... src/edu_robocup_rescue_stack_node.s"
+	@echo "... src/loadMap.o"
+	@echo "... src/loadMap.i"
+	@echo "... src/loadMap.s"
 	@echo "... src/localisation.o"
 	@echo "... src/localisation.i"
 	@echo "... src/localisation.s"

@@ -7,6 +7,7 @@
 #include "rclcpp/qos.hpp"
 #include "geometry_msgs/msg/pose_stamped.hpp"
 #include <map>
+//#include "loadMap.h"
 
 #include "geometry_msgs/msg/pose_with_covariance_stamped.hpp"
 
@@ -33,10 +34,26 @@ class LocalisationControlNode : public rclcpp::Node
     private:
 
     int m_wait;
-
-    bool m_goal_send;
+    bool m_send_goal; 
+    bool m_goal_sended;
+    bool m_send_initial_pose;
+    bool m_initial_pose_sended;
 
     bool m_initial_pose_set;
+
+    float m_yawZ;
+    float m_yawZ_strich;
+    float m_yawZ_rays;
+    
+
+
+    int m_n_laserrays;
+    int m_i_0;
+    int m_i_90;
+    int m_i_180;
+    int m_i_270;
+
+    int m_area; 
 
     void scan_callback(sensor_msgs::msg::LaserScan msg_scan);
 
@@ -74,7 +91,7 @@ class LocalisationControlNode : public rclcpp::Node
     rclcpp::Publisher<sensor_msgs::msg::LaserScan>::SharedPtr publisher_slam_scan_;
     //###########NEU##############
     rclcpp::Publisher<geometry_msgs::msg::PoseStamped>::SharedPtr publisher_goal_pose_;
-    rclcpp::Publisher<geometry_msgs::msg::PoseStamped>::SharedPtr publisher_initial_pose_;
+    rclcpp::Publisher<geometry_msgs::msg::PoseWithCovarianceStamped>::SharedPtr publisher_initial_pose_;
 
     //Initialisierung Timer
     rclcpp::TimerBase::SharedPtr timer_;
@@ -84,4 +101,11 @@ class LocalisationControlNode : public rclcpp::Node
     //Control *ls_control;
     Localisation *m_localisation;
     Navigation *m_navigation;
+    //LoadMap *m_loadMap;
+
+    //state topic neccessary for getstate and change state 
+    static constexpr char const * map_server_load_map_topic = "/map_server/load_map";
+
+    //Initialising Client
+    std::shared_ptr<rclcpp::Client<nav2_msgs::srv::LoadMap>> map_server_load_map;
 };

@@ -10,19 +10,20 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
-find_package(nav_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(nav2_costmap_2d REQUIRED)
+find_package(nav2_msgs REQUIRED)
+find_package(nav_msgs REQUIRED)
 
 
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
-add_executable(edu_robocup_rescue_stack_node src/edu_robocup_rescue_stack_node.cpp src/localistionControlNode.cpp src/control.cpp src/localisation.cpp src/navigation.cpp src/clientService.cpp)
+add_executable(edu_robocup_rescue_stack_node src/edu_robocup_rescue_stack_node.cpp src/localistionControlNode.cpp src/control.cpp src/localisation.cpp src/navigation.cpp src/loadMap.cpp)
 
-ament_target_dependencies(edu_robocup_rescue_stack_node rclcpp geometry_msgs nav_msgs std_msgs sensor_msgs lifecycle_msgs rclcpp_lifecycle)
+ament_target_dependencies(edu_robocup_rescue_stack_node rclcpp geometry_msgs nav_msgs nav2_msgs std_msgs sensor_msgs lifecycle_msgs rclcpp_lifecycle)
 
 target_include_directories(edu_robocup_rescue_stack_node PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>

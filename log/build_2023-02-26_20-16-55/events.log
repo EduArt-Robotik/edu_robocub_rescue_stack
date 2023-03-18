@@ -1,0 +1,331 @@
+[0.000000] (-) TimerEvent: {}
+[0.000273] (edu_robocup_rescue_stack) JobQueued: {'identifier': 'edu_robocup_rescue_stack', 'dependencies': OrderedDict()}
+[0.000472] (edu_robocup_rescue_stack) JobStarted: {'identifier': 'edu_robocup_rescue_stack'}
+[0.013234] (edu_robocup_rescue_stack) JobProgress: {'identifier': 'edu_robocup_rescue_stack', 'progress': 'cmake'}
+[0.013684] (edu_robocup_rescue_stack) JobProgress: {'identifier': 'edu_robocup_rescue_stack', 'progress': 'build'}
+[0.014140] (edu_robocup_rescue_stack) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack', '--', '-j8', '-l8'], 'cwd': '/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_US:en'), ('USER', 'daniel'), ('LC_TIME', 'de_DE.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('GIT_ASKPASS', '/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/home/daniel/ros2_ws/install/test_msgs/lib:/home/daniel/ros2_ws/install/statistics_msgs/lib:/home/daniel/ros2_ws/install/slam_toolbox/lib:/home/daniel/ros2_ws/install/rosgraph_msgs/lib:/home/daniel/ros2_ws/install/composition_interfaces/lib:/home/daniel/ros2_ws/install/rcl_interfaces/lib:/home/daniel/ros2_ws/install/nav_2d_utils/lib:/home/daniel/ros2_ws/install/nav2_velocity_smoother/lib:/home/daniel/ros2_ws/install/nav2_smac_planner/lib:/home/daniel/ros2_ws/install/nav2_rviz_plugins/lib:/home/daniel/ros2_ws/install/nav2_map_server/lib:/home/daniel/ros2_ws/install/nav2_amcl/lib:/home/daniel/ros2_ws/install/nav2_msgs/lib:/home/daniel/ros2_ws/install/dwb_msgs/lib:/home/daniel/ros2_ws/install/action_msgs/lib:/home/daniel/ros2_ws/install/builtin_interfaces/lib:/home/daniel/ros2_ws/install/nav_2d_msgs/lib:/home/daniel/ros2_ws/install/nav2_voxel_grid/lib:/home/daniel/ros2_ws/install/lifecycle_msgs/lib:/home/daniel/ros2_ws/install/costmap_queue/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/daniel'), ('CHROME_DESKTOP', 'code-url-handler.desktop'), ('OLDPWD', '/home/daniel/ros2_ws/src'), ('TERM_PROGRAM_VERSION', '1.75.1'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('VSCODE_GIT_ASKPASS_MAIN', '/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'de_DE.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/usr/share/code/code'), ('SYSTEMD_EXEC_PID', '1140'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/daniel/ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'daniel'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'daniel'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/home/daniel/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/daniel-Surface-Pro-8:@/tmp/.ICE-unix/1116,unix/daniel-Surface-Pro-8:/tmp/.ICE-unix/1116'), ('PAPERSIZE', 'a4'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'de_DE.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/dee25353_1124_4c6f_9d99_4c616f07b575'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'Unity'), ('LC_TELEPHONE', 'de_DE.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.4S7Z01'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-b20c4243c1.sock'), ('GNOME_TERMINAL_SERVICE', ':1.111'), ('TERM_PROGRAM', 'vscode'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/daniel/ros2_ws/install/test_msgs:/home/daniel/ros2_ws/install/test_interface_files:/home/daniel/ros2_ws/install/statistics_msgs:/home/daniel/ros2_ws/install/slam_toolbox:/home/daniel/ros2_ws/install/composition_interfaces:/home/daniel/ros2_ws/install/rcl_interfaces:/home/daniel/ros2_ws/install/nav_2d_utils:/home/daniel/ros2_ws/install/nav2_velocity_smoother:/home/daniel/ros2_ws/install/nav2_smac_planner:/home/daniel/ros2_ws/install/nav2_rviz_plugins:/home/daniel/ros2_ws/install/nav2_map_server:/home/daniel/ros2_ws/install/nav2_core:/home/daniel/ros2_ws/install/nav2_amcl:/home/daniel/ros2_ws/install/nav2_simple_commander:/home/daniel/ros2_ws/install/nav2_msgs:/home/daniel/ros2_ws/install/dwb_msgs:/home/daniel/ros2_ws/install/action_msgs:/home/daniel/ros2_ws/install/builtin_interfaces:/home/daniel/ros2_ws/install/rosidl_core_runtime:/home/daniel/ros2_ws/install/rosidl_core_generators:/home/daniel/ros2_ws/install/nav_2d_msgs:/home/daniel/ros2_ws/install/nav2_voxel_grid:/home/daniel/ros2_ws/install/nav2_common:/home/daniel/ros2_ws/install/lifecycle_msgs:/home/daniel/ros2_ws/install/edu_simulation:/home/daniel/ros2_ws/install/edu_robocup_rescue_stack:/home/daniel/ros2_ws/install/costmap_queue:/opt/ros/humble'), ('ORIGINAL_XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('SHELL', '/bin/bash'), ('LC_NAME', 'de_DE.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'de_DE.UTF-8'), ('LC_IDENTIFICATION', 'de_DE.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', '--ms-enable-electron-run-as-node'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/home/daniel/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/daniel/ros2_ws/install/test_msgs/local/lib/python3.10/dist-packages:/home/daniel/ros2_ws/install/statistics_msgs/local/lib/python3.10/dist-packages:/home/daniel/ros2_ws/install/slam_toolbox/local/lib/python3.10/dist-packages:/home/daniel/ros2_ws/install/composition_interfaces/local/lib/python3.10/dist-packages:/home/daniel/ros2_ws/install/rcl_interfaces/local/lib/python3.10/dist-packages:/home/daniel/ros2_ws/install/nav2_simple_commander/lib/python3.10/site-packages:/home/daniel/ros2_ws/install/nav2_msgs/local/lib/python3.10/dist-packages:/home/daniel/ros2_ws/install/dwb_msgs/local/lib/python3.10/dist-packages:/home/daniel/ros2_ws/install/action_msgs/local/lib/python3.10/dist-packages:/home/daniel/ros2_ws/install/builtin_interfaces/local/lib/python3.10/dist-packages:/home/daniel/ros2_ws/install/nav_2d_msgs/local/lib/python3.10/dist-packages:/home/daniel/ros2_ws/install/nav2_common/local/lib/python3.10/dist-packages:/home/daniel/ros2_ws/install/lifecycle_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'de_DE.UTF-8'), ('LC_PAPER', 'de_DE.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/daniel/ros2_ws/install/test_msgs:/home/daniel/ros2_ws/install/test_interface_files:/home/daniel/ros2_ws/install/slam_toolbox:/home/daniel/ros2_ws/install/rosgraph_msgs:/home/daniel/ros2_ws/install/composition_interfaces:/home/daniel/ros2_ws/install/rcl_interfaces:/home/daniel/ros2_ws/install/nav_2d_utils:/home/daniel/ros2_ws/install/nav2_velocity_smoother:/home/daniel/ros2_ws/install/nav2_smac_planner:/home/daniel/ros2_ws/install/nav2_rviz_plugins:/home/daniel/ros2_ws/install/nav2_map_server:/home/daniel/ros2_ws/install/nav2_core:/home/daniel/ros2_ws/install/nav2_amcl:/home/daniel/ros2_ws/install/nav2_msgs:/home/daniel/ros2_ws/install/dwb_msgs:/home/daniel/ros2_ws/install/builtin_interfaces:/home/daniel/ros2_ws/install/rosidl_core_runtime:/home/daniel/ros2_ws/install/rosidl_core_generators:/home/daniel/ros2_ws/install/nav_2d_msgs:/home/daniel/ros2_ws/install/nav2_voxel_grid:/home/daniel/ros2_ws/install/nav2_common:/home/daniel/ros2_ws/install/lifecycle_msgs:/home/daniel/ros2_ws/install/edu_simulation:/home/daniel/ros2_ws/install/edu_robocup_rescue_stack:/home/daniel/ros2_ws/install/costmap_queue:/home/daniel/ros2_ws/install/statistics_msgs:/home/daniel/ros2_ws/install/nav2_simple_commander:/home/daniel/ros2_ws/install/action_msgs:/opt/ros/humble')]), 'shell': False}
+[0.035404] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.3 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.099817] (-) TimerEvent: {}
+[0.142620] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Found rclcpp: 16.0.3 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.164794] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.4 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.166947] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.4 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.171130] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.4 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.179398] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.189947] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.199905] (-) TimerEvent: {}
+[0.231613] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.232976] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.2 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.300015] (-) TimerEvent: {}
+[0.319777] (edu_robocup_rescue_stack) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.400147] (-) TimerEvent: {}
+[0.425373] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Found geometry_msgs: 4.2.3 (/opt/ros/humble/share/geometry_msgs/cmake)\n'}
+[0.452874] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Found nav_msgs: 4.2.3 (/opt/ros/humble/share/nav_msgs/cmake)\n'}
+[0.500314] (-) TimerEvent: {}
+[0.509773] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Found sensor_msgs: 4.2.3 (/opt/ros/humble/share/sensor_msgs/cmake)\n'}
+[0.565412] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Found tf2_ros: 0.25.2 (/opt/ros/humble/share/tf2_ros/cmake)\n'}
+[0.600435] (-) TimerEvent: {}
+[0.700719] (-) TimerEvent: {}
+[0.787459] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Found nav2_costmap_2d: 1.1.5 (/opt/ros/humble/share/nav2_costmap_2d/cmake)\n'}
+[0.800819] (-) TimerEvent: {}
+[0.901111] (-) TimerEvent: {}
+[1.001390] (-) TimerEvent: {}
+[1.023618] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target\n'}
+[1.101512] (-) TimerEvent: {}
+[1.201807] (-) TimerEvent: {}
+[1.302058] (-) TimerEvent: {}
+[1.402295] (-) TimerEvent: {}
+[1.502545] (-) TimerEvent: {}
+[1.529004] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.5 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[1.602655] (-) TimerEvent: {}
+[1.620412] (edu_robocup_rescue_stack) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[1.620560] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/include>\n'}
+[1.620603] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[1.625943] (edu_robocup_rescue_stack) StdoutLine: {'line': b"-- Added test 'flake8' to check Python code syntax and style conventions\n"}
+[1.636563] (edu_robocup_rescue_stack) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[1.641931] (edu_robocup_rescue_stack) StdoutLine: {'line': b"-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257\n"}
+[1.686231] (edu_robocup_rescue_stack) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[1.686382] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[1.691858] (edu_robocup_rescue_stack) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[1.692225] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Configuring done\n'}
+[1.702007] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Generating done\n'}
+[1.702729] (-) TimerEvent: {}
+[1.703646] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Build files have been written to: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack\n'}
+[1.727858] (edu_robocup_rescue_stack) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target edu_robocup_rescue_stack_node\x1b[0m\n'}
+[1.749097] (edu_robocup_rescue_stack) StdoutLine: {'line': b'[ 14%] \x1b[32mBuilding CXX object CMakeFiles/edu_robocup_rescue_stack_node.dir/src/localistionControlNode.cpp.o\x1b[0m\n'}
+[1.749224] (edu_robocup_rescue_stack) StdoutLine: {'line': b'[ 28%] \x1b[32mBuilding CXX object CMakeFiles/edu_robocup_rescue_stack_node.dir/src/clientService.cpp.o\x1b[0m\n'}
+[1.802839] (-) TimerEvent: {}
+[1.903146] (-) TimerEvent: {}
+[2.003476] (-) TimerEvent: {}
+[2.103807] (-) TimerEvent: {}
+[2.204124] (-) TimerEvent: {}
+[2.304430] (-) TimerEvent: {}
+[2.404767] (-) TimerEvent: {}
+[2.505076] (-) TimerEvent: {}
+[2.605381] (-) TimerEvent: {}
+[2.705698] (-) TimerEvent: {}
+[2.806040] (-) TimerEvent: {}
+[2.906345] (-) TimerEvent: {}
+[3.006656] (-) TimerEvent: {}
+[3.106967] (-) TimerEvent: {}
+[3.207301] (-) TimerEvent: {}
+[3.307629] (-) TimerEvent: {}
+[3.407943] (-) TimerEvent: {}
+[3.508205] (-) TimerEvent: {}
+[3.608470] (-) TimerEvent: {}
+[3.664858] (edu_robocup_rescue_stack) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localistionControlNode.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid LocalisationControlNode::odom_callback(nav_msgs::msg::Odometry_<std::allocator<void> >::SharedPtr)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[3.665080] (edu_robocup_rescue_stack) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localistionControlNode.cpp:44:11:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kx\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[3.665146] (edu_robocup_rescue_stack) StderrLine: {'line': b'   44 |     float \x1b[01;35m\x1b[Kx\x1b[m\x1b[K = msg_odom->pose.pose.position.x;\n'}
+[3.665193] (edu_robocup_rescue_stack) StderrLine: {'line': b'      |           \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[3.665239] (edu_robocup_rescue_stack) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localistionControlNode.cpp:45:11:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Ky\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[3.665291] (edu_robocup_rescue_stack) StderrLine: {'line': b'   45 |     float \x1b[01;35m\x1b[Ky\x1b[m\x1b[K = msg_odom->pose.pose.position.y;\n'}
+[3.665336] (edu_robocup_rescue_stack) StderrLine: {'line': b'      |           \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[3.665380] (edu_robocup_rescue_stack) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localistionControlNode.cpp:49:11:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kx_orient\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[3.665425] (edu_robocup_rescue_stack) StderrLine: {'line': b'   49 |     float \x1b[01;35m\x1b[Kx_orient\x1b[m\x1b[K = msg_odom->pose.pose.orientation.x;\n'}
+[3.665469] (edu_robocup_rescue_stack) StderrLine: {'line': b'      |           \x1b[01;35m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[3.665523] (edu_robocup_rescue_stack) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localistionControlNode.cpp:50:11:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Ky_orient\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[3.665575] (edu_robocup_rescue_stack) StderrLine: {'line': b'   50 |     float \x1b[01;35m\x1b[Ky_orient\x1b[m\x1b[K = msg_odom->pose.pose.orientation.y;\n'}
+[3.665620] (edu_robocup_rescue_stack) StderrLine: {'line': b'      |           \x1b[01;35m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[3.665664] (edu_robocup_rescue_stack) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localistionControlNode.cpp:51:11:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kz_orient\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[3.665710] (edu_robocup_rescue_stack) StderrLine: {'line': b'   51 |     float \x1b[01;35m\x1b[Kz_orient\x1b[m\x1b[K = msg_odom->pose.pose.orientation.z;\n'}
+[3.665754] (edu_robocup_rescue_stack) StderrLine: {'line': b'      |           \x1b[01;35m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[3.665800] (edu_robocup_rescue_stack) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localistionControlNode.cpp:52:11:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kw_orient\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[3.665846] (edu_robocup_rescue_stack) StderrLine: {'line': b'   52 |     float \x1b[01;35m\x1b[Kw_orient\x1b[m\x1b[K = msg_odom->pose.pose.orientation.w;\n'}
+[3.665879] (edu_robocup_rescue_stack) StderrLine: {'line': b'      |           \x1b[01;35m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[3.665913] (edu_robocup_rescue_stack) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localistionControlNode.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid LocalisationControlNode::timer_callback()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[3.665950] (edu_robocup_rescue_stack) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localistionControlNode.cpp:68:10:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kvariable \xe2\x80\x98\x1b[01m\x1b[Kmessage\x1b[m\x1b[K\xe2\x80\x99 set but not used [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-but-set-variable\x07-Wunused-but-set-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[3.665986] (edu_robocup_rescue_stack) StderrLine: {'line': b'   68 |     auto \x1b[01;35m\x1b[Kmessage\x1b[m\x1b[K = geometry_msgs::msg::Twist();\n'}
+[3.666019] (edu_robocup_rescue_stack) StderrLine: {'line': b'      |          \x1b[01;35m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[3.667481] (edu_robocup_rescue_stack) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localistionControlNode.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid LocalisationControlNode::velocity_callback(geometry_msgs::msg::Twist_<std::allocator<void> >::SharedPtr)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[3.667625] (edu_robocup_rescue_stack) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/localistionControlNode.cpp:88:92:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[Kmsg_vel\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter\x07-Wunused-parameter\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[3.667691] (edu_robocup_rescue_stack) StderrLine: {'line': b'   88 | rolNode::velocity_callback(\x1b[01;35m\x1b[Kconst geometry_msgs::msg::Twist::SharedPtr msg_vel\x1b[m\x1b[K)\n'}
+[3.667750] (edu_robocup_rescue_stack) StderrLine: {'line': b'      |                            \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~\x1b[m\x1b[K\n'}
+[3.667817] (edu_robocup_rescue_stack) StderrLine: {'line': b'\n'}
+[3.708566] (-) TimerEvent: {}
+[3.808797] (-) TimerEvent: {}
+[3.909028] (-) TimerEvent: {}
+[4.009274] (-) TimerEvent: {}
+[4.109526] (-) TimerEvent: {}
+[4.209796] (-) TimerEvent: {}
+[4.310076] (-) TimerEvent: {}
+[4.410447] (-) TimerEvent: {}
+[4.510772] (-) TimerEvent: {}
+[4.611123] (-) TimerEvent: {}
+[4.711450] (-) TimerEvent: {}
+[4.811782] (-) TimerEvent: {}
+[4.912119] (-) TimerEvent: {}
+[5.012444] (-) TimerEvent: {}
+[5.112760] (-) TimerEvent: {}
+[5.213074] (-) TimerEvent: {}
+[5.313400] (-) TimerEvent: {}
+[5.413665] (-) TimerEvent: {}
+[5.513895] (-) TimerEvent: {}
+[5.614135] (-) TimerEvent: {}
+[5.714385] (-) TimerEvent: {}
+[5.814658] (-) TimerEvent: {}
+[5.914931] (-) TimerEvent: {}
+[6.015184] (-) TimerEvent: {}
+[6.115431] (-) TimerEvent: {}
+[6.215676] (-) TimerEvent: {}
+[6.315921] (-) TimerEvent: {}
+[6.416211] (-) TimerEvent: {}
+[6.516494] (-) TimerEvent: {}
+[6.616800] (-) TimerEvent: {}
+[6.717080] (-) TimerEvent: {}
+[6.817363] (-) TimerEvent: {}
+[6.917643] (-) TimerEvent: {}
+[7.017992] (-) TimerEvent: {}
+[7.118252] (-) TimerEvent: {}
+[7.218577] (-) TimerEvent: {}
+[7.318830] (-) TimerEvent: {}
+[7.419090] (-) TimerEvent: {}
+[7.519364] (-) TimerEvent: {}
+[7.619673] (-) TimerEvent: {}
+[7.720015] (-) TimerEvent: {}
+[7.820291] (-) TimerEvent: {}
+[7.920561] (-) TimerEvent: {}
+[8.020886] (-) TimerEvent: {}
+[8.121156] (-) TimerEvent: {}
+[8.221452] (-) TimerEvent: {}
+[8.321708] (-) TimerEvent: {}
+[8.421980] (-) TimerEvent: {}
+[8.522291] (-) TimerEvent: {}
+[8.622563] (-) TimerEvent: {}
+[8.722806] (-) TimerEvent: {}
+[8.823112] (-) TimerEvent: {}
+[8.923349] (-) TimerEvent: {}
+[9.023627] (-) TimerEvent: {}
+[9.124011] (-) TimerEvent: {}
+[9.224286] (-) TimerEvent: {}
+[9.324514] (-) TimerEvent: {}
+[9.424816] (-) TimerEvent: {}
+[9.525084] (-) TimerEvent: {}
+[9.625326] (-) TimerEvent: {}
+[9.725584] (-) TimerEvent: {}
+[9.825925] (-) TimerEvent: {}
+[9.926184] (-) TimerEvent: {}
+[10.026439] (-) TimerEvent: {}
+[10.126676] (-) TimerEvent: {}
+[10.226914] (-) TimerEvent: {}
+[10.327165] (-) TimerEvent: {}
+[10.427407] (-) TimerEvent: {}
+[10.527664] (-) TimerEvent: {}
+[10.627921] (-) TimerEvent: {}
+[10.728247] (-) TimerEvent: {}
+[10.828499] (-) TimerEvent: {}
+[10.928780] (-) TimerEvent: {}
+[11.029028] (-) TimerEvent: {}
+[11.129253] (-) TimerEvent: {}
+[11.229599] (-) TimerEvent: {}
+[11.329840] (-) TimerEvent: {}
+[11.430088] (-) TimerEvent: {}
+[11.530341] (-) TimerEvent: {}
+[11.630643] (-) TimerEvent: {}
+[11.730895] (-) TimerEvent: {}
+[11.831153] (-) TimerEvent: {}
+[11.931375] (-) TimerEvent: {}
+[12.031772] (-) TimerEvent: {}
+[12.132049] (-) TimerEvent: {}
+[12.232325] (-) TimerEvent: {}
+[12.332677] (-) TimerEvent: {}
+[12.432986] (-) TimerEvent: {}
+[12.533244] (-) TimerEvent: {}
+[12.633470] (-) TimerEvent: {}
+[12.733714] (-) TimerEvent: {}
+[12.834014] (-) TimerEvent: {}
+[12.934269] (-) TimerEvent: {}
+[13.034481] (-) TimerEvent: {}
+[13.134722] (-) TimerEvent: {}
+[13.234991] (-) TimerEvent: {}
+[13.335243] (-) TimerEvent: {}
+[13.435600] (-) TimerEvent: {}
+[13.535884] (-) TimerEvent: {}
+[13.636242] (-) TimerEvent: {}
+[13.736501] (-) TimerEvent: {}
+[13.836797] (-) TimerEvent: {}
+[13.937032] (-) TimerEvent: {}
+[14.037305] (-) TimerEvent: {}
+[14.137574] (-) TimerEvent: {}
+[14.237876] (-) TimerEvent: {}
+[14.338114] (-) TimerEvent: {}
+[14.438364] (-) TimerEvent: {}
+[14.538607] (-) TimerEvent: {}
+[14.638852] (-) TimerEvent: {}
+[14.739098] (-) TimerEvent: {}
+[14.839390] (-) TimerEvent: {}
+[14.939646] (-) TimerEvent: {}
+[15.039931] (-) TimerEvent: {}
+[15.140224] (-) TimerEvent: {}
+[15.240503] (-) TimerEvent: {}
+[15.340781] (-) TimerEvent: {}
+[15.441025] (-) TimerEvent: {}
+[15.541270] (-) TimerEvent: {}
+[15.641549] (-) TimerEvent: {}
+[15.741765] (-) TimerEvent: {}
+[15.842026] (-) TimerEvent: {}
+[15.942268] (-) TimerEvent: {}
+[16.042580] (-) TimerEvent: {}
+[16.142983] (-) TimerEvent: {}
+[16.243311] (-) TimerEvent: {}
+[16.343637] (-) TimerEvent: {}
+[16.443944] (-) TimerEvent: {}
+[16.544241] (-) TimerEvent: {}
+[16.644549] (-) TimerEvent: {}
+[16.744849] (-) TimerEvent: {}
+[16.845205] (-) TimerEvent: {}
+[16.945553] (-) TimerEvent: {}
+[17.045929] (-) TimerEvent: {}
+[17.146231] (-) TimerEvent: {}
+[17.178814] (edu_robocup_rescue_stack) StdoutLine: {'line': b'[ 42%] \x1b[32m\x1b[1mLinking CXX executable edu_robocup_rescue_stack_node\x1b[0m\n'}
+[17.246335] (-) TimerEvent: {}
+[17.346653] (-) TimerEvent: {}
+[17.446934] (-) TimerEvent: {}
+[17.547274] (-) TimerEvent: {}
+[17.647544] (-) TimerEvent: {}
+[17.747784] (-) TimerEvent: {}
+[17.848059] (-) TimerEvent: {}
+[17.948444] (-) TimerEvent: {}
+[18.048803] (-) TimerEvent: {}
+[18.149078] (-) TimerEvent: {}
+[18.234178] (edu_robocup_rescue_stack) StdoutLine: {'line': b'[100%] Built target edu_robocup_rescue_stack_node\n'}
+[18.242981] (edu_robocup_rescue_stack) CommandEnded: {'returncode': 0}
+[18.249170] (-) TimerEvent: {}
+[18.279953] (edu_robocup_rescue_stack) JobProgress: {'identifier': 'edu_robocup_rescue_stack', 'progress': 'install'}
+[18.285982] (edu_robocup_rescue_stack) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack'], 'cwd': '/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_US:en'), ('USER', 'daniel'), ('LC_TIME', 'de_DE.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('GIT_ASKPASS', '/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/home/daniel/ros2_ws/install/test_msgs/lib:/home/daniel/ros2_ws/install/statistics_msgs/lib:/home/daniel/ros2_ws/install/slam_toolbox/lib:/home/daniel/ros2_ws/install/rosgraph_msgs/lib:/home/daniel/ros2_ws/install/composition_interfaces/lib:/home/daniel/ros2_ws/install/rcl_interfaces/lib:/home/daniel/ros2_ws/install/nav_2d_utils/lib:/home/daniel/ros2_ws/install/nav2_velocity_smoother/lib:/home/daniel/ros2_ws/install/nav2_smac_planner/lib:/home/daniel/ros2_ws/install/nav2_rviz_plugins/lib:/home/daniel/ros2_ws/install/nav2_map_server/lib:/home/daniel/ros2_ws/install/nav2_amcl/lib:/home/daniel/ros2_ws/install/nav2_msgs/lib:/home/daniel/ros2_ws/install/dwb_msgs/lib:/home/daniel/ros2_ws/install/action_msgs/lib:/home/daniel/ros2_ws/install/builtin_interfaces/lib:/home/daniel/ros2_ws/install/nav_2d_msgs/lib:/home/daniel/ros2_ws/install/nav2_voxel_grid/lib:/home/daniel/ros2_ws/install/lifecycle_msgs/lib:/home/daniel/ros2_ws/install/costmap_queue/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/daniel'), ('CHROME_DESKTOP', 'code-url-handler.desktop'), ('OLDPWD', '/home/daniel/ros2_ws/src'), ('TERM_PROGRAM_VERSION', '1.75.1'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('VSCODE_GIT_ASKPASS_MAIN', '/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'de_DE.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/usr/share/code/code'), ('SYSTEMD_EXEC_PID', '1140'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/daniel/ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'daniel'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'daniel'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/home/daniel/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/daniel-Surface-Pro-8:@/tmp/.ICE-unix/1116,unix/daniel-Surface-Pro-8:/tmp/.ICE-unix/1116'), ('PAPERSIZE', 'a4'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'de_DE.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/dee25353_1124_4c6f_9d99_4c616f07b575'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'Unity'), ('LC_TELEPHONE', 'de_DE.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.4S7Z01'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-b20c4243c1.sock'), ('GNOME_TERMINAL_SERVICE', ':1.111'), ('TERM_PROGRAM', 'vscode'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/daniel/ros2_ws/install/test_msgs:/home/daniel/ros2_ws/install/test_interface_files:/home/daniel/ros2_ws/install/statistics_msgs:/home/daniel/ros2_ws/install/slam_toolbox:/home/daniel/ros2_ws/install/composition_interfaces:/home/daniel/ros2_ws/install/rcl_interfaces:/home/daniel/ros2_ws/install/nav_2d_utils:/home/daniel/ros2_ws/install/nav2_velocity_smoother:/home/daniel/ros2_ws/install/nav2_smac_planner:/home/daniel/ros2_ws/install/nav2_rviz_plugins:/home/daniel/ros2_ws/install/nav2_map_server:/home/daniel/ros2_ws/install/nav2_core:/home/daniel/ros2_ws/install/nav2_amcl:/home/daniel/ros2_ws/install/nav2_simple_commander:/home/daniel/ros2_ws/install/nav2_msgs:/home/daniel/ros2_ws/install/dwb_msgs:/home/daniel/ros2_ws/install/action_msgs:/home/daniel/ros2_ws/install/builtin_interfaces:/home/daniel/ros2_ws/install/rosidl_core_runtime:/home/daniel/ros2_ws/install/rosidl_core_generators:/home/daniel/ros2_ws/install/nav_2d_msgs:/home/daniel/ros2_ws/install/nav2_voxel_grid:/home/daniel/ros2_ws/install/nav2_common:/home/daniel/ros2_ws/install/lifecycle_msgs:/home/daniel/ros2_ws/install/edu_simulation:/home/daniel/ros2_ws/install/edu_robocup_rescue_stack:/home/daniel/ros2_ws/install/costmap_queue:/opt/ros/humble'), ('ORIGINAL_XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('SHELL', '/bin/bash'), ('LC_NAME', 'de_DE.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'de_DE.UTF-8'), ('LC_IDENTIFICATION', 'de_DE.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', '--ms-enable-electron-run-as-node'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/home/daniel/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/daniel/ros2_ws/install/test_msgs/local/lib/python3.10/dist-packages:/home/daniel/ros2_ws/install/statistics_msgs/local/lib/python3.10/dist-packages:/home/daniel/ros2_ws/install/slam_toolbox/local/lib/python3.10/dist-packages:/home/daniel/ros2_ws/install/composition_interfaces/local/lib/python3.10/dist-packages:/home/daniel/ros2_ws/install/rcl_interfaces/local/lib/python3.10/dist-packages:/home/daniel/ros2_ws/install/nav2_simple_commander/lib/python3.10/site-packages:/home/daniel/ros2_ws/install/nav2_msgs/local/lib/python3.10/dist-packages:/home/daniel/ros2_ws/install/dwb_msgs/local/lib/python3.10/dist-packages:/home/daniel/ros2_ws/install/action_msgs/local/lib/python3.10/dist-packages:/home/daniel/ros2_ws/install/builtin_interfaces/local/lib/python3.10/dist-packages:/home/daniel/ros2_ws/install/nav_2d_msgs/local/lib/python3.10/dist-packages:/home/daniel/ros2_ws/install/nav2_common/local/lib/python3.10/dist-packages:/home/daniel/ros2_ws/install/lifecycle_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'de_DE.UTF-8'), ('LC_PAPER', 'de_DE.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/daniel/ros2_ws/install/test_msgs:/home/daniel/ros2_ws/install/test_interface_files:/home/daniel/ros2_ws/install/slam_toolbox:/home/daniel/ros2_ws/install/rosgraph_msgs:/home/daniel/ros2_ws/install/composition_interfaces:/home/daniel/ros2_ws/install/rcl_interfaces:/home/daniel/ros2_ws/install/nav_2d_utils:/home/daniel/ros2_ws/install/nav2_velocity_smoother:/home/daniel/ros2_ws/install/nav2_smac_planner:/home/daniel/ros2_ws/install/nav2_rviz_plugins:/home/daniel/ros2_ws/install/nav2_map_server:/home/daniel/ros2_ws/install/nav2_core:/home/daniel/ros2_ws/install/nav2_amcl:/home/daniel/ros2_ws/install/nav2_msgs:/home/daniel/ros2_ws/install/dwb_msgs:/home/daniel/ros2_ws/install/builtin_interfaces:/home/daniel/ros2_ws/install/rosidl_core_runtime:/home/daniel/ros2_ws/install/rosidl_core_generators:/home/daniel/ros2_ws/install/nav_2d_msgs:/home/daniel/ros2_ws/install/nav2_voxel_grid:/home/daniel/ros2_ws/install/nav2_common:/home/daniel/ros2_ws/install/lifecycle_msgs:/home/daniel/ros2_ws/install/edu_simulation:/home/daniel/ros2_ws/install/edu_robocup_rescue_stack:/home/daniel/ros2_ws/install/costmap_queue:/home/daniel/ros2_ws/install/statistics_msgs:/home/daniel/ros2_ws/install/nav2_simple_commander:/home/daniel/ros2_ws/install/action_msgs:/opt/ros/humble')]), 'shell': False}
+[18.292960] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[18.293154] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/lib/edu_robocup_rescue_stack/edu_robocup_rescue_stack_node\n'}
+[18.301169] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Set runtime path of "/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/lib/edu_robocup_rescue_stack/edu_robocup_rescue_stack_node" to ""\n'}
+[18.301341] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//launch\n'}
+[18.301447] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//launch/navigation.launch.py\n'}
+[18.301731] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//launch/edu_control.launch.py\n'}
+[18.301797] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//launch/online_async_launch.py\n'}
+[18.301840] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//launch/amcl.launch.py\n'}
+[18.301877] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//launch/keepout.launch.py\n'}
+[18.301921] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//config\n'}
+[18.301957] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//config/nav2_params.yaml\n'}
+[18.301998] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//config/mapper_params_online_sync.yaml\n'}
+[18.302036] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//params\n'}
+[18.302073] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//params/nav2_edu_params.yaml\n'}
+[18.302109] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map\n'}
+[18.302146] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map1\n'}
+[18.302182] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map1/map1.yaml\n'}
+[18.302261] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map1/map1.pgm\n'}
+[18.302306] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_5.3.yaml\n'}
+[18.302363] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_5.4.yaml\n'}
+[18.302435] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_6.2.yaml\n'}
+[18.302569] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_neg.yaml\n'}
+[18.302685] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map1.yaml\n'}
+[18.302804] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map4\n'}
+[18.302860] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map4/map4.yaml\n'}
+[18.302984] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map4/map4.pgm\n'}
+[18.303139] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_5.2.yaml\n'}
+[18.303326] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_5.2.pgm\n'}
+[18.303457] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_5.1.pgm\n'}
+[18.303605] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_neg.pgm\n'}
+[18.304237] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_6.1.pgm\n'}
+[18.304313] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map3.yaml\n'}
+[18.304352] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map2.pgm\n'}
+[18.304388] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_7.1.yaml\n'}
+[18.304439] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_1671210809.pgm\n'}
+[18.304542] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map3.pgm\n'}
+[18.304582] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_5.1.yaml\n'}
+[18.304688] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map4.yaml\n'}
+[18.304750] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_6.4.pgm\n'}
+[18.304818] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_1671210809.yaml\n'}
+[18.304927] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_5.4.pgm\n'}
+[18.305057] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_6.3.pgm\n'}
+[18.305196] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_7.1.pgm\n'}
+[18.305334] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_6.2.pgm\n'}
+[18.305736] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_6.1.yaml\n'}
+[18.305855] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_6.3.yaml\n'}
+[18.305937] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_6.4.yaml\n'}
+[18.305997] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map_5.3.pgm\n'}
+[18.306086] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map4.pgm\n'}
+[18.306146] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//map/map2.yaml\n'}
+[18.306232] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//keepout\n'}
+[18.306310] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//keepout/keepout_6.1.yaml\n'}
+[18.306368] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//keepout/keepout_6.2.pgm\n'}
+[18.306490] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//keepout/keepout_6.3.pgm\n'}
+[18.306618] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//keepout/keepout_6.4.yaml\n'}
+[18.306765] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//keepout/keepout_6.2.yaml\n'}
+[18.306819] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//keepout/keepout_6.4.pgm\n'}
+[18.306907] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//keepout/keepout_6.3.yaml\n'}
+[18.307037] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack//keepout/keepout_6.1.pgm\n'}
+[18.307614] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/ament_index/resource_index/package_run_dependencies/edu_robocup_rescue_stack\n'}
+[18.307737] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/ament_index/resource_index/parent_prefix_path/edu_robocup_rescue_stack\n'}
+[18.307793] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/environment/ament_prefix_path.sh\n'}
+[18.307878] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/environment/ament_prefix_path.dsv\n'}
+[18.307986] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/environment/path.sh\n'}
+[18.308026] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/environment/path.dsv\n'}
+[18.308077] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/local_setup.bash\n'}
+[18.308121] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/local_setup.sh\n'}
+[18.308199] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/local_setup.zsh\n'}
+[18.308238] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/local_setup.dsv\n'}
+[18.308273] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Installing: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/package.dsv\n'}
+[18.308308] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/ament_index/resource_index/packages/edu_robocup_rescue_stack\n'}
+[18.308343] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/cmake/edu_robocup_rescue_stackConfig.cmake\n'}
+[18.308379] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/cmake/edu_robocup_rescue_stackConfig-version.cmake\n'}
+[18.308413] (edu_robocup_rescue_stack) StdoutLine: {'line': b'-- Up-to-date: /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/package.xml\n'}
+[18.309355] (edu_robocup_rescue_stack) CommandEnded: {'returncode': 0}
+[18.349306] (-) TimerEvent: {}
+[18.360574] (edu_robocup_rescue_stack) JobEnded: {'identifier': 'edu_robocup_rescue_stack', 'rc': 0}
+[18.361154] (-) EventReactorShutdown: {}

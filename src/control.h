@@ -6,10 +6,13 @@
 #include <vector>
 #include <iostream> 
 #include "geometry_msgs/msg/pose_stamped.hpp"
+//#include "loadMap.h"
 
 class Control
 {
     private:
+
+
     
     float m_yaw_z;
     float m_x;
@@ -28,6 +31,7 @@ class Control
 
     void calculateAngleSpeed();
 
+    
     public:
     Control();
     

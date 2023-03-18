@@ -171,7 +171,7 @@ CMakeFiles/edu_robocup_rescue_stack_node.dir/src/navigation.cpp.o: \
  /opt/ros/humble/include/rosidl_runtime_cpp/rosidl_runtime_cpp/message_initialization.hpp \
  /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/message_initialization.h \
  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/header__struct.hpp \
- /home/daniel/ros2_ws/install/builtin_interfaces/include/builtin_interfaces/builtin_interfaces/msg/detail/time__struct.hpp \
+ /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/time__struct.hpp \
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose__struct.hpp \
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point__struct.hpp \
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/quaternion__struct.hpp \
@@ -205,7 +205,7 @@ CMakeFiles/edu_robocup_rescue_stack_node.dir/src/navigation.cpp.o: \
  /usr/include/c++/11/bits/locale_conv.h \
  /usr/include/c++/11/bits/quoted_string.h \
  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/header__traits.hpp \
- /home/daniel/ros2_ws/install/builtin_interfaces/include/builtin_interfaces/builtin_interfaces/msg/detail/time__traits.hpp \
+ /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/time__traits.hpp \
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose__traits.hpp \
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point__traits.hpp \
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/quaternion__traits.hpp \
@@ -374,10 +374,10 @@ CMakeFiles/edu_robocup_rescue_stack_node.dir/src/navigation.cpp.o: \
  /opt/ros/humble/include/rclcpp/rclcpp/event.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/qos.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/duration.hpp \
- /home/daniel/ros2_ws/install/builtin_interfaces/include/builtin_interfaces/builtin_interfaces/msg/duration.hpp \
- /home/daniel/ros2_ws/install/builtin_interfaces/include/builtin_interfaces/builtin_interfaces/msg/detail/duration__struct.hpp \
- /home/daniel/ros2_ws/install/builtin_interfaces/include/builtin_interfaces/builtin_interfaces/msg/detail/duration__builder.hpp \
- /home/daniel/ros2_ws/install/builtin_interfaces/include/builtin_interfaces/builtin_interfaces/msg/detail/duration__traits.hpp \
+ /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/duration.hpp \
+ /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/duration__struct.hpp \
+ /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/duration__builder.hpp \
+ /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/duration__traits.hpp \
  /opt/ros/humble/include/rcl/rcl/logging_rosout.h \
  /opt/ros/humble/include/rmw/rmw/incompatible_qos_events_statuses.h \
  /opt/ros/humble/include/rclcpp/rclcpp/type_support_decl.hpp \
@@ -428,8 +428,8 @@ CMakeFiles/edu_robocup_rescue_stack_node.dir/src/navigation.cpp.o: \
  /opt/ros/humble/include/rclcpp/rclcpp/timer.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/clock.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/time.hpp \
- /home/daniel/ros2_ws/install/builtin_interfaces/include/builtin_interfaces/builtin_interfaces/msg/time.hpp \
- /home/daniel/ros2_ws/install/builtin_interfaces/include/builtin_interfaces/builtin_interfaces/msg/detail/time__builder.hpp \
+ /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/time.hpp \
+ /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/time__builder.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/rate.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/node_interfaces/node_base_interface.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/subscription.hpp \
@@ -441,20 +441,20 @@ CMakeFiles/edu_robocup_rescue_stack_node.dir/src/navigation.cpp.o: \
  /opt/ros/humble/include/rclcpp/rclcpp/detail/rmw_implementation_specific_subscription_payload.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/detail/rmw_implementation_specific_payload.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/qos_overriding_options.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/msg/set_parameters_result.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/msg/detail/set_parameters_result__struct.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/msg/detail/set_parameters_result__builder.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/msg/detail/set_parameters_result__traits.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/set_parameters_result.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/set_parameters_result__struct.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/set_parameters_result__builder.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/set_parameters_result__traits.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/topic_statistics_state.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/subscription_traits.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/topic_statistics/subscription_topic_statistics.hpp \
  /opt/ros/humble/include/libstatistics_collector/libstatistics_collector/collector/generate_statistics_message.hpp \
- /home/daniel/ros2_ws/install/statistics_msgs/include/statistics_msgs/statistics_msgs/msg/metrics_message.hpp \
- /home/daniel/ros2_ws/install/statistics_msgs/include/statistics_msgs/statistics_msgs/msg/detail/metrics_message__struct.hpp \
- /home/daniel/ros2_ws/install/statistics_msgs/include/statistics_msgs/statistics_msgs/msg/detail/statistic_data_point__struct.hpp \
- /home/daniel/ros2_ws/install/statistics_msgs/include/statistics_msgs/statistics_msgs/msg/detail/metrics_message__builder.hpp \
- /home/daniel/ros2_ws/install/statistics_msgs/include/statistics_msgs/statistics_msgs/msg/detail/metrics_message__traits.hpp \
- /home/daniel/ros2_ws/install/statistics_msgs/include/statistics_msgs/statistics_msgs/msg/detail/statistic_data_point__traits.hpp \
+ /opt/ros/humble/include/statistics_msgs/statistics_msgs/msg/metrics_message.hpp \
+ /opt/ros/humble/include/statistics_msgs/statistics_msgs/msg/detail/metrics_message__struct.hpp \
+ /opt/ros/humble/include/statistics_msgs/statistics_msgs/msg/detail/statistic_data_point__struct.hpp \
+ /opt/ros/humble/include/statistics_msgs/statistics_msgs/msg/detail/metrics_message__builder.hpp \
+ /opt/ros/humble/include/statistics_msgs/statistics_msgs/msg/detail/metrics_message__traits.hpp \
+ /opt/ros/humble/include/statistics_msgs/statistics_msgs/msg/detail/statistic_data_point__traits.hpp \
  /opt/ros/humble/include/libstatistics_collector/libstatistics_collector/visibility_control.hpp \
  /opt/ros/humble/include/libstatistics_collector/libstatistics_collector/moving_average_statistics/types.hpp \
  /usr/include/c++/11/cmath /usr/include/math.h \
@@ -500,26 +500,26 @@ CMakeFiles/edu_robocup_rescue_stack_node.dir/src/navigation.cpp.o: \
  /opt/ros/humble/include/rclcpp/rclcpp/future_return_code.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/executors/single_threaded_executor.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/node.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/msg/list_parameters_result.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/msg/detail/list_parameters_result__struct.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/msg/detail/list_parameters_result__builder.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/msg/detail/list_parameters_result__traits.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/msg/parameter_descriptor.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_descriptor__struct.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/msg/detail/floating_point_range__struct.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/msg/detail/integer_range__struct.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_descriptor__builder.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_descriptor__traits.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/msg/detail/floating_point_range__traits.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/msg/detail/integer_range__traits.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/msg/parameter_event.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_event__struct.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter__struct.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_value__struct.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_event__builder.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_event__traits.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter__traits.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_value__traits.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/list_parameters_result.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/list_parameters_result__struct.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/list_parameters_result__builder.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/list_parameters_result__traits.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/parameter_descriptor.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_descriptor__struct.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/floating_point_range__struct.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/integer_range__struct.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_descriptor__builder.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_descriptor__traits.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/floating_point_range__traits.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/integer_range__traits.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/parameter_event.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_event__struct.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter__struct.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_value__struct.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_event__builder.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_event__traits.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter__traits.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_value__traits.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/generic_publisher.hpp \
  /opt/ros/humble/include/rcpputils/rcpputils/shared_library.hpp \
  /opt/ros/humble/include/rcutils/rcutils/shared_library.h \
@@ -533,15 +533,15 @@ CMakeFiles/edu_robocup_rescue_stack_node.dir/src/navigation.cpp.o: \
  /opt/ros/humble/include/rclcpp/rclcpp/node_interfaces/node_logging_interface.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/node_interfaces/node_parameters_interface.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/parameter.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/msg/parameter.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter__builder.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/parameter.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter__builder.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/parameter_value.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/msg/parameter_type.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_type__struct.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_type__builder.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_type__traits.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/msg/parameter_value.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_value__builder.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/parameter_type.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_type__struct.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_type__builder.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_type__traits.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/parameter_value.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_value__builder.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/node_interfaces/node_services_interface.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/node_interfaces/node_time_source_interface.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/node_interfaces/node_waitables_interface.hpp \
@@ -570,30 +570,30 @@ CMakeFiles/edu_robocup_rescue_stack_node.dir/src/navigation.cpp.o: \
  /opt/ros/humble/include/rclcpp/rclcpp/executors/static_executor_entities_collector.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/experimental/executable_list.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/parameter_client.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/srv/describe_parameters.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/srv/detail/describe_parameters__struct.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/srv/detail/describe_parameters__builder.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/srv/detail/describe_parameters__traits.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/srv/get_parameter_types.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/srv/detail/get_parameter_types__struct.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/srv/detail/get_parameter_types__builder.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/srv/detail/get_parameter_types__traits.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/srv/get_parameters.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/srv/detail/get_parameters__struct.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/srv/detail/get_parameters__builder.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/srv/detail/get_parameters__traits.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/srv/list_parameters.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/srv/detail/list_parameters__struct.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/srv/detail/list_parameters__builder.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/srv/detail/list_parameters__traits.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/srv/set_parameters.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/srv/detail/set_parameters__struct.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/srv/detail/set_parameters__builder.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/srv/detail/set_parameters__traits.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/srv/set_parameters_atomically.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/srv/detail/set_parameters_atomically__struct.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/srv/detail/set_parameters_atomically__builder.hpp \
- /home/daniel/ros2_ws/install/rcl_interfaces/include/rcl_interfaces/rcl_interfaces/srv/detail/set_parameters_atomically__traits.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/describe_parameters.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/describe_parameters__struct.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/describe_parameters__builder.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/describe_parameters__traits.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/get_parameter_types.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/get_parameter_types__struct.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/get_parameter_types__builder.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/get_parameter_types__traits.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/get_parameters.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/get_parameters__struct.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/get_parameters__builder.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/get_parameters__traits.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/list_parameters.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/list_parameters__struct.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/list_parameters__builder.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/list_parameters__traits.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/set_parameters.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/set_parameters__struct.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/set_parameters__builder.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/set_parameters__traits.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/set_parameters_atomically.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/set_parameters_atomically__struct.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/set_parameters_atomically__builder.hpp \
+ /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/set_parameters_atomically__traits.hpp \
  /opt/ros/humble/include/rcl_yaml_param_parser/rcl_yaml_param_parser/parser.h \
  /opt/ros/humble/include/rcl_yaml_param_parser/rcl_yaml_param_parser/visibility_control.h \
  /opt/ros/humble/include/rclcpp/rclcpp/parameter_map.hpp \
@@ -618,4 +618,13 @@ CMakeFiles/edu_robocup_rescue_stack_node.dir/src/navigation.cpp.o: \
  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/float64_multi_array__builder.hpp \
  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/float64_multi_array__traits.hpp \
  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/multi_array_layout__traits.hpp \
- /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/multi_array_dimension__traits.hpp
+ /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/multi_array_dimension__traits.hpp \
+ /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/src/loadMap.h \
+ /opt/ros/humble/include/nav2_msgs/nav2_msgs/srv/load_map.hpp \
+ /opt/ros/humble/include/nav2_msgs/nav2_msgs/srv/detail/load_map__struct.hpp \
+ /opt/ros/humble/include/nav_msgs/nav_msgs/msg/detail/occupancy_grid__struct.hpp \
+ /opt/ros/humble/include/nav_msgs/nav_msgs/msg/detail/map_meta_data__struct.hpp \
+ /opt/ros/humble/include/nav2_msgs/nav2_msgs/srv/detail/load_map__builder.hpp \
+ /opt/ros/humble/include/nav2_msgs/nav2_msgs/srv/detail/load_map__traits.hpp \
+ /opt/ros/humble/include/nav_msgs/nav_msgs/msg/detail/occupancy_grid__traits.hpp \
+ /opt/ros/humble/include/nav_msgs/nav_msgs/msg/detail/map_meta_data__traits.hpp
