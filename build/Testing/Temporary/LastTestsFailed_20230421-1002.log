@@ -1,0 +1,3 @@
+2:flake8
+3:lint_cmake
+5:uncrustify

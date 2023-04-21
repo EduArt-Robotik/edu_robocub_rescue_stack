@@ -6,6 +6,7 @@
 #include "rclcpp/rclcpp.hpp"
 #include "rclcpp/qos.hpp"
 #include "geometry_msgs/msg/pose_stamped.hpp"
+#include "rosgraph_msgs/msg/clock.hpp"
 #include <map>
 //#include "loadMap.h"
 
@@ -53,7 +54,8 @@ class LocalisationControlNode : public rclcpp::Node
     int m_i_180;
     int m_i_270;
 
-    int m_area; 
+    int m_area;
+    float m_pitch_rel; 
 
     void scan_callback(sensor_msgs::msg::LaserScan msg_scan);
 
@@ -62,6 +64,7 @@ class LocalisationControlNode : public rclcpp::Node
     void imu_callback(const sensor_msgs::msg::Imu::SharedPtr msg_imu);
 
     void timer_callback();
+    void timer_clock_callback();
 
     //void state_est_callback(std_msgs::msg::Float64MultiArray::SharedPtr state_vec_msg);
 
@@ -92,9 +95,12 @@ class LocalisationControlNode : public rclcpp::Node
     //###########NEU##############
     rclcpp::Publisher<geometry_msgs::msg::PoseStamped>::SharedPtr publisher_goal_pose_;
     rclcpp::Publisher<geometry_msgs::msg::PoseWithCovarianceStamped>::SharedPtr publisher_initial_pose_;
+    
+    rclcpp::Publisher<rosgraph_msgs::msg::Clock>::SharedPtr publisher_clock_time_;
 
     //Initialisierung Timer
     rclcpp::TimerBase::SharedPtr timer_;
+    rclcpp::TimerBase::SharedPtr timer_clock_;
 
     //Initialisierung Variablen 
     Control *m_control;

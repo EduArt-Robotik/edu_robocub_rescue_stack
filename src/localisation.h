@@ -1,5 +1,7 @@
 #include "control.h"
 #include <vector>
+#include <cmath>
+#include <iostream>
 //#include "navigation.h"
 
 
@@ -39,6 +41,9 @@ class Localisation{
     float m_dist90_r;
     float m_dist180_r;
     float m_dist270_r;
+
+    float m_x_pos;
+    float m_y_pos;
 
     float m_beta;
     float m_beta0;
@@ -89,6 +94,7 @@ class Localisation{
     float getInitialorientZ();
     float getInitialorientW();
     float getMapArea();
+    float getpitch_rel();
 
     void setAmclX(float amclX);
     void setAmclY(float amclY);

@@ -1,0 +1,24 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/daniel/ros2_ws/install/slam_toolbox/include/**",
+        "/opt/ros/humble/include/**",
+        "/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/include/**",
+        "/home/daniel/ros2_ws/src/slam_toolbox/include/**",
+        "include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

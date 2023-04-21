@@ -28,8 +28,10 @@ LocalisationControlNode::LocalisationControlNode(): Node("localisation_control")
     //###########NEU##############
     publisher_goal_pose_ = this->create_publisher<geometry_msgs::msg::PoseStamped>("/goal_pose", 10);
     publisher_initial_pose_= this->create_publisher<geometry_msgs::msg::PoseWithCovarianceStamped>("/initialpose", 10);
+    publisher_clock_time_ = this->create_publisher<rosgraph_msgs::msg::Clock>("/clock", 10);
     //timer
     timer_ = this->create_wall_timer(1000ms, std::bind(&LocalisationControlNode::timer_callback, this));
+    timer_clock_ = this->create_wall_timer(50ms, std::bind(&LocalisationControlNode::timer_clock_callback, this));
     m_initial_pose_set = false;
     m_wait = 0;
     }
@@ -41,6 +43,10 @@ void LocalisationControlNode::imu_callback(const sensor_msgs::msg::Imu::SharedPt
     float z_orient_imu = msg_imu->orientation.z;
     float w_orient_imu = msg_imu->orientation.w; 
 
+    //std::cout << "imu_x: " << x_orient_imu << std::endl;
+    //std::cout << "imu_y: " << x_orient_imu << std::endl;
+    //std::cout << "imu_z: " << x_orient_imu << std::endl;
+    //std::cout << "imu_w: " << x_orient_imu << std::endl;
     
 
     m_localisation->setPosOrientation(x_orient_imu, y_orient_imu, z_orient_imu, w_orient_imu);
@@ -75,10 +81,18 @@ void LocalisationControlNode::timer_callback()
     
     message.linear.x = m_control->getSpeed();
     message.angular.z = m_control->getAngle();
-    
-    }
+     
+}
 
-
+void LocalisationControlNode::timer_clock_callback()
+{
+    // publish sim_time on /clock topic
+    auto time = this->now();
+    auto message_time = rosgraph_msgs::msg::Clock();
+    message_time.clock.sec = time.seconds();
+    message_time.clock.nanosec = time.nanoseconds() % 1000000000ull;
+    publisher_clock_time_->publish(message_time);   
+}
 
 void LocalisationControlNode::publish_estimated_state(std_msgs::msg::Float64MultiArray state_vec_msg)
 {
@@ -171,10 +185,13 @@ void LocalisationControlNode::setting_goal_pose(){
 
     m_area = m_localisation -> getMapArea();
     m_navigation -> setMapArea(m_area);
+    m_pitch_rel = m_localisation -> getpitch_rel();
+
 
     m_send_initial_pose = m_navigation -> getSendInitial();
+    //std::cout << "m_send_initial_pose: " << m_send_initial_pose << std::endl;
     
-    if(m_send_initial_pose){
+    if(m_send_initial_pose == true){
         
         auto initial_pose = geometry_msgs::msg::PoseWithCovarianceStamped();
     
@@ -236,7 +253,7 @@ void LocalisationControlNode::setting_goal_pose(){
         goal_pose.pose.orientation.z = m_navigation->getGoalOriZ();
         goal_pose.pose.orientation.w = m_navigation->getGoalOriW(); 
 
-        //publisher_goal_pose_->publish(goal_pose);
+        publisher_goal_pose_->publish(goal_pose);
 
         //std::cout << "goal pose setted:" << std::endl;
         //std::cout << "goalX:" << goal_pose.pose.position.x << std::endl;

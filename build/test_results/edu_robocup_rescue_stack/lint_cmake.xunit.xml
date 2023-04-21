@@ -1,0 +1,1125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite
+  name="edu_robocup_rescue_stack.lint_cmake"
+  tests="187"
+  errors="0"
+  failures="171"
+  time="0.145"
+>
+  <testcase
+    name="linelength (CMakeLists.txt:24)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (CMakeLists.txt:26)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="whitespace/eol (CMakeLists.txt:31)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Line ends in whitespace"/>
+  </testcase>
+  <testcase
+    name="build/CTestCustom.cmake"
+    classname="edu_robocup_rescue_stack.lint_cmake"/>
+  <testcase
+    name="whitespace/eol (build/CTestTestfile.cmake:1)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Line ends in whitespace"/>
+  </testcase>
+  <testcase
+    name="whitespace/eol (build/CTestTestfile.cmake:4)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Line ends in whitespace"/>
+  </testcase>
+  <testcase
+    name="whitespace/eol (build/CTestTestfile.cmake:5)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Line ends in whitespace"/>
+  </testcase>
+  <testcase
+    name="linelength (build/CTestTestfile.cmake:7)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/CTestTestfile.cmake:8)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/CTestTestfile.cmake:9)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/CTestTestfile.cmake:10)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/CTestTestfile.cmake:11)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/CTestTestfile.cmake:12)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/CTestTestfile.cmake:13)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/CTestTestfile.cmake:14)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/CTestTestfile.cmake:15)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/CTestTestfile.cmake:16)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/CTestTestfile.cmake:17)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/CTestTestfile.cmake:18)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="whitespace/indent (build/cmake_install.cmake:13)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Weird indentation; use 2 spaces"/>
+  </testcase>
+  <testcase
+    name="whitespace/indent (build/cmake_install.cmake:47)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Weird indentation; use 2 spaces"/>
+  </testcase>
+  <testcase
+    name="whitespace/indent (build/cmake_install.cmake:49)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Weird indentation; use 2 spaces"/>
+  </testcase>
+  <testcase
+    name="whitespace/indent (build/cmake_install.cmake:50)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Weird indentation; use 2 spaces"/>
+  </testcase>
+  <testcase
+    name="linelength (build/cmake_install.cmake:52)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="whitespace/indent (build/cmake_install.cmake:54)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Weird indentation; use 2 spaces"/>
+  </testcase>
+  <testcase
+    name="whitespace/indent (build/cmake_install.cmake:56)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Weird indentation; use 2 spaces"/>
+  </testcase>
+  <testcase
+    name="whitespace/indent (build/cmake_install.cmake:57)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Weird indentation; use 2 spaces"/>
+  </testcase>
+  <testcase
+    name="whitespace/indent (build/cmake_install.cmake:58)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Weird indentation; use 2 spaces"/>
+  </testcase>
+  <testcase
+    name="linelength (build/cmake_install.cmake:60)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="whitespace/mismatch (build/cmake_install.cmake:66)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="linelength (build/cmake_install.cmake:75)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/cmake_install.cmake:79)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/cmake_install.cmake:83)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/cmake_install.cmake:87)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/cmake_install.cmake:91)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/cmake_install.cmake:95)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/cmake_install.cmake:99)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/cmake_install.cmake:103)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/cmake_install.cmake:107)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/cmake_install.cmake:111)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/cmake_install.cmake:115)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/cmake_install.cmake:119)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/cmake_install.cmake:123)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="whitespace/mismatch (build/cmake_install.cmake:127)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="linelength (build/cmake_install.cmake:134)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="whitespace/indent (build/cmake_install.cmake:144)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Weird indentation; use 2 spaces"/>
+  </testcase>
+  <testcase
+    name="whitespace/indent (build/cmake_install.cmake:146)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Weird indentation; use 2 spaces"/>
+  </testcase>
+  <testcase
+    name="build/CMakeFiles/CMakeDirectoryInformation.cmake"
+    classname="edu_robocup_rescue_stack.lint_cmake"/>
+  <testcase
+    name="whitespace/mismatch (build/CMakeFiles/Makefile.cmake:8)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="whitespace/mismatch (build/CMakeFiles/Makefile.cmake:1105)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="whitespace/mismatch (build/CMakeFiles/Makefile.cmake:1111)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="whitespace/mismatch (build/CMakeFiles/Makefile.cmake:1133)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="linelength (build/CMakeFiles/3.22.1/CMakeCCompiler.cmake:9)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/CMakeFiles/3.22.1/CMakeCCompiler.cmake:69)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/CMakeFiles/3.22.1/CMakeCXXCompiler.cmake:9)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/CMakeFiles/3.22.1/CMakeCXXCompiler.cmake:11)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/CMakeFiles/3.22.1/CMakeCXXCompiler.cmake:12)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="whitespace/extra (build/CMakeFiles/3.22.1/CMakeCXXCompiler.cmake:42)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Extra spaces between 'foreach' and its ()"/>
+  </testcase>
+  <testcase
+    name="whitespace/extra (build/CMakeFiles/3.22.1/CMakeCXXCompiler.cmake:43)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Extra spaces between 'if' and its ()"/>
+  </testcase>
+  <testcase
+    name="linelength (build/CMakeFiles/3.22.1/CMakeCXXCompiler.cmake:80)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="build/CMakeFiles/3.22.1/CMakeSystem.cmake"
+    classname="edu_robocup_rescue_stack.lint_cmake"/>
+  <testcase
+    name="whitespace/mismatch (build/CMakeFiles/edu_robocup_rescue_stack_node.dir/DependInfo.cmake:6)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="whitespace/mismatch (build/CMakeFiles/edu_robocup_rescue_stack_node.dir/DependInfo.cmake:10)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="whitespace/mismatch (build/CMakeFiles/edu_robocup_rescue_stack_node.dir/DependInfo.cmake:20)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="build/CMakeFiles/edu_robocup_rescue_stack_node.dir/cmake_clean.cmake"
+    classname="edu_robocup_rescue_stack.lint_cmake"/>
+  <testcase
+    name="whitespace/mismatch (build/CMakeFiles/edu_robocup_rescue_stack_uninstall.dir/DependInfo.cmake:6)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="whitespace/mismatch (build/CMakeFiles/edu_robocup_rescue_stack_uninstall.dir/DependInfo.cmake:10)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="whitespace/mismatch (build/CMakeFiles/edu_robocup_rescue_stack_uninstall.dir/DependInfo.cmake:14)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="whitespace/mismatch (build/CMakeFiles/edu_robocup_rescue_stack_uninstall.dir/cmake_clean.cmake:6)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="whitespace/mismatch (build/CMakeFiles/uninstall.dir/DependInfo.cmake:6)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="whitespace/mismatch (build/CMakeFiles/uninstall.dir/DependInfo.cmake:10)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="whitespace/mismatch (build/CMakeFiles/uninstall.dir/DependInfo.cmake:14)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="whitespace/mismatch (build/CMakeFiles/uninstall.dir/cmake_clean.cmake:3)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="build/ament_cmake_core/edu_robocup_rescue_stackConfig-version.cmake"
+    classname="edu_robocup_rescue_stack.lint_cmake"/>
+  <testcase
+    name="build/ament_cmake_core/edu_robocup_rescue_stackConfig.cmake"
+    classname="edu_robocup_rescue_stack.lint_cmake"/>
+  <testcase
+    name="whitespace/mismatch (build/ament_cmake_core/package.cmake:4)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="whitespace/mismatch (build/ament_cmake_core/package.cmake:6)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="whitespace/mismatch (build/ament_cmake_core/package.cmake:7)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="whitespace/mismatch (build/ament_cmake_core/package.cmake:8)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="whitespace/mismatch (build/ament_cmake_core/package.cmake:10)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="whitespace/mismatch (build/ament_cmake_core/package.cmake:11)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="linelength (build/ament_cmake_package_templates/templates.cmake:1)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/ament_cmake_package_templates/templates.cmake:2)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/ament_cmake_package_templates/templates.cmake:4)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/ament_cmake_package_templates/templates.cmake:5)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/ament_cmake_package_templates/templates.cmake:6)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/ament_cmake_package_templates/templates.cmake:8)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/ament_cmake_package_templates/templates.cmake:9)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/ament_cmake_package_templates/templates.cmake:10)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/ament_cmake_package_templates/templates.cmake:11)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/ament_cmake_package_templates/templates.cmake:12)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/ament_cmake_package_templates/templates.cmake:13)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/ament_cmake_package_templates/templates.cmake:14)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="build/ament_cmake_uninstall_target/ament_cmake_uninstall_target.cmake"
+    classname="edu_robocup_rescue_stack.lint_cmake"/>
+  <testcase
+    name="build/edu_robocup_rescue_stack/CTestCustom.cmake"
+    classname="edu_robocup_rescue_stack.lint_cmake"/>
+  <testcase
+    name="whitespace/eol (build/edu_robocup_rescue_stack/CTestTestfile.cmake:1)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Line ends in whitespace"/>
+  </testcase>
+  <testcase
+    name="whitespace/eol (build/edu_robocup_rescue_stack/CTestTestfile.cmake:4)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Line ends in whitespace"/>
+  </testcase>
+  <testcase
+    name="whitespace/eol (build/edu_robocup_rescue_stack/CTestTestfile.cmake:5)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Line ends in whitespace"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/CTestTestfile.cmake:7)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/CTestTestfile.cmake:8)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/CTestTestfile.cmake:9)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/CTestTestfile.cmake:10)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/CTestTestfile.cmake:11)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/CTestTestfile.cmake:12)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/CTestTestfile.cmake:13)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/CTestTestfile.cmake:14)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/CTestTestfile.cmake:15)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/CTestTestfile.cmake:16)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/CTestTestfile.cmake:17)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/CTestTestfile.cmake:18)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="whitespace/indent (build/edu_robocup_rescue_stack/cmake_install.cmake:13)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Weird indentation; use 2 spaces"/>
+  </testcase>
+  <testcase
+    name="whitespace/indent (build/edu_robocup_rescue_stack/cmake_install.cmake:47)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Weird indentation; use 2 spaces"/>
+  </testcase>
+  <testcase
+    name="whitespace/indent (build/edu_robocup_rescue_stack/cmake_install.cmake:49)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Weird indentation; use 2 spaces"/>
+  </testcase>
+  <testcase
+    name="whitespace/indent (build/edu_robocup_rescue_stack/cmake_install.cmake:50)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Weird indentation; use 2 spaces"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/cmake_install.cmake:52)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="whitespace/indent (build/edu_robocup_rescue_stack/cmake_install.cmake:54)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Weird indentation; use 2 spaces"/>
+  </testcase>
+  <testcase
+    name="whitespace/indent (build/edu_robocup_rescue_stack/cmake_install.cmake:56)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Weird indentation; use 2 spaces"/>
+  </testcase>
+  <testcase
+    name="whitespace/indent (build/edu_robocup_rescue_stack/cmake_install.cmake:57)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Weird indentation; use 2 spaces"/>
+  </testcase>
+  <testcase
+    name="whitespace/indent (build/edu_robocup_rescue_stack/cmake_install.cmake:58)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Weird indentation; use 2 spaces"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/cmake_install.cmake:60)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="whitespace/mismatch (build/edu_robocup_rescue_stack/cmake_install.cmake:66)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/cmake_install.cmake:75)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/cmake_install.cmake:79)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/cmake_install.cmake:83)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/cmake_install.cmake:87)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/cmake_install.cmake:91)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/cmake_install.cmake:95)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/cmake_install.cmake:99)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/cmake_install.cmake:103)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/cmake_install.cmake:107)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/cmake_install.cmake:111)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/cmake_install.cmake:115)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/cmake_install.cmake:119)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/cmake_install.cmake:123)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="whitespace/mismatch (build/edu_robocup_rescue_stack/cmake_install.cmake:127)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/cmake_install.cmake:134)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="whitespace/indent (build/edu_robocup_rescue_stack/cmake_install.cmake:144)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Weird indentation; use 2 spaces"/>
+  </testcase>
+  <testcase
+    name="whitespace/indent (build/edu_robocup_rescue_stack/cmake_install.cmake:146)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Weird indentation; use 2 spaces"/>
+  </testcase>
+  <testcase
+    name="build/edu_robocup_rescue_stack/CMakeFiles/CMakeDirectoryInformation.cmake"
+    classname="edu_robocup_rescue_stack.lint_cmake"/>
+  <testcase
+    name="whitespace/mismatch (build/edu_robocup_rescue_stack/CMakeFiles/Makefile.cmake:8)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="whitespace/mismatch (build/edu_robocup_rescue_stack/CMakeFiles/Makefile.cmake:1105)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="whitespace/mismatch (build/edu_robocup_rescue_stack/CMakeFiles/Makefile.cmake:1111)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="whitespace/mismatch (build/edu_robocup_rescue_stack/CMakeFiles/Makefile.cmake:1133)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/CMakeFiles/3.22.1/CMakeCCompiler.cmake:9)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/CMakeFiles/3.22.1/CMakeCCompiler.cmake:69)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/CMakeFiles/3.22.1/CMakeCXXCompiler.cmake:9)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/CMakeFiles/3.22.1/CMakeCXXCompiler.cmake:11)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/CMakeFiles/3.22.1/CMakeCXXCompiler.cmake:12)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="whitespace/extra (build/edu_robocup_rescue_stack/CMakeFiles/3.22.1/CMakeCXXCompiler.cmake:42)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Extra spaces between 'foreach' and its ()"/>
+  </testcase>
+  <testcase
+    name="whitespace/extra (build/edu_robocup_rescue_stack/CMakeFiles/3.22.1/CMakeCXXCompiler.cmake:43)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Extra spaces between 'if' and its ()"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/CMakeFiles/3.22.1/CMakeCXXCompiler.cmake:80)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="build/edu_robocup_rescue_stack/CMakeFiles/3.22.1/CMakeSystem.cmake"
+    classname="edu_robocup_rescue_stack.lint_cmake"/>
+  <testcase
+    name="whitespace/mismatch (build/edu_robocup_rescue_stack/CMakeFiles/edu_robocup_rescue_stack_node.dir/DependInfo.cmake:6)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="whitespace/mismatch (build/edu_robocup_rescue_stack/CMakeFiles/edu_robocup_rescue_stack_node.dir/DependInfo.cmake:10)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="whitespace/mismatch (build/edu_robocup_rescue_stack/CMakeFiles/edu_robocup_rescue_stack_node.dir/DependInfo.cmake:20)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="build/edu_robocup_rescue_stack/CMakeFiles/edu_robocup_rescue_stack_node.dir/cmake_clean.cmake"
+    classname="edu_robocup_rescue_stack.lint_cmake"/>
+  <testcase
+    name="whitespace/mismatch (build/edu_robocup_rescue_stack/CMakeFiles/edu_robocup_rescue_stack_uninstall.dir/DependInfo.cmake:6)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="whitespace/mismatch (build/edu_robocup_rescue_stack/CMakeFiles/edu_robocup_rescue_stack_uninstall.dir/DependInfo.cmake:10)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="whitespace/mismatch (build/edu_robocup_rescue_stack/CMakeFiles/edu_robocup_rescue_stack_uninstall.dir/DependInfo.cmake:14)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="whitespace/mismatch (build/edu_robocup_rescue_stack/CMakeFiles/edu_robocup_rescue_stack_uninstall.dir/cmake_clean.cmake:6)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="whitespace/mismatch (build/edu_robocup_rescue_stack/CMakeFiles/uninstall.dir/DependInfo.cmake:6)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="whitespace/mismatch (build/edu_robocup_rescue_stack/CMakeFiles/uninstall.dir/DependInfo.cmake:10)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="whitespace/mismatch (build/edu_robocup_rescue_stack/CMakeFiles/uninstall.dir/DependInfo.cmake:14)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="whitespace/mismatch (build/edu_robocup_rescue_stack/CMakeFiles/uninstall.dir/cmake_clean.cmake:3)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="build/edu_robocup_rescue_stack/ament_cmake_core/edu_robocup_rescue_stackConfig-version.cmake"
+    classname="edu_robocup_rescue_stack.lint_cmake"/>
+  <testcase
+    name="build/edu_robocup_rescue_stack/ament_cmake_core/edu_robocup_rescue_stackConfig.cmake"
+    classname="edu_robocup_rescue_stack.lint_cmake"/>
+  <testcase
+    name="whitespace/mismatch (build/edu_robocup_rescue_stack/ament_cmake_core/package.cmake:4)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="whitespace/mismatch (build/edu_robocup_rescue_stack/ament_cmake_core/package.cmake:6)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="whitespace/mismatch (build/edu_robocup_rescue_stack/ament_cmake_core/package.cmake:7)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="whitespace/mismatch (build/edu_robocup_rescue_stack/ament_cmake_core/package.cmake:8)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="whitespace/mismatch (build/edu_robocup_rescue_stack/ament_cmake_core/package.cmake:10)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="whitespace/mismatch (build/edu_robocup_rescue_stack/ament_cmake_core/package.cmake:11)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Mismatching spaces inside () after command"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/ament_cmake_package_templates/templates.cmake:1)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/ament_cmake_package_templates/templates.cmake:2)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/ament_cmake_package_templates/templates.cmake:4)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/ament_cmake_package_templates/templates.cmake:5)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/ament_cmake_package_templates/templates.cmake:6)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/ament_cmake_package_templates/templates.cmake:8)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/ament_cmake_package_templates/templates.cmake:9)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/ament_cmake_package_templates/templates.cmake:10)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/ament_cmake_package_templates/templates.cmake:11)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/ament_cmake_package_templates/templates.cmake:12)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/ament_cmake_package_templates/templates.cmake:13)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="linelength (build/edu_robocup_rescue_stack/ament_cmake_package_templates/templates.cmake:14)"
+    classname="edu_robocup_rescue_stack.lint_cmake"
+  >
+      <failure message="Lines should be &lt;= 140 characters long"/>
+  </testcase>
+  <testcase
+    name="build/edu_robocup_rescue_stack/ament_cmake_uninstall_target/ament_cmake_uninstall_target.cmake"
+    classname="edu_robocup_rescue_stack.lint_cmake"/>
+  <testcase
+    name="install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/cmake/edu_robocup_rescue_stackConfig-version.cmake"
+    classname="edu_robocup_rescue_stack.lint_cmake"/>
+  <testcase
+    name="install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/cmake/edu_robocup_rescue_stackConfig.cmake"
+    classname="edu_robocup_rescue_stack.lint_cmake"/>
+  <system-out>Checked files:
+* CMakeLists.txt
+* build/CTestCustom.cmake
+* build/CTestTestfile.cmake
+* build/cmake_install.cmake
+* build/CMakeFiles/CMakeDirectoryInformation.cmake
+* build/CMakeFiles/Makefile.cmake
+* build/CMakeFiles/3.22.1/CMakeCCompiler.cmake
+* build/CMakeFiles/3.22.1/CMakeCXXCompiler.cmake
+* build/CMakeFiles/3.22.1/CMakeSystem.cmake
+* build/CMakeFiles/edu_robocup_rescue_stack_node.dir/DependInfo.cmake
+* build/CMakeFiles/edu_robocup_rescue_stack_node.dir/cmake_clean.cmake
+* build/CMakeFiles/edu_robocup_rescue_stack_uninstall.dir/DependInfo.cmake
+* build/CMakeFiles/edu_robocup_rescue_stack_uninstall.dir/cmake_clean.cmake
+* build/CMakeFiles/uninstall.dir/DependInfo.cmake
+* build/CMakeFiles/uninstall.dir/cmake_clean.cmake
+* build/ament_cmake_core/edu_robocup_rescue_stackConfig-version.cmake
+* build/ament_cmake_core/edu_robocup_rescue_stackConfig.cmake
+* build/ament_cmake_core/package.cmake
+* build/ament_cmake_package_templates/templates.cmake
+* build/ament_cmake_uninstall_target/ament_cmake_uninstall_target.cmake
+* build/edu_robocup_rescue_stack/CTestCustom.cmake
+* build/edu_robocup_rescue_stack/CTestTestfile.cmake
+* build/edu_robocup_rescue_stack/cmake_install.cmake
+* build/edu_robocup_rescue_stack/CMakeFiles/CMakeDirectoryInformation.cmake
+* build/edu_robocup_rescue_stack/CMakeFiles/Makefile.cmake
+* build/edu_robocup_rescue_stack/CMakeFiles/3.22.1/CMakeCCompiler.cmake
+* build/edu_robocup_rescue_stack/CMakeFiles/3.22.1/CMakeCXXCompiler.cmake
+* build/edu_robocup_rescue_stack/CMakeFiles/3.22.1/CMakeSystem.cmake
+* build/edu_robocup_rescue_stack/CMakeFiles/edu_robocup_rescue_stack_node.dir/DependInfo.cmake
+* build/edu_robocup_rescue_stack/CMakeFiles/edu_robocup_rescue_stack_node.dir/cmake_clean.cmake
+* build/edu_robocup_rescue_stack/CMakeFiles/edu_robocup_rescue_stack_uninstall.dir/DependInfo.cmake
+* build/edu_robocup_rescue_stack/CMakeFiles/edu_robocup_rescue_stack_uninstall.dir/cmake_clean.cmake
+* build/edu_robocup_rescue_stack/CMakeFiles/uninstall.dir/DependInfo.cmake
+* build/edu_robocup_rescue_stack/CMakeFiles/uninstall.dir/cmake_clean.cmake
+* build/edu_robocup_rescue_stack/ament_cmake_core/edu_robocup_rescue_stackConfig-version.cmake
+* build/edu_robocup_rescue_stack/ament_cmake_core/edu_robocup_rescue_stackConfig.cmake
+* build/edu_robocup_rescue_stack/ament_cmake_core/package.cmake
+* build/edu_robocup_rescue_stack/ament_cmake_package_templates/templates.cmake
+* build/edu_robocup_rescue_stack/ament_cmake_uninstall_target/ament_cmake_uninstall_target.cmake
+* install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/cmake/edu_robocup_rescue_stackConfig-version.cmake
+* install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/cmake/edu_robocup_rescue_stackConfig.cmake</system-out>
+</testsuite>

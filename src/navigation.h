@@ -35,7 +35,8 @@ class Navigation //: public rclcpp::Node
     double m_lim_min_y;
     double m_lim_max_x;
     double m_lim_max_y;
-    int m_area; 
+    int m_area;
+    int m_area_saved; 
 
     bool m_goal_achived;
     bool m_new_goal_set;
@@ -57,6 +58,7 @@ class Navigation //: public rclcpp::Node
     bool m_loadmapStatus;
     bool m_map_request_sended;
     bool m_stop_goal;
+    bool m_initialize;
 
     string m_url;
     string m_map1;
@@ -65,16 +67,19 @@ class Navigation //: public rclcpp::Node
     string m_map4; 
     int m_wait;
     int m_tact;
+
+    float m_pitch_rel;
     
     void terminal_output();
     void navigate(string m_url);
     void loadMap(string m_url);
-    void sendInitialPose();
+    bool sendInitialPose();
     void stop_goal();
     void sendGoalPose();
     void navigation_step();
     void calc_tolerance(double pX, double pY);
     void initialize();
+    void map_swap(int m_area);
     
     //rclcpp::TimerBase::SharedPtr nav_timer;
     //void nav_timer_callback();
@@ -89,6 +94,7 @@ class Navigation //: public rclcpp::Node
     void setInitialsended(bool initialsended);
     void setTact(int wait);
     void setMapArea(int area);
+    void setPitchRel(float pitch_rel);
 
     
     double getGoalPosX();

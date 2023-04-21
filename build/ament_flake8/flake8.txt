@@ -1,0 +1,1216 @@
+-- run_test.py: invoking following command in '/home/daniel/ros2_ws/src/edu_robocub_rescue_stack':
+ - /opt/ros/humble/bin/ament_flake8 --xunit-file /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/test_results/edu_robocup_rescue_stack/flake8.xunit.xml
+
+) ^
+import os
+^
+ 
+^
+ 
+^
+ 
+^
+  return LaunchDescription([
+  ^
+      output='screen'),
+      ^
+        
+^
+      
+^
+            arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'map', '--child-frame-id', 'odom']
+                     ^
+            arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'map', '--child-frame-id', 'odom']
+                       ^
+            arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'map', '--child-frame-id', 'odom']
+                                                                                                   ^
+            arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'odom', '--child-frame-id', 'base_frame']
+                     ^
+            arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'odom', '--child-frame-id', 'base_frame']
+                       ^
+            arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'odom', '--child-frame-id', 'base_frame']
+                                                                                                   ^
+        
+^
+            arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_frame', '--child-frame-id', 'laser_link']
+                     ^
+            arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_frame', '--child-frame-id', 'laser_link']
+                       ^
+            arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_frame', '--child-frame-id', 'laser_link']
+                                                                                                   ^
+import argparse
+^
+import sys
+^
+from ros2run.api import get_executable_path
+^
+def generate_launch_description():
+^
+ 
+^
+        
+^
+    amcl_node=  Node(
+             ^
+    amcl_node=  Node(
+              ^
+           { 'scan_topic': '/demo/laser/out'},
+            ^
+           { 'base_frame_id': 'base_frame'},
+            ^
+        
+^
+    static_transform_publisher_base_frame_laser_link_node = Node(
+    ^
+            arguments = ['--x', '0.1', '--y', '0', '--z', '0.139', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_frame', '--child-frame-id', 'laser_link']
+                     ^
+            arguments = ['--x', '0.1', '--y', '0', '--z', '0.139', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_frame', '--child-frame-id', 'laser_link']
+                       ^
+            arguments = ['--x', '0.1', '--y', '0', '--z', '0.139', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_frame', '--child-frame-id', 'laser_link']
+                                                                                                   ^
+    
+^
+    start_localisation_control_node = Node (
+    ^
+    start_localisation_control_node = Node (
+                                          ^
+        package='edu_robocup_rescue_stack', 
+                                           ^
+         output='screen'
+         ^
+    lifecycle_manager_node = Node (
+                                 ^
+           { 'autostart': True},
+            ^
+           { 'node_names': ['amcl', 'map_server']},
+            ^
+        package='nav2_lifecycle_manager', 
+                                         ^
+    
+^
+    ld.add_action(declare_path_map)
+    ^
+    return ld
+    ^
+
+^
+#import argparse
+^
+#import sys
+^
+from ros2run.api import get_executable_path
+^
+#from nav2_common.launch import RewrittenYaml
+^
+def generate_launch_description():
+^
+    slamtoolbox_dir = get_package_share_directory('slam_toolbox')
+    ^
+    #slamtoolbox_launch_dir = os.path.join(slamtoolbox_dir, 'launch')
+    ^
+    nav2_dir = FindPackageShare(package='nav2_bringup').find('nav2_bringup') 
+                                                                            ^
+    nav2_launch_dir = os.path.join(nav2_dir, 'launch') 
+                                                      ^
+    # lifecycle nodes
+    ^
+    lifecycle_nodes_costmap_filters = ['costmap_filter_info_server', 'filter_mask_server']   
+                                                                                          ^
+        name = 'namespace',
+            ^
+        name = 'namespace',
+              ^
+        default_value = ''
+                     ^
+        default_value = ''
+                       ^
+    declare_auto_start =    DeclareLaunchArgument(
+                        ^
+        
+^
+    declare_map_file = DeclareLaunchArgument(
+    ^
+    start_amcl = Node(
+    ^
+        executable='amcl',
+        ^
+        name='amcl',
+        ^
+        output='screen',
+        ^
+        parameters=[params_file, {'use_sim_time': use_sim_time}],
+        ^
+        remappings=[('/odom', remap_odom)]
+        ^
+    start_edu_robocup_rescue_stack_node = Node (
+    ^
+    start_edu_robocup_rescue_stack_node = Node (
+                                              ^
+        package='edu_robocup_rescue_stack', 
+                                           ^
+    start_tf_map_base_frame = Node(
+    ^
+        arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_link', '--child-frame-id', 'map']
+                 ^
+        arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_link', '--child-frame-id', 'map']
+                   ^
+        arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_link', '--child-frame-id', 'map']
+                                                                                                   ^
+        
+^
+            arguments = ['--x', '0.0', '--y', '0', '--z', '0.139', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_link', '--child-frame-id', 'laser_link']
+                     ^
+            arguments = ['--x', '0.0', '--y', '0', '--z', '0.139', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_link', '--child-frame-id', 'laser_link']
+                       ^
+            arguments = ['--x', '0.0', '--y', '0', '--z', '0.139', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_link', '--child-frame-id', 'laser_link']
+                                                                                                   ^
+            arguments= ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_link', '--child-frame-id', 'imu_link']
+                      ^
+            arguments= ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_link', '--child-frame-id', 'imu_link']
+                                                                                                   ^
+    
+^
+    start_navigation = IncludeLaunchDescription(
+    ^
+        PythonLaunchDescriptionSource(os.path.join(nav2_launch_dir, 'bringup_launch.py')), 
+                                                                                          ^
+        launch_arguments = {'namespace':namespace,
+                        ^
+        launch_arguments = {'namespace':namespace,
+                          ^
+        launch_arguments = {'namespace':namespace,
+                                       ^
+                           'use_sim_time': use_sim_time,
+                           ^
+    
+^
+    
+^
+         parameters=[os.path.join(bringup_dir, 'config/ekf.yaml'), {'use_sim_time': LaunchConfiguration('use_sim_time')}], #, {'use_sim_time': use_sim_time}]
+                                                                                                   ^
+         parameters=[os.path.join(bringup_dir, 'config/ekf.yaml'), {'use_sim_time': LaunchConfiguration('use_sim_time')}], #, {'use_sim_time': use_sim_time}]
+                                                                                                                          ^
+         parameters=[os.path.join(bringup_dir, 'config/ekf.yaml'), {'use_sim_time': LaunchConfiguration('use_sim_time')}], #, {'use_sim_time': use_sim_time}]
+                                                                                                                           ^
+         
+^
+    ld = LaunchDescription()    
+                            ^
+    #ld.add_action(start_slam_toolbox)
+    ^
+    ld.add_action(declare_params_file)  
+                                      ^
+    #ld.add_action(start_amcl)
+    ^
+    
+^
+    
+^
+    ld.add_action(start_edu_robocup_rescue_stack_node)
+    ^
+    #ld.add_action(start_tf_map_base_frame)
+    ^
+
+./setup.py:25:2: W292 no newline at end of file
+
+./launch/edu_control.launch.py:1:1: F401 'os' imported but unused
+
+./launch/edu_control.launch.py:4:1: W293 blank line contains whitespace
+
+./launch/edu_control.launch.py:5:1: W293 blank line contains whitespace
+
+./launch/edu_control.launch.py:7:1: W293 blank line contains whitespace
+
+./launch/edu_control.launch.py:8:3: E111 indentation is not a multiple of 4
+
+./launch/edu_control.launch.py:10:7: E128 continuation line under-indented for visual indent
+
+./launch/online_async_launch.py:18:1: W293 blank line contains whitespace
+
+./launch/online_async_launch.py:34:1: W293 blank line contains whitespace
+
+./launch/online_async_launch.py:38:22: E251 unexpected spaces around keyword / parameter equals
+
+./launch/online_async_launch.py:38:24: E251 unexpected spaces around keyword / parameter equals
+
+./launch/online_async_launch.py:38:100: E501 line too long (154 > 99 characters)
+
+./launch/online_async_launch.py:43:22: E251 unexpected spaces around keyword / parameter equals
+
+./launch/online_async_launch.py:43:24: E251 unexpected spaces around keyword / parameter equals
+
+./launch/online_async_launch.py:43:100: E501 line too long (161 > 99 characters)
+
+./launch/online_async_launch.py:45:1: W293 blank line contains whitespace
+
+./launch/online_async_launch.py:49:22: E251 unexpected spaces around keyword / parameter equals
+
+./launch/online_async_launch.py:49:24: E251 unexpected spaces around keyword / parameter equals
+
+./launch/online_async_launch.py:49:100: E501 line too long (167 > 99 characters)
+
+./launch/amcl.launch.py:2:1: F401 'argparse' imported but unused
+
+./launch/amcl.launch.py:4:1: F401 'sys' imported but unused
+
+./launch/amcl.launch.py:10:1: F401 'ros2run.api.get_executable_path' imported but unused
+
+./launch/amcl.launch.py:15:1: E303 too many blank lines (3)
+
+./launch/amcl.launch.py:17:1: W293 blank line contains whitespace
+
+./launch/amcl.launch.py:34:1: W293 blank line contains whitespace
+
+./launch/amcl.launch.py:35:14: E225 missing whitespace around operator
+
+./launch/amcl.launch.py:35:15: E222 multiple spaces after operator
+
+./launch/amcl.launch.py:37:13: E201 whitespace after '{'
+
+./launch/amcl.launch.py:38:13: E201 whitespace after '{'
+
+./launch/amcl.launch.py:45:1: W293 blank line contains whitespace
+
+./launch/amcl.launch.py:46:5: E303 too many blank lines (2)
+
+./launch/amcl.launch.py:49:22: E251 unexpected spaces around keyword / parameter equals
+
+./launch/amcl.launch.py:49:24: E251 unexpected spaces around keyword / parameter equals
+
+./launch/amcl.launch.py:49:100: E501 line too long (173 > 99 characters)
+
+./launch/amcl.launch.py:52:1: W293 blank line contains whitespace
+
+./launch/amcl.launch.py:53:5: E303 too many blank lines (2)
+
+./launch/amcl.launch.py:53:43: E211 whitespace before '('
+
+./launch/amcl.launch.py:54:44: W291 trailing whitespace
+
+./launch/amcl.launch.py:56:10: E131 continuation line unaligned for hanging indent
+
+./launch/amcl.launch.py:59:34: E211 whitespace before '('
+
+./launch/amcl.launch.py:61:13: E201 whitespace after '{'
+
+./launch/amcl.launch.py:62:13: E201 whitespace after '{'
+
+./launch/amcl.launch.py:64:42: W291 trailing whitespace
+
+./launch/amcl.launch.py:68:1: W293 blank line contains whitespace
+
+./launch/amcl.launch.py:70:5: E303 too many blank lines (2)
+
+./launch/amcl.launch.py:78:5: E303 too many blank lines (2)
+
+./launch/amcl.launch.py:80:1: W391 blank line at end of file
+
+./launch/navigation1.launch.py:2:1: E265 block comment should start with '# '
+
+./launch/navigation1.launch.py:3:1: E265 block comment should start with '# '
+
+./launch/navigation1.launch.py:10:1: F401 'ros2run.api.get_executable_path' imported but unused
+
+./launch/navigation1.launch.py:11:1: E265 block comment should start with '# '
+
+./launch/navigation1.launch.py:20:1: E303 too many blank lines (5)
+
+./launch/navigation1.launch.py:23:5: F841 local variable 'slamtoolbox_dir' is assigned to but never used
+
+./launch/navigation1.launch.py:24:5: E265 block comment should start with '# '
+
+./launch/navigation1.launch.py:26:77: W291 trailing whitespace
+
+./launch/navigation1.launch.py:27:55: W291 trailing whitespace
+
+./launch/navigation1.launch.py:36:5: E303 too many blank lines (2)
+
+./launch/navigation1.launch.py:38:91: W291 trailing whitespace
+
+./launch/navigation1.launch.py:44:13: E251 unexpected spaces around keyword / parameter equals
+
+./launch/navigation1.launch.py:44:15: E251 unexpected spaces around keyword / parameter equals
+
+./launch/navigation1.launch.py:45:22: E251 unexpected spaces around keyword / parameter equals
+
+./launch/navigation1.launch.py:45:24: E251 unexpected spaces around keyword / parameter equals
+
+./launch/navigation1.launch.py:59:25: E222 multiple spaces after operator
+
+./launch/navigation1.launch.py:70:1: W293 blank line contains whitespace
+
+./launch/navigation1.launch.py:71:5: E303 too many blank lines (2)
+
+./launch/navigation1.launch.py:127:5: F841 local variable 'start_amcl' is assigned to but never used
+
+./launch/navigation1.launch.py:129:9: E131 continuation line unaligned for hanging indent
+
+./launch/navigation1.launch.py:130:9: E131 continuation line unaligned for hanging indent
+
+./launch/navigation1.launch.py:131:9: E131 continuation line unaligned for hanging indent
+
+./launch/navigation1.launch.py:132:9: E131 continuation line unaligned for hanging indent
+
+./launch/navigation1.launch.py:133:9: E131 continuation line unaligned for hanging indent
+
+./launch/navigation1.launch.py:138:5: E303 too many blank lines (3)
+
+./launch/navigation1.launch.py:138:47: E211 whitespace before '('
+
+./launch/navigation1.launch.py:139:44: W291 trailing whitespace
+
+./launch/navigation1.launch.py:144:5: F841 local variable 'start_tf_map_base_frame' is assigned to but never used
+
+./launch/navigation1.launch.py:147:18: E251 unexpected spaces around keyword / parameter equals
+
+./launch/navigation1.launch.py:147:20: E251 unexpected spaces around keyword / parameter equals
+
+./launch/navigation1.launch.py:147:100: E501 line too long (155 > 99 characters)
+
+./launch/navigation1.launch.py:149:1: W293 blank line contains whitespace
+
+./launch/navigation1.launch.py:153:22: E251 unexpected spaces around keyword / parameter equals
+
+./launch/navigation1.launch.py:153:24: E251 unexpected spaces around keyword / parameter equals
+
+./launch/navigation1.launch.py:153:100: E501 line too long (172 > 99 characters)
+
+./launch/navigation1.launch.py:159:23: E251 unexpected spaces around keyword / parameter equals
+
+./launch/navigation1.launch.py:159:100: E501 line too long (163 > 99 characters)
+
+./launch/navigation1.launch.py:162:1: W293 blank line contains whitespace
+
+./launch/navigation1.launch.py:164:5: E303 too many blank lines (3)
+
+./launch/navigation1.launch.py:165:91: W291 trailing whitespace
+
+./launch/navigation1.launch.py:166:25: E251 unexpected spaces around keyword / parameter equals
+
+./launch/navigation1.launch.py:166:27: E251 unexpected spaces around keyword / parameter equals
+
+./launch/navigation1.launch.py:166:40: E231 missing whitespace after ':'
+
+./launch/navigation1.launch.py:167:28: E128 continuation line under-indented for visual indent
+
+./launch/navigation1.launch.py:183:1: W293 blank line contains whitespace
+
+./launch/navigation1.launch.py:191:1: W293 blank line contains whitespace
+
+./launch/navigation1.launch.py:208:100: E501 line too long (157 > 99 characters)
+
+./launch/navigation1.launch.py:208:123: E261 at least two spaces before inline comment
+
+./launch/navigation1.launch.py:208:124: E262 inline comment should start with '# '
+
+./launch/navigation1.launch.py:209:1: W293 blank line contains whitespace
+
+./launch/navigation1.launch.py:212:29: W291 trailing whitespace
+
+./launch/navigation1.launch.py:213:5: E265 block comment should start with '# '
+
+./launch/navigation1.launch.py:218:39: W291 trailing whitespace
+
+./launch/navigation1.launch.py:223:5: E265 block comment should start with '# '
+
+./launch/navigation1.launch.py:224:1: W293 blank line contains whitespace
+
+./launch/navigation1.launch.py:225:1: W293 blank line contains whitespace
+
+./launch/navigation1.launch.py:226:5: E303 too many blank lines (2)
+
+./launch/navigation1.launch.py:227:5: E265 block comment should start with '# '
+
+    
+^
+    return ld
+    ^
+FORMAT_STR_INVOKE_SCRIPT = 'COLCON_CURRENT_PREFIX="{prefix}" _colcon_prefix_sh_source_script "{script_path}"'
+                                                                                                   ^
+FORMAT_STR_REMOVE_LEADING_SEPARATOR = 'if [ "$(echo -n ${name} | head -c 1)" = ":" ]; then export {name}=${{{name}#?}} ; fi'
+                                                                                                   ^
+FORMAT_STR_REMOVE_TRAILING_SEPARATOR = 'if [ "$(echo -n ${name} | tail -c 1)" = ":" ]; then export {name}=${{{name}%?}} ; fi'
+                                                                                                   ^
+#import argparse
+^
+#import sys
+^
+from ros2run.api import get_executable_path
+^
+#from nav2_common.launch import RewrittenYaml
+^
+from nav2_common.launch import RewrittenYaml
+^
+def generate_launch_description():
+^
+    slamtoolbox_launch_dir = os.path.join(slamtoolbox_dir, 'launch')
+    ^
+    nav2_dir = FindPackageShare(package='nav2_bringup').find('nav2_bringup') 
+                                                                            ^
+    nav2_launch_dir = os.path.join(nav2_dir, 'launch') 
+                                                      ^
+    mask_yaml_file = LaunchConfiguration('mask')
+    ^
+    lifecycle_nodes = ['amcl']   #'costmap_filter_info_server', 'filter_mask_server', , 'map_server' 
+    ^
+    lifecycle_nodes = ['amcl']   #'costmap_filter_info_server', 'filter_mask_server', , 'map_server' 
+                                 ^
+    lifecycle_nodes = ['amcl']   #'costmap_filter_info_server', 'filter_mask_server', , 'map_server' 
+                                                                                                   ^
+    lifecycle_nodes = ['amcl']   #'costmap_filter_info_server', 'filter_mask_server', , 'map_server' 
+                                                                                                    ^
+    
+^
+        # Set env var to print messages to stdout immediately
+        ^
+        # Set env var to print messages to stdout immediately
+        ^
+        #SetEnvironmentVariable('RCUTILS_LOGGING_BUFFERED_STREAM', '1'),
+        ^
+        #SetEnvironmentVariable('RCUTILS_LOGGING_BUFFERED_STREAM', '1'),
+        ^
+    declare_namespace = DeclareLaunchArgument(
+    ^
+        name = 'namespace',
+            ^
+        name = 'namespace',
+              ^
+        default_value = ''
+                     ^
+        default_value = ''
+                       ^
+    declare_auto_start =    DeclareLaunchArgument(
+                        ^
+        
+^
+    declare_map_file = DeclareLaunchArgument(
+    ^
+    declare_mask_yaml_file = DeclareLaunchArgument(
+    ^
+    #start_lifecycle_manager = Node(
+    ^
+    #)
+    ^
+        parameters=[{'yaml_filename': map_file},],
+                                               ^
+           { 'scan_topic': '/demo/laser/out'},
+            ^
+           { 'base_frame_id': 'base_frame'},
+            ^
+    
+^
+    #Node(
+    ^
+    #)
+    ^
+    start_lifecycle_manager = Node (
+                                  ^
+            { 'autostart': True},
+             ^
+            { 'node_names': ['amcl']},
+             ^
+        package='nav2_lifecycle_manager', 
+                                         ^
+    start_edu_robocup_rescue_stack_node = Node (
+    ^
+    start_edu_robocup_rescue_stack_node = Node (
+                                              ^
+        package='edu_robocup_rescue_stack', 
+                                           ^
+         output='screen'
+         ^
+        arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'map', '--child-frame-id', 'base_frame']
+                 ^
+        arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'map', '--child-frame-id', 'base_frame']
+                   ^
+        arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'map', '--child-frame-id', 'base_frame']
+                                                                                                   ^
+        
+^
+            arguments = ['--x', '0.1', '--y', '0', '--z', '0.16', '--yaw', '-0.4', '--pitch', '0', '--roll', '0', '--frame-id', 'base_frame', '--child-frame-id', 'laser_link']
+                     ^
+            arguments = ['--x', '0.1', '--y', '0', '--z', '0.16', '--yaw', '-0.4', '--pitch', '0', '--roll', '0', '--frame-id', 'base_frame', '--child-frame-id', 'laser_link']
+                       ^
+            arguments = ['--x', '0.1', '--y', '0', '--z', '0.16', '--yaw', '-0.4', '--pitch', '0', '--roll', '0', '--frame-id', 'base_frame', '--child-frame-id', 'laser_link']
+                                                                                                   ^
+    start_navigation = IncludeLaunchDescription(
+    ^
+        PythonLaunchDescriptionSource(os.path.join(nav2_launch_dir, 'bringup_launch.py')), 
+                                                                                          ^
+        launch_arguments = {'namespace':namespace,
+                        ^
+./launch/navigation1.launch.py:237:1: W293 blank line contains whitespace
+
+./launch/navigation1.launch.py:239:5: E303 too many blank lines (2)
+
+./install/_local_setup_util_sh.py:14:100: E501 line too long (109 > 99 characters)
+
+./install/_local_setup_util_sh.py:15:100: E501 line too long (124 > 99 characters)
+
+./install/_local_setup_util_sh.py:16:100: E501 line too long (125 > 99 characters)
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:2:1: E265 block comment should start with '# '
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:3:1: E265 block comment should start with '# '
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:10:1: F401 'ros2run.api.get_executable_path' imported but unused
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:11:1: E265 block comment should start with '# '
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:14:1: F401 'nav2_common.launch.RewrittenYaml' imported but unused
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:18:1: E303 too many blank lines (3)
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:22:5: F841 local variable 'slamtoolbox_launch_dir' is assigned to but never used
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:24:77: W291 trailing whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:25:55: W291 trailing whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:31:5: F841 local variable 'mask_yaml_file' is assigned to but never used
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:33:5: F841 local variable 'lifecycle_nodes' is assigned to but never used
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:33:34: E262 inline comment should start with '# '
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:33:100: E501 line too long (100 > 99 characters)
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:33:101: W291 trailing whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:37:1: W293 blank line contains whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:38:9: E303 too many blank lines (4)
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:38:9: E116 unexpected indentation (comment)
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:39:9: E116 unexpected indentation (comment)
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:39:9: E265 block comment should start with '# '
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:43:5: E303 too many blank lines (3)
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:44:13: E251 unexpected spaces around keyword / parameter equals
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:44:15: E251 unexpected spaces around keyword / parameter equals
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:45:22: E251 unexpected spaces around keyword / parameter equals
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:45:24: E251 unexpected spaces around keyword / parameter equals
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:53:25: E222 multiple spaces after operator
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:64:1: W293 blank line contains whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:65:5: E303 too many blank lines (2)
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:76:5: F841 local variable 'declare_mask_yaml_file' is assigned to but never used
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:81:5: E265 block comment should start with '# '
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:91:5: E265 block comment should start with '# '
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:98:48: E231 missing whitespace after ','
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:103:13: E201 whitespace after '{'
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:104:13: E201 whitespace after '{'
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:110:1: W293 blank line contains whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:111:5: E265 block comment should start with '# '
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:117:5: E265 block comment should start with '# '
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:119:35: E211 whitespace before '('
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:121:14: E201 whitespace after '{'
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:122:14: E201 whitespace after '{'
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:124:42: W291 trailing whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:131:5: E303 too many blank lines (3)
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:131:47: E211 whitespace before '('
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:132:44: W291 trailing whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:134:10: E131 continuation line unaligned for hanging indent
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:140:18: E251 unexpected spaces around keyword / parameter equals
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:140:20: E251 unexpected spaces around keyword / parameter equals
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:140:100: E501 line too long (156 > 99 characters)
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:142:1: W293 blank line contains whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:146:22: E251 unexpected spaces around keyword / parameter equals
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:146:24: E251 unexpected spaces around keyword / parameter equals
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:146:100: E501 line too long (175 > 99 characters)
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:150:5: E303 too many blank lines (2)
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:151:91: W291 trailing whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:152:25: E251 unexpected spaces around keyword / parameter equals
+
+        launch_arguments = {'namespace':namespace,
+                          ^
+        launch_arguments = {'namespace':namespace,
+                                       ^
+                           'use_sim_time': use_sim_time,
+                           ^
+    #param_substitutions = {
+    ^
+    #configured_params = RewrittenYaml(
+    ^
+    
+^
+    #start_costmap_filter_info_server = Node(
+    ^
+    
+^
+    #start_filter_mask_server = Node(
+    ^
+    #)
+    ^
+    #start_slam_toolbox = IncludeLaunchDescription(
+    ^
+    #    PythonLaunchDescriptionSource(os.path.join(slamtoolbox_launch_dir, 'online_async_launch.py'))
+                                                                                                   ^
+    #)
+    ^
+    ld = LaunchDescription()    
+                            ^
+    #ld.add_action(start_slam_toolbox)
+    ^
+    ld.add_action(declare_params_file)  
+                                      ^
+    #ld.add_action(declare_mask_yaml_file)
+    ^
+    #ld.add_action(start_costmap_filter_info_server)
+    ^
+    #ld.add_action(start_filter_mask_server)
+    ^
+    
+^
+    return ld
+    ^
+import os
+^
+ 
+^
+ 
+^
+ 
+^
+  return LaunchDescription([
+  ^
+      output='screen'),
+      ^
+        
+^
+      
+^
+            arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'map', '--child-frame-id', 'odom']
+                     ^
+            arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'map', '--child-frame-id', 'odom']
+                       ^
+            arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'map', '--child-frame-id', 'odom']
+                                                                                                   ^
+            arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'odom', '--child-frame-id', 'base_frame']
+                     ^
+            arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'odom', '--child-frame-id', 'base_frame']
+                       ^
+            arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'odom', '--child-frame-id', 'base_frame']
+                                                                                                   ^
+        
+^
+            arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_frame', '--child-frame-id', 'laser_link']
+                     ^
+            arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_frame', '--child-frame-id', 'laser_link']
+                       ^
+            arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_frame', '--child-frame-id', 'laser_link']
+                                                                                                   ^
+import argparse
+^
+import sys
+^
+from ros2run.api import get_executable_path
+^
+def generate_launch_description():
+^
+ 
+^
+        
+^
+    amcl_node=  Node(
+             ^
+    amcl_node=  Node(
+              ^
+           { 'scan_topic': '/demo/laser/out'},
+            ^
+           { 'base_frame_id': 'base_frame'},
+            ^
+        
+^
+    static_transform_publisher_base_frame_laser_link_node = Node(
+    ^
+            arguments = ['--x', '0.1', '--y', '0', '--z', '0.139', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_frame', '--child-frame-id', 'laser_link']
+                     ^
+            arguments = ['--x', '0.1', '--y', '0', '--z', '0.139', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_frame', '--child-frame-id', 'laser_link']
+                       ^
+            arguments = ['--x', '0.1', '--y', '0', '--z', '0.139', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_frame', '--child-frame-id', 'laser_link']
+                                                                                                   ^
+    
+^
+    start_localisation_control_node = Node (
+    ^
+    start_localisation_control_node = Node (
+                                          ^
+        package='edu_robocup_rescue_stack', 
+                                           ^
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:152:27: E251 unexpected spaces around keyword / parameter equals
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:152:40: E231 missing whitespace after ':'
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:153:28: E128 continuation line under-indented for visual indent
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:159:5: E265 block comment should start with '# '
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:163:5: E265 block comment should start with '# '
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:168:1: W293 blank line contains whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:169:5: E265 block comment should start with '# '
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:176:1: W293 blank line contains whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:177:5: E265 block comment should start with '# '
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:185:5: E265 block comment should start with '# '
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:187:5: E265 block comment should start with '# '
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:188:100: E501 line too long (102 > 99 characters)
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:189:5: E265 block comment should start with '# '
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:191:29: W291 trailing whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:192:5: E265 block comment should start with '# '
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:196:39: W291 trailing whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:199:5: E265 block comment should start with '# '
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:207:5: E265 block comment should start with '# '
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:208:5: E265 block comment should start with '# '
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:209:1: W293 blank line contains whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:211:5: E303 too many blank lines (2)
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/edu_control.launch.py:1:1: F401 'os' imported but unused
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/edu_control.launch.py:4:1: W293 blank line contains whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/edu_control.launch.py:5:1: W293 blank line contains whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/edu_control.launch.py:7:1: W293 blank line contains whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/edu_control.launch.py:8:3: E111 indentation is not a multiple of 4
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/edu_control.launch.py:10:7: E128 continuation line under-indented for visual indent
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/online_async_launch.py:18:1: W293 blank line contains whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/online_async_launch.py:34:1: W293 blank line contains whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/online_async_launch.py:38:22: E251 unexpected spaces around keyword / parameter equals
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/online_async_launch.py:38:24: E251 unexpected spaces around keyword / parameter equals
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/online_async_launch.py:38:100: E501 line too long (154 > 99 characters)
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/online_async_launch.py:43:22: E251 unexpected spaces around keyword / parameter equals
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/online_async_launch.py:43:24: E251 unexpected spaces around keyword / parameter equals
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/online_async_launch.py:43:100: E501 line too long (161 > 99 characters)
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/online_async_launch.py:45:1: W293 blank line contains whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/online_async_launch.py:49:22: E251 unexpected spaces around keyword / parameter equals
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/online_async_launch.py:49:24: E251 unexpected spaces around keyword / parameter equals
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/online_async_launch.py:49:100: E501 line too long (167 > 99 characters)
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:2:1: F401 'argparse' imported but unused
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:4:1: F401 'sys' imported but unused
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:10:1: F401 'ros2run.api.get_executable_path' imported but unused
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:15:1: E303 too many blank lines (3)
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:17:1: W293 blank line contains whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:34:1: W293 blank line contains whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:35:14: E225 missing whitespace around operator
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:35:15: E222 multiple spaces after operator
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:37:13: E201 whitespace after '{'
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:38:13: E201 whitespace after '{'
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:45:1: W293 blank line contains whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:46:5: E303 too many blank lines (2)
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:49:22: E251 unexpected spaces around keyword / parameter equals
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:49:24: E251 unexpected spaces around keyword / parameter equals
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:49:100: E501 line too long (173 > 99 characters)
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:52:1: W293 blank line contains whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:53:5: E303 too many blank lines (2)
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:53:43: E211 whitespace before '('
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:54:44: W291 trailing whitespace
+
+         output='screen'
+         ^
+    lifecycle_manager_node = Node (
+                                 ^
+           { 'autostart': True},
+            ^
+           { 'node_names': ['amcl', 'map_server']},
+            ^
+        package='nav2_lifecycle_manager', 
+                                         ^
+    
+^
+    ld.add_action(declare_path_map)
+    ^
+    return ld
+    ^
+
+^
+#import argparse
+^
+#import sys
+^
+from ros2run.api import get_executable_path
+^
+#from nav2_common.launch import RewrittenYaml
+^
+def generate_launch_description():
+^
+    slamtoolbox_dir = get_package_share_directory('slam_toolbox')
+    ^
+    #slamtoolbox_launch_dir = os.path.join(slamtoolbox_dir, 'launch')
+    ^
+    nav2_dir = FindPackageShare(package='nav2_bringup').find('nav2_bringup') 
+                                                                            ^
+    nav2_launch_dir = os.path.join(nav2_dir, 'launch') 
+                                                      ^
+    # lifecycle nodes
+    ^
+    lifecycle_nodes_costmap_filters = ['costmap_filter_info_server', 'filter_mask_server']   
+                                                                                          ^
+        name = 'namespace',
+            ^
+        name = 'namespace',
+              ^
+        default_value = ''
+                     ^
+        default_value = ''
+                       ^
+    declare_auto_start =    DeclareLaunchArgument(
+                        ^
+        
+^
+    declare_map_file = DeclareLaunchArgument(
+    ^
+    start_amcl = Node(
+    ^
+        executable='amcl',
+        ^
+        name='amcl',
+        ^
+        output='screen',
+        ^
+        parameters=[params_file, {'use_sim_time': use_sim_time}],
+        ^
+        remappings=[('/odom', remap_odom)]
+        ^
+    start_edu_robocup_rescue_stack_node = Node (
+    ^
+    start_edu_robocup_rescue_stack_node = Node (
+                                              ^
+        package='edu_robocup_rescue_stack', 
+                                           ^
+    start_tf_map_base_frame = Node(
+    ^
+        arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_link', '--child-frame-id', 'map']
+                 ^
+        arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_link', '--child-frame-id', 'map']
+                   ^
+        arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_link', '--child-frame-id', 'map']
+                                                                                                   ^
+        
+^
+            arguments = ['--x', '0.0', '--y', '0', '--z', '0.139', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_link', '--child-frame-id', 'laser_link']
+                     ^
+            arguments = ['--x', '0.0', '--y', '0', '--z', '0.139', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_link', '--child-frame-id', 'laser_link']
+                       ^
+            arguments = ['--x', '0.0', '--y', '0', '--z', '0.139', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_link', '--child-frame-id', 'laser_link']
+                                                                                                   ^
+            arguments= ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_link', '--child-frame-id', 'imu_link']
+                      ^
+            arguments= ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_link', '--child-frame-id', 'imu_link']
+                                                                                                   ^
+    
+^
+    start_navigation = IncludeLaunchDescription(
+    ^
+        PythonLaunchDescriptionSource(os.path.join(nav2_launch_dir, 'bringup_launch.py')), 
+                                                                                          ^
+        launch_arguments = {'namespace':namespace,
+                        ^
+        launch_arguments = {'namespace':namespace,
+                          ^
+        launch_arguments = {'namespace':namespace,
+                                       ^
+                           'use_sim_time': use_sim_time,
+                           ^
+    
+^
+    
+^
+         parameters=[os.path.join(bringup_dir, 'config/ekf.yaml'), {'use_sim_time': LaunchConfiguration('use_sim_time')}], #, {'use_sim_time': use_sim_time}]
+                                                                                                   ^
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:56:10: E131 continuation line unaligned for hanging indent
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:59:34: E211 whitespace before '('
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:61:13: E201 whitespace after '{'
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:62:13: E201 whitespace after '{'
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:64:42: W291 trailing whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:68:1: W293 blank line contains whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:70:5: E303 too many blank lines (2)
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:78:5: E303 too many blank lines (2)
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:80:1: W391 blank line at end of file
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:2:1: E265 block comment should start with '# '
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:3:1: E265 block comment should start with '# '
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:10:1: F401 'ros2run.api.get_executable_path' imported but unused
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:11:1: E265 block comment should start with '# '
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:20:1: E303 too many blank lines (5)
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:23:5: F841 local variable 'slamtoolbox_dir' is assigned to but never used
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:24:5: E265 block comment should start with '# '
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:26:77: W291 trailing whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:27:55: W291 trailing whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:36:5: E303 too many blank lines (2)
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:38:91: W291 trailing whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:44:13: E251 unexpected spaces around keyword / parameter equals
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:44:15: E251 unexpected spaces around keyword / parameter equals
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:45:22: E251 unexpected spaces around keyword / parameter equals
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:45:24: E251 unexpected spaces around keyword / parameter equals
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:59:25: E222 multiple spaces after operator
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:70:1: W293 blank line contains whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:71:5: E303 too many blank lines (2)
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:127:5: F841 local variable 'start_amcl' is assigned to but never used
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:129:9: E131 continuation line unaligned for hanging indent
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:130:9: E131 continuation line unaligned for hanging indent
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:131:9: E131 continuation line unaligned for hanging indent
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:132:9: E131 continuation line unaligned for hanging indent
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:133:9: E131 continuation line unaligned for hanging indent
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:138:5: E303 too many blank lines (3)
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:138:47: E211 whitespace before '('
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:139:44: W291 trailing whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:144:5: F841 local variable 'start_tf_map_base_frame' is assigned to but never used
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:147:18: E251 unexpected spaces around keyword / parameter equals
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:147:20: E251 unexpected spaces around keyword / parameter equals
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:147:100: E501 line too long (155 > 99 characters)
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:149:1: W293 blank line contains whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:153:22: E251 unexpected spaces around keyword / parameter equals
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:153:24: E251 unexpected spaces around keyword / parameter equals
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:153:100: E501 line too long (172 > 99 characters)
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:159:23: E251 unexpected spaces around keyword / parameter equals
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:159:100: E501 line too long (163 > 99 characters)
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:162:1: W293 blank line contains whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:164:5: E303 too many blank lines (3)
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:165:91: W291 trailing whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:166:25: E251 unexpected spaces around keyword / parameter equals
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:166:27: E251 unexpected spaces around keyword / parameter equals
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:166:40: E231 missing whitespace after ':'
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:167:28: E128 continuation line under-indented for visual indent
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:183:1: W293 blank line contains whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:191:1: W293 blank line contains whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:208:100: E501 line too long (157 > 99 characters)
+
+         parameters=[os.path.join(bringup_dir, 'config/ekf.yaml'), {'use_sim_time': LaunchConfiguration('use_sim_time')}], #, {'use_sim_time': use_sim_time}]
+                                                                                                                          ^
+         parameters=[os.path.join(bringup_dir, 'config/ekf.yaml'), {'use_sim_time': LaunchConfiguration('use_sim_time')}], #, {'use_sim_time': use_sim_time}]
+                                                                                                                           ^
+         
+^
+    ld = LaunchDescription()    
+                            ^
+    #ld.add_action(start_slam_toolbox)
+    ^
+    ld.add_action(declare_params_file)  
+                                      ^
+    #ld.add_action(start_amcl)
+    ^
+    
+^
+    
+^
+    ld.add_action(start_edu_robocup_rescue_stack_node)
+    ^
+    #ld.add_action(start_tf_map_base_frame)
+    ^
+    
+^
+    return ld
+    ^
+2     E111 indentation is not a multiple of 4
+2     E116 unexpected indentation (comment)
+5     E128 continuation line under-indented for visual indent
+13    E131 continuation line unaligned for hanging indent
+12    E201 whitespace after '{'
+8     E211 whitespace before '('
+5     E222 multiple spaces after operator
+2     E225 missing whitespace around operator
+4     E231 missing whitespace after ','
+48    E251 unexpected spaces around keyword / parameter equals
+2     E261 at least two spaces before inline comment
+3     E262 inline comment should start with '# '
+33    E265 block comment should start with '# '
+31    E303 too many blank lines (3)
+23    E501 line too long (109 > 99 characters)
+12    F401 'argparse' imported but unused
+10    F841 local variable 'slamtoolbox_launch_dir' is assigned to but never used
+26    W291 trailing whitespace
+1     W292 no newline at end of file
+47    W293 blank line contains whitespace
+2     W391 blank line at end of file
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:208:123: E261 at least two spaces before inline comment
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:208:124: E262 inline comment should start with '# '
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:209:1: W293 blank line contains whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:212:29: W291 trailing whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:213:5: E265 block comment should start with '# '
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:218:39: W291 trailing whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:223:5: E265 block comment should start with '# '
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:224:1: W293 blank line contains whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:225:1: W293 blank line contains whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:226:5: E303 too many blank lines (2)
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:227:5: E265 block comment should start with '# '
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:237:1: W293 blank line contains whitespace
+
+./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:239:5: E303 too many blank lines (2)
+
+
+14 files checked
+291 errors
+
+'E'-type errors: 193
+'F'-type errors: 22
+'W'-type errors: 76
+
+Checked files:
+
+* ./setup.py
+* ./launch/edu_control.launch.py
+* ./launch/online_async_launch.py
+* ./launch/amcl.launch.py
+* ./launch/keepout.launch.py
+* ./launch/navigation1.launch.py
+* ./install/_local_setup_util_ps1.py
+* ./install/_local_setup_util_sh.py
+* ./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py
+* ./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/edu_control.launch.py
+* ./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/online_async_launch.py
+* ./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py
+* ./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/keepout.launch.py
+* ./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py
+
+
+-- run_test.py: return code 1
+-- run_test.py: verify result file '/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/test_results/edu_robocup_rescue_stack/flake8.xunit.xml'

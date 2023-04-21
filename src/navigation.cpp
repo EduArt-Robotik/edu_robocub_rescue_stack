@@ -6,6 +6,7 @@ Navigation::Navigation(LoadMap *loadMap) { //: Node("navigation")
     m_amcl_pX = 0;
     m_amcl_pY = 0;
     m_area = 1;
+    m_area_saved = 1;
     
     m_tolerance = 0.3;
     m_lim_min_x = 0.0;
@@ -56,7 +57,9 @@ void Navigation::initialize() {
     m_initial_sended = false;
 }
 
-
+//void Navigation::stop_goal(){
+    
+//}
 
 void Navigation::sendGoalPose(){
 
@@ -67,15 +70,15 @@ void Navigation::sendGoalPose(){
     }   
 }
 
-void Navigation::sendInitialPose(){
+bool Navigation::sendInitialPose(){
 
     if (!m_initial_sended) {
         m_send_initial = true;
     } else if (m_initial_sended) {
         m_send_initial = false;
         m_map_request_sended = false; 
-
     }   
+    return m_map_request_sended;
 }
 
 
@@ -99,12 +102,23 @@ void Navigation::stop_goal(){
     }
 }
 
+void Navigation::map_swap(int m_area) {
+    if (m_area != m_area_saved){
+        initialize();
+        m_area_saved = m_area;
+
+    }
+
+}
 void Navigation::navigation_step(){
+    
+    map_swap(m_area);
+
     if (m_area == 1) {
-        //std::cout << "navigation step 1" << std::endl;
+        std::cout << "navigation step 1" << std::endl;
         m_url = m_map1;
         // position
-        m_goal_pX = 2.4;
+        m_goal_pX = 1.4;
         m_goal_pY = 0.0;
         m_goal_pZ = 0.0;
 
@@ -121,8 +135,8 @@ void Navigation::navigation_step(){
 
         m_url = m_map2;
         // position
-        m_goal_pX = 3.4; 
-        m_goal_pY = 0.0;
+        m_goal_pX = 3.7; 
+        m_goal_pY = 1.3;
         m_goal_pZ = 0.0;
 
         // orientation
@@ -133,7 +147,7 @@ void Navigation::navigation_step(){
         navigate(m_url);
         
 
-    } /*else if (m_area == 3) {
+    } else if (m_area == 3) {
         //stop_goal();
         std::cout << "navigation step 2" << std::endl;
 
@@ -166,7 +180,7 @@ void Navigation::navigation_step(){
         m_goal_oZ = 0.0;
         m_goal_oW = 1.0;
         navigate(m_url);
-    }*/
+    }
 }
 
 void Navigation::loadMap(string m_url){
@@ -187,27 +201,22 @@ void Navigation::loadMap(string m_url){
 }
 void Navigation::navigate(string m_url){
     if (m_send_initial){
-        sendInitialPose();
-
-        m_map_request_sended = false;
+        if (abs(m_pitch_rel) < 0.09) {
+            m_map_request_sended = sendInitialPose();
+        } 
     
     } else if (!m_map_request_sended) {   
         
         loadMap(m_url);
-        //std::cout << "map loaded" << std::endl;
-        
+        std::cout << "##########################################################" << std::endl;
+        std::cout << "map loaded################################################" << std::endl;
+        std::cout << "##########################################################" << std::endl;
     } else if (m_send_goalpose) {
         
         sendGoalPose();
         m_send_goalpose = false; 
         
         std::cout << "goal Pose sended" << std::endl;
-    } else if (m_goal_sended) {  
-        
-        initialize();
-        m_stop_goal = true;
-        //std::cout << "initialize" << std::endl;
-
     } 
 }
 
@@ -272,6 +281,10 @@ bool Navigation::getSendInitial(){
 bool Navigation::getSendGoal(){
     navigation_step();
     return m_send_goal;
+}
+
+void Navigation::setPitchRel(float pitch_rel){
+    m_pitch_rel = pitch_rel; 
 }
 
 

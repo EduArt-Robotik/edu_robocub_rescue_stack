@@ -1,27 +1,27 @@
 amcl:
   ros__parameters:
-    use_sim_time: True
-    alpha1: 0.002
-    alpha2: 0.002
-    alpha3: 0.002
-    alpha4: 0.002
-    alpha5: 0.002
-    base_frame_id: base_frame
+    use_sim_time: true
+    alpha1: 0.005 # changed from 0.005
+    alpha2: 0.005 # changed from 0.005
+    alpha3: 0.01 # changed from 0.01
+    alpha4: 0.005 # changed from 0.005
+    alpha5: 0.005 # changed from0.005
+    base_frame_id: "base_link"
     beam_skip_distance: 0.5
     beam_skip_error_threshold: 0.9
     beam_skip_threshold: 0.3
-    do_beamskip: false
-    global_frame_id: map
+    do_beamskip: true
+    global_frame_id: "map"
     initial_pose: [0.0, 0.0, 0.0, 0.0]
     lambda_short: 0.1
-    #laser_likelihood_max_dist: 2.0
+    laser_likelihood_max_dist: 2.0
     laser_max_range: 12.0
-    laser_min_range: 0.15
+    laser_min_range: 0.2
     laser_model_type: "ray"
-    max_beams: 60
+    max_beams: 120
     max_particles: 2000
-    min_particles: 500
-    odom_frame_id: odom
+    min_particles: 1
+    odom_frame_id: "odom"
     pf_err: 0.05
     pf_z: 0.99
     recovery_alpha_fast: 0.0
@@ -29,22 +29,28 @@ amcl:
     resample_interval: 1
     robot_model_type: "nav2_amcl::DifferentialMotionModel"
     save_pose_rate: 0.5
-    set_initial_pose: True
-    sigma_hit: 0.2
-    tf_broadcast: true
+    set_initial_pose: true
+    sigma_hit: 0.1 #changed from 0.2
+    tf_broadcast: true 
     transform_tolerance: 0.1
-    update_min_a: 0.2
-    update_min_d: 0.25
-    z_hit: 0.5
-    z_max: 0.05
+    update_min_a: 0.01 #changed from 0.2
+    update_min_d: 0.25 # changed from 0.25 -> robot has big problems with orientation when turning around
+    z_hit: 0.9 #changed from 0.5
+    z_max: 0.0
     z_rand: 0.5
+    likelihood_max_dist: 4.0
     z_short: 0.05
     scan_topic: /demo/laser/out
+    map_topic: /map
+    odom_topic: /odom
+
+
+
 
 bt_navigator:
   ros__parameters:
     global_frame: map
-    robot_base_frame: base_frame 
+    robot_base_frame: base_link 
     odom_topic: /odom
     bt_loop_duration: 10
     default_server_timeout: 20
@@ -179,18 +185,18 @@ local_costmap:
       update_frequency: 5.0
       publish_frequency: 2.0
       global_frame: map
-      robot_base_frame: base_frame
+      robot_base_frame: base_link
       rolling_window: true
       width: 3
       height: 3
       resolution: 0.05
       robot_radius: 0.15
-      plugins: ["voxel_layer", "inflation_layer"] #, "keepout_filter"
-      #filters: ["keepout_filter"]
-      #keepout_filter:
-      #  plugin: "nav2_costmap_2d::KeepoutFilter"
-      #  enabled: True
-      #  filter_info_topic: "/costmap_filter_info"
+      plugins: ["voxel_layer", "inflation_layer", "keepout_filter"]
+      filters: ["keepout_filter"]
+      keepout_filter:
+        plugin: "nav2_costmap_2d::KeepoutFilter"
+        enabled: True
+        filter_info_topic: "/costmap_filter_info"
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
         cost_scaling_factor: 3.0
@@ -218,7 +224,7 @@ local_costmap:
       static_layer:
         plugin: "nav2_costmap_2d::StaticLayer"
         map_subscribe_transient_local: True
-      always_send_full_costmap: True
+      always_send_full_costmap: true
 
 global_costmap:
   global_costmap:
@@ -226,16 +232,16 @@ global_costmap:
       update_frequency: 1.0
       publish_frequency: 1.0
       global_frame: map
-      robot_base_frame: base_frame
+      robot_base_frame: base_link
       robot_radius: 0.20
       resolution: 0.05
       track_unknown_space: true
-      plugins: ["static_layer", "obstacle_layer", "inflation_layer"] #, "keepout_filter"
-      #filters: ["keepout_filter"]
-      #keepout_filter:
-      #  plugin: "nav2_costmap_2d::KeepoutFilter"
-      #  enabled: True
-      #  filter_info_topic: "/costmap_filter_info"
+      plugins: ["static_layer", "obstacle_layer", "inflation_layer", "keepout_filter"]
+      filters: ["keepout_filter"]
+      keepout_filter:
+        plugin: "nav2_costmap_2d::KeepoutFilter"
+        enabled: True
+        filter_info_topic: "/costmap_filter_info"
       obstacle_layer:
         plugin: "nav2_costmap_2d::ObstacleLayer"
         enabled: True
@@ -257,23 +263,23 @@ global_costmap:
         plugin: "nav2_costmap_2d::InflationLayer"
         cost_scaling_factor: 3.0
         inflation_radius: 0.40
-      always_send_full_costmap: True
+      always_send_full_costmap: true
 
-#costmap_filter_info_server:
-#  ros__parameters:
-#    use_sim_time: True
-#    type: 0
-#    filter_info_topic: "/costmap_filter_info"
-#    mask_topic: "/keepout_filter_mask"
-#    base: 0.0
-#    multipier: 1.0
+costmap_filter_info_server:
+  ros__parameters:
+    use_sim_time: True
+    type: 0
+    filter_info_topic: "/costmap_filter_info"
+    mask_topic: "/keepout_filter_mask"
+    base: 0.0
+    multipier: 1.0
 
-#filter_mask_server:
-#  ros__parameters:
-#    use_sim_time: True
-#    frame_id: "map"
-#    topic_name: "/keepout_filter_mask"
-#    yaml_filename: "keepout_8.2.yaml"
+filter_mask_server:
+  ros__parameters:
+    use_sim_time: True
+    frame_id: "map"
+    topic_name: "/keepout_filter_mask"
+    yaml_filename: "keepout_8.2.yaml"
 
 
 
@@ -312,13 +318,13 @@ map_saver:
 planner_server_rclcpp_node:
   ros__parameters:
     use_sim_time: True
-    expected_planner_frequency: 20.0
-    planner_plugins: ["GridBased"]
-    GridBased:
-      plugin: "nav2_smac_planner/SmacPlanner2D"
-      tolerance: 0.05
-      use_astar: false
-      allow_unknown: false
+    #expected_planner_frequency: 20.0
+    #planner_plugins: ["GridBased"]
+    #GridBased:
+    #  plugin: "nav2_smac_planner/SmacPlannerLattice"
+    #  tolerance: 0.05
+    #  use_astar: false
+    #  allow_unknown: false
 
 recoveries_server:
   ros__parameters:
@@ -333,7 +339,7 @@ recoveries_server:
     wait:
       plugin: "nav2_recoveries/Wait"
     global_frame: map
-    robot_base_frame: base_frame
+    robot_base_frame: base_link
     transform_timeout: 0.1
     use_sim_time: true
     simulate_ahead_time: 2.0
@@ -367,7 +373,7 @@ behavior_server:
     #assisted_teleop:
     #  plugin: "nav2_behaviors/AssistedTeleop"
     global_frame: map
-    robot_base_frame: base_frame
+    robot_base_frame: base_link
     transform_tolerance: 0.1
     simulate_ahead_time: 2.0
     max_rotational_vel: 1.0
@@ -393,7 +399,7 @@ velocity_smoother:
     min_velocity: [-0.26, 0.0, -1.0]
     max_accel: [2.5, 0.0, 3.2]
     max_decel: [-2.5, 0.0, -3.2]
-    odom_topic: "odom"
+    odom_topic: /odom
     odom_duration: 0.1
     deadband_velocity: [0.0, 0.0, 0.0]
     velocity_timeout: 1.0
@@ -418,7 +424,7 @@ slam_toolbox:
     # ROS Parameters
     odom_frame: odom
     map_frame: map
-    base_frame: base_frame
+    base_frame: base_link
     scan_topic: /demo/laser/out
     mode: mapping #localization
 
@@ -478,6 +484,42 @@ slam_toolbox:
     minimum_distance_penalty: 0.5
     use_response_expansion: true
     
+
+
+# smac_lattice_planner
+
+#planner_server:
+#  ros__parameters:
+#    planner_plugins: ["GridBased"]
+#    use_sim_time: True
+#
+#    GridBased:
+#      plugin: "nav2_smac_planner/SmacPlannerLattice"
+#      allow_unknown: true                 # Allow traveling in unknown space
+#      tolerance: 0.25                     # dist-to-goal heuristic cost (distance) for valid tolerance endpoints if exact goal cannot be found.
+#      max_iterations: 1000000             # Maximum total iterations to search for before failing (in case unreachable), set to -1 to disable
+#      max_on_approach_iterations: 1000    # Maximum number of iterations after within tolerances to continue to try to find exact solution
+#      max_planning_time: 5.0              # Max time in s for planner to plan, smooth
+#      analytic_expansion_ratio: 3.5       # The ratio to attempt analytic expansions during search for final approach.
+#      analytic_expansion_max_length: 3.0  # For Hybrid/Lattice nodes: The maximum length of the analytic expansion to be considered valid to prevent unsafe shortcutting
+#      reverse_penalty: 2.0                # Penalty to apply if motion is reversing, must be => 1
+#      change_penalty: 0.05                # Penalty to apply if motion is changing directions (L to R), must be >= 0
+#      non_straight_penalty: 1.05          # Penalty to apply if motion is non-straight, must be => 1
+#      cost_penalty: 2.0                   # Penalty to apply to higher cost areas when adding into the obstacle map dynamic programming distance expansion heuristic. This drives the robot more towards the center of passages. A value between 1.3 - 3.5 is reasonable.
+#      rotation_penalty: 5.0               # Penalty to apply to in-place rotations, if minimum control set contains them
+#      retrospective_penalty: 0.015
+#      #lattice_filepath: ""                # The filepath to the state lattice graph
+#      lookup_table_size: 20.0             # Size of the dubin/reeds-sheep distance window to cache, in meters.
+#      cache_obstacle_heuristic: false     # Cache the obstacle map dynamic programming distance expansion heuristic between subsiquent replannings of the same goal location. Dramatically speeds up replanning performance (40x) if costmap is largely static.
+#      allow_reverse_expansion: false      # If true, allows the robot to use the primitives to expand in the mirrored opposite direction of the current robot's orientation (to reverse).
+#      smooth_path: True                   # If true, does a simple and quick smoothing post-processing to the path
+#      smoother:
+#        max_iterations: 1000
+#        w_smooth: 0.3
+#        w_data: 0.2
+#        tolerance: 1.0e-10
+#        do_refinement: true
+#        refinement_num: 2
 
 #Smac Planner 2D
 

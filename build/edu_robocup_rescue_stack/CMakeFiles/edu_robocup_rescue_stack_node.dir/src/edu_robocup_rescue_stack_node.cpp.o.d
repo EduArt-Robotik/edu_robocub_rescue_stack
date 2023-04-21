@@ -642,6 +642,10 @@ CMakeFiles/edu_robocup_rescue_stack_node.dir/src/edu_robocup_rescue_stack_node.c
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_stamped__struct.hpp \
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_stamped__builder.hpp \
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_stamped__traits.hpp \
+ /opt/ros/humble/include/rosgraph_msgs/rosgraph_msgs/msg/clock.hpp \
+ /opt/ros/humble/include/rosgraph_msgs/rosgraph_msgs/msg/detail/clock__struct.hpp \
+ /opt/ros/humble/include/rosgraph_msgs/rosgraph_msgs/msg/detail/clock__builder.hpp \
+ /opt/ros/humble/include/rosgraph_msgs/rosgraph_msgs/msg/detail/clock__traits.hpp \
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/pose_with_covariance_stamped.hpp \
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_with_covariance_stamped__struct.hpp \
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_with_covariance_stamped__builder.hpp \

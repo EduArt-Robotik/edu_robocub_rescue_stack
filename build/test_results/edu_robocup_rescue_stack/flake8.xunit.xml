@@ -1,0 +1,1770 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite
+  name="edu_robocup_rescue_stack.flake8"
+  tests="291"
+  errors="0"
+  failures="291"
+  time="0.379"
+>
+  <testcase
+    name="W292 (./setup.py:25:2)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="no newline at end of file:&#10;)"/>
+  </testcase>
+  <testcase
+    name="F401 (./launch/edu_control.launch.py:1:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="'os' imported but unused:&#10;import os&#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./launch/edu_control.launch.py:4:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10; &#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./launch/edu_control.launch.py:5:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10; &#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./launch/edu_control.launch.py:7:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10; &#10;"/>
+  </testcase>
+  <testcase
+    name="E111 (./launch/edu_control.launch.py:8:3)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="indentation is not a multiple of 4:&#10;  return LaunchDescription([&#10;"/>
+  </testcase>
+  <testcase
+    name="E128 (./launch/edu_control.launch.py:10:7)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="continuation line under-indented for visual indent:&#10;      output='screen'),&#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./launch/online_async_launch.py:18:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10;        &#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./launch/online_async_launch.py:34:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10;      &#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./launch/online_async_launch.py:38:22)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;            arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'map', '--child-frame-id', 'odom']&#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./launch/online_async_launch.py:38:24)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;            arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'map', '--child-frame-id', 'odom']&#10;"/>
+  </testcase>
+  <testcase
+    name="E501 (./launch/online_async_launch.py:38:100)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="line too long (154 &gt; 99 characters):&#10;            arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'map', '--child-frame-id', 'odom']&#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./launch/online_async_launch.py:43:22)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;            arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'odom', '--child-frame-id', 'base_frame']&#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./launch/online_async_launch.py:43:24)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;            arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'odom', '--child-frame-id', 'base_frame']&#10;"/>
+  </testcase>
+  <testcase
+    name="E501 (./launch/online_async_launch.py:43:100)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="line too long (161 &gt; 99 characters):&#10;            arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'odom', '--child-frame-id', 'base_frame']&#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./launch/online_async_launch.py:45:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10;        &#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./launch/online_async_launch.py:49:22)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;            arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_frame', '--child-frame-id', 'laser_link']&#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./launch/online_async_launch.py:49:24)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;            arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_frame', '--child-frame-id', 'laser_link']&#10;"/>
+  </testcase>
+  <testcase
+    name="E501 (./launch/online_async_launch.py:49:100)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="line too long (167 &gt; 99 characters):&#10;            arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_frame', '--child-frame-id', 'laser_link']&#10;"/>
+  </testcase>
+  <testcase
+    name="F401 (./launch/amcl.launch.py:2:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="'argparse' imported but unused:&#10;import argparse&#10;"/>
+  </testcase>
+  <testcase
+    name="F401 (./launch/amcl.launch.py:4:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="'sys' imported but unused:&#10;import sys&#10;"/>
+  </testcase>
+  <testcase
+    name="F401 (./launch/amcl.launch.py:10:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="'ros2run.api.get_executable_path' imported but unused:&#10;from ros2run.api import get_executable_path&#10;"/>
+  </testcase>
+  <testcase
+    name="E303 (./launch/amcl.launch.py:15:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="too many blank lines (3):&#10;def generate_launch_description():&#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./launch/amcl.launch.py:17:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10; &#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./launch/amcl.launch.py:34:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10;        &#10;"/>
+  </testcase>
+  <testcase
+    name="E225 (./launch/amcl.launch.py:35:14)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="missing whitespace around operator:&#10;    amcl_node=  Node(&#10;"/>
+  </testcase>
+  <testcase
+    name="E222 (./launch/amcl.launch.py:35:15)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="multiple spaces after operator:&#10;    amcl_node=  Node(&#10;"/>
+  </testcase>
+  <testcase
+    name="E201 (./launch/amcl.launch.py:37:13)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="whitespace after '{':&#10;           { 'scan_topic': '/demo/laser/out'},&#10;"/>
+  </testcase>
+  <testcase
+    name="E201 (./launch/amcl.launch.py:38:13)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="whitespace after '{':&#10;           { 'base_frame_id': 'base_frame'},&#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./launch/amcl.launch.py:45:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10;        &#10;"/>
+  </testcase>
+  <testcase
+    name="E303 (./launch/amcl.launch.py:46:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="too many blank lines (2):&#10;    static_transform_publisher_base_frame_laser_link_node = Node(&#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./launch/amcl.launch.py:49:22)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;            arguments = ['--x', '0.1', '--y', '0', '--z', '0.139', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_frame', '--child-frame-id', 'laser_link']&#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./launch/amcl.launch.py:49:24)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;            arguments = ['--x', '0.1', '--y', '0', '--z', '0.139', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_frame', '--child-frame-id', 'laser_link']&#10;"/>
+  </testcase>
+  <testcase
+    name="E501 (./launch/amcl.launch.py:49:100)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="line too long (173 &gt; 99 characters):&#10;            arguments = ['--x', '0.1', '--y', '0', '--z', '0.139', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_frame', '--child-frame-id', 'laser_link']&#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./launch/amcl.launch.py:52:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10;    &#10;"/>
+  </testcase>
+  <testcase
+    name="E303 (./launch/amcl.launch.py:53:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="too many blank lines (2):&#10;    start_localisation_control_node = Node (&#10;"/>
+  </testcase>
+  <testcase
+    name="E211 (./launch/amcl.launch.py:53:43)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="whitespace before '(':&#10;    start_localisation_control_node = Node (&#10;"/>
+  </testcase>
+  <testcase
+    name="W291 (./launch/amcl.launch.py:54:44)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="trailing whitespace:&#10;        package='edu_robocup_rescue_stack', &#10;"/>
+  </testcase>
+  <testcase
+    name="E131 (./launch/amcl.launch.py:56:10)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="continuation line unaligned for hanging indent:&#10;         output='screen'&#10;"/>
+  </testcase>
+  <testcase
+    name="E211 (./launch/amcl.launch.py:59:34)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="whitespace before '(':&#10;    lifecycle_manager_node = Node (&#10;"/>
+  </testcase>
+  <testcase
+    name="E201 (./launch/amcl.launch.py:61:13)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="whitespace after '{':&#10;           { 'autostart': True},&#10;"/>
+  </testcase>
+  <testcase
+    name="E201 (./launch/amcl.launch.py:62:13)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="whitespace after '{':&#10;           { 'node_names': ['amcl', 'map_server']},&#10;"/>
+  </testcase>
+  <testcase
+    name="W291 (./launch/amcl.launch.py:64:42)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="trailing whitespace:&#10;        package='nav2_lifecycle_manager', &#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./launch/amcl.launch.py:68:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10;    &#10;"/>
+  </testcase>
+  <testcase
+    name="E303 (./launch/amcl.launch.py:70:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="too many blank lines (2):&#10;    ld.add_action(declare_path_map)&#10;"/>
+  </testcase>
+  <testcase
+    name="E303 (./launch/amcl.launch.py:78:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="too many blank lines (2):&#10;    return ld&#10;"/>
+  </testcase>
+  <testcase
+    name="W391 (./launch/amcl.launch.py:80:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line at end of file:&#10;&#10;"/>
+  </testcase>
+  <testcase
+    name="E265 (./launch/navigation1.launch.py:2:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="block comment should start with '# ':&#10;#import argparse&#10;"/>
+  </testcase>
+  <testcase
+    name="E265 (./launch/navigation1.launch.py:3:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="block comment should start with '# ':&#10;#import sys&#10;"/>
+  </testcase>
+  <testcase
+    name="F401 (./launch/navigation1.launch.py:10:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="'ros2run.api.get_executable_path' imported but unused:&#10;from ros2run.api import get_executable_path&#10;"/>
+  </testcase>
+  <testcase
+    name="E265 (./launch/navigation1.launch.py:11:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="block comment should start with '# ':&#10;#from nav2_common.launch import RewrittenYaml&#10;"/>
+  </testcase>
+  <testcase
+    name="E303 (./launch/navigation1.launch.py:20:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="too many blank lines (5):&#10;def generate_launch_description():&#10;"/>
+  </testcase>
+  <testcase
+    name="F841 (./launch/navigation1.launch.py:23:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="local variable 'slamtoolbox_dir' is assigned to but never used:&#10;    slamtoolbox_dir = get_package_share_directory('slam_toolbox')&#10;"/>
+  </testcase>
+  <testcase
+    name="E265 (./launch/navigation1.launch.py:24:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="block comment should start with '# ':&#10;    #slamtoolbox_launch_dir = os.path.join(slamtoolbox_dir, 'launch')&#10;"/>
+  </testcase>
+  <testcase
+    name="W291 (./launch/navigation1.launch.py:26:77)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="trailing whitespace:&#10;    nav2_dir = FindPackageShare(package='nav2_bringup').find('nav2_bringup') &#10;"/>
+  </testcase>
+  <testcase
+    name="W291 (./launch/navigation1.launch.py:27:55)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="trailing whitespace:&#10;    nav2_launch_dir = os.path.join(nav2_dir, 'launch') &#10;"/>
+  </testcase>
+  <testcase
+    name="E303 (./launch/navigation1.launch.py:36:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="too many blank lines (2):&#10;    # lifecycle nodes&#10;"/>
+  </testcase>
+  <testcase
+    name="W291 (./launch/navigation1.launch.py:38:91)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="trailing whitespace:&#10;    lifecycle_nodes_costmap_filters = ['costmap_filter_info_server', 'filter_mask_server']   &#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./launch/navigation1.launch.py:44:13)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;        name = 'namespace',&#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./launch/navigation1.launch.py:44:15)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;        name = 'namespace',&#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./launch/navigation1.launch.py:45:22)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;        default_value = ''&#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./launch/navigation1.launch.py:45:24)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;        default_value = ''&#10;"/>
+  </testcase>
+  <testcase
+    name="E222 (./launch/navigation1.launch.py:59:25)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="multiple spaces after operator:&#10;    declare_auto_start =    DeclareLaunchArgument(&#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./launch/navigation1.launch.py:70:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10;        &#10;"/>
+  </testcase>
+  <testcase
+    name="E303 (./launch/navigation1.launch.py:71:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="too many blank lines (2):&#10;    declare_map_file = DeclareLaunchArgument(&#10;"/>
+  </testcase>
+  <testcase
+    name="F841 (./launch/navigation1.launch.py:127:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="local variable 'start_amcl' is assigned to but never used:&#10;    start_amcl = Node(&#10;"/>
+  </testcase>
+  <testcase
+    name="E131 (./launch/navigation1.launch.py:129:9)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="continuation line unaligned for hanging indent:&#10;        executable='amcl',&#10;"/>
+  </testcase>
+  <testcase
+    name="E131 (./launch/navigation1.launch.py:130:9)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="continuation line unaligned for hanging indent:&#10;        name='amcl',&#10;"/>
+  </testcase>
+  <testcase
+    name="E131 (./launch/navigation1.launch.py:131:9)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="continuation line unaligned for hanging indent:&#10;        output='screen',&#10;"/>
+  </testcase>
+  <testcase
+    name="E131 (./launch/navigation1.launch.py:132:9)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="continuation line unaligned for hanging indent:&#10;        parameters=[params_file, {'use_sim_time': use_sim_time}],&#10;"/>
+  </testcase>
+  <testcase
+    name="E131 (./launch/navigation1.launch.py:133:9)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="continuation line unaligned for hanging indent:&#10;        remappings=[('/odom', remap_odom)]&#10;"/>
+  </testcase>
+  <testcase
+    name="E303 (./launch/navigation1.launch.py:138:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="too many blank lines (3):&#10;    start_edu_robocup_rescue_stack_node = Node (&#10;"/>
+  </testcase>
+  <testcase
+    name="E211 (./launch/navigation1.launch.py:138:47)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="whitespace before '(':&#10;    start_edu_robocup_rescue_stack_node = Node (&#10;"/>
+  </testcase>
+  <testcase
+    name="W291 (./launch/navigation1.launch.py:139:44)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="trailing whitespace:&#10;        package='edu_robocup_rescue_stack', &#10;"/>
+  </testcase>
+  <testcase
+    name="F841 (./launch/navigation1.launch.py:144:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="local variable 'start_tf_map_base_frame' is assigned to but never used:&#10;    start_tf_map_base_frame = Node(&#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./launch/navigation1.launch.py:147:18)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;        arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_link', '--child-frame-id', 'map']&#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./launch/navigation1.launch.py:147:20)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;        arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_link', '--child-frame-id', 'map']&#10;"/>
+  </testcase>
+  <testcase
+    name="E501 (./launch/navigation1.launch.py:147:100)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="line too long (155 &gt; 99 characters):&#10;        arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_link', '--child-frame-id', 'map']&#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./launch/navigation1.launch.py:149:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10;        &#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./launch/navigation1.launch.py:153:22)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;            arguments = ['--x', '0.0', '--y', '0', '--z', '0.139', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_link', '--child-frame-id', 'laser_link']&#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./launch/navigation1.launch.py:153:24)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;            arguments = ['--x', '0.0', '--y', '0', '--z', '0.139', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_link', '--child-frame-id', 'laser_link']&#10;"/>
+  </testcase>
+  <testcase
+    name="E501 (./launch/navigation1.launch.py:153:100)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="line too long (172 &gt; 99 characters):&#10;            arguments = ['--x', '0.0', '--y', '0', '--z', '0.139', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_link', '--child-frame-id', 'laser_link']&#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./launch/navigation1.launch.py:159:23)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;            arguments= ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_link', '--child-frame-id', 'imu_link']&#10;"/>
+  </testcase>
+  <testcase
+    name="E501 (./launch/navigation1.launch.py:159:100)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="line too long (163 &gt; 99 characters):&#10;            arguments= ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_link', '--child-frame-id', 'imu_link']&#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./launch/navigation1.launch.py:162:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10;    &#10;"/>
+  </testcase>
+  <testcase
+    name="E303 (./launch/navigation1.launch.py:164:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="too many blank lines (3):&#10;    start_navigation = IncludeLaunchDescription(&#10;"/>
+  </testcase>
+  <testcase
+    name="W291 (./launch/navigation1.launch.py:165:91)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="trailing whitespace:&#10;        PythonLaunchDescriptionSource(os.path.join(nav2_launch_dir, 'bringup_launch.py')), &#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./launch/navigation1.launch.py:166:25)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;        launch_arguments = {'namespace':namespace,&#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./launch/navigation1.launch.py:166:27)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;        launch_arguments = {'namespace':namespace,&#10;"/>
+  </testcase>
+  <testcase
+    name="E231 (./launch/navigation1.launch.py:166:40)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="missing whitespace after ':':&#10;        launch_arguments = {'namespace':namespace,&#10;"/>
+  </testcase>
+  <testcase
+    name="E128 (./launch/navigation1.launch.py:167:28)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="continuation line under-indented for visual indent:&#10;                           'use_sim_time': use_sim_time,&#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./launch/navigation1.launch.py:183:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10;    &#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./launch/navigation1.launch.py:191:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10;    &#10;"/>
+  </testcase>
+  <testcase
+    name="E501 (./launch/navigation1.launch.py:208:100)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="line too long (157 &gt; 99 characters):&#10;         parameters=[os.path.join(bringup_dir, 'config/ekf.yaml'), {'use_sim_time': LaunchConfiguration('use_sim_time')}], #, {'use_sim_time': use_sim_time}]&#10;"/>
+  </testcase>
+  <testcase
+    name="E261 (./launch/navigation1.launch.py:208:123)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="at least two spaces before inline comment:&#10;         parameters=[os.path.join(bringup_dir, 'config/ekf.yaml'), {'use_sim_time': LaunchConfiguration('use_sim_time')}], #, {'use_sim_time': use_sim_time}]&#10;"/>
+  </testcase>
+  <testcase
+    name="E262 (./launch/navigation1.launch.py:208:124)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="inline comment should start with '# ':&#10;         parameters=[os.path.join(bringup_dir, 'config/ekf.yaml'), {'use_sim_time': LaunchConfiguration('use_sim_time')}], #, {'use_sim_time': use_sim_time}]&#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./launch/navigation1.launch.py:209:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10;         &#10;"/>
+  </testcase>
+  <testcase
+    name="W291 (./launch/navigation1.launch.py:212:29)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="trailing whitespace:&#10;    ld = LaunchDescription()    &#10;"/>
+  </testcase>
+  <testcase
+    name="E265 (./launch/navigation1.launch.py:213:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="block comment should start with '# ':&#10;    #ld.add_action(start_slam_toolbox)&#10;"/>
+  </testcase>
+  <testcase
+    name="W291 (./launch/navigation1.launch.py:218:39)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="trailing whitespace:&#10;    ld.add_action(declare_params_file)  &#10;"/>
+  </testcase>
+  <testcase
+    name="E265 (./launch/navigation1.launch.py:223:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="block comment should start with '# ':&#10;    #ld.add_action(start_amcl)&#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./launch/navigation1.launch.py:224:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10;    &#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./launch/navigation1.launch.py:225:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10;    &#10;"/>
+  </testcase>
+  <testcase
+    name="E303 (./launch/navigation1.launch.py:226:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="too many blank lines (2):&#10;    ld.add_action(start_edu_robocup_rescue_stack_node)&#10;"/>
+  </testcase>
+  <testcase
+    name="E265 (./launch/navigation1.launch.py:227:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="block comment should start with '# ':&#10;    #ld.add_action(start_tf_map_base_frame)&#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./launch/navigation1.launch.py:237:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10;    &#10;"/>
+  </testcase>
+  <testcase
+    name="E303 (./launch/navigation1.launch.py:239:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="too many blank lines (2):&#10;    return ld&#10;"/>
+  </testcase>
+  <testcase
+    name="E501 (./install/_local_setup_util_sh.py:14:100)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="line too long (109 &gt; 99 characters):&#10;FORMAT_STR_INVOKE_SCRIPT = 'COLCON_CURRENT_PREFIX=&quot;{prefix}&quot; _colcon_prefix_sh_source_script &quot;{script_path}&quot;'&#10;"/>
+  </testcase>
+  <testcase
+    name="E501 (./install/_local_setup_util_sh.py:15:100)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="line too long (124 &gt; 99 characters):&#10;FORMAT_STR_REMOVE_LEADING_SEPARATOR = 'if [ &quot;$(echo -n ${name} | head -c 1)&quot; = &quot;:&quot; ]; then export {name}=${{{name}#?}} ; fi'&#10;"/>
+  </testcase>
+  <testcase
+    name="E501 (./install/_local_setup_util_sh.py:16:100)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="line too long (125 &gt; 99 characters):&#10;FORMAT_STR_REMOVE_TRAILING_SEPARATOR = 'if [ &quot;$(echo -n ${name} | tail -c 1)&quot; = &quot;:&quot; ]; then export {name}=${{{name}%?}} ; fi'&#10;"/>
+  </testcase>
+  <testcase
+    name="E265 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:2:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="block comment should start with '# ':&#10;#import argparse&#10;"/>
+  </testcase>
+  <testcase
+    name="E265 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:3:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="block comment should start with '# ':&#10;#import sys&#10;"/>
+  </testcase>
+  <testcase
+    name="F401 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:10:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="'ros2run.api.get_executable_path' imported but unused:&#10;from ros2run.api import get_executable_path&#10;"/>
+  </testcase>
+  <testcase
+    name="E265 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:11:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="block comment should start with '# ':&#10;#from nav2_common.launch import RewrittenYaml&#10;"/>
+  </testcase>
+  <testcase
+    name="F401 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:14:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="'nav2_common.launch.RewrittenYaml' imported but unused:&#10;from nav2_common.launch import RewrittenYaml&#10;"/>
+  </testcase>
+  <testcase
+    name="E303 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:18:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="too many blank lines (3):&#10;def generate_launch_description():&#10;"/>
+  </testcase>
+  <testcase
+    name="F841 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:22:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="local variable 'slamtoolbox_launch_dir' is assigned to but never used:&#10;    slamtoolbox_launch_dir = os.path.join(slamtoolbox_dir, 'launch')&#10;"/>
+  </testcase>
+  <testcase
+    name="W291 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:24:77)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="trailing whitespace:&#10;    nav2_dir = FindPackageShare(package='nav2_bringup').find('nav2_bringup') &#10;"/>
+  </testcase>
+  <testcase
+    name="W291 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:25:55)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="trailing whitespace:&#10;    nav2_launch_dir = os.path.join(nav2_dir, 'launch') &#10;"/>
+  </testcase>
+  <testcase
+    name="F841 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:31:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="local variable 'mask_yaml_file' is assigned to but never used:&#10;    mask_yaml_file = LaunchConfiguration('mask')&#10;"/>
+  </testcase>
+  <testcase
+    name="F841 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:33:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="local variable 'lifecycle_nodes' is assigned to but never used:&#10;    lifecycle_nodes = ['amcl']   #'costmap_filter_info_server', 'filter_mask_server', , 'map_server' &#10;"/>
+  </testcase>
+  <testcase
+    name="E262 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:33:34)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="inline comment should start with '# ':&#10;    lifecycle_nodes = ['amcl']   #'costmap_filter_info_server', 'filter_mask_server', , 'map_server' &#10;"/>
+  </testcase>
+  <testcase
+    name="E501 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:33:100)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="line too long (100 &gt; 99 characters):&#10;    lifecycle_nodes = ['amcl']   #'costmap_filter_info_server', 'filter_mask_server', , 'map_server' &#10;"/>
+  </testcase>
+  <testcase
+    name="W291 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:33:101)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="trailing whitespace:&#10;    lifecycle_nodes = ['amcl']   #'costmap_filter_info_server', 'filter_mask_server', , 'map_server' &#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:37:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10;    &#10;"/>
+  </testcase>
+  <testcase
+    name="E303 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:38:9)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="too many blank lines (4):&#10;        # Set env var to print messages to stdout immediately&#10;"/>
+  </testcase>
+  <testcase
+    name="E116 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:38:9)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected indentation (comment):&#10;        # Set env var to print messages to stdout immediately&#10;"/>
+  </testcase>
+  <testcase
+    name="E116 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:39:9)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected indentation (comment):&#10;        #SetEnvironmentVariable('RCUTILS_LOGGING_BUFFERED_STREAM', '1'),&#10;"/>
+  </testcase>
+  <testcase
+    name="E265 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:39:9)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="block comment should start with '# ':&#10;        #SetEnvironmentVariable('RCUTILS_LOGGING_BUFFERED_STREAM', '1'),&#10;"/>
+  </testcase>
+  <testcase
+    name="E303 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:43:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="too many blank lines (3):&#10;    declare_namespace = DeclareLaunchArgument(&#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:44:13)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;        name = 'namespace',&#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:44:15)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;        name = 'namespace',&#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:45:22)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;        default_value = ''&#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:45:24)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;        default_value = ''&#10;"/>
+  </testcase>
+  <testcase
+    name="E222 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:53:25)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="multiple spaces after operator:&#10;    declare_auto_start =    DeclareLaunchArgument(&#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:64:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10;        &#10;"/>
+  </testcase>
+  <testcase
+    name="E303 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:65:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="too many blank lines (2):&#10;    declare_map_file = DeclareLaunchArgument(&#10;"/>
+  </testcase>
+  <testcase
+    name="F841 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:76:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="local variable 'declare_mask_yaml_file' is assigned to but never used:&#10;    declare_mask_yaml_file = DeclareLaunchArgument(&#10;"/>
+  </testcase>
+  <testcase
+    name="E265 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:81:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="block comment should start with '# ':&#10;    #start_lifecycle_manager = Node(&#10;"/>
+  </testcase>
+  <testcase
+    name="E265 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:91:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="block comment should start with '# ':&#10;    #)&#10;"/>
+  </testcase>
+  <testcase
+    name="E231 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:98:48)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="missing whitespace after ',':&#10;        parameters=[{'yaml_filename': map_file},],&#10;"/>
+  </testcase>
+  <testcase
+    name="E201 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:103:13)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="whitespace after '{':&#10;           { 'scan_topic': '/demo/laser/out'},&#10;"/>
+  </testcase>
+  <testcase
+    name="E201 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:104:13)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="whitespace after '{':&#10;           { 'base_frame_id': 'base_frame'},&#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:110:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10;    &#10;"/>
+  </testcase>
+  <testcase
+    name="E265 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:111:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="block comment should start with '# ':&#10;    #Node(&#10;"/>
+  </testcase>
+  <testcase
+    name="E265 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:117:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="block comment should start with '# ':&#10;    #)&#10;"/>
+  </testcase>
+  <testcase
+    name="E211 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:119:35)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="whitespace before '(':&#10;    start_lifecycle_manager = Node (&#10;"/>
+  </testcase>
+  <testcase
+    name="E201 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:121:14)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="whitespace after '{':&#10;            { 'autostart': True},&#10;"/>
+  </testcase>
+  <testcase
+    name="E201 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:122:14)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="whitespace after '{':&#10;            { 'node_names': ['amcl']},&#10;"/>
+  </testcase>
+  <testcase
+    name="W291 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:124:42)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="trailing whitespace:&#10;        package='nav2_lifecycle_manager', &#10;"/>
+  </testcase>
+  <testcase
+    name="E303 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:131:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="too many blank lines (3):&#10;    start_edu_robocup_rescue_stack_node = Node (&#10;"/>
+  </testcase>
+  <testcase
+    name="E211 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:131:47)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="whitespace before '(':&#10;    start_edu_robocup_rescue_stack_node = Node (&#10;"/>
+  </testcase>
+  <testcase
+    name="W291 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:132:44)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="trailing whitespace:&#10;        package='edu_robocup_rescue_stack', &#10;"/>
+  </testcase>
+  <testcase
+    name="E131 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:134:10)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="continuation line unaligned for hanging indent:&#10;         output='screen'&#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:140:18)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;        arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'map', '--child-frame-id', 'base_frame']&#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:140:20)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;        arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'map', '--child-frame-id', 'base_frame']&#10;"/>
+  </testcase>
+  <testcase
+    name="E501 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:140:100)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="line too long (156 &gt; 99 characters):&#10;        arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'map', '--child-frame-id', 'base_frame']&#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:142:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10;        &#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:146:22)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;            arguments = ['--x', '0.1', '--y', '0', '--z', '0.16', '--yaw', '-0.4', '--pitch', '0', '--roll', '0', '--frame-id', 'base_frame', '--child-frame-id', 'laser_link']&#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:146:24)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;            arguments = ['--x', '0.1', '--y', '0', '--z', '0.16', '--yaw', '-0.4', '--pitch', '0', '--roll', '0', '--frame-id', 'base_frame', '--child-frame-id', 'laser_link']&#10;"/>
+  </testcase>
+  <testcase
+    name="E501 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:146:100)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="line too long (175 &gt; 99 characters):&#10;            arguments = ['--x', '0.1', '--y', '0', '--z', '0.16', '--yaw', '-0.4', '--pitch', '0', '--roll', '0', '--frame-id', 'base_frame', '--child-frame-id', 'laser_link']&#10;"/>
+  </testcase>
+  <testcase
+    name="E303 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:150:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="too many blank lines (2):&#10;    start_navigation = IncludeLaunchDescription(&#10;"/>
+  </testcase>
+  <testcase
+    name="W291 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:151:91)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="trailing whitespace:&#10;        PythonLaunchDescriptionSource(os.path.join(nav2_launch_dir, 'bringup_launch.py')), &#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:152:25)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;        launch_arguments = {'namespace':namespace,&#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:152:27)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;        launch_arguments = {'namespace':namespace,&#10;"/>
+  </testcase>
+  <testcase
+    name="E231 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:152:40)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="missing whitespace after ':':&#10;        launch_arguments = {'namespace':namespace,&#10;"/>
+  </testcase>
+  <testcase
+    name="E128 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:153:28)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="continuation line under-indented for visual indent:&#10;                           'use_sim_time': use_sim_time,&#10;"/>
+  </testcase>
+  <testcase
+    name="E265 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:159:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="block comment should start with '# ':&#10;    #param_substitutions = {&#10;"/>
+  </testcase>
+  <testcase
+    name="E265 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:163:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="block comment should start with '# ':&#10;    #configured_params = RewrittenYaml(&#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:168:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10;    &#10;"/>
+  </testcase>
+  <testcase
+    name="E265 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:169:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="block comment should start with '# ':&#10;    #start_costmap_filter_info_server = Node(&#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:176:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10;    &#10;"/>
+  </testcase>
+  <testcase
+    name="E265 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:177:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="block comment should start with '# ':&#10;    #start_filter_mask_server = Node(&#10;"/>
+  </testcase>
+  <testcase
+    name="E265 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:185:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="block comment should start with '# ':&#10;    #)&#10;"/>
+  </testcase>
+  <testcase
+    name="E265 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:187:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="block comment should start with '# ':&#10;    #start_slam_toolbox = IncludeLaunchDescription(&#10;"/>
+  </testcase>
+  <testcase
+    name="E501 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:188:100)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="line too long (102 &gt; 99 characters):&#10;    #    PythonLaunchDescriptionSource(os.path.join(slamtoolbox_launch_dir, 'online_async_launch.py'))&#10;"/>
+  </testcase>
+  <testcase
+    name="E265 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:189:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="block comment should start with '# ':&#10;    #)&#10;"/>
+  </testcase>
+  <testcase
+    name="W291 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:191:29)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="trailing whitespace:&#10;    ld = LaunchDescription()    &#10;"/>
+  </testcase>
+  <testcase
+    name="E265 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:192:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="block comment should start with '# ':&#10;    #ld.add_action(start_slam_toolbox)&#10;"/>
+  </testcase>
+  <testcase
+    name="W291 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:196:39)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="trailing whitespace:&#10;    ld.add_action(declare_params_file)  &#10;"/>
+  </testcase>
+  <testcase
+    name="E265 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:199:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="block comment should start with '# ':&#10;    #ld.add_action(declare_mask_yaml_file)&#10;"/>
+  </testcase>
+  <testcase
+    name="E265 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:207:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="block comment should start with '# ':&#10;    #ld.add_action(start_costmap_filter_info_server)&#10;"/>
+  </testcase>
+  <testcase
+    name="E265 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:208:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="block comment should start with '# ':&#10;    #ld.add_action(start_filter_mask_server)&#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:209:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10;    &#10;"/>
+  </testcase>
+  <testcase
+    name="E303 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py:211:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="too many blank lines (2):&#10;    return ld&#10;"/>
+  </testcase>
+  <testcase
+    name="F401 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/edu_control.launch.py:1:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="'os' imported but unused:&#10;import os&#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/edu_control.launch.py:4:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10; &#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/edu_control.launch.py:5:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10; &#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/edu_control.launch.py:7:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10; &#10;"/>
+  </testcase>
+  <testcase
+    name="E111 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/edu_control.launch.py:8:3)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="indentation is not a multiple of 4:&#10;  return LaunchDescription([&#10;"/>
+  </testcase>
+  <testcase
+    name="E128 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/edu_control.launch.py:10:7)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="continuation line under-indented for visual indent:&#10;      output='screen'),&#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/online_async_launch.py:18:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10;        &#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/online_async_launch.py:34:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10;      &#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/online_async_launch.py:38:22)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;            arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'map', '--child-frame-id', 'odom']&#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/online_async_launch.py:38:24)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;            arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'map', '--child-frame-id', 'odom']&#10;"/>
+  </testcase>
+  <testcase
+    name="E501 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/online_async_launch.py:38:100)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="line too long (154 &gt; 99 characters):&#10;            arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'map', '--child-frame-id', 'odom']&#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/online_async_launch.py:43:22)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;            arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'odom', '--child-frame-id', 'base_frame']&#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/online_async_launch.py:43:24)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;            arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'odom', '--child-frame-id', 'base_frame']&#10;"/>
+  </testcase>
+  <testcase
+    name="E501 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/online_async_launch.py:43:100)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="line too long (161 &gt; 99 characters):&#10;            arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'odom', '--child-frame-id', 'base_frame']&#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/online_async_launch.py:45:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10;        &#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/online_async_launch.py:49:22)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;            arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_frame', '--child-frame-id', 'laser_link']&#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/online_async_launch.py:49:24)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;            arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_frame', '--child-frame-id', 'laser_link']&#10;"/>
+  </testcase>
+  <testcase
+    name="E501 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/online_async_launch.py:49:100)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="line too long (167 &gt; 99 characters):&#10;            arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_frame', '--child-frame-id', 'laser_link']&#10;"/>
+  </testcase>
+  <testcase
+    name="F401 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:2:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="'argparse' imported but unused:&#10;import argparse&#10;"/>
+  </testcase>
+  <testcase
+    name="F401 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:4:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="'sys' imported but unused:&#10;import sys&#10;"/>
+  </testcase>
+  <testcase
+    name="F401 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:10:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="'ros2run.api.get_executable_path' imported but unused:&#10;from ros2run.api import get_executable_path&#10;"/>
+  </testcase>
+  <testcase
+    name="E303 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:15:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="too many blank lines (3):&#10;def generate_launch_description():&#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:17:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10; &#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:34:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10;        &#10;"/>
+  </testcase>
+  <testcase
+    name="E225 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:35:14)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="missing whitespace around operator:&#10;    amcl_node=  Node(&#10;"/>
+  </testcase>
+  <testcase
+    name="E222 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:35:15)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="multiple spaces after operator:&#10;    amcl_node=  Node(&#10;"/>
+  </testcase>
+  <testcase
+    name="E201 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:37:13)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="whitespace after '{':&#10;           { 'scan_topic': '/demo/laser/out'},&#10;"/>
+  </testcase>
+  <testcase
+    name="E201 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:38:13)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="whitespace after '{':&#10;           { 'base_frame_id': 'base_frame'},&#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:45:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10;        &#10;"/>
+  </testcase>
+  <testcase
+    name="E303 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:46:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="too many blank lines (2):&#10;    static_transform_publisher_base_frame_laser_link_node = Node(&#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:49:22)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;            arguments = ['--x', '0.1', '--y', '0', '--z', '0.139', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_frame', '--child-frame-id', 'laser_link']&#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:49:24)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;            arguments = ['--x', '0.1', '--y', '0', '--z', '0.139', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_frame', '--child-frame-id', 'laser_link']&#10;"/>
+  </testcase>
+  <testcase
+    name="E501 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:49:100)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="line too long (173 &gt; 99 characters):&#10;            arguments = ['--x', '0.1', '--y', '0', '--z', '0.139', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_frame', '--child-frame-id', 'laser_link']&#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:52:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10;    &#10;"/>
+  </testcase>
+  <testcase
+    name="E303 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:53:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="too many blank lines (2):&#10;    start_localisation_control_node = Node (&#10;"/>
+  </testcase>
+  <testcase
+    name="E211 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:53:43)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="whitespace before '(':&#10;    start_localisation_control_node = Node (&#10;"/>
+  </testcase>
+  <testcase
+    name="W291 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:54:44)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="trailing whitespace:&#10;        package='edu_robocup_rescue_stack', &#10;"/>
+  </testcase>
+  <testcase
+    name="E131 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:56:10)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="continuation line unaligned for hanging indent:&#10;         output='screen'&#10;"/>
+  </testcase>
+  <testcase
+    name="E211 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:59:34)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="whitespace before '(':&#10;    lifecycle_manager_node = Node (&#10;"/>
+  </testcase>
+  <testcase
+    name="E201 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:61:13)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="whitespace after '{':&#10;           { 'autostart': True},&#10;"/>
+  </testcase>
+  <testcase
+    name="E201 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:62:13)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="whitespace after '{':&#10;           { 'node_names': ['amcl', 'map_server']},&#10;"/>
+  </testcase>
+  <testcase
+    name="W291 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:64:42)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="trailing whitespace:&#10;        package='nav2_lifecycle_manager', &#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:68:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10;    &#10;"/>
+  </testcase>
+  <testcase
+    name="E303 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:70:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="too many blank lines (2):&#10;    ld.add_action(declare_path_map)&#10;"/>
+  </testcase>
+  <testcase
+    name="E303 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:78:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="too many blank lines (2):&#10;    return ld&#10;"/>
+  </testcase>
+  <testcase
+    name="W391 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py:80:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line at end of file:&#10;&#10;"/>
+  </testcase>
+  <testcase
+    name="E265 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:2:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="block comment should start with '# ':&#10;#import argparse&#10;"/>
+  </testcase>
+  <testcase
+    name="E265 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:3:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="block comment should start with '# ':&#10;#import sys&#10;"/>
+  </testcase>
+  <testcase
+    name="F401 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:10:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="'ros2run.api.get_executable_path' imported but unused:&#10;from ros2run.api import get_executable_path&#10;"/>
+  </testcase>
+  <testcase
+    name="E265 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:11:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="block comment should start with '# ':&#10;#from nav2_common.launch import RewrittenYaml&#10;"/>
+  </testcase>
+  <testcase
+    name="E303 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:20:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="too many blank lines (5):&#10;def generate_launch_description():&#10;"/>
+  </testcase>
+  <testcase
+    name="F841 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:23:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="local variable 'slamtoolbox_dir' is assigned to but never used:&#10;    slamtoolbox_dir = get_package_share_directory('slam_toolbox')&#10;"/>
+  </testcase>
+  <testcase
+    name="E265 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:24:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="block comment should start with '# ':&#10;    #slamtoolbox_launch_dir = os.path.join(slamtoolbox_dir, 'launch')&#10;"/>
+  </testcase>
+  <testcase
+    name="W291 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:26:77)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="trailing whitespace:&#10;    nav2_dir = FindPackageShare(package='nav2_bringup').find('nav2_bringup') &#10;"/>
+  </testcase>
+  <testcase
+    name="W291 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:27:55)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="trailing whitespace:&#10;    nav2_launch_dir = os.path.join(nav2_dir, 'launch') &#10;"/>
+  </testcase>
+  <testcase
+    name="E303 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:36:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="too many blank lines (2):&#10;    # lifecycle nodes&#10;"/>
+  </testcase>
+  <testcase
+    name="W291 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:38:91)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="trailing whitespace:&#10;    lifecycle_nodes_costmap_filters = ['costmap_filter_info_server', 'filter_mask_server']   &#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:44:13)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;        name = 'namespace',&#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:44:15)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;        name = 'namespace',&#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:45:22)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;        default_value = ''&#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:45:24)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;        default_value = ''&#10;"/>
+  </testcase>
+  <testcase
+    name="E222 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:59:25)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="multiple spaces after operator:&#10;    declare_auto_start =    DeclareLaunchArgument(&#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:70:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10;        &#10;"/>
+  </testcase>
+  <testcase
+    name="E303 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:71:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="too many blank lines (2):&#10;    declare_map_file = DeclareLaunchArgument(&#10;"/>
+  </testcase>
+  <testcase
+    name="F841 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:127:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="local variable 'start_amcl' is assigned to but never used:&#10;    start_amcl = Node(&#10;"/>
+  </testcase>
+  <testcase
+    name="E131 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:129:9)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="continuation line unaligned for hanging indent:&#10;        executable='amcl',&#10;"/>
+  </testcase>
+  <testcase
+    name="E131 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:130:9)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="continuation line unaligned for hanging indent:&#10;        name='amcl',&#10;"/>
+  </testcase>
+  <testcase
+    name="E131 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:131:9)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="continuation line unaligned for hanging indent:&#10;        output='screen',&#10;"/>
+  </testcase>
+  <testcase
+    name="E131 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:132:9)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="continuation line unaligned for hanging indent:&#10;        parameters=[params_file, {'use_sim_time': use_sim_time}],&#10;"/>
+  </testcase>
+  <testcase
+    name="E131 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:133:9)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="continuation line unaligned for hanging indent:&#10;        remappings=[('/odom', remap_odom)]&#10;"/>
+  </testcase>
+  <testcase
+    name="E303 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:138:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="too many blank lines (3):&#10;    start_edu_robocup_rescue_stack_node = Node (&#10;"/>
+  </testcase>
+  <testcase
+    name="E211 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:138:47)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="whitespace before '(':&#10;    start_edu_robocup_rescue_stack_node = Node (&#10;"/>
+  </testcase>
+  <testcase
+    name="W291 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:139:44)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="trailing whitespace:&#10;        package='edu_robocup_rescue_stack', &#10;"/>
+  </testcase>
+  <testcase
+    name="F841 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:144:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="local variable 'start_tf_map_base_frame' is assigned to but never used:&#10;    start_tf_map_base_frame = Node(&#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:147:18)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;        arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_link', '--child-frame-id', 'map']&#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:147:20)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;        arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_link', '--child-frame-id', 'map']&#10;"/>
+  </testcase>
+  <testcase
+    name="E501 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:147:100)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="line too long (155 &gt; 99 characters):&#10;        arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_link', '--child-frame-id', 'map']&#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:149:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10;        &#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:153:22)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;            arguments = ['--x', '0.0', '--y', '0', '--z', '0.139', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_link', '--child-frame-id', 'laser_link']&#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:153:24)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;            arguments = ['--x', '0.0', '--y', '0', '--z', '0.139', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_link', '--child-frame-id', 'laser_link']&#10;"/>
+  </testcase>
+  <testcase
+    name="E501 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:153:100)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="line too long (172 &gt; 99 characters):&#10;            arguments = ['--x', '0.0', '--y', '0', '--z', '0.139', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_link', '--child-frame-id', 'laser_link']&#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:159:23)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;            arguments= ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_link', '--child-frame-id', 'imu_link']&#10;"/>
+  </testcase>
+  <testcase
+    name="E501 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:159:100)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="line too long (163 &gt; 99 characters):&#10;            arguments= ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_link', '--child-frame-id', 'imu_link']&#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:162:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10;    &#10;"/>
+  </testcase>
+  <testcase
+    name="E303 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:164:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="too many blank lines (3):&#10;    start_navigation = IncludeLaunchDescription(&#10;"/>
+  </testcase>
+  <testcase
+    name="W291 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:165:91)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="trailing whitespace:&#10;        PythonLaunchDescriptionSource(os.path.join(nav2_launch_dir, 'bringup_launch.py')), &#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:166:25)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;        launch_arguments = {'namespace':namespace,&#10;"/>
+  </testcase>
+  <testcase
+    name="E251 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:166:27)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="unexpected spaces around keyword / parameter equals:&#10;        launch_arguments = {'namespace':namespace,&#10;"/>
+  </testcase>
+  <testcase
+    name="E231 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:166:40)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="missing whitespace after ':':&#10;        launch_arguments = {'namespace':namespace,&#10;"/>
+  </testcase>
+  <testcase
+    name="E128 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:167:28)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="continuation line under-indented for visual indent:&#10;                           'use_sim_time': use_sim_time,&#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:183:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10;    &#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:191:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10;    &#10;"/>
+  </testcase>
+  <testcase
+    name="E501 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:208:100)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="line too long (157 &gt; 99 characters):&#10;         parameters=[os.path.join(bringup_dir, 'config/ekf.yaml'), {'use_sim_time': LaunchConfiguration('use_sim_time')}], #, {'use_sim_time': use_sim_time}]&#10;"/>
+  </testcase>
+  <testcase
+    name="E261 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:208:123)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="at least two spaces before inline comment:&#10;         parameters=[os.path.join(bringup_dir, 'config/ekf.yaml'), {'use_sim_time': LaunchConfiguration('use_sim_time')}], #, {'use_sim_time': use_sim_time}]&#10;"/>
+  </testcase>
+  <testcase
+    name="E262 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:208:124)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="inline comment should start with '# ':&#10;         parameters=[os.path.join(bringup_dir, 'config/ekf.yaml'), {'use_sim_time': LaunchConfiguration('use_sim_time')}], #, {'use_sim_time': use_sim_time}]&#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:209:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10;         &#10;"/>
+  </testcase>
+  <testcase
+    name="W291 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:212:29)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="trailing whitespace:&#10;    ld = LaunchDescription()    &#10;"/>
+  </testcase>
+  <testcase
+    name="E265 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:213:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="block comment should start with '# ':&#10;    #ld.add_action(start_slam_toolbox)&#10;"/>
+  </testcase>
+  <testcase
+    name="W291 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:218:39)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="trailing whitespace:&#10;    ld.add_action(declare_params_file)  &#10;"/>
+  </testcase>
+  <testcase
+    name="E265 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:223:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="block comment should start with '# ':&#10;    #ld.add_action(start_amcl)&#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:224:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10;    &#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:225:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10;    &#10;"/>
+  </testcase>
+  <testcase
+    name="E303 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:226:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="too many blank lines (2):&#10;    ld.add_action(start_edu_robocup_rescue_stack_node)&#10;"/>
+  </testcase>
+  <testcase
+    name="E265 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:227:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="block comment should start with '# ':&#10;    #ld.add_action(start_tf_map_base_frame)&#10;"/>
+  </testcase>
+  <testcase
+    name="W293 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:237:1)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="blank line contains whitespace:&#10;    &#10;"/>
+  </testcase>
+  <testcase
+    name="E303 (./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py:239:5)"
+    classname="edu_robocup_rescue_stack.flake8"
+  >
+      <failure message="too many blank lines (2):&#10;    return ld&#10;"/>
+  </testcase>
+  <system-out>Checked files:
+* ./setup.py
+* ./launch/edu_control.launch.py
+* ./launch/online_async_launch.py
+* ./launch/amcl.launch.py
+* ./launch/keepout.launch.py
+* ./launch/navigation1.launch.py
+* ./install/_local_setup_util_ps1.py
+* ./install/_local_setup_util_sh.py
+* ./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py
+* ./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/edu_control.launch.py
+* ./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/online_async_launch.py
+* ./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py
+* ./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/keepout.launch.py
+* ./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py</system-out>
+</testsuite>

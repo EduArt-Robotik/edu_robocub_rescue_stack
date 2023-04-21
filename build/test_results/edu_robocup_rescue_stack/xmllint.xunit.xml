@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite
+  name="edu_robocup_rescue_stack.xmllint"
+  tests="8"
+  errors="0"
+  failures="0"
+  time="1.245"
+>
+  <testcase
+    name="package.xml"
+    classname="edu_robocup_rescue_stack.xmllint"/>
+  <testcase
+    name="build/test_results/edu_robocup_rescue_stack/cppcheck.xunit.xml"
+    classname="edu_robocup_rescue_stack.xmllint"/>
+  <testcase
+    name="build/test_results/edu_robocup_rescue_stack/flake8.xunit.xml"
+    classname="edu_robocup_rescue_stack.xmllint"/>
+  <testcase
+    name="build/test_results/edu_robocup_rescue_stack/lint_cmake.xunit.xml"
+    classname="edu_robocup_rescue_stack.xmllint"/>
+  <testcase
+    name="build/test_results/edu_robocup_rescue_stack/pep257.xunit.xml"
+    classname="edu_robocup_rescue_stack.xmllint"/>
+  <testcase
+    name="build/test_results/edu_robocup_rescue_stack/uncrustify.xunit.xml"
+    classname="edu_robocup_rescue_stack.xmllint"/>
+  <testcase
+    name="build/test_results/edu_robocup_rescue_stack/xmllint.xunit.xml"
+    classname="edu_robocup_rescue_stack.xmllint"/>
+  <testcase
+    name="install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/package.xml"
+    classname="edu_robocup_rescue_stack.xmllint"/>
+  <system-out>Checked files:
+* package.xml
+* build/test_results/edu_robocup_rescue_stack/cppcheck.xunit.xml
+* build/test_results/edu_robocup_rescue_stack/flake8.xunit.xml
+* build/test_results/edu_robocup_rescue_stack/lint_cmake.xunit.xml
+* build/test_results/edu_robocup_rescue_stack/pep257.xunit.xml
+* build/test_results/edu_robocup_rescue_stack/uncrustify.xunit.xml
+* build/test_results/edu_robocup_rescue_stack/xmllint.xunit.xml
+* install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/package.xml</system-out>
+</testsuite>

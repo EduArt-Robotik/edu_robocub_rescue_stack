@@ -1,5 +1,7 @@
 #include "localisation.h"
 
+using namespace std;
+
 Localisation::Localisation(Control *control){
     m_x = 0;
     m_y = 0;
@@ -134,7 +136,7 @@ void Localisation::determine_initialpose() {
     // equialize pitch when ramp in x-direction
     m_ramp_angle1 = (15.0 / 180.0) * M_PI; // ankle ramp = 15 degree
     m_gamma1 = M_PI - m_ramp_angle1; // 165 deg. 
-    m_ramp_angle2 = (75.0 / 180.0) * M_PI; // ankle between ramp and wall / 75 deg. 
+    m_ramp_angle2 = (75.0 / 180.0) * M_PI; // ankle between ramp and wall = 75 deg. 
     m_gamma2 = M_PI - m_ramp_angle2;    // 105 deg. 
     m_yaw180 = 0.0; // yaw-angle at ray 180 deg. is 0 deg
 
@@ -142,7 +144,10 @@ void Localisation::determine_initialpose() {
     
     switch (m_area){
     case 1: // steight 1
+        {
         
+        m_pitch_y_strich = m_pitch_y;
+
         if (m_pitch_y < 0.0){ // exqualize pitch of laserray 180
             m_beta = M_PI - m_gamma;
             m_dist180_r = m_dist180_r * (sin(m_beta) / sin(m_gamma));
@@ -150,17 +155,20 @@ void Localisation::determine_initialpose() {
         {   
             m_beta = M_PI - m_ramp_angle1 - abs(m_pitch_y);
             m_dist180_r = m_dist180_r * (sin(m_beta) / sin(m_ramp_angle1));
-        }        
+        }
+        m_x_pos = m_dist0_r - 0.524;  // Wie können die Zahlen durch den Laser bestimmt werden?
+        m_y_pos = m_dist90_r - 0.617;    //0.617       
         break;
+        }
     case 2: // ramp 1
         {
-        m_relYaw = m_yaw180 + m_yaw_z;
+        //m_relYaw = m_yaw180 + m_yaw_z;
         
-        m_delta_pitch = m_relYaw * sin(m_pitch_y); // without roll impact
+        //m_delta_pitch = m_relYaw * sin(m_pitch_y); // without roll impact
 
-        double c_roll = cos(m_roll_x);
-        double s_roll = sin(m_roll_x);
-        double P_axis_roll[3] = {0, sin(m_pitch_y)*c_roll, cos(m_pitch_y)* c_roll + s_roll * sin(m_pitch_y)};
+        //double c_roll = cos(m_roll_x);
+        //double s_roll = sin(m_roll_x);
+        //double P_axis_roll[3] = {0, sin(m_pitch_y)*c_roll, cos(m_pitch_y)* c_roll + s_roll * sin(m_pitch_y)};
 
         m_pitch_y_strich = abs(m_pitch_y) - m_ramp_angle1;
         //td::cout << "pitch_strich: " << pitch_new << std::endl;
@@ -179,24 +187,52 @@ void Localisation::determine_initialpose() {
         } else if (m_pitch_y_strich > 0.001)    //negative pitch
         {   
             // ramp1 to wall -> pos. pitch
-            m_beta180 = M_PI - m_ramp_angle2 + abs(m_pitch_y_strich);
+            m_beta180 = M_PI - m_ramp_angle2 - abs(m_pitch_y_strich);
             m_dist180_r = m_dist180_r * (sin(m_beta180) / sin(m_ramp_angle2));
 
             // ramp1 to streight 1 -> pos. pitch 
             m_beta0 = M_PI - m_ramp_angle1 - abs(m_pitch_y_strich);
             m_dist0_r = m_dist0_r * (sin(m_beta0) / sin(m_ramp_angle1)) + 1.0; //offset because robot drove on streight 1
         }
+        m_x_pos = m_dist0_r - 0.524;  // Wie können die Zahlen durch den Laser bestimmt werden?
+        m_y_pos = m_dist90_r - 0.617;    //0.617  
         break;
         }
     case 3: //ramp 3
+        {
 
+        m_pitch_y_strich = abs(m_pitch_y) - m_ramp_angle1;
 
+        if (m_pitch_y_strich < 0.0) //positive pitch
+        {   
+            m_beta0 = M_PI - m_pitch_y_strich - m_ramp_angle2;
+            m_dist0_r = (sin(m_beta0) / sin(m_ramp_angle2)) * m_dist0_r;
+        } else if (m_pitch_y_strich > 0.001)    //negative pitch
+        {   
+            m_beta0 = M_PI - m_pitch_y_strich - m_gamma2;
+            m_dist0_r = (sin(m_beta0) / sin(m_gamma2)) * m_dist0_r;
+        }
 
+        if(isinf(m_dist0_r)) {
+
+            m_x_pos = m_dist0_r + 1.936;   // Starting point map ramp2
+            m_y_pos = m_dist90_r - 0.617; 
+
+        } else {
+            m_x_pos = m_dist0_r + 1.936;   // Starting point map ramp2
+            m_y_pos = 1.85 - m_dist270_r;  // widest width of the track 
+        }  
         break;
+        }
+        
 
     case 4:
-
+        {
+        m_pitch_y_strich = m_pitch_y;
+        m_x_pos = 7.29 - m_dist180_r;
+        m_y_pos = 1.85 - m_dist270_r;
         break;
+        }
     }
     //std::cout << "beta: " << m_beta << std::endl;
     //std::cout << "sinus beta :" << sin(m_beta) << std::endl;
@@ -209,8 +245,7 @@ void Localisation::determine_initialpose() {
     //std::cout << "off_180: " << m_off180 << std::endl;
     //std::cout << "off_270: " << m_dist270 << std::endl;
 
-    m_dist0_r = m_dist0_r - 0.524;  // Wie können die Zahlen durch den Laser bestimmt werden?
-    m_dist90_r = m_dist90_r - 0.617;    //0.617
+
 
     //std::cout << "msg_slan_scan_0: " << m_dist0_r << std::endl;
     //std::cout << "msg_slan_scan_90: " << m_dist90_r << std::endl;
@@ -225,6 +260,8 @@ void Localisation::determine_initialpose() {
     //std::cout << "pitch_y:" << m_pitch_y << std::endl;
     //std::cout << "yaw_z:" << m_yaw_z << std::endl;
 
+    //std::cout << "m_pitch_y_strich:" << m_pitch_y_strich << std::endl;
+
 }
 
 float Localisation::getX(){
@@ -233,6 +270,10 @@ float Localisation::getX(){
 
 float Localisation::getMapArea(){
     return m_area;
+}
+
+float Localisation::getpitch_rel(){
+    return m_pitch_y_strich;
 }
 
 float Localisation::getY(){
@@ -244,11 +285,11 @@ float Localisation::getYawZ(){
 }
 
 float Localisation::getInitialposeX(){
-    return m_dist0_r;
+    return m_x_pos;
 }
 
 float Localisation::getInitialposeY(){
-    return m_dist90_r;
+    return m_y_pos;
 }
 
 float Localisation::getInitialposeZ(){

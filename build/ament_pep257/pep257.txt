@@ -1,0 +1,22 @@
+-- run_test.py: invoking following command in '/home/daniel/ros2_ws/src/edu_robocub_rescue_stack':
+ - /opt/ros/humble/bin/ament_pep257 --xunit-file /home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/test_results/edu_robocup_rescue_stack/pep257.xunit.xml
+
+checking ./install/_local_setup_util_ps1.py
+checking ./install/_local_setup_util_sh.py
+checking ./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py
+checking ./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/edu_control.launch.py
+checking ./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/keepout.launch.py
+checking ./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py
+checking ./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py
+checking ./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/online_async_launch.py
+checking ./launch/amcl.launch.py
+checking ./launch/edu_control.launch.py
+checking ./launch/keepout.launch.py
+checking ./launch/navigation1.launch.py
+checking ./launch/online_async_launch.py
+checking ./setup.py
+No problems found
+
+
+-- run_test.py: return code 0
+-- run_test.py: verify result file '/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/test_results/edu_robocup_rescue_stack/pep257.xunit.xml'

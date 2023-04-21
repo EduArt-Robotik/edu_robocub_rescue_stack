@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite
+  name="edu_robocup_rescue_stack.pep257"
+  tests="14"
+  errors="0"
+  failures="0"
+  time="0.384"
+>
+  <testcase
+    name="./install/_local_setup_util_ps1.py"
+    classname="edu_robocup_rescue_stack.pep257"/>
+  <testcase
+    name="./install/_local_setup_util_sh.py"
+    classname="edu_robocup_rescue_stack.pep257"/>
+  <testcase
+    name="./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py"
+    classname="edu_robocup_rescue_stack.pep257"/>
+  <testcase
+    name="./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/edu_control.launch.py"
+    classname="edu_robocup_rescue_stack.pep257"/>
+  <testcase
+    name="./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/keepout.launch.py"
+    classname="edu_robocup_rescue_stack.pep257"/>
+  <testcase
+    name="./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py"
+    classname="edu_robocup_rescue_stack.pep257"/>
+  <testcase
+    name="./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py"
+    classname="edu_robocup_rescue_stack.pep257"/>
+  <testcase
+    name="./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/online_async_launch.py"
+    classname="edu_robocup_rescue_stack.pep257"/>
+  <testcase
+    name="./launch/amcl.launch.py"
+    classname="edu_robocup_rescue_stack.pep257"/>
+  <testcase
+    name="./launch/edu_control.launch.py"
+    classname="edu_robocup_rescue_stack.pep257"/>
+  <testcase
+    name="./launch/keepout.launch.py"
+    classname="edu_robocup_rescue_stack.pep257"/>
+  <testcase
+    name="./launch/navigation1.launch.py"
+    classname="edu_robocup_rescue_stack.pep257"/>
+  <testcase
+    name="./launch/online_async_launch.py"
+    classname="edu_robocup_rescue_stack.pep257"/>
+  <testcase
+    name="./setup.py"
+    classname="edu_robocup_rescue_stack.pep257"/>
+  <system-out>Checked files:
+* ./install/_local_setup_util_ps1.py
+* ./install/_local_setup_util_sh.py
+* ./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/amcl.launch.py
+* ./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/edu_control.launch.py
+* ./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/keepout.launch.py
+* ./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation.launch.py
+* ./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/navigation1.launch.py
+* ./install/edu_robocup_rescue_stack/share/edu_robocup_rescue_stack/launch/online_async_launch.py
+* ./launch/amcl.launch.py
+* ./launch/edu_control.launch.py
+* ./launch/keepout.launch.py
+* ./launch/navigation1.launch.py
+* ./launch/online_async_launch.py
+* ./setup.py</system-out>
+</testsuite>

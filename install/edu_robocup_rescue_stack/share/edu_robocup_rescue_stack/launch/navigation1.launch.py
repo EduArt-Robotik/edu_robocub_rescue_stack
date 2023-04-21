@@ -15,11 +15,13 @@ from nav2_common.launch import RewrittenYaml
 
 
 
+
+
 def generate_launch_description():
     # Get the launch directory
     bringup_dir = get_package_share_directory('edu_robocup_rescue_stack')
     slamtoolbox_dir = get_package_share_directory('slam_toolbox')
-    slamtoolbox_launch_dir = os.path.join(slamtoolbox_dir, 'launch')
+    #slamtoolbox_launch_dir = os.path.join(slamtoolbox_dir, 'launch')
     namespace = LaunchConfiguration('namespace')
     nav2_dir = FindPackageShare(package='nav2_bringup').find('nav2_bringup') 
     nav2_launch_dir = os.path.join(nav2_dir, 'launch') 
@@ -30,15 +32,13 @@ def generate_launch_description():
     params_file = LaunchConfiguration('params_file')
     mask_yaml_file = LaunchConfiguration('mask')
 
-    lifecycle_nodes = ['amcl', 'map_server']   #'costmap_filter_info_server', 'filter_mask_server', , 
 
+    # lifecycle nodes
+    lifecycle_nodes_localisation = ['amcl', 'map_server']
+    lifecycle_nodes_costmap_filters = ['costmap_filter_info_server', 'filter_mask_server']   
 
-
-    
-        # Set env var to print messages to stdout immediately
-        #SetEnvironmentVariable('RCUTILS_LOGGING_BUFFERED_STREAM', '1'),
-
-
+    # remapping
+    remap_odom = LaunchConfiguration('remap_odom', default='/odometry/filtered')
 
     declare_namespace = DeclareLaunchArgument(
         name = 'namespace',
@@ -46,8 +46,14 @@ def generate_launch_description():
     )
 
     declare_use_sim_time = DeclareLaunchArgument(
-        'use_sim_time', default_value='false',
+        'use_sim_time', default_value='true',
         description='Use simulation (Gazebo) clock if true'
+    )
+
+    declare_remap_odom = DeclareLaunchArgument(
+        'remap_odom',
+        default_value='/odometry/filtered',
+        description='/odom'
     )
 
     declare_auto_start =    DeclareLaunchArgument(
@@ -78,7 +84,7 @@ def generate_launch_description():
         default_value=os.path.join(bringup_dir, 'keepout', 'keepout_8.2.yaml')
     )
 
-    start_lifecycle_manager = Node(
+    start_lifecycle_manager_localisation = Node(
         package='nav2_lifecycle_manager',
         executable='lifecycle_manager',
         name='lifecycle_manager_localization',
@@ -87,15 +93,27 @@ def generate_launch_description():
         emulate_tty=True,
         parameters=[{'use_sim_time': use_sim_time},
                     {'autostart': True},
-                    {'node_names': lifecycle_nodes}]
+                    {'node_names': lifecycle_nodes_localisation}]
     )
+
+    # Nodes launching commands
+    start_lifecycle_manager_costmap_filters = Node(
+            package='nav2_lifecycle_manager',
+            executable='lifecycle_manager',
+            name='lifecycle_manager_costmap_filters',
+            namespace=namespace,
+            output='screen',
+            emulate_tty=True,
+            parameters=[{'use_sim_time': use_sim_time},
+                        {'autostart': autostart},
+                        {'node_names': lifecycle_nodes_costmap_filters}])
 
     start_map_server = Node(
         package='nav2_map_server',
         executable='map_server',
         name='map_server',
         output='screen',
-        parameters=[{'yaml_filename': map_file},],
+        parameters=[{'yaml_filename': map_file}, {'use_sim_time': use_sim_time}]
     )
 
     start_bt_navigator = Node(
@@ -103,7 +121,7 @@ def generate_launch_description():
         executable='bt_navigator',
         name='bt_navigator',
         output='screen',
-        parameters=[params_file]
+        parameters=[params_file, {'use_sim_time': use_sim_time}]
     )
 
     start_amcl = Node(
@@ -111,39 +129,37 @@ def generate_launch_description():
         executable='amcl',
         name='amcl',
         output='screen',
-        parameters=[params_file],
+        parameters=[params_file, {'use_sim_time': use_sim_time}],
+        remappings=[('/odom', remap_odom)]
     )
-
-    #start_lifecycle_manager = Node (
-    #    parameters=[
-    #        { 'autostart': True},
-    #        { 'node_names': ['amcl']},
-    #    ],
-    #    package='nav2_lifecycle_manager', 
-    #    executable='lifecycle_manager',
-    #    output='screen'
-    #    )
 
 
 
     start_edu_robocup_rescue_stack_node = Node (
         package='edu_robocup_rescue_stack', 
         executable='edu_robocup_rescue_stack_node',
-         output='screen'
+        output='screen'
     )
 
     start_tf_map_base_frame = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
-        arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'map', '--child-frame-id', 'base_frame']
+        arguments = ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_link', '--child-frame-id', 'map']
     )
         
-    start_tf_base_frame_laser_link = Node(
+    start_tf_base_link_laser_link = Node(
             package='tf2_ros',
             executable='static_transform_publisher',
-            arguments = ['--x', '0.1', '--y', '0', '--z', '0.139', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_frame', '--child-frame-id', 'laser_link']
+            arguments = ['--x', '0.0', '--y', '0', '--z', '0.139', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_link', '--child-frame-id', 'laser_link']
     )
 
+    start_tf_base_link_imu_link = Node(
+            package='tf2_ros',
+            executable='static_transform_publisher',
+            arguments= ['--x', '0', '--y', '0', '--z', '0', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'base_link', '--child-frame-id', 'imu_link']
+    )   # arguments need to be checked !!!!
+
+    
 
     start_navigation = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(os.path.join(nav2_launch_dir, 'bringup_launch.py')), 
@@ -154,6 +170,7 @@ def generate_launch_description():
                             'autostart': autostart}.items()
     )
 
+    # filter mask
     param_substitutions = {
         'use_sim_time': use_sim_time,
         'yaml_filename': mask_yaml_file}
@@ -182,29 +199,41 @@ def generate_launch_description():
         parameters=[configured_params]
     )
 
-    #start_slam_toolbox = IncludeLaunchDescription(
-    #    PythonLaunchDescriptionSource(os.path.join(slamtoolbox_launch_dir, 'online_async_launch.py'))
-    #)
+    # robot localisation node
+    start_robot_localization_node = Node(
+         package='robot_localization',
+         executable='ekf_node',
+         name='ekf_filter_node',
+         output='screen',
+         parameters=[os.path.join(bringup_dir, 'config/ekf.yaml'), {'use_sim_time': LaunchConfiguration('use_sim_time')}], #, {'use_sim_time': use_sim_time}]
+         
+    )
 
     ld = LaunchDescription()    
     #ld.add_action(start_slam_toolbox)
     ld.add_action(declare_use_sim_time)
+    ld.add_action(declare_remap_odom)
     ld.add_action(declare_namespace)
     ld.add_action(declare_auto_start)
     ld.add_action(declare_params_file)  
     ld.add_action(declare_map_file)
     ld.add_action(declare_map_subscribe_transient_local)
-    #ld.add_action(declare_mask_yaml_file)
+    ld.add_action(declare_mask_yaml_file)
     ld.add_action(start_map_server)
-    ld.add_action(start_amcl)
-    ld.add_action(start_lifecycle_manager)
+    #ld.add_action(start_amcl)
+    
+    
     ld.add_action(start_edu_robocup_rescue_stack_node)
-    ld.add_action(start_tf_map_base_frame)
-    ld.add_action(start_tf_base_frame_laser_link)
+    #ld.add_action(start_tf_map_base_frame)
+    ld.add_action(start_tf_base_link_laser_link)
+    ld.add_action(start_tf_base_link_imu_link)
     ld.add_action(start_navigation)
-    #ld.add_action(start_bt_navigator)
-    #ld.add_action(start_costmap_filter_info_server)
-    #ld.add_action(start_filter_mask_server)
+    ld.add_action(start_bt_navigator)
+    ld.add_action(start_robot_localization_node)
+    ld.add_action(start_costmap_filter_info_server)
+    ld.add_action(start_filter_mask_server)
+    ld.add_action(start_lifecycle_manager_localisation)
+    ld.add_action(start_lifecycle_manager_costmap_filters)
     
 
     return ld
