@@ -146,8 +146,9 @@ Im Moment des Sprunges von einer Rampe auf die Andere, neigt sich der Roboter te
 
 Nachfolgend sind Probleme und Fehler, die während der Test-Durchläufe in unregelmäßigen Abständen aufgekommen sind, aufgelistet und beschrieben.
 
-##### TF_NAN_INPUT-Error:
+##### TF_NAN_INPUT-Error
 
+Original-Fehler:
 Error: Ignoring transform for child_frame_id “odom” from authority “Authority undetectable” because of nan value in the transform (nan nan nan) (0.000000 0.000000 -0.770181 0.637825)
 
 Im Rahmen der Test-Durchläufe auf der Hindernis-Strecke in Gazebo ist der Fehler vermehrt aufgetreten, wenn zwei oder mehr Räder des Roboters keinen Kontakt mit der Fahrbahn hatten, wie zum Beispiel beim „Sprung“ von der einen Rampe auf die Andere oder bei zu starkem abbremsen auf der Rampe, wodurch die Hinterräder angehoben wurden.
@@ -158,6 +159,7 @@ Da sich der TF_NAN_INPUT-Error auf die Odometrie bezieht, wäre eine erste mögl
 
 Parallel zum TF_NAN_INPUT-Error tritt folgender Fehler auf:  
 
+Original-Fehler:
 [WARN] [amcl]: AMCL covariance or pose is NaN, likely due to an invalid configuration or faulty sensor measurements! Pose is not availabl!
 
 Dieser Fehler könnte ebenfalls von der fehlerhaften Odometrie resultieren, da die Positionserkennung des AMCL’s neben den Daten des 2D-Laserscanners auch auf den Informationen der Odometrie basiert.
