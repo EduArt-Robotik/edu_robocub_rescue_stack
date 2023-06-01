@@ -71,10 +71,12 @@ Der static-layer enthält Informationen über die Position und Form bekannter un
 
 Die Verwendung eines Keepout-Filters ist auf dieser Strecke essentiell, wenn die Steuerung des Roboters durch einen Pfad-Planer erfolgt. Der Grund hierfür ist, dass der Pfad-Planer bei Planung einer geraden Trajektorie von der einen Rampe auf die Andere den Roboter über einen hohen Absatz fahren lässt, wodurch sich dieser im Normalfall überschlägt. Ein Keepout-Filter ist ein Filter mit dem der Benutzer manuell Zonen erzeugen kann, die in der Costmap als Kollisionsbereiche erscheinen, wodurch der Pfad-Planer diese Zonen bei der Erstellung der Trajektorie meidet.
 
-Keepout-Filter:
+###### Keepout-Filter:
+
 ![keepout_filter](https://github.com/EduArt-Robotik/edu_robocub_rescue_stack/blob/main/docs/keepout_filter_90.png)
 
-Globale-Costmap:
+###### Globale-Costmap:
+
 ![global_costmap](https://github.com/EduArt-Robotik/edu_robocub_rescue_stack/blob/main/docs/global_costmap.png)
 
 Wie in Bild X zu erkennen ist, ist die Gestaltung des Keepout-Filters so gewählt, dass dem Pfad-Planer nur ein sehr kleiner Bereich zur Verfügung steht, durch den er die Trajektorie planen kann. Dieser Bereich befindet sich ein Stück hinter dem Schnittpunkt der Rampen-Ebenen, sodass der Roboter nur einen kleinen Absatz herunterfahren muss und so mühelos und sicher auf die nachfolgende Ebene gelangt. Da der keepout-filter fixiert ist, müsste der Roboter im Rahmen der Rückfahrt den Absatz wieder hoch fahren. Da dies in der Regel zu Problemen führt, sind die nachfolgenden Karten in Richtung der positiven X-Achse verschoben. Die Verschiebung ermöglicht die Platzierung des Keepout-Filters über der Karte genau so, dass der Roboter bei der Rückfahrt den Absatz auf der anderen Rampe herunterfährt. Die Position der Karte im Globalen-Koordinatensystem lässt sich in der Karten-Konfigurations-Datei einstellen. Die slam_toolbox erstellt die Karten-Konfigurations-Datei im Zuge der Erstellung der Karte und vergibt die Ursprungsposition dieser manuell. Diese Ursprungsposition ist oftmals nicht korrekt und sollte bei der Generierung von Karten mit der slam_toolbox überprüft werden. Ebenfalls in Bild X zu sehen ist, dass der Keepout-Filter an beiden Seiten der Öffnung etwas bauchig geformt ist. Versuche haben gezeigt, dass sich sowohl im Hinblick auf eine stabile Fahrweise als auch auf die nachfolgenden Weiterfahrt eine leicht quere Überfahrt am besten eignet. Die bauchige Form des Keepout-Filters an dieser Stelle leitet diese Querfahrt ein. Zur Erstellung des Keepout-Filters, aber auch zur Bearbeitung der Karten hat sich das Bildbearbeitungsprogramm gimp (https://www.gimp.org/) als gut erwiesen. 
