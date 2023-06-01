@@ -56,24 +56,25 @@ void Localisation::calcualateYawZ(){
 }
 
 void Localisation::recognize_area() {
-    //std::cout << "recoginze" << std::endl;
 
     // recognize ramp 
     m_diff_x_y = abs(m_pitch_y) + abs(m_roll_x);
-    //std::cout << "m_diff_x_y: " << m_diff_x_y << std::endl;
 
+    if ((m_diff_x_y < 0.20)&&(m_amcl_x < 2.1)){
 
-    if ((m_diff_x_y < 0.20)&&(m_amcl_x < 3.0)){
-        m_area = 1; // streight 1
-        //std::cout << "Gerade 1 " << std::endl;
-    } else if((m_diff_x_y > 0.20)&&((((m_pitch_y >= -0.27)&&(m_pitch_y < 0.0))&&((abs(m_yaw_z) >= 0.0)&&(abs(m_yaw_z) < (M_PI / 2.0)))) || (((m_pitch_y <= 0.27)&&(m_pitch_y >= 0.0))&&((abs(m_yaw_z) >= (M_PI / 2.0))&& (abs(m_yaw_z) <= M_PI))))) {
-        //std::cout << "Rampe 1" << std::endl;
+        m_area = 1; // straight 1
+
+    } else if ((m_amcl_x >= 2.2)&&(m_diff_x_y > 0.20)&&((((m_pitch_y >= -0.27)&&(m_pitch_y < 0.0))&&((abs(m_yaw_z) >= 0.0)&&(abs(m_yaw_z) < (M_PI / 2.0)))) || (((m_pitch_y <= 0.27)&&(m_pitch_y >= 0.0))&&((abs(m_yaw_z) >= (M_PI / 2.0))&& (abs(m_yaw_z) <= M_PI))))) {
+
         m_area = 2; //ramp 1
+
     } else if ((m_diff_x_y > 0.20)&&((((m_pitch_y <= 0.27)&&(m_pitch_y > 0.0))&&((abs(m_yaw_z) >= 0.0)&&(abs(m_yaw_z) < (M_PI / 2.0)))) || (((m_pitch_y >= -0.27)&&(m_pitch_y <= 0.0))&&((abs(m_yaw_z) >= (M_PI / 2.0))&& (abs(m_yaw_z) <= M_PI))))) {
-        //std::cout << "Rampe 2" << std::endl;
+        
         m_area = 3; //ramp 2
+
     } else if ((m_diff_x_y < 0.20)&&(m_amcl_x > 4.0)){
-        m_area = 4;
+
+        m_area = 4; // straight 2
     }
 }
 
@@ -156,7 +157,7 @@ void Localisation::determine_initialpose() {
             m_beta = M_PI - m_ramp_angle1 - abs(m_pitch_y);
             m_dist180_r = m_dist180_r * (sin(m_beta) / sin(m_ramp_angle1));
         }
-        m_x_pos = m_dist0_r - 0.524;  // Wie können die Zahlen durch den Laser bestimmt werden?
+        m_x_pos = m_dist0_r - 0.472;//0.524;  // Wie können die Zahlen durch den Laser bestimmt werden?
         m_y_pos = m_dist90_r - 0.617;    //0.617       
         break;
         }
@@ -194,8 +195,8 @@ void Localisation::determine_initialpose() {
             m_beta0 = M_PI - m_ramp_angle1 - abs(m_pitch_y_strich);
             m_dist0_r = m_dist0_r * (sin(m_beta0) / sin(m_ramp_angle1)) + 1.0; //offset because robot drove on streight 1
         }
-        m_x_pos = m_dist0_r - 0.524;  // Wie können die Zahlen durch den Laser bestimmt werden?
-        m_y_pos = m_dist90_r - 0.617;    //0.617  
+        m_x_pos = 2.552962 - m_dist180_r + 1.411 + 0.5746 - 0.05; //+ 0.24;  // Wie können die Zahlen durch den Laser bestimmt werden?
+        m_y_pos = m_dist90_r - 0.68;    // 0.617  
         break;
         }
     case 3: //ramp 3
@@ -215,12 +216,12 @@ void Localisation::determine_initialpose() {
 
         if(isinf(m_dist0_r)) {
 
-            m_x_pos = m_dist0_r + 1.936;   // Starting point map ramp2
+            m_x_pos = m_dist0_r + 2.487 - 0.1; //1.936   // Starting point map ramp2
             m_y_pos = m_dist90_r - 0.617; 
 
         } else {
-            m_x_pos = m_dist0_r + 1.936;   // Starting point map ramp2
-            m_y_pos = 1.85 - m_dist270_r;  // widest width of the track 
+            m_x_pos = m_dist0_r + 2.487 - 0.1; //1.936   // Starting point map ramp2
+            m_y_pos = 1.9 - m_dist270_r;  // widest width of the track 
         }  
         break;
         }
@@ -229,8 +230,8 @@ void Localisation::determine_initialpose() {
     case 4:
         {
         m_pitch_y_strich = m_pitch_y;
-        m_x_pos = 7.29 - m_dist180_r;
-        m_y_pos = 1.85 - m_dist270_r;
+        m_x_pos = 7.3 - m_dist180_r;
+        m_y_pos = 1.9 - m_dist270_r;
         break;
         }
     }

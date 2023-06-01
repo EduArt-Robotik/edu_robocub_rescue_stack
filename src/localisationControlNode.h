@@ -8,7 +8,6 @@
 #include "geometry_msgs/msg/pose_stamped.hpp"
 #include "rosgraph_msgs/msg/clock.hpp"
 #include <map>
-//#include "loadMap.h"
 
 #include "geometry_msgs/msg/pose_with_covariance_stamped.hpp"
 
@@ -16,15 +15,12 @@
 #include <vector>
 #include <iostream> 
 
-//#include "nav2_amcl/amcl_node.hpp"
-
 #define _USE_MATH_DEFINES
 #include <cmath>
 
 #include "localisation.h"
 #include "navigation.h"
 
-//using namespace std::chrono_literals; 
 using namespace std;
 
 class LocalisationControlNode : public rclcpp::Node 
@@ -46,8 +42,6 @@ class LocalisationControlNode : public rclcpp::Node
     float m_yawZ_strich;
     float m_yawZ_rays;
     
-
-
     int m_n_laserrays;
     int m_i_0;
     int m_i_90;
@@ -66,8 +60,6 @@ class LocalisationControlNode : public rclcpp::Node
     void timer_callback();
     void timer_clock_callback();
 
-    //void state_est_callback(std_msgs::msg::Float64MultiArray::SharedPtr state_vec_msg);
-
     void publish_estimated_state(std_msgs::msg::Float64MultiArray state_vec_msg);
 
     void velocity_callback(const geometry_msgs::msg::Twist::SharedPtr msg_vel);
@@ -82,20 +74,17 @@ class LocalisationControlNode : public rclcpp::Node
 
     //Initialisierung Subscriber
     rclcpp::Subscription<nav_msgs::msg::Odometry>::SharedPtr subscriber_odom_;
-    rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr subscriber_velocity_;
     rclcpp::Subscription<std_msgs::msg::Float64MultiArray>::SharedPtr subscriber_state_est_;
     rclcpp::Subscription<sensor_msgs::msg::LaserScan>::SharedPtr subscriber_laserscan_;
-    //###########NEU##############
     rclcpp::Subscription<geometry_msgs::msg::PoseWithCovarianceStamped>::SharedPtr subscriber_amcl_pose_;
     rclcpp::Subscription<sensor_msgs::msg::Imu>::SharedPtr subscriber_imu_;
+
     //Initialisierung Publisher
     rclcpp::Publisher<std_msgs::msg::Float64MultiArray>::SharedPtr publisher_state_est_;
     rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr publisher_vel_;
     rclcpp::Publisher<sensor_msgs::msg::LaserScan>::SharedPtr publisher_slam_scan_;
-    //###########NEU##############
     rclcpp::Publisher<geometry_msgs::msg::PoseStamped>::SharedPtr publisher_goal_pose_;
     rclcpp::Publisher<geometry_msgs::msg::PoseWithCovarianceStamped>::SharedPtr publisher_initial_pose_;
-    
     rclcpp::Publisher<rosgraph_msgs::msg::Clock>::SharedPtr publisher_clock_time_;
 
     //Initialisierung Timer

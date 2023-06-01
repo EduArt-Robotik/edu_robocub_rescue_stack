@@ -59,6 +59,9 @@ class Navigation //: public rclcpp::Node
     bool m_map_request_sended;
     bool m_stop_goal;
     bool m_initialize;
+    bool m_travel_forward;
+    bool m_travel_backwards;
+    bool m_turn;
 
     string m_url;
     string m_map1;
@@ -70,19 +73,21 @@ class Navigation //: public rclcpp::Node
 
     float m_pitch_rel;
     
+    int m_count;
+    bool c_start;
+    bool c_fin;
+
     void terminal_output();
     void navigate(string m_url);
     void loadMap(string m_url);
     bool sendInitialPose();
-    void stop_goal();
-    void sendGoalPose();
+    bool sendGoalPose();
     void navigation_step();
     void calc_tolerance(double pX, double pY);
     void initialize();
     void map_swap(int m_area);
-    
-    //rclcpp::TimerBase::SharedPtr nav_timer;
-    //void nav_timer_callback();
+
+    bool counter(bool c_start_);
     
 
     public:
@@ -108,6 +113,7 @@ class Navigation //: public rclcpp::Node
     bool getNewGoalSet();
     bool getSendGoal();
     bool getSendInitial();
+    bool sendInitial(bool intial);
 
 
 };

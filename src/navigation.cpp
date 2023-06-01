@@ -34,9 +34,16 @@ Navigation::Navigation(LoadMap *loadMap) { //: Node("navigation")
     m_start_area1 = true;
     m_map_sended = false;
     m_send_initial = false;
-    m_initial_sended = false; 
+    m_initial_sended = false;
+    m_turn = false;
 
     m_send_goalpose = false;
+
+    m_travel_forward = true;
+    m_travel_backwards = false;
+
+    c_start = false;
+    c_fin = false;
 
     m_map1 = "/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/map/map_9.1.yaml";
     m_map2 = "/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/map/map_9.2.yaml";
@@ -45,6 +52,7 @@ Navigation::Navigation(LoadMap *loadMap) { //: Node("navigation")
 }
 
 void Navigation::initialize() {
+
     m_send_goal = false;
     m_goal_sended = false;
     
@@ -53,20 +61,41 @@ void Navigation::initialize() {
     m_loadmapStatus = false;
     m_map_request_sended = false;
     
-    m_send_initial = true;
+    m_send_initial = false;
     m_initial_sended = false;
+
+    c_start = false;
+
 }
 
-//void Navigation::stop_goal(){
+bool Navigation::counter(bool c_start_) {
     
-//}
+    if (c_start_) {
+        m_count = 0;
+        c_start_ = false;
+    }
 
-void Navigation::sendGoalPose(){
+    m_count = m_count + 1;
+    
+    if (m_count >= 2) {
+
+        return true;
+
+    } else {
+        
+        return false;
+
+    }
+
+}
+
+bool Navigation::sendGoalPose(){
 
     if (!m_goal_sended) {
         m_send_goal = true;
     } else if (m_goal_sended) {
         m_send_goal = false;
+        return true; 
     }   
 }
 
@@ -76,110 +105,242 @@ bool Navigation::sendInitialPose(){
         m_send_initial = true;
     } else if (m_initial_sended) {
         m_send_initial = false;
-        m_map_request_sended = false; 
+        m_map_request_sended = true;    //changed from false, because of changed order of navigation 
     }   
     return m_map_request_sended;
 }
 
-
-
-void Navigation::stop_goal(){
-    if (m_stop_goal) {
-        // position
-        m_goal_pX = m_amcl_pX;
-        m_goal_pY = m_amcl_pY;
-        m_goal_pZ = 0.0;
-
-        // orientation
-        m_goal_oX = 0.0;
-        m_goal_oY = 0.0;
-        m_goal_oZ = 0.0;
-        m_goal_oW = 1.0; //anpassen
-
-        sendGoalPose();
-        m_stop_goal = false;
-        initialize();
-    }
-}
-
 void Navigation::map_swap(int m_area) {
-    if (m_area != m_area_saved){
-        initialize();
-        m_area_saved = m_area;
 
+    if (m_area != m_area_saved){
+        c_start = true;
+        m_area_saved = m_area;
+        initialize();
     }
 
 }
+
 void Navigation::navigation_step(){
     
+    std::cout << "m_amcl_X: " << m_amcl_pX << std::endl;
+
     map_swap(m_area);
 
     if (m_area == 1) {
-        std::cout << "navigation step 1" << std::endl;
-        m_url = m_map1;
-        // position
-        m_goal_pX = 1.4;
-        m_goal_pY = 0.0;
-        m_goal_pZ = 0.0;
+        if ( (m_amcl_pX <= 0.1) && m_turn ) {
+            m_travel_backwards = false;
+            m_travel_forward = true;
+            m_turn = false;
+            initialize();
+        }
+        if (m_travel_forward) {           
+            
+            // position
+            m_goal_pX = 2.35; //2.35
+            m_goal_pY = - 0.05;
+            m_goal_pZ = 0.0;
 
-        // orientation
-        m_goal_oX = 0.0;
-        m_goal_oY = 0.0;
-        m_goal_oZ = 0.0;
-        m_goal_oW = 1.0;
+            // orientation
+            m_goal_oX = 0.0;
+            m_goal_oY = 0.0;
+            m_goal_oZ = 0.0;
+            m_goal_oW = 1.0;
+
+        } else if (m_travel_backwards) {
+            
+            // position
+            m_goal_pX = 0.0;
+            m_goal_pY = 0.0;
+            m_goal_pZ = 0.0;
+
+            // orientation
+            m_goal_oX = 0.0;
+            m_goal_oY = 0.0;
+            m_goal_oZ = 0.0;
+            m_goal_oW = 1.0;
+        }
+
+        m_url = m_map1;
+
         navigate(m_url);
 
-    } else if (m_area == 2) {
-        //stop_goal();
-        //std::cout << "navigation step 2" << std::endl;
+    } else if ((m_area == 2)&&(m_amcl_pX < 2.7)) {
+        
+        m_turn = true;
+
+        if (m_travel_forward) {
+
+            // position
+            m_goal_pX = 2.85; // changed from 3.7
+            m_goal_pY = -0.05;
+            m_goal_pZ = 0.0;
+
+            // orientation
+            m_goal_oX = 0.0;
+            m_goal_oY = 0.0;
+            m_goal_oZ = 0.0;
+            m_goal_oW = 1.0;
+
+        } else if (m_travel_backwards) {
+
+            // position
+            m_goal_pX = 1.8; // changed from 3.7
+            m_goal_pY = 0.2;
+            m_goal_pZ = 0.0;
+
+            // orientation
+            m_goal_oX = 0.0;
+            m_goal_oY = 0.0;
+            m_goal_oZ = 0.0;
+            m_goal_oW = 1.0;
+
+        }
 
         m_url = m_map2;
-        // position
-        m_goal_pX = 3.7; 
-        m_goal_pY = 1.3;
-        m_goal_pZ = 0.0;
+        navigate(m_url);
 
-        // orientation
-        m_goal_oX = 0.0;
-        m_goal_oY = 0.0;
-        m_goal_oZ = 0.0;
-        m_goal_oW = 1.0;
+    } else if ((m_area == 2)&&(m_amcl_pX >= 2.7) ) {
+        
+        m_turn = true;
+
+        if (m_travel_forward) {
+
+            // position
+            m_goal_pX = 4.0; // changed from 3.7
+            m_goal_pY = 1.2;
+            m_goal_pZ = 0.0;
+
+            // orientation
+            m_goal_oX = 0.0;
+            m_goal_oY = 0.0;
+            m_goal_oZ = 0.0;
+            m_goal_oW = 1.0;
+
+        } else if (m_travel_backwards) {
+
+            // position
+            m_goal_pX = 1.8; // changed from 3.7
+            m_goal_pY = 0.2;
+            m_goal_pZ = 0.0;
+
+            // orientation
+            m_goal_oX = 0.0;
+            m_goal_oY = 0.0;
+            m_goal_oZ = 0.0;
+            m_goal_oW = 1.0;
+
+        }
+
+        m_url = m_map2;
         navigate(m_url);
         
 
-    } else if (m_area == 3) {
-        //stop_goal();
-        std::cout << "navigation step 2" << std::endl;
+    } else if ((m_area == 3) && (m_amcl_pX > 4.1)) {
+
+        if (m_travel_forward) {
+        
+            // position
+            m_goal_pX = 5.3; 
+            m_goal_pY = 1.1;
+            m_goal_pZ = 0.0;
+
+            // orientation
+            m_goal_oX = 0.0;
+            m_goal_oY = 0.0;
+            m_goal_oZ = 0.0;
+            m_goal_oW = 1.0;
+
+        } else if (m_travel_backwards) {
+
+            // position
+            m_goal_pX = 4.0; 
+            m_goal_pY = 1.25;
+            m_goal_pZ = 0.0;
+
+            // orientation
+            m_goal_oX = 0.0;
+            m_goal_oY = 0.0;
+            m_goal_oZ = 0.0;
+            m_goal_oW = 1.0;
+
+        }
 
         m_url = m_map3;
-        // position
-        m_goal_pX = 4.7; 
-        m_goal_pY = 1.3;
-        m_goal_pZ = 0.0;
-
-        // orientation
-        m_goal_oX = 0.0;
-        m_goal_oY = 0.0;
-        m_goal_oZ = 0.0;
-        m_goal_oW = 1.0;
         navigate(m_url);
+
+        } else if ((m_area == 3) && (m_amcl_pX <= 4.1)) {
+
+        if (m_travel_forward) {
         
-    } else if (m_area == 4) {
-        //stop_goal();
-        std::cout << "navigation step 2" << std::endl;
+            // position
+            m_goal_pX = 5.3; 
+            m_goal_pY = 1.1;
+            m_goal_pZ = 0.0;
 
-        m_url = m_map4;
-        // position
-        m_goal_pX = 6.0; 
-        m_goal_pY = 1.3;
-        m_goal_pZ = 0.0;
+            // orientation
+            m_goal_oX = 0.0;
+            m_goal_oY = 0.0;
+            m_goal_oZ = 0.0;
+            m_goal_oW = 1.0;
 
-        // orientation
-        m_goal_oX = 0.0;
-        m_goal_oY = 0.0;
-        m_goal_oZ = 0.0;
-        m_goal_oW = 1.0;
+        } else if (m_travel_backwards) {
+
+            // position
+            m_goal_pX = 3.0; 
+            m_goal_pY = 0.0;
+            m_goal_pZ = 0.0;
+
+            // orientation
+            m_goal_oX = 0.0;
+            m_goal_oY = 0.0;
+            m_goal_oZ = 0.0;
+            m_goal_oW = 1.0;
+
+        }
+
+        m_url = m_map3;
         navigate(m_url);
+
+    } else if (m_area == 4) {
+
+        if ( (m_amcl_pX >= 5.8) && m_turn ) {
+            m_travel_backwards = true;
+            m_travel_forward = false;
+            m_turn = false;
+            initialize();
+        }
+
+        if (m_travel_forward) {
+
+            // position
+            m_goal_pX = 6.0; 
+            m_goal_pY = 1.2;
+            m_goal_pZ = 0.0;
+
+            // orientation
+            m_goal_oX = 0.0;
+            m_goal_oY = 0.0;
+            m_goal_oZ = 0.0;
+            m_goal_oW = 1.0;
+
+        } else if (m_travel_backwards) {
+
+            // position
+            m_goal_pX = 4.7; 
+            m_goal_pY = 1.3;
+            m_goal_pZ = 0.0;
+
+            // orientation
+            m_goal_oX = 0.0;
+            m_goal_oY = 0.0;
+            m_goal_oZ = 0.0;
+            m_goal_oW = 1.0;           
+        }
+        
+        m_url = m_map4;
+        navigate(m_url);
+
+
     }
 }
 
@@ -192,32 +353,39 @@ void Navigation::loadMap(string m_url){
         
         m_send_goalpose = true;  
     }
+
     m_loadmapStatus = m_loadMap -> getLoadStatus();
-
-    //if (!m_loadmapStatus) {
-    //    m_map_request_sended = false;
-    //}
-
 }
+
 void Navigation::navigate(string m_url){
-    if (m_send_initial){
-        if (abs(m_pitch_rel) < 0.09) {
-            m_map_request_sended = sendInitialPose();
-        } 
+
     
-    } else if (!m_map_request_sended) {   
+    if (!m_map_request_sended) {   
         
         loadMap(m_url);
-        std::cout << "##########################################################" << std::endl;
-        std::cout << "map loaded################################################" << std::endl;
-        std::cout << "##########################################################" << std::endl;
+
     } else if (m_send_goalpose) {
         
-        sendGoalPose();
-        m_send_goalpose = false; 
-        
-        std::cout << "goal Pose sended" << std::endl;
-    } 
+        m_send_initial = sendGoalPose();
+        m_send_goalpose = false;
+        c_start = true; 
+        //std::cout << "######## IN SEND_GOAL FUNCTION #############" << std::endl;
+    } else if (m_send_initial){
+
+        c_fin = counter(c_start);
+        c_start = false;
+        //std::cout << "######## IN SEND_INITIAL FUNCTION #############" << std::endl;
+        if (c_fin) {
+
+            //std::cout << "######## IN C_FIN FUNCTION #############: " << m_pitch_rel << std::endl;
+            if (abs(m_pitch_rel) < 0.09) {
+                //std::cout << "######## IN pitch_rel FUNCTION #############" << std::endl;
+                m_map_request_sended = sendInitialPose();
+            }
+
+        }
+    
+    }
 }
 
 void Navigation::setamclX(double x){
@@ -280,6 +448,7 @@ bool Navigation::getSendInitial(){
 
 bool Navigation::getSendGoal(){
     navigation_step();
+    std::cout << "CALL NAVIGATION_STEP" << std::endl;
     return m_send_goal;
 }
 

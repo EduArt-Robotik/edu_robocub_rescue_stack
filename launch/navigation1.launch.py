@@ -229,7 +229,7 @@ def generate_launch_description():
     ld.add_action(start_tf_base_link_imu_link)
     ld.add_action(start_navigation)
     ld.add_action(start_bt_navigator)
-    ld.add_action(start_robot_localization_node)
+    #ld.add_action(start_robot_localization_node)
     ld.add_action(start_costmap_filter_info_server)
     ld.add_action(start_filter_mask_server)
     ld.add_action(start_lifecycle_manager_localisation)
