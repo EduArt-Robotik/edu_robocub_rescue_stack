@@ -1,5 +1,0 @@
-[31mCMake Error at cmake_install.cmake:52 (file):
-  file cannot create directory: /usr/local/lib/edu_robocup_rescue_stack.
-  Maybe need administrative privileges.
-
-[0m
