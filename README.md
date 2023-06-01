@@ -11,8 +11,6 @@ Katarina, Jakob, Daniel
 
 ### ALgorithmus mit Verwendung der Navigationsbibliotheken
 
-TODO: Beschreibung von Daniel
-
 #### Navigation:
 
 ##### Ablauf:
@@ -83,7 +81,8 @@ Wie in Bild X zu erkennen ist, ist die Gestaltung des Keepout-Filters so gewähl
 
 Die lokale costmap passt die grobe Pfad-Planung, die zunächst basierend auf der globalen costmap stattgefunden hat, situativ an. Sie deckt im Vergleich zur globalen costmap (gesamte Karte) nur einen kleinen Bereich unmittelbar um den Roboter ab. Dieser Bereich enthält sehr detaillierte Echtzeit-Informationen über Hindernisse im nahegelegenen Umfeld des Roboters, wodurch eine präzisere Pfad-Planung möglich ist. Standardmäßig implementiert die lokale costmap ebenfalls einen inflation-layer sowie einen keepout-filter. Speziell für den Erhalt der Informationen über dynamische Ereignisse ist ein obstacle-layer verwendet. 
 
-Lokale-Costmap:
+###### Lokale-Costmap:
+
 ![local_costmap](https://github.com/EduArt-Robotik/edu_robocub_rescue_stack/blob/main/docs/local_costmap.png)
 
 Der obstacle-layer bezieht seine Informationen über die Umgebung des Roboters über den Laser-Scanner. Er erfasst und speichert die Form und Position der Hindernisse in Echtzeit und aktualisiert die damit costmap kontinuierlich, wodurch der Pfad-Planer die Trajektorie situativ anpassen kann. Obwohl der obstacle-layer sich eher für dynamische Umgebungen eignet und die Strecke in der sich der Roboter bewegt rein statisch ist, bietet die Verwendung des obstacle-layers einen wesentlichen Vorteil. 
