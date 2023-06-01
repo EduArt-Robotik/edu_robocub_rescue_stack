@@ -37,7 +37,7 @@ Die Bestimmung der X/Y-Position erfolgt mittels der durch den Laser-Scanner geme
 
 Die Ermittlung der Laser-Strahlen, die unabhängig der aktuellen Orientierung des Roboters in die notwendige Richtung (senkrecht zur Wand) zeigen, erfolgt mittels des Yaw-Winkels der IMU. Die IMU stellt darüber hinaus die Informationen der Orientierung (X, Y, Z, W) des Roboters für die Initialisierungs-Pose zur Verfügung.
 
-#### Navigation2:
+#### ROS Navigation2:
 
 Die eigentliche Navigation durch den Kurs basiert auf dem ROS Navigation Stack 2 (Nav2). Ein Pfad-Planer abonniert die publizierten Ziel-Positionen und plant daraufhin einen Pfad durch eine Costmap hin zum Ziel. Da aufgrund großer Höhenunterschiede zwischen einzelnen Bereichen der beiden Rampen das Fahren von der einen auf die andere Rampe nicht überall unfallfrei möglich ist, sorgt ein „Keepout“-Filter über der Costmap dafür, dass der Übergang an einer sicheren Stelle stattfindet. Ist ein valider Pfad gefunden, steuert ein „FollowPath“-Plugin die Roboterbewegung entlang des Pfades. Ein „Behaviour-Tree“ regelt das Regenerierungsverhalten des Roboters in Sonderfällen, wie dem Abkommen vom Pfad oder dem Steckenbleiben des Roboters.
 
@@ -71,14 +71,17 @@ Der static-layer enthält Informationen über die Position und Form bekannter un
 
 Die Verwendung eines Keepout-Filters ist auf dieser Strecke essentiell, wenn die Steuerung des Roboters durch einen Pfad-Planer erfolgt. Der Grund hierfür ist, dass der Pfad-Planer bei Planung einer geraden Trajektorie von der einen Rampe auf die Andere den Roboter über einen hohen Absatz fahren lässt, wodurch sich dieser im Normalfall überschlägt. Ein Keepout-Filter ist ein Filter mit dem der Benutzer manuell Zonen erzeugen kann, die in der Costmap als Kollisionsbereiche erscheinen, wodurch der Pfad-Planer diese Zonen bei der Erstellung der Trajektorie meidet.
 
-![keepout_filter](https://github.com/EduArt-Robotik/edu_robocub_rescue_stack/blob/main/docs/keepout_filter.png)
+Keepout-Filter:
+![keepout_filter](https://github.com/EduArt-Robotik/edu_robocub_rescue_stack/blob/main/docs/keepout_filter_90.png)
 
+Globale-Costmap:
 ![global_costmap](https://github.com/EduArt-Robotik/edu_robocub_rescue_stack/blob/main/docs/global_costmap.png)
 
 Wie in Bild X zu erkennen ist, ist die Gestaltung des Keepout-Filters so gewählt, dass dem Pfad-Planer nur ein sehr kleiner Bereich zur Verfügung steht, durch den er die Trajektorie planen kann. Dieser Bereich befindet sich ein Stück hinter dem Schnittpunkt der Rampen-Ebenen, sodass der Roboter nur einen kleinen Absatz herunterfahren muss und so mühelos und sicher auf die nachfolgende Ebene gelangt. Da der keepout-filter fixiert ist, müsste der Roboter im Rahmen der Rückfahrt den Absatz wieder hoch fahren. Da dies in der Regel zu Problemen führt, sind die nachfolgenden Karten in Richtung der positiven X-Achse verschoben. Die Verschiebung ermöglicht die Platzierung des Keepout-Filters über der Karte genau so, dass der Roboter bei der Rückfahrt den Absatz auf der anderen Rampe herunterfährt. Die Position der Karte im Globalen-Koordinatensystem lässt sich in der Karten-Konfigurations-Datei einstellen. Die slam_toolbox erstellt die Karten-Konfigurations-Datei im Zuge der Erstellung der Karte und vergibt die Ursprungsposition dieser manuell. Diese Ursprungsposition ist oftmals nicht korrekt und sollte bei der Generierung von Karten mit der slam_toolbox überprüft werden. Ebenfalls in Bild X zu sehen ist, dass der Keepout-Filter an beiden Seiten der Öffnung etwas bauchig geformt ist. Versuche haben gezeigt, dass sich sowohl im Hinblick auf eine stabile Fahrweise als auch auf die nachfolgenden Weiterfahrt eine leicht quere Überfahrt am besten eignet. Die bauchige Form des Keepout-Filters an dieser Stelle leitet diese Querfahrt ein. Zur Erstellung des Keepout-Filters, aber auch zur Bearbeitung der Karten hat sich das Bildbearbeitungsprogramm gimp (https://www.gimp.org/) als gut erwiesen. 
 
 Die lokale costmap passt die grobe Pfad-Planung, die zunächst basierend auf der globalen costmap stattgefunden hat, situativ an. Sie deckt im Vergleich zur globalen costmap (gesamte Karte) nur einen kleinen Bereich unmittelbar um den Roboter ab. Dieser Bereich enthält sehr detaillierte Echtzeit-Informationen über Hindernisse im nahegelegenen Umfeld des Roboters, wodurch eine präzisere Pfad-Planung möglich ist. Standardmäßig implementiert die lokale costmap ebenfalls einen inflation-layer sowie einen keepout-filter. Speziell für den Erhalt der Informationen über dynamische Ereignisse ist ein obstacle-layer verwendet. 
 
+Lokale-Costmap:
 ![local_costmap](https://github.com/EduArt-Robotik/edu_robocub_rescue_stack/blob/main/docs/local_costmap.png)
 
 Der obstacle-layer bezieht seine Informationen über die Umgebung des Roboters über den Laser-Scanner. Er erfasst und speichert die Form und Position der Hindernisse in Echtzeit und aktualisiert die damit costmap kontinuierlich, wodurch der Pfad-Planer die Trajektorie situativ anpassen kann. Obwohl der obstacle-layer sich eher für dynamische Umgebungen eignet und die Strecke in der sich der Roboter bewegt rein statisch ist, bietet die Verwendung des obstacle-layers einen wesentlichen Vorteil. 
@@ -134,12 +137,6 @@ Allgemein: Starke Federung des Offroad-Roboters braucht einen kurzen Moment bis 
 ##### Steckenbleiben im inflation-layer oder keepout-filter
 
 Sowohl der inflation-layer als auch der keepout-filter sind in der costmap als Kollisionsbereiche repräsentiert. Da der „Sprung“ von der einen Rampe auf die Andere sehr unkontrolliert stattfindet, ist es vorgekommen, dass der Roboter innerhalb dieser Kollisionsbereiche landet. Ist dies der Fall, kann der Pfad-Planer keinen Pfad zur Ziel-Position berechnen und der Roboter bleibt an der Stelle stehen. Ein Ansatz zur Lösung dieses Problems wäre die Anpassung des Recovery-Modus des Roboters, welcher im  Nav2 behavour-tree definiert ist. 
-
-
-
-
-
-
 
 
 ### Selbstgeschriebener Algorithmus ohne Navigationsbibliotheken
