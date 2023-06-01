@@ -142,7 +142,7 @@ Der obstacle-layer bezieht seine Informationen über die Umgebung des Roboters �
 
 Im Moment des Sprunges von einer Rampe auf die Andere, neigt sich der Roboter teilweise so stark, dass der Laser-Scanner den Boden als unmittelbares Hindernis erfasst und dieses durch den obstacle-layer in die costmap überträgt. Dies sorgt dafür, dass der Roboter zunächst abbremst und einen Moment stehen bleibt. Das Abbremsen sorgt zum Einen für einen reduzierten Schlupf im Gegensatz zu einem stark schwingenden bis hüpfenden Weiterfahren und ermöglicht zum Anderen, dass der Roboter während der Bestimmung der Initialisierungs-Pose relativ ruhig da steht. 
 
-#### Probleme:
+#### Probleme und Fehler:
 
 Nachfolgend sind Probleme und Fehler, die während der Test-Durchläufe in unregelmäßigen Abständen aufgekommen sind, aufgelistet und beschrieben.
 
