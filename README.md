@@ -13,13 +13,13 @@ Katarina, Jakob, Daniel
 
 TODO: Beschreibung von Daniel
 
-Navigation:
+#### Navigation:
 
-Ablauf:
+##### Ablauf:
 
 Wie bereits erklärt, bietet die auf zwei Dimensionen basierende Positionserkennung mit AMCL nicht die Möglichkeit einer kontinuierlichen Lokalisierung über den gesamten drei-dimensionalen Kurs. Aufgrund dessen ist abhängig von der aktuellen Ebene (Gerade 1, Rampe 1, Rampe 2 oder Gerade 2) eine spezifische Karte zu laden in der die Roboter-Position jeweils neu zu initialisieren ist. 
 
-![Strecke: Ter0_Ramp](https://github.com/EduArt-Robotik/edu_robocub_rescue_stack/blob/main/docs/bev_strecke.png"Strecke: Ter0_Ramp")
+![Strecke: Ter0_Ramp](https://github.com/EduArt-Robotik/edu_robocub_rescue_stack/blob/main/docs/bev_strecke.png)
 
 Dem Roboter ist zudem ein neues Ziel vorzugeben, welches dieser in der Karte anzufahren hat. Als vorteilhafter Ablauf hat sich hier ergeben zu Beginn die Ebenen-spezifische Karte zu laden, anschließend die Ziel-Position zu senden und zuletzt die Roboter-Pose zu initialisieren. 
 
@@ -27,28 +27,28 @@ Intuitiv würde man die Ziel-Position erst nach der Initialisierung der Roboter-
 
 Aufgrund unterschiedlicher Winkel-Konstellationen sowie der aktuellen X/Y-Postion lässt sich die gegenwärtig befahrene Ebene identifizieren. Der Registrierung einer Änderung der Ebene folgt das Laden einer neuen Karte, die Navigation zu einem neuen, abhängig von der Ebene und der derzeitigen Bewegungsrichtung gewählten Ziel sowie die Initialisierung der neuen Roboter-Pose. Dieser Ablauf ist für jede Karte identisch.
 
-Ziel-Position: 
+##### Ziel-Position: 
 
 Für Hin- und Rückweg ist jeweils eine Ziel-Position (inkl. Orientierung) pro Karte zu publizieren. Diese Ziel-Positionen sind hart kodiert und empirisch an ein optimales Fahrverhalten angepasst. Ergänzen!!!!!
 
-Initialisierungs-Position:
+##### Initialisierungs-Position:
 
 Die Bestimmung der X/Y-Position erfolgt mittels der durch den Laser-Scanner gemessenen Abstände bestimmter Laser-Strahlen (Gerade aus nach vorne, gerade aus nach hinten, rechts und links) relativ zu den Wänden der Hindernisstrecke. Abhängig von der aktuellen Position auf der Strecke finden unterschiedliche Wände Verwendung zur Abstandsmessung und somit zum Erhalt der Roboter-Position. Bevorzugt sind Wände die eher einen senkrechten Winkel zur Ebene auf dem sich der Roboter befindet, aufzeigen. Dies erlaubt eine Minimierung des Fehlers, den der Roboter aufgrund seiner Eigenbewegung um Pitch- und Roll-Winkel erzeugt. 
 
 Die Ermittlung der Laser-Strahlen, die unabhängig der aktuellen Orientierung des Roboters in die notwendige Richtung (senkrecht zur Wand) zeigen, erfolgt mittels des Yaw-Winkels der IMU. Die IMU stellt darüber hinaus die Informationen der Orientierung (X, Y, Z, W) des Roboters für die Initialisierungs-Pose zur Verfügung.
 
-Navigation2:
+#### Navigation2:
 
 Die eigentliche Navigation durch den Kurs basiert auf dem ROS Navigation Stack 2 (Nav2). Ein Pfad-Planer abonniert die publizierten Ziel-Positionen und plant daraufhin einen Pfad durch eine Costmap hin zum Ziel. Da aufgrund großer Höhenunterschiede zwischen einzelnen Bereichen der beiden Rampen das Fahren von der einen auf die andere Rampe nicht überall unfallfrei möglich ist, sorgt ein „Keepout“-Filter über der Costmap dafür, dass der Übergang an einer sicheren Stelle stattfindet. Ist ein valider Pfad gefunden, steuert ein „FollowPath“-Plugin die Roboterbewegung entlang des Pfades. Ein „Behaviour-Tree“ regelt das Regenerierungsverhalten des Roboters in Sonderfällen, wie dem Abkommen vom Pfad oder dem Steckenbleiben des Roboters.
 
-Pfad-Planer:
+##### Pfad-Planer:
 
 Da für die Durchläufe des Robocups die Zeit eine große Rolle spielt, ist die Pfad-Planung so auszulegen, dass eine Rückwärtsfahrt des Roboters möglich ist und die Zeit für das umdrehen auf dem engen Kurs eingespart werden kann. Diese Funktion bieten nur zwei Pfad-Planer in der Nav2 Funktionsbibliothek. Der Smac Hybrid Planner (Hybrid-A* Planer) und der Smac Lattice Planer (State Lattice Planer). Da sich der Smac Hybrid Planner nicht für differential angetriebene Roboter eignet fiel die Wahl auf den Smac Lattice Planner.  
 
 Der Smac Lattice Planner baut auf einer Gitter-basierten Datenstruktur names „Sparse-map“ auf. Die Möglichkeit des Roboters sich stufenlos um die Hochachse zu drehen, sorgt dafür, dass bei bestimmten Drehwinkeln gerade Trajektorien nicht auf Endpunkten landen, die nicht auf das Gitter ausgerichtet sind. Um diesem Problem entgegen zu wirken generiert ein individuell parametrierbarer „Lattice Primitiv Generator“ (https://github.com/ros-planning/navigation2/tree/main/nav2_smac_planner/lattice_primitives) im Voraus Standard Trajektorien. Dazu diskretisiert dieser die möglichen Winkel der Bewegungsrichtungen des Roboters so , dass gerade Trajektorien auf Endpunkten landen, die mit den diskreten Rasterpunkten des Gitters übereinstimmen. Das sogenannte „Minimum Control Set“, welches diese Trajektorien enthält, ist für jeden Roboter individuell mittels des „Lattice Primitiv Generators“ manuell zu erzeugen. 
 
 
-Controller-Server
+##### Controller-Server
 
 Der Controller-Server ist ein Task-Server, welcher zur Ausführung von Navigationsaufgaben dient, die aus mehreren Schritten und Aktionen bestehen. Er implementiert das Pfad-Folge-Plugin, welches die Befehlsgeschwindigkeiten zum Folgen der vom Pfad-Planer erzeugten Trajektorie generiert. Die Nav2 Funktionsbibliothek enthält mehrere Pfad-Folge-Plugins (https://navigation.ros.org/plugins/index.html), die jedoch zum Großteil nur eine Zielverfolgung bei Vorwärtsfahrt des Roboters erlauben und sich entsprechend entweder im Stand zum Ziel drehen oder noch zeitintensiver in mehreren Zügen wenden. Da, wie bereits unter dem Punkt „Path-Planner“ beschrieben, diese Zeit einzusparen ist, verwendet die Arbeit den Regulated Pure Pursuit Controller, welcher eine Trajektorienverfolgung bei Rückwärtsfahrt erlaubt. 
 
@@ -57,7 +57,7 @@ Der Verfolgungsalgorithmus besitzt die Fähigkeit die Geschwindigkeit basierend 
 Neben dem Pfad-Folge-Plugin implementiert der Controller-Server Fortschrittskontroll- und Zielkontroll-Plugins. Dafür sind die Nav2 Standard-Plugins SimpleProgressChecker und SimpleGoalChecker im Einsatz. Über den Stateful-Parameter des GoalCheckers lässt sich bestimmen, ob dieser den Fortschritt des Roboters über mehrere Planungsdurchläufe speichert. Da die Speicherung nur einen Vorteil bei dynamischen Umgebungen erbringt und sonst nur Rechenleistung verbraucht, ist diese Funktion ausgeschaltet. 
 
 
-Costmap
+##### Costmap
 
 Basis der Costmap bilden die von der slam_toolbox erzeugten zwei-dimensionalen Rasterkarten. Mithilfe verschiedener Layer und Filter integriert die Costmap die Informationen des Laser-Scanners in die Karte. Dies erlaubt die Darstellung der realen dynamischen Umgebung des Roboters. Basierend auf den in der Costmap enthaltenen Informationen plant der Pfad-Planer die Trajektorien. 
 
@@ -71,27 +71,25 @@ Der static-layer enthält Informationen über die Position und Form bekannter un
 
 Die Verwendung eines Keepout-Filters ist auf dieser Strecke essentiell, wenn die Steuerung des Roboters durch einen Pfad-Planer erfolgt. Der Grund hierfür ist, dass der Pfad-Planer bei Planung einer geraden Trajektorie von der einen Rampe auf die Andere den Roboter über einen hohen Absatz fahren lässt, wodurch sich dieser im Normalfall überschlägt. Ein Keepout-Filter ist ein Filter mit dem der Benutzer manuell Zonen erzeugen kann, die in der Costmap als Kollisionsbereiche erscheinen, wodurch der Pfad-Planer diese Zonen bei der Erstellung der Trajektorie meidet.
 
-![keepout_filter](https://github.com/EduArt-Robotik/edu_robocub_rescue_stack/blob/main/docs/keepout_filter.png"keepout_filter")
+![keepout_filter](https://github.com/EduArt-Robotik/edu_robocub_rescue_stack/blob/main/docs/keepout_filter.png)
 
-![global_costmap](https://github.com/EduArt-Robotik/edu_robocub_rescue_stack/blob/main/docs/global_costmap.png"global_costmap")
+![global_costmap](https://github.com/EduArt-Robotik/edu_robocub_rescue_stack/blob/main/docs/global_costmap.png)
 
 Wie in Bild X zu erkennen ist, ist die Gestaltung des Keepout-Filters so gewählt, dass dem Pfad-Planer nur ein sehr kleiner Bereich zur Verfügung steht, durch den er die Trajektorie planen kann. Dieser Bereich befindet sich ein Stück hinter dem Schnittpunkt der Rampen-Ebenen, sodass der Roboter nur einen kleinen Absatz herunterfahren muss und so mühelos und sicher auf die nachfolgende Ebene gelangt. Da der keepout-filter fixiert ist, müsste der Roboter im Rahmen der Rückfahrt den Absatz wieder hoch fahren. Da dies in der Regel zu Problemen führt, sind die nachfolgenden Karten in Richtung der positiven X-Achse verschoben. Die Verschiebung ermöglicht die Platzierung des Keepout-Filters über der Karte genau so, dass der Roboter bei der Rückfahrt den Absatz auf der anderen Rampe herunterfährt. Die Position der Karte im Globalen-Koordinatensystem lässt sich in der Karten-Konfigurations-Datei einstellen. Die slam_toolbox erstellt die Karten-Konfigurations-Datei im Zuge der Erstellung der Karte und vergibt die Ursprungsposition dieser manuell. Diese Ursprungsposition ist oftmals nicht korrekt und sollte bei der Generierung von Karten mit der slam_toolbox überprüft werden. Ebenfalls in Bild X zu sehen ist, dass der Keepout-Filter an beiden Seiten der Öffnung etwas bauchig geformt ist. Versuche haben gezeigt, dass sich sowohl im Hinblick auf eine stabile Fahrweise als auch auf die nachfolgenden Weiterfahrt eine leicht quere Überfahrt am besten eignet. Die bauchige Form des Keepout-Filters an dieser Stelle leitet diese Querfahrt ein. Zur Erstellung des Keepout-Filters, aber auch zur Bearbeitung der Karten hat sich das Bildbearbeitungsprogramm gimp (https://www.gimp.org/) als gut erwiesen. 
 
 Die lokale costmap passt die grobe Pfad-Planung, die zunächst basierend auf der globalen costmap stattgefunden hat, situativ an. Sie deckt im Vergleich zur globalen costmap (gesamte Karte) nur einen kleinen Bereich unmittelbar um den Roboter ab. Dieser Bereich enthält sehr detaillierte Echtzeit-Informationen über Hindernisse im nahegelegenen Umfeld des Roboters, wodurch eine präzisere Pfad-Planung möglich ist. Standardmäßig implementiert die lokale costmap ebenfalls einen inflation-layer sowie einen keepout-filter. Speziell für den Erhalt der Informationen über dynamische Ereignisse ist ein obstacle-layer verwendet. 
 
-![local_costmap](https://github.com/EduArt-Robotik/edu_robocub_rescue_stack/blob/main/docs/local_costmap.png"local_costmap")
+![local_costmap](https://github.com/EduArt-Robotik/edu_robocub_rescue_stack/blob/main/docs/local_costmap.png)
 
 Der obstacle-layer bezieht seine Informationen über die Umgebung des Roboters über den Laser-Scanner. Er erfasst und speichert die Form und Position der Hindernisse in Echtzeit und aktualisiert die damit costmap kontinuierlich, wodurch der Pfad-Planer die Trajektorie situativ anpassen kann. Obwohl der obstacle-layer sich eher für dynamische Umgebungen eignet und die Strecke in der sich der Roboter bewegt rein statisch ist, bietet die Verwendung des obstacle-layers einen wesentlichen Vorteil. 
 
 Im Moment des Sprunges von einer Rampe auf die Andere, neigt sich der Roboter teilweise so stark, dass der Laser-Scanner den Boden als unmittelbares Hindernis erfasst und dieses durch den obstacle-layer in die costmap überträgt. Dies sorgt dafür, dass der Roboter zunächst abbremst und einen Moment stehen bleibt. Das Abbremsen sorgt zum Einen für einen reduzierten Schlupf im Gegensatz zu einem stark schwingenden bis hüpfenden Weiterfahren und ermöglicht zum Anderen, dass der Roboter während der Bestimmung der Initialisierungs-Pose relativ ruhig da steht. 
 
-Ausführung / Vorgehen
-
-Probleme:
+#### Probleme:
 
 Nachfolgend sind Probleme und Fehler, die während der Test-Durchläufe in unregelmäßigen Abständen aufgekommen sind, aufgelistet und beschrieben.
 
-TF_NAN_INPUT-Error:
+##### TF_NAN_INPUT-Error:
 
 Error: Ignoring transform for child_frame_id “odom” from authority “Authority undetectable” because of nan value in the transform (nan nan nan) (0.000000 0.000000 -0.770181 0.637825)
 
@@ -107,7 +105,7 @@ Parallel zum TF_NAN_INPUT-Error tritt folgender Fehler auf:
 
 Dieser Fehler könnte ebenfalls von der fehlerhaften Odometrie resultieren, da die Positionserkennung des AMCL’s neben den Daten des 2D-Laserscanners auch auf den Informationen der Odometrie basiert.
 
-Fehlerhafte Lokalisierung durch Sensor-Drift
+##### Fehlerhafte Lokalisierung durch Sensor-Drift
 
 
 Gründe, weshalb die Positionsschätzung des AMCLs verschlechtert wird:
@@ -133,11 +131,9 @@ Probleme, die während des Fahrends zur Verschlechterung der Odometrie führen:
 Allgemein: Starke Federung des Offroad-Roboters braucht einen kurzen Moment bis sie wieder eingeschwungen ist, der Roboter also still auf der Fahrbahn steht. 
 
 
-Steckenbleiben im inflation-layer oder keepout-filter
+### Steckenbleiben im inflation-layer oder keepout-filter
 
 Sowohl der inflation-layer als auch der keepout-filter sind in der costmap als Kollisionsbereiche repräsentiert. Da der „Sprung“ von der einen Rampe auf die Andere sehr unkontrolliert stattfindet, ist es vorgekommen, dass der Roboter innerhalb dieser Kollisionsbereiche landet. Ist dies der Fall, kann der Pfad-Planer keinen Pfad zur Ziel-Position berechnen und der Roboter bleibt an der Stelle stehen. Ein Ansatz zur Lösung dieses Problems wäre die Anpassung des Recovery-Modus des Roboters, welcher im  Nav2 behavour-tree definiert ist. 
-
-Zusammenfassung / Ausblick
 
 
 
