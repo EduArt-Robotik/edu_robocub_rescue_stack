@@ -131,7 +131,7 @@ Probleme, die während des Fahrends zur Verschlechterung der Odometrie führen:
 Allgemein: Starke Federung des Offroad-Roboters braucht einen kurzen Moment bis sie wieder eingeschwungen ist, der Roboter also still auf der Fahrbahn steht. 
 
 
-### Steckenbleiben im inflation-layer oder keepout-filter
+##### Steckenbleiben im inflation-layer oder keepout-filter
 
 Sowohl der inflation-layer als auch der keepout-filter sind in der costmap als Kollisionsbereiche repräsentiert. Da der „Sprung“ von der einen Rampe auf die Andere sehr unkontrolliert stattfindet, ist es vorgekommen, dass der Roboter innerhalb dieser Kollisionsbereiche landet. Ist dies der Fall, kann der Pfad-Planer keinen Pfad zur Ziel-Position berechnen und der Roboter bleibt an der Stelle stehen. Ein Ansatz zur Lösung dieses Problems wäre die Anpassung des Recovery-Modus des Roboters, welcher im  Nav2 behavour-tree definiert ist. 
 
