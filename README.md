@@ -162,30 +162,21 @@ Parallel zum TF_NAN_INPUT-Error tritt folgender Fehler auf:
 
 Dieser Fehler könnte ebenfalls von der fehlerhaften Odometrie resultieren, da die Positionserkennung des AMCL’s neben den Daten des 2D-Laserscanners auch auf den Informationen der Odometrie basiert.
 
-##### Fehlerhafte Lokalisierung durch Sensor-Drift
+##### Fehlerhafte Lokalisierung
 
+Die letztendliche Schätzung der Pose und somit die Lokalisierung des Roboters wird vom AMCL durchgeführt. Da die Positionsschätzung des AMCL’s auf der Erkennung von Merkmalen in den Sensor-Daten des 2D-Laserscanners basiert, könnte es sein, dass die symmetrische Strecke, besonders auf den Geraden 1 und 2, welche als einzige Merkmale die Wände und Ecken aufweisen, dem AMCL Schwierigkeiten bereitet. Die Erkenntnis, dass sich die Lokalisierungs-Probleme jedoch besonders auf den Rampen zeigen, die wesentlich spezifischere Merkmale aufweisen, lässt auf eine andere Hauptursache schließen. Ein Beitragen zur Verschlechterung der Lokalisierung ist trotzdem nicht auszuschließen. 
 
-Gründe, weshalb die Positionsschätzung des AMCLs verschlechtert wird:
+Aufgrund des großen Schlupfes, der an vielen Stellen der Strecke an den Rädern des Roboters entsteht ist davon auszugehen, dass die Odometrie, auf welcher die Positions-Schätzung des AMCL’s zu einem wesentlichen Teil basiert, eine große Ursache für eine fehlerhafte Lokalisierung ist. Besonders viel Schlupf entsteht in folgenden Situationen:
 
-Fehlende und unzureichende Merkmale:
+- Das Drehen des Roboters auf der Rampe im Stand in Richtung der Ziel-Position sorgt dafür, das dieser oftmals durch die gleichzeitige Rotation der Räder die Rampe etwas herunterrutscht. 
 
-Der AMCL basiert auf der Erkennung von Merkmalen in den sensorbasierten Daten, um die Positionsschätzung zu verbessern.
-→ Sehr symmetrische Umgebungen können zu Problemen führen, also zu einer instabilen und ungenauen Positionsschätzung
+- Bei starkem Abbremsen schaukelt der Roboter aufgrund der weichen Federung teilweise stark auf und macht mehrere Sätze über die Fahrbahn. Dieses Verhalten ist überwiegend während der Talfahrt auf den Rampen zu erkennen.
 
-Ungenaue Odometrie: (Schätzung der Pose durch den AMCL basiert auf Odometriedaten)
+- Das Herunterfahren des Absatzes von der einen Rampe auf die Andere führt gelegentlich zu Verlust des Bodenkontaktes einzelner oder aller Räder. 
 
-→ viel Schlupf durch die Beschaffenheit der Strecke
+→ Die Odometrie kann die Bewegung in den beschriebenen Situationen nur unzureichend oder garnicht registrieren. 
 
-→ Unregelmäßigkeiten in der Umgebung: Wenn der Roboter auf unebenem Gelände oder auf Oberflächen mit geringer Haftung unterwegs ist, kann dies zu zusätzlichen Bewegungen führen, die nicht von den Odometrie-Sensoren erfasst wird. Solche Unregelmäßigkeiten können die Genauigkeit der Odometrie beeinträchtigen. 
-Probleme, die während des Fahrends zur Verschlechterung der Odometrie führen:
-
-- Roboter dreht sich auf der Stelle auf der Rampe, sorgt dafür, das der Roboter oftmals durch die gleichzeitige Bewegung aller Räder die Rampe etwas herunterrutscht. 
-
-- Roboter bremst stark ab, sorgt dafür, dass er teilweise stark aufschaukelt und leicht über den Boden hüpft, wodurch die Position nicht beibehalten wird. 
-
-- „Sprung“ über die Rampe: Nach aufkommen auf der zweiten Rampe braucht der Roboter braucht der Roboter einen Moment bis er wieder still auf der Rampe steht. Allgemein durch den Verlust des Bodenkontaktes und des Sprunges entsteht eine Bewegung, die die Odometrie nicht messen kann. 
-
-Allgemein: Starke Federung des Offroad-Roboters braucht einen kurzen Moment bis sie wieder eingeschwungen ist, der Roboter also still auf der Fahrbahn steht. 
+Zur Verbesserung der Lokalisierung publiziert der Algorithmus nach jedem Laden einer neuen Karte eine Initialisierungsposition. Die Bestimmung dieser Position basiert auf dem mittels Laserscanner gemessenen Abstand zu den Wänden vor bzw. hinter und neben dem Roboter. Diese Abstandsmessung ist präzise solange der Roboter keinen Roll- und/oder Gier-Winkel besitzt. Ist dies der Fall, so verfälscht dies die Abstandsmessung etwas und es entsteht ein systematischer Fehler.  Zum jetzigen Zeitpunkt kann der Algorithmus diesen Fehler für einen sehr kleinen Yaw-Winkel bzw. für einen Yaw-Winkel nahe Pi raus rechnen. 
 
 
 ##### Steckenbleiben im inflation-layer oder keepout-filter
