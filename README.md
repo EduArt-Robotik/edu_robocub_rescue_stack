@@ -9,9 +9,14 @@ Katarina, Jakob, Daniel
 
 ## Einleitung / Aufgabenstellung
 
-## Orientierung und Lokalisierung
+-Das Ziel ist es, dass ein Roboter so oft und so schnell wie möglich einen Vordefinierten Parqour durchfährt.
+-wenn er am Ende angekommen ist soll er zurückfahren ohne sich umzudrehen
+-Parqour besteht aus flachem Element Rampe übersprung zu nächsten Rampe und flachen Element
+-Parqour ist definiert in Dokument:
+-wurde getestet mit Ter0-Ramp
 
-Beide oben genannten Algorithmen benötigen für die Steuerung des Roboters dessen aktuelle Position. Um die Position zu erhalten, wurde sich für die Adaptive Monte Carlo Localization (AMCL) entschieden. Der für die Lokalisierung verwendete Algorithmus wird von der open-source Bibliothek Nav2 der Navigation Community bereitgestellt. Er benötigt einen 2D Laserscanner und eine zuvor erstellte Map. Der Laserscanner wurde dafür in dem Gazebo Robotermodell hinzugefügt. [source: Github nav2_amcl](https://github.com/ros-planning/navigation2/tree/main/nav2_amcl)
+## Orientierung und Lokalisierung
+Um den Roboter durch den Parqour zu Steuern wird zu jedem Zeitpunkt die aktuelle Position benötigt. Um die Position zu erhalten, wurde sich für die Adaptive Monte Carlo Localization (AMCL) entschieden. !Mehr infos über Amcl!.Der für die Lokalisierung verwendete Algorithmus wird von der open-source Bibliothek Nav2 der Navigation Community bereitgestellt. Er benötigt einen 2D Laserscanner und eine zuvor erstellte Map. Der Laserscanner wurde dafür in dem Gazebo Robotermodell hinzugefügt. [source: Github nav2_amcl](https://github.com/ros-planning/navigation2/tree/main/nav2_amcl)
 
 ### Map Generieren 
 
