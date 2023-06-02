@@ -181,7 +181,7 @@ Aufgrund des großen Schlupfes, der an vielen Stellen der Strecke an den Rädern
 
 → Die Odometrie kann die Bewegung in den beschriebenen Situationen nur unzureichend oder garnicht registrieren. 
 
-Zur Verbesserung der Lokalisierung publiziert der Algorithmus nach jedem Laden einer neuen Karte eine Initialisierungs-Position. Die Bestimmung dieser Position basiert auf dem mittels Laserscanner gemessenen Abstand zu den Wänden vor bzw. hinter und neben dem Roboter. Diese Abstandsmessung ist präzise solange der Roboter keinen Roll- und/oder Gier-Winkel besitzt. Ist dies der Fall, so verfälscht dies die Abstandsmessung etwas und es entsteht ein systematischer Fehler.  Zum jetzigen Zeitpunkt kann der Algorithmus diesen Fehler für einen sehr kleinen Yaw-Winkel bzw. für einen Yaw-Winkel nahe Pi raus rechnen. 
+Zur Verbesserung der Lokalisierung publiziert der Algorithmus nach jedem Laden einer neuen Karte eine Initialisierungs-Position. Die Bestimmung dieser Position basiert auf dem mittels Laserscanner gemessenen Abstand zu den Wänden vor bzw. hinter und neben dem Roboter. Diese Abstandsmessung ist präzise solange der Roboter keinen Roll- und/oder Pitch-Winkel besitzt. Ist dies der Fall, so verfälscht dies die Abstandsmessung etwas und es entsteht ein systematischer Fehler.  Zum jetzigen Zeitpunkt kann der Algorithmus diesen Fehler für einen sehr kleinen Yaw-Winkel bzw. für einen Yaw-Winkel nahe Pi raus rechnen. 
 
 
 ##### Steckenbleiben im inflation-layer oder keepout-filter
