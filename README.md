@@ -63,7 +63,7 @@ Durch beide Implementierung kann die Map gewechselt werden. Die Implementierung 
 - zusätzliche einleitende Wort
 - Verwendung von Gazebo
 
-### Algorithmus mit Verwendung der Navigationsbibliotheken
+### Algorithmus mit Verwendung der Nav2 Navigationsbibliotheken
 
 #### Navigation:
 
@@ -96,7 +96,7 @@ Abhängig von dem Origin-Punkt der Karte (siehe [Karten-Konfigurations-Datei](ma
 
 Die Ermittlung der Laser-Strahlen, die unabhängig der aktuellen Orientierung des Roboters in die notwendige Richtung (senkrecht zur Wand) zeigen, erfolgt mittels des Yaw-Winkels der IMU. Die IMU stellt darüber hinaus die Informationen der Orientierung (X, Y, Z, W) des Roboters für die Initialisierungs-Pose zur Verfügung.
 
-#### ROS Navigation 2:
+#### ROS Navigation Stack 2:
 
 Die eigentliche Navigation durch den Kurs basiert auf dem ROS Navigation Stack 2 (Nav2). Ein Pfad-Planer abonniert die publizierten Ziel-Positionen und plant daraufhin einen Pfad durch eine Costmap hin zum Ziel. Da aufgrund großer Höhenunterschiede zwischen einzelnen Bereichen der beiden Rampen das Fahren von der einen auf die andere Rampe nicht überall unfallfrei möglich ist, sorgt ein „Keepout“-Filter über der Costmap dafür, dass der Übergang an einer sicheren Stelle stattfindet. Ist ein valider Pfad gefunden, steuert ein „FollowPath“-Plugin die Roboterbewegung entlang des Pfades. Ein „Behaviour-Tree“ regelt das Regenerierungsverhalten des Roboters in Sonderfällen, wie dem Abkommen vom Pfad oder dem Steckenbleiben des Roboters.
 
