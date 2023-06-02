@@ -9,6 +9,8 @@ Katarina, Jakob, Daniel
 
 ## Einleitung / Aufgabenstellung
 
+Ein Roboter soll autonom einen vordefinierten Parqour ((TER 1)Sand/Grave)[https://rrl.robocup.org/wp-content/uploads/2022/05/RoboCup2022_AssemblyGuide_Final.pdf] so oft und so schnell wie möglich durchqueren. Wenn der Roboter am Ende des (TER 1)Sand/Grave Parqour angekommen ist, soll der Roboter ohne eine 180° drehung zurückfahren. Der Roboter muss zuerst ein flaches Element überfahren, dann ein Rampe hinauffahren, auf eine andere Rampe gelangen, diese dann wieder hinunterfahren und zuletzt auf einem flaches Element bis zu dessen Ende fahren. Eine besondere Schwierigkeit ist dass Überqueren der Rampe.
+
 -Das Ziel ist es, dass ein Roboter so oft und so schnell wie möglich einen Vordefinierten Parqour durchfährt.
 -wenn er am Ende angekommen ist soll er zurückfahren ohne sich umzudrehen
 -Parqour besteht aus flachem Element Rampe übersprung zu nächsten Rampe und flachen Element
