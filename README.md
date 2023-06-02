@@ -76,7 +76,7 @@ Wie bereits erklärt, bietet die auf zwei Dimensionen basierende Positionserkenn
 
 Dem Roboter ist zudem ein neues Ziel vorzugeben, welches dieser in der Karte anzufahren hat. Als vorteilhafter Ablauf hat sich hier ergeben zu Beginn die Ebenen-spezifische Karte zu laden, anschließend die Ziel-Position zu senden und zuletzt die Roboter-Pose zu initialisieren. 
 
-Intuitiv würde man die Ziel-Position erst nach der Initialisierung der Roboter-Position an den Pfad-Planer senden, da der Roboter jedoch für eine genaue Bestimmung der Initialisierungs-Position möglichst keine Bewegung um Pitch- und Roll-Winkel besitzen sollte, hat das Programm zu warten, bis dieser nach dem Sprung über die Rampe wieder gerade steht. Die Wartezeit beträgt 1.0 Sekunden. Das Programm prüft im Anschluss den Stand des Roboters. Das sofortige Vergeben des neuen Zieles verhindert, dass der Roboter sich in der Zwischenzeit wieder zurück zum vorherigen Ziel (alte Karte) orientiert und ermöglicht stattdessen, dass er sich direkt in die richtige Richtung (neues Ziel) bewegt.
+Intuitiv würde man die Ziel-Position erst nach der Initialisierung der Roboter-Position an den Pfad-Planer senden, da der Roboter jedoch für eine genaue Bestimmung der Initialisierungs-Position möglichst keinen Pitch- und Roll-Winkel besitzen sollte, hat das Programm zu warten, bis dieser nach dem Sprung über die Rampe wieder gerade steht. Die Wartezeit ist auf 1.0 Sekunde eingestellt. Das Programm prüft im Anschluss den Stand des Roboters. Das sofortige Vergeben des neuen Zieles verhindert, dass der Roboter sich in der Zwischenzeit wieder zurück zum vorherigen Ziel (alte Karte) orientiert und ermöglicht stattdessen, dass er sich direkt in die richtige Richtung (neues Ziel) bewegt.
 
 Aufgrund unterschiedlicher Winkel-Konstellationen sowie der aktuellen X/Y-Postion lässt sich die gegenwärtig befahrene Ebene identifizieren. Der Registrierung einer Änderung der Ebene folgt das Laden einer neuen Karte, die Navigation zu einem neuen, abhängig von der Ebene und der derzeitigen Bewegungsrichtung gewählten Ziel sowie die Initialisierung der neuen Roboter-Pose. Dieser Ablauf ist für jede Karte identisch.
 
@@ -87,6 +87,13 @@ Für Hin- und Rückweg ist jeweils eine Ziel-Position (inkl. Orientierung) pro K
 ##### Initialisierungs-Position:
 
 Die Bestimmung der X/Y-Position erfolgt mittels der durch den Laser-Scanner gemessenen Abstände bestimmter Laser-Strahlen (Gerade aus nach vorne, gerade aus nach hinten, rechts und links) relativ zu den Wänden der Hindernisstrecke. Abhängig von der aktuellen Position auf der Strecke finden unterschiedliche Wände Verwendung zur Abstandsmessung und somit zum Erhalt der Roboter-Position. Bevorzugt sind Wände die eher einen senkrechten Winkel zur Ebene auf dem sich der Roboter befindet, aufzeigen. Dies erlaubt eine Minimierung des Fehlers, den der Roboter aufgrund seiner Eigenbewegung um Pitch- und Roll-Winkel erzeugt. 
+
+Gerade 1: 	Wand rechts & Wand gerade aus nach hinten
+Rampe 1:	Wand rechts & Wand gerade aus nach vorne
+Rampe 2: 	Wand links & Wand gerade aus nach hinten
+Gerade 2: 	Wand links & Wand gerade aus nach vorne
+
+Abhängig von dem Origin-Punkt der Karte (siehe Karten-Konfigurations-Datei [hier](map/map_8.3.yaml)) wird auf den gemessenen Abstand ein Offset aufaddiert, um die echte Pose relativ zum map_frame, also dem Globalen-Koordinatensystem zu erhalten.
 
 Die Ermittlung der Laser-Strahlen, die unabhängig der aktuellen Orientierung des Roboters in die notwendige Richtung (senkrecht zur Wand) zeigen, erfolgt mittels des Yaw-Winkels der IMU. Die IMU stellt darüber hinaus die Informationen der Orientierung (X, Y, Z, W) des Roboters für die Initialisierungs-Pose zur Verfügung.
 
@@ -182,7 +189,7 @@ Aufgrund des großen Schlupfes, der an vielen Stellen der Strecke an den Rädern
 
 → Die Odometrie kann die Bewegung in den beschriebenen Situationen nur unzureichend oder garnicht registrieren. 
 
-Zur Verbesserung der Lokalisierung publiziert der Algorithmus nach jedem Laden einer neuen Karte eine Initialisierungsposition. Die Bestimmung dieser Position basiert auf dem mittels Laserscanner gemessenen Abstand zu den Wänden vor bzw. hinter und neben dem Roboter. Diese Abstandsmessung ist präzise solange der Roboter keinen Roll- und/oder Gier-Winkel besitzt. Ist dies der Fall, so verfälscht dies die Abstandsmessung etwas und es entsteht ein systematischer Fehler.  Zum jetzigen Zeitpunkt kann der Algorithmus diesen Fehler für einen sehr kleinen Yaw-Winkel bzw. für einen Yaw-Winkel nahe Pi raus rechnen. 
+Zur Verbesserung der Lokalisierung publiziert der Algorithmus nach jedem Laden einer neuen Karte eine Initialisierungs-Position. Die Bestimmung dieser Position basiert auf dem mittels Laserscanner gemessenen Abstand zu den Wänden vor bzw. hinter und neben dem Roboter. Diese Abstandsmessung ist präzise solange der Roboter keinen Roll- und/oder Gier-Winkel besitzt. Ist dies der Fall, so verfälscht dies die Abstandsmessung etwas und es entsteht ein systematischer Fehler.  Zum jetzigen Zeitpunkt kann der Algorithmus diesen Fehler für einen sehr kleinen Yaw-Winkel bzw. für einen Yaw-Winkel nahe Pi raus rechnen. 
 
 
 ##### Steckenbleiben im inflation-layer oder keepout-filter
