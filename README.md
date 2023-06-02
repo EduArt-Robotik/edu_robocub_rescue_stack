@@ -45,7 +45,7 @@ Zum Testzwecken wurde zuerst ein Map Wechsel durch Kommandos in dem Terminal aus
 
 Um die Map durch aktivieren und deaktivieren der Map-Server zu tauschen, ist es nötig den aktuellen State der Nodes abzufragen und den State Wechsel triggern zu können. Um den aktuellen Lifecycle State für den Beispiel Node mit dem Namen map_server zu erhalten kann ros2 service call `/map_server/get_state lifecycle_msgs/GetState` ausgeführt werden. Um den State von Unconfigured zu Inactive zu wechseln kann `ros2 lifecycle set /map_server configure` oder `ros2 service call /lc_talker/change_state lifecycle_msgs/ChangeState "{transition: {id: 2}}"` ausgeführt werden. [source](https://index.ros.org/p/lifecycle/)
 
-### Implementierung
+### Implementierung des Map Wechsel
 
 ##### Implementierung des Map wechsels mittels Load Map
 
@@ -56,7 +56,7 @@ Zur Implementierung des Mapwechsel mittels Lifecycle Managements wurde die auch 
 
 Um den aktuellen State zu erhalten und eine State Wechsel zu triggern wird je ein asyncRequest gesendet. Im Gegensatz zur Implementierung von thehummingbird wurde dabei eine Callbackfunktion übergeben, durch die eine Rückmeldung über den erfolg/Scheitern, des wechsel der Lifecycle Node zusände übergeben wird.
 
-##### Probleme 
+###### Probleme bei der Implementierung der 4 Map Server
 Bei der Implementierung der 4 Map Server ist es zu dem Problem gekommen, dass beim Starten oft nicht alle Map Server Nodes und die AMCL Node vollständig gestartet wurden. Um dieses Problem zu lösen, wartet der Thread nun zu Beginn (im Konstruktor des LocalisationControlNode ) für 2 Sekunden. Wenn nicht gewartet wird kann es zu Fehlern führen, da auf dem Map Server zugegriffen werden kann, obwohl der Node nicht bereit ist.
 
 #### Vergleiche 
@@ -243,6 +243,3 @@ Der Algorithmus hat prinzipiell funktioniert, solange es keine Probleme mit der 
 Zusätzlich sind die physikalischen Eigenschaften des Robotermodells noch nicht komplett ausgereift, weshalb der Roboter bei der Rampenüberquerung unter Umständen in eine instabile Lage gekippt ist und z.B. gehüpft oder ganz auf die Seite gekippt ist.
 
 ### Vergleich der Algorithmen
-
-
-
