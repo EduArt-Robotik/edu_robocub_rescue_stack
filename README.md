@@ -88,10 +88,10 @@ Für Hin- und Rückweg wäre jeweils eine vorgegebene Ziel-Position (inkl. Orien
 
 Die Bestimmung der X/Y-Position erfolgt mittels der durch den Laser-Scanner gemessenen Abstände bestimmter Laser-Strahlen (Gerade aus nach vorne, gerade aus nach hinten, rechts und links) relativ zu den Wänden der Hindernisstrecke. Abhängig von der aktuellen Position auf der Strecke finden unterschiedliche Wände Verwendung zur Abstandsmessung und somit zum Erhalt der Roboter-Position. Bevorzugt sind Wände die eher einen senkrechten Winkel zur Ebene auf dem sich der Roboter befindet, aufzeigen. Dies erlaubt eine Minimierung des Fehlers, den der Roboter aufgrund seiner Eigenbewegung um Pitch- und Roll-Winkel erzeugt. 
 
-Gerade 1: 	Wand rechts & Wand gerade aus nach hinten
-Rampe 1:	Wand rechts & Wand gerade aus nach vorne
-Rampe 2: 	Wand links & Wand gerade aus nach hinten
-Gerade 2: 	Wand links & Wand gerade aus nach vorne
+Gerade 1: 	Wand rechts & Wand gerade aus nach hinten  
+Rampe 1:	Wand rechts & Wand gerade aus nach vorne  
+Rampe 2: 	Wand links & Wand gerade aus nach hinten  
+Gerade 2: 	Wand links & Wand gerade aus nach vorne  
 
 Abhängig von dem Origin-Punkt der Karte (siehe Karten-Konfigurations-Datei [hier](map/map_8.3.yaml)) wird auf den gemessenen Abstand ein Offset aufaddiert, um die echte Pose relativ zum map_frame, also dem Globalen-Koordinatensystem zu erhalten.
 
@@ -157,8 +157,7 @@ Nachfolgend sind Probleme und Fehler, die während der Test-Durchläufe in unreg
 
 ##### TF_NAN_INPUT-Error
 
-Original-Fehler:
-
+Original-Fehler:  
 Error: Ignoring transform for child_frame_id “odom” from authority “Authority undetectable” because of nan value in the transform (nan nan nan) (0.000000 0.000000 -0.770181 0.637825)
 
 Im Rahmen der Test-Durchläufe auf der Hindernis-Strecke in Gazebo ist der Fehler vermehrt aufgetreten, wenn zwei oder mehr Räder des Roboters keinen Kontakt mit der Fahrbahn hatten, wie zum Beispiel beim „Sprung“ von der einen Rampe auf die Andere oder bei zu starkem abbremsen auf der Rampe, wodurch die Hinterräder angehoben wurden.
@@ -169,8 +168,7 @@ Da sich der TF_NAN_INPUT-Error auf die Odometrie bezieht, wäre eine erste mögl
 
 Parallel zum TF_NAN_INPUT-Error tritt folgender Fehler auf:  
 
-Original-Fehler:
-
+Original-Fehler:  
 [WARN] [amcl]: AMCL covariance or pose is NaN, likely due to an invalid configuration or faulty sensor measurements! Pose is not availabl!
 
 Dieser Fehler könnte ebenfalls von der fehlerhaften Odometrie resultieren, da die Positionserkennung des AMCL’s neben den Daten des 2D-Laserscanners auch auf den Informationen der Odometrie basiert.
