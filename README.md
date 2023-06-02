@@ -87,7 +87,7 @@ Rampe 1:	Wand rechts & Wand gerade aus nach vorne
 Rampe 2: 	Wand links & Wand gerade aus nach hinten  
 Gerade 2: 	Wand links & Wand gerade aus nach vorne  
 
-Abhängig von dem Origin-Punkt der Karte (siehe Karten-Konfigurations-Datei [hier](map/map_8.3.yaml)) wird auf den gemessenen Abstand ein Offset aufaddiert, um die echte Pose relativ zum map_frame, also dem Globalen-Koordinatensystem zu erhalten.
+Abhängig von dem Origin-Punkt der Karte (siehe [Karten-Konfigurations-Datei](map/map_8.3.yaml)) wird auf den gemessenen Abstand ein Offset aufaddiert, um die echte Pose relativ zum map_frame, also dem Globalen-Koordinatensystem zu erhalten.
 
 Die Ermittlung der Laser-Strahlen, die unabhängig der aktuellen Orientierung des Roboters in die notwendige Richtung (senkrecht zur Wand) zeigen, erfolgt mittels des Yaw-Winkels der IMU. Die IMU stellt darüber hinaus die Informationen der Orientierung (X, Y, Z, W) des Roboters für die Initialisierungs-Pose zur Verfügung.
 
