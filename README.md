@@ -78,11 +78,11 @@ Dem Roboter ist zudem ein neues Ziel vorzugeben, welches dieser in der Karte anz
 
 Intuitiv würde man die Ziel-Position erst nach der Initialisierung der Roboter-Position an den Pfad-Planer senden, da der Roboter jedoch für eine genaue Bestimmung der Initialisierungs-Position möglichst keinen Pitch- und Roll-Winkel besitzen sollte, hat das Programm zu warten, bis dieser nach dem Sprung über die Rampe wieder gerade steht. Die Wartezeit ist auf 1.0 Sekunde eingestellt. Das Programm prüft im Anschluss den Stand des Roboters. Das sofortige Vergeben des neuen Zieles verhindert, dass der Roboter sich in der Zwischenzeit wieder zurück zum vorherigen Ziel (alte Karte) orientiert und ermöglicht stattdessen, dass er sich direkt in die richtige Richtung (neues Ziel) bewegt.
 
-Aufgrund unterschiedlicher Winkel-Konstellationen sowie der aktuellen X/Y-Postion lässt sich die gegenwärtig befahrene Ebene identifizieren. Der Registrierung einer Änderung der Ebene folgt das Laden einer neuen Karte, die Navigation zu einem neuen, abhängig von der Ebene und der derzeitigen Bewegungsrichtung gewählten Ziel sowie die Initialisierung der neuen Roboter-Pose. Dieser Ablauf ist für jede Karte identisch.
+Aufgrund unterschiedlicher Winkel-Konstellationen sowie der aktuellen X/Y-Postion lässt sich die gegenwärtig befahrene Ebene identifizieren. Der Registrierung einer Änderung der Ebene folgt das Laden einer neuen Karte, die Navigation zu einem neuen, abhängig von der Ebene und der derzeitigen Bewegungsrichtung gewählten Ziel sowie die Initialisierung der neuen Roboter-Pose. Dieser Ablauf ist für jede Karte identisch. 
 
 ##### Ziel-Position: 
 
-Für Hin- und Rückweg ist jeweils eine Ziel-Position (inkl. Orientierung) pro Karte zu publizieren. Diese Ziel-Positionen sind hart kodiert und empirisch an ein optimales Fahrverhalten angepasst. Ergänzen!!!!!
+Für Hin- und Rückweg wäre jeweils eine vorgegebene Ziel-Position (inkl. Orientierung) pro Karte ausreichend. Aufgrund der Tendez des Pfad-Planers für das Ziel auf den Rampen einen Pfad zu berechnen, der sehr nahe an Hindernissen bzw. den Kollisionsbereichen der Costmap entlang verläuft und deshalb teilweise zu problematischen Situationen geführt hat, sind auf den Rampen nun für Hin- und Rückweg jeweils zwei Ziele vergeben. Auf den Geraden ist jeweils ein Ziel ausreichend.
 
 ##### Initialisierungs-Position:
 
