@@ -58,7 +58,11 @@ Durch beide Implementierung kann die Map gewechselt werden. Die Implementierung 
 
 ## Steuerung
 
-### ALgorithmus mit Verwendung der Navigationsbibliotheken
+- c++ Programm
+- Testen mit TERO rampe
+- zusätzliche einleitende Wort
+
+### Algorithmus mit Verwendung der Navigationsbibliotheken
 
 #### Navigation:
 
@@ -238,7 +242,15 @@ Dies ermöglicht es, dass der Roboter in einem optimalen Winkel die Rampen wechs
 Der Algorithmus wurde bisher mit dem Gazebo Roboter Model eduard_offroad getestet und die Implementation ist speziell darauf zugeschnitten. Um das Gazebo Roboter Model eduard_offroad zu steuern, muss eine 'geometry_msgs::msg::Twist' unter '/cmd_vel' gesendet werden. In dem 'linear.x' Wert wird die Forwärtsgeschwindigkeit und in dem 'angular.z' Wert die Drehgeschwindigkeit um den Yaw Winkel des Roboters übergeben.
 
 #### Probleme :
-Der Algorithmus hat prinzipiell funktioniert, solange es keine Probleme mit der Lokalisierung gab. Die Lokalisierung hatte an den selben Stellen Probleme wie bei dem Algorithmus, der die Navigationsbibliothek verwendet(siehe [hier](README.md#Fehlerhafte-Lokalisierung)). Im Durchschnitt gab es jeden 3 Durchlauf an einer Stelle ein Problem mit der Lokalisierung, die dem Roboter eine Weiterfahrt nicht mehr möglich gemacht hat. 
+Der Algorithmus hat prinzipiell funktioniert, solange es keine Probleme mit der Lokalisierung gab. Die Lokalisierung hatte an den selben Stellen besonders viele Probleme wie der  Algorithmus, der die Navigationsbibliothek verwendet(siehe [hier](README.md#Fehlerhafte-Lokalisierung)). Wenn der Roboter sich an einer anderen Stelle befindet, die nicht bei der Planung des jeweiligen Navigationsschritt beachtet worden ist, ist die weiterfahrt des Roboter nicht möglich und es führt ob zu unfällen.
 Zusätzlich sind die physikalischen Eigenschaften des Robotermodells noch nicht komplett ausgereift, weshalb der Roboter bei der Rampenüberquerung unter Umständen in eine instabile Lage gekippt ist und z.B. gehüpft oder ganz auf die Seite gekippt ist.
 
 ### Vergleich der Algorithmen
+-Daniels Algorithmus: 
+pos: besser anpassbar für andere Rampen
+  
+-Katharina Algorithmus: 
+pos: int lokalisierungspose muss nur einmal gesetzt werden
+neg:
+ - fehleranfälliger
+ - schlechter anpassbar für andere Rampen: geschwindigkeit wird durch häufigkeit der Punkte angepasst, Punkte die anzusteuern sind durch viel ausprobieren herausgefunden
