@@ -84,7 +84,7 @@ Durch beide Implementierung kann die Map gewechselt werden. Die Implementierung 
 
 2. Parqour „TER0_ramp“ im Reiter „Insert“ auswählen und platzieren.
 
-3. Parqour anklicken und in linker Leiste pose einstellen:
+3. Parqour anklicken und in linker Leiste pose einstellen:  
     x: 3,14  
     y: 0,6  
     z: 0,00  
