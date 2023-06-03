@@ -2,7 +2,7 @@
 #include <vector>
 #include <cmath>
 #include <iostream>
-//#include "navigation.h"
+
 
 
 
@@ -10,7 +10,6 @@ class Localisation{
 
     private:
 
-    //Initialisierung Variablen
     float m_x;
     float m_y;
     float m_x_orient;

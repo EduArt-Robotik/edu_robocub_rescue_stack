@@ -154,12 +154,12 @@ void Localisation::determine_initialpose() {
         
         m_pitch_y_strich = m_pitch_y;
         
-        m_x_map_origin_off = 0.472; // Offset caused by map Origin-Point, see map-config-file
-        m_y_map_origin_off = 0.617;
+        m_x_map_origin_off = -0.472; // Offset caused by map Origin-Point, see map-config-file
+        m_y_map_origin_off = -0.617;
         
         // Initial-Position
-        m_x_pos = m_dist0_r - m_x_map_origin_off;
-        m_y_pos = m_dist90_r - m_y_map_origin_off;    
+        m_x_pos = m_dist0_r + m_x_map_origin_off;
+        m_y_pos = m_dist90_r + m_y_map_origin_off;    
         
         break;
         
@@ -218,20 +218,20 @@ void Localisation::determine_initialpose() {
 
         if(isinf(m_dist0_r)) {
 
-            m_x_map_origin_off = 1.985;
+            m_x_map_origin_off = 0; //1.985;
             m_y_map_origin_off = - 0.617;
-            m_manual_correction_off = 0,402; // offset to make the keepout-filter fitting for ramp 2
+            m_manual_correction_off = 0.402; // offset to make the keepout-filter fitting for ramp 2
 
             // Initial-Position
             m_x_pos = m_dist0_r + m_x_map_origin_off + m_manual_correction_off ; 
-            m_y_pos = m_dist90_r - m_y_map_origin_off; 
+            m_y_pos = m_dist90_r + m_y_map_origin_off; 
 
         } else {
             m_global_pos_left_wall = 1.9;   // using left wall of ramp2 as orientation-point
             
             // Initial-Position
-            m_x_pos = m_dist0_r + m_global_pos_left_wall + m_manual_correction_off; 
-            m_y_pos = m_y_map_origin_off - m_dist270_r;  
+            m_x_pos = m_dist0_r + m_x_map_origin_off + m_manual_correction_off; 
+            m_y_pos = m_global_pos_left_wall -  m_dist270_r;  
         }  
         
         break;
