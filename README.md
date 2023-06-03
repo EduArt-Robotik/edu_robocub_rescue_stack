@@ -69,6 +69,37 @@ Durch beide Implementierung kann die Map gewechselt werden. Die Implementierung 
 
 ### Algorithmus mit Verwendung der Nav2 Navigationsbibliotheken
 
+#### Voraussetzung:
+
+- Für die Simulation ist das lokale klonen des [edu_simulation-repositorys](https://github.com/EduArt-Robotik/edu_simulation) notwendig.
+
+- Um auf den Navigation Stack zugreifen zu können, ist das [navigation2-repostiory](https://github.com/ros-planning/navigation2) lokal zu klonen. 
+
+- Die speziell für den Eduard-Offroad-Roboter generierten "Lattice-Primitives", die sich in diesem Repository im gleichnamigen Ordner befinden, sind im geklonten navigation2-Ordner unter /navigation2/nav2_smac_planner/lattice_primitves abzuspeichern. Ohne die lattice_primitives ist die Performance des Paners deutlich schlechter. 
+
+### Launch:
+
+1. Gazebo starten:  
+    `ros2 launch edu_simulation eduard.launch.py`
+
+2. Parqour „TER0_ramp“ im Reiter „Insert“ auswählen und platzieren.
+
+3. Parqour anklicken und in linker Leiste pose einstellen:
+    x: 3,14  
+    y: 0,6  
+    z: 0,00  
+    roll: 0,00  
+    pitch: 0,00  
+    yaw: 0,00  
+
+    → Die Ziel-Positionen des Algorithmus sind darauf ausgelegt, dass der Parqour sich auf dieser Postion im Globalen-Koordinatensystem befindet.
+
+4. „Eduard Offroad“ im Reiter „Insert“ auswählen und in der nähe des Koordinatenursprungs (Blaue Z-Achse) platzieren.
+
+5. Navigations- & Steuerungs-Algorithmus starten:
+    `ros2 launch edu_robocup_rescue_stack navigation.launch.py`
+
+
 #### Navigation:
 
 ##### Ablauf:
