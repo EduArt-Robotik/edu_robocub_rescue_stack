@@ -44,7 +44,7 @@ Zum Testzwecken wurde zuerst ein Map Wechsel durch Kommandos in dem Terminal aus
 
 Um die Map durch aktivieren und deaktivieren der Map-Server zu tauschen, ist es nötig den aktuellen State der Nodes abzufragen und den State Wechsel triggern zu können. Um den aktuellen Lifecycle State für den Beispiel Node mit dem Namen map_server zu erhalten kann ros2 service call `/map_server/get_state lifecycle_msgs/GetState` ausgeführt werden. Um den State von Unconfigured zu Inactive zu wechseln kann `ros2 lifecycle set /map_server configure` oder `ros2 service call /lc_talker/change_state lifecycle_msgs/ChangeState "{transition: {id: 2}}"` ausgeführt werden. [source](https://index.ros.org/p/lifecycle/)
 
-### Implementierung des Map Wechsel
+### Implementierung des Map Wechsels
 
 ##### Implementierung des Map wechsels mittels Load Map
 
@@ -102,7 +102,7 @@ Im Rahmen der Suche nach einem Konzept zum Durchqueren der Parqours wurden zwei 
 
 ##### Ablauf:
 
-Wie bereits erklärt, bietet die auf zwei Dimensionen basierende Positionserkennung mit AMCL nicht die Möglichkeit einer kontinuierlichen Lokalisierung über den gesamten drei-dimensionalen Kurs. Aufgrund dessen ist abhängig von der aktuellen Ebene (Gerade 1, Rampe 1, Rampe 2 oder Gerade 2) eine spezifische Karte mit Hilfe von [LoadMap](README.md#Implementierung des Map Wechsel) zu laden in der die Roboter-Position jeweils neu zu initialisieren ist. 
+Wie bereits erklärt, bietet die auf zwei Dimensionen basierende Positionserkennung mit AMCL nicht die Möglichkeit einer kontinuierlichen Lokalisierung über den gesamten drei-dimensionalen Kurs. Aufgrund dessen ist abhängig von der aktuellen Ebene (Gerade 1, Rampe 1, Rampe 2 oder Gerade 2) eine spezifische Karte mit Hilfe von [LoadMap](README.md#Implementierung-des-Map-Wechsels) zu laden in der die Roboter-Position jeweils neu zu initialisieren ist. 
 
 ![Strecke: Ter0_Ramp](https://github.com/EduArt-Robotik/edu_robocub_rescue_stack/blob/main/docs/bev_strecke.png)
 
