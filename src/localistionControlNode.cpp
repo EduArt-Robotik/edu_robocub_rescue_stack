@@ -14,24 +14,23 @@ LocalisationControlNode::LocalisationControlNode(): Node("localisation_control")
     m_navigation = new Navigation(lp);
     
     //subscriber
-    subscriber_odom_= this->create_subscription<nav_msgs::msg::Odometry>("/odom", 1, std::bind(&LocalisationControlNode::odom_callback, this, std::placeholders::_1));
-    subscriber_laserscan_ = this->create_subscription<sensor_msgs::msg::LaserScan>("/demo/laser/out", rclcpp::QoS(rclcpp::SensorDataQoS()), std::bind(&LocalisationControlNode::scan_callback, this, std::placeholders::_1));
-    subscriber_amcl_pose_= this->create_subscription<geometry_msgs::msg::PoseWithCovarianceStamped>("/amcl_pose", 1, std::bind(&LocalisationControlNode::amcl_pose_callback, this, std::placeholders::_1));
-    subscriber_imu_= this->create_subscription<sensor_msgs::msg::Imu>("/imu/data", rclcpp::QoS(rclcpp::SensorDataQoS()), std::bind(&LocalisationControlNode::imu_callback, this, std::placeholders::_1));
+    m_subscriber_odom= this->create_subscription<nav_msgs::msg::Odometry>("/odom", 1, std::bind(&LocalisationControlNode::odom_callback, this, std::placeholders::_1));
+    m_subscriber_laserscan = this->create_subscription<sensor_msgs::msg::LaserScan>("/demo/laser/out", rclcpp::QoS(rclcpp::SensorDataQoS()), std::bind(&LocalisationControlNode::scan_callback, this, std::placeholders::_1));
+    m_subscriber_amcl_pose= this->create_subscription<geometry_msgs::msg::PoseWithCovarianceStamped>("/amcl_pose", 1, std::bind(&LocalisationControlNode::amcl_pose_callback, this, std::placeholders::_1));
+    m_subscriber_imu= this->create_subscription<sensor_msgs::msg::Imu>("/imu/data", rclcpp::QoS(rclcpp::SensorDataQoS()), std::bind(&LocalisationControlNode::imu_callback, this, std::placeholders::_1));
     
     //publisher
-    publisher_state_est_ = this->create_publisher<std_msgs::msg::Float64MultiArray>("/state_est", 10);
-    publisher_vel_ = this->create_publisher<geometry_msgs::msg::Twist>("/cmd_vel", 10);
-    publisher_slam_scan_ = this->create_publisher<sensor_msgs::msg::LaserScan>("/scan", 10);
-    publisher_goal_pose_ = this->create_publisher<geometry_msgs::msg::PoseStamped>("/goal_pose", 10);
-    publisher_initial_pose_= this->create_publisher<geometry_msgs::msg::PoseWithCovarianceStamped>("/initialpose", 10);
-    publisher_clock_time_ = this->create_publisher<rosgraph_msgs::msg::Clock>("/clock", 10);
+    m_publisher_state_est = this->create_publisher<std_msgs::msg::Float64MultiArray>("/state_est", 10);
+    m_publisher_vel = this->create_publisher<geometry_msgs::msg::Twist>("/cmd_vel", 10);
+    m_publisher_slam_scan = this->create_publisher<sensor_msgs::msg::LaserScan>("/scan", 10);
+    m_publisher_goal_pose = this->create_publisher<geometry_msgs::msg::PoseStamped>("/goal_pose", 10);
+    m_publisher_initial_pose= this->create_publisher<geometry_msgs::msg::PoseWithCovarianceStamped>("/initialpose", 10);
+    m_publisher_clock_time = this->create_publisher<rosgraph_msgs::msg::Clock>("/clock", 10);
     
     //timer
-    timer_ = this->create_wall_timer(500ms, std::bind(&LocalisationControlNode::timer_callback, this));
-    timer_clock_ = this->create_wall_timer(50ms, std::bind(&LocalisationControlNode::timer_clock_callback, this));
-    m_initial_pose_set = false;
-    m_wait = 0;
+    m_timer = this->create_wall_timer(500ms, std::bind(&LocalisationControlNode::timer_callback, this));
+    m_timer_clock = this->create_wall_timer(50ms, std::bind(&LocalisationControlNode::timer_clock_callback, this));
+    
 
     }
 
@@ -75,12 +74,11 @@ void LocalisationControlNode::timer_callback()
 
 void LocalisationControlNode::timer_clock_callback()
 {
-    // publish sim_time on /clock topic
     auto time = this->now();
     auto message_time = rosgraph_msgs::msg::Clock();
     message_time.clock.sec = time.seconds();
     message_time.clock.nanosec = time.nanoseconds() % 1000000000ull;
-    publisher_clock_time_->publish(message_time);   
+    m_publisher_clock_time->publish(message_time);   
 }
 
 void LocalisationControlNode::publish_estimated_state(std_msgs::msg::Float64MultiArray state_vec_msg)
@@ -89,44 +87,58 @@ void LocalisationControlNode::publish_estimated_state(std_msgs::msg::Float64Mult
     auto message_pose = std_msgs::msg::Float64MultiArray();
     message_pose.data = state_vec_msg.data;
     
-    publisher_state_est_->publish(message_pose);
+    m_publisher_state_est->publish(message_pose);
 }
 
 void LocalisationControlNode::scan_callback(sensor_msgs::msg::LaserScan msg_scan)
 {
+    // Measuring distances with the laserscanner to calculate the robots initial-pose for the AMCL
+    
     auto msg_slam_scan = sensor_msgs::msg::LaserScan();
     msg_slam_scan.ranges = msg_scan.ranges;
-    m_i_0 = 0;
-    m_i_90 = 0;
-    m_i_180 = 0;
-    m_i_270 = 0;
+    
+    /* 
+    The laserscanner uses 2000 rays (beams) to recognize the area in a 360 degree angle around the robot
+    Ray number 0 / 2000 faces to the back of the robot (180 degrees)
+    Ray number 500 faces to the right of the robot (90 degrees)
+    Ray number 1000 faces streight to the front of the robot (0 degrees)
+    Ray number 1500 faces to the left of the robot (270 degrees)
+    */
 
-    m_yawZ = m_localisation->getYawZ();
-    m_yawZ_strich = m_yawZ + M_PI;
-    m_n_laserrays = 2000;
-    m_yawZ_rays = (m_yawZ_strich / (2*M_PI)) * m_n_laserrays;
+    int i_0 = 0;     
+    int i_90 = 0;   
+    int i_180 = 0;
+    int i_270 = 0;
 
-    m_i_0 = 1000 - static_cast<int>(m_yawZ_rays);
-    if (m_i_0 < 0){
-        m_i_0 += 2000;
+    float yawZ = m_localisation->getYawZ();
+    
+    float yawZ_strich = yawZ + M_PI; // adding PI to yawZ to make the scaling fit to the index-numbers
+    int n_laserrays = 2000;
+    float yawZ_rays = (yawZ_strich / (2*M_PI)) * n_laserrays;
+
+    // calculating the index-numbers of the ray, that are depending on the yaw-angle at the right degree 
+
+    i_0 = 1000 - static_cast<int>(yawZ_rays);   
+    if (i_0 < 0){
+        i_0 += 2000; // Offset, if yawZ is between zero and minus pi
     }
-    m_i_90 = 1500 - static_cast<int>(m_yawZ_rays);
-    if (m_i_90 < 0){
-        m_i_90 += 2000;
+    i_90 = 1500 - static_cast<int>(yawZ_rays);
+    if (i_90 < 0){
+        i_90 += 2000;
     }
-    m_i_180 = 2000 - static_cast<int>(m_yawZ_rays);
-    if (m_i_180 < 0){
-        m_i_180 += 2000;
+    i_180 = 2000 - static_cast<int>(yawZ_rays);
+    if (i_180 < 0){
+        i_180 += 2000;
     }
-    m_i_270 = 500 - static_cast<int>(m_yawZ_rays);
-    if (m_i_270 < 0){
-        m_i_270 += 2000;
+    i_270 = 500 - static_cast<int>(yawZ_rays);
+    if (i_270 < 0){
+        i_270 += 2000;
     }
 
-    m_localisation->setdist0(msg_slam_scan.ranges[m_i_0]);
-    m_localisation->setdist90(msg_slam_scan.ranges[m_i_90]);
-    m_localisation->setdist180(msg_slam_scan.ranges[m_i_180]);
-    m_localisation->setdist270(msg_slam_scan.ranges[m_i_270]);
+    m_localisation->setdist0(msg_slam_scan.ranges[i_0]);
+    m_localisation->setdist90(msg_slam_scan.ranges[i_90]);
+    m_localisation->setdist180(msg_slam_scan.ranges[i_180]);
+    m_localisation->setdist270(msg_slam_scan.ranges[i_270]);
 
     m_localisation->determine_initialpose();
 
@@ -143,14 +155,16 @@ void LocalisationControlNode::amcl_pose_callback(const geometry_msgs::msg::PoseW
 
 void LocalisationControlNode::setting_goal_pose(){
 
-    m_area = m_localisation -> getMapArea();
-    m_navigation -> setMapArea(m_area);
-    m_pitch_rel = m_localisation -> getpitch_rel();
-    m_navigation -> setPitchRel(m_pitch_rel);
+    int area = m_localisation -> getMapArea();
+    m_navigation -> setMapArea(area);
+    float pitch_rel = m_localisation -> getpitch_rel();
+    m_navigation -> setPitchRel(pitch_rel);
 
-    m_send_initial_pose = m_navigation -> getSendInitial();
+    bool send_initial_pose = m_navigation -> getSendInitial();
     
-    if(m_send_initial_pose == true){
+    // sending initial pose
+
+    if(send_initial_pose){
         
         auto initial_pose = geometry_msgs::msg::PoseWithCovarianceStamped();
     
@@ -168,43 +182,43 @@ void LocalisationControlNode::setting_goal_pose(){
         initial_pose.pose.pose.orientation.z = m_localisation->getInitialorientZ();
         initial_pose.pose.pose.orientation.w = m_localisation->getInitialorientW();
 
-        publisher_initial_pose_->publish(initial_pose);
+        m_publisher_initial_pose->publish(initial_pose);
 
-        m_send_initial_pose = false;
-        m_initial_pose_set = true;
+        send_initial_pose = false;
+        bool initial_pose_set = true;
         
-        m_navigation->setInitialsended(m_initial_pose_set);
+        m_navigation->setInitialsended(initial_pose_set);
 
     } 
     
-    m_navigation->setTact(m_wait);
-    m_wait = m_wait + 500;
+    // sending goal-pose
+    int wait = wait + 500;
 
-    // waiting 2000ms to send goal
-    if(m_wait >= 2000){
-        m_send_goal = m_navigation->getSendGoal();
+    // waiting 2000ms to send the goal the first time
+    if(wait >= 2000){
+         m_send_goal = m_navigation->getSendGoal();
     }
 
     if(m_send_goal){
         auto goal_pose = geometry_msgs::msg::PoseStamped();
         goal_pose.header.frame_id = "map";
         
-        //initial position
+        //goal position
         goal_pose.pose.position.x = m_navigation->getGoalPosX();
         goal_pose.pose.position.y = m_navigation->getGoalPosY();
         goal_pose.pose.position.z = m_navigation->getGoalPosZ();
         
-        //initial orientation
+        //goal orientation
         goal_pose.pose.orientation.x = m_navigation->getGoalOriX();
         goal_pose.pose.orientation.y = m_navigation->getGoalOriY();
         goal_pose.pose.orientation.z = m_navigation->getGoalOriZ();
         goal_pose.pose.orientation.w = m_navigation->getGoalOriW(); 
 
-        publisher_goal_pose_->publish(goal_pose);
+        m_publisher_goal_pose->publish(goal_pose);
 
         m_send_goal = false;
-        m_goal_sended = true;
-        m_navigation->setGoalsended(m_goal_sended);
+        bool goal_sended = true;
+        m_navigation->setGoalsended(goal_sended);
 
         }
          

@@ -1,18 +1,12 @@
 #include "navigation.h"
 
-Navigation::Navigation(LoadMap *loadMap) { //: Node("navigation")
-    //m_localisation = localisation;
+Navigation::Navigation(LoadMap *loadMap) { 
+
     m_loadMap = loadMap;
     m_amcl_pX = 0;
     m_amcl_pY = 0;
     m_area = 1;
     m_area_saved = 1;
-    
-    m_tolerance = 0.3;
-    m_lim_min_x = 0.0;
-    m_lim_min_y = 0.0;
-    m_lim_max_x = 0.0;
-    m_lim_max_y = 0.0;
 
     m_goal_pX = 0.0;
     m_goal_pY = 0.0;
@@ -24,13 +18,9 @@ Navigation::Navigation(LoadMap *loadMap) { //: Node("navigation")
 
     m_goal_achived = false;
     m_new_goal_set = false;
-    m_goal2_set = false;
-    m_goal3_set = false;
-    m_goal4_set = false;
+
     m_send_goal = false;
     m_goal_sended = false;
-    m_wait = 0;
-    m_tact = 0;
     m_start_area1 = true;
     m_map_sended = false;
     m_send_initial = false;
@@ -42,17 +32,30 @@ Navigation::Navigation(LoadMap *loadMap) { //: Node("navigation")
     m_travel_forward = true;
     m_travel_backwards = false;
 
-    c_start = false;
-    c_fin = false;
+    m_c_start = false;
+    m_c_fin = false;
 
-    m_map1 = "/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/map/map_9.1.yaml";
-    m_map2 = "/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/map/map_9.2.yaml";
-    m_map3 = "/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/map/map_8.3.yaml";
-    m_map4 = "/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/map/map_8.4.yaml";
+    m_map1 = "/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/map/map_1.yaml";
+    m_map2 = "/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/map/map_2.yaml";
+    m_map3 = "/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/map/map_3.yaml";
+    m_map4 = "/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/map/map_4.yaml";
 }
+
+    /*
+    General process of the navigation:
+    1. map_swap function recognices change of area
+    2. initialize function initializes the control variables new
+    3. navigation_step function chooses goal depending on moving-dircetion and area
+    4. navigate-function is called
+    4.1 navigatie-function calls loadmap-function to load the map depending on the area
+    4.2 after map is loaded the navigate-function calls the sendGoalPose-function to send the goal depending on moving-direction and area
+    4.3 after the goal is sended the navigate-function calls the sendInitialPose-function to send the initial-pose 
+    */
+
 
 void Navigation::initialize() {
 
+    // initializing the control variables
     m_send_goal = false;
     m_goal_sended = false;
     
@@ -64,7 +67,7 @@ void Navigation::initialize() {
     m_send_initial = false;
     m_initial_sended = false;
 
-    c_start = false;
+    m_c_start = false;
 
 }
 
@@ -77,14 +80,15 @@ bool Navigation::counter(bool c_start_) {
 
     m_count = m_count + 1;
     
+    // counts 1 second, because the timer calls the function every 500ms
     if (m_count >= 2) {
 
         return true;
-
+    
     } else {
-        
-        return false;
 
+        return false;
+    
     }
 
 }
@@ -113,7 +117,7 @@ bool Navigation::sendInitialPose(){
 void Navigation::map_swap(int m_area) {
 
     if (m_area != m_area_saved){
-        c_start = true;
+        m_c_start = true;
         m_area_saved = m_area;
         initialize();
     }
@@ -135,8 +139,10 @@ void Navigation::navigation_step(){
         }
         if (m_travel_forward) {           
             
+            // goal in map_1 of streight one, when traveling in forward-direction
+
             // position
-            m_goal_pX = 2.35; //2.35
+            m_goal_pX = 2.35; 
             m_goal_pY = - 0.05;
             m_goal_pZ = 0.0;
 
@@ -148,6 +154,8 @@ void Navigation::navigation_step(){
 
         } else if (m_travel_backwards) {
             
+            //goal in map_1 of streight one, when traveling backwards
+
             // position
             m_goal_pX = 0.0;
             m_goal_pY = 0.0;
@@ -170,8 +178,9 @@ void Navigation::navigation_step(){
 
         if (m_travel_forward) {
 
+            // first goal on the map_2 of ramp1, when traveling forward
             // position
-            m_goal_pX = 2.85; // changed from 3.7
+            m_goal_pX = 2.85; 
             m_goal_pY = -0.05;
             m_goal_pZ = 0.0;
 
@@ -183,6 +192,7 @@ void Navigation::navigation_step(){
 
         } else if (m_travel_backwards) {
 
+            // goal on the map_2 of ramp 1, when traveling backwards
             // position
             m_goal_pX = 1.8; // changed from 3.7
             m_goal_pY = 0.2;
@@ -205,8 +215,9 @@ void Navigation::navigation_step(){
 
         if (m_travel_forward) {
 
+            // second goal on map_2, when traveling forwards, is in reality located on ramp 2  
             // position
-            m_goal_pX = 4.0; // changed from 3.7
+            m_goal_pX = 4.0; 
             m_goal_pY = 1.2;
             m_goal_pZ = 0.0;
 
@@ -217,9 +228,10 @@ void Navigation::navigation_step(){
             m_goal_oW = 1.0;
 
         } else if (m_travel_backwards) {
-
+            
+            // goal on the map_2 of ramp 1, when traveling backwards
             // position
-            m_goal_pX = 1.8; // changed from 3.7
+            m_goal_pX = 1.8; 
             m_goal_pY = 0.2;
             m_goal_pZ = 0.0;
 
@@ -238,7 +250,8 @@ void Navigation::navigation_step(){
     } else if ((m_area == 3) && (m_amcl_pX > 4.1)) {
 
         if (m_travel_forward) {
-        
+            
+            // goal in map_3 of ramp 2, when traveling forward
             // position
             m_goal_pX = 5.3; 
             m_goal_pY = 1.1;
@@ -252,6 +265,7 @@ void Navigation::navigation_step(){
 
         } else if (m_travel_backwards) {
 
+            // first goal in map_3 on ramp 2, when traveling backwards
             // position
             m_goal_pX = 4.0; 
             m_goal_pY = 1.25;
@@ -271,7 +285,8 @@ void Navigation::navigation_step(){
         } else if ((m_area == 3) && (m_amcl_pX <= 4.1)) {
 
         if (m_travel_forward) {
-        
+            
+            // goal in map_3 of ramp 2, when traveling forward
             // position
             m_goal_pX = 5.3; 
             m_goal_pY = 1.1;
@@ -285,6 +300,7 @@ void Navigation::navigation_step(){
 
         } else if (m_travel_backwards) {
 
+            // second goal in map_3, when traveling backwards, is in reality on ramp 1
             // position
             m_goal_pX = 3.0; 
             m_goal_pY = 0.0;
@@ -312,6 +328,7 @@ void Navigation::navigation_step(){
 
         if (m_travel_forward) {
 
+            // goal in map_4, when traveling forwards
             // position
             m_goal_pX = 6.0; 
             m_goal_pY = 1.2;
@@ -325,6 +342,7 @@ void Navigation::navigation_step(){
 
         } else if (m_travel_backwards) {
 
+            // goal in map_4, when traveling backwards
             // position
             m_goal_pX = 4.7; 
             m_goal_pY = 1.3;
@@ -350,7 +368,6 @@ void Navigation::loadMap(string m_url){
         
         m_loadMap -> startLoadMap(1s, m_url);
         m_map_request_sended = true;
-        
         m_send_goalpose = true;  
     }
 
@@ -368,42 +385,34 @@ void Navigation::navigate(string m_url){
         
         m_send_initial = sendGoalPose();
         m_send_goalpose = false;
-        c_start = true; 
-        //std::cout << "######## IN SEND_GOAL FUNCTION #############" << std::endl;
+        m_c_start = true; 
+
     } else if (m_send_initial){
 
-        c_fin = counter(c_start);
-        c_start = false;
-        //std::cout << "######## IN SEND_INITIAL FUNCTION #############" << std::endl;
-        if (c_fin) {
+        m_c_fin = counter(m_c_start);
+        m_c_start = false;
 
-            //std::cout << "######## IN C_FIN FUNCTION #############: " << m_pitch_rel << std::endl;
+        if (m_c_fin) {
+
             if (abs(m_pitch_rel) < 0.09) {
-                //std::cout << "######## IN pitch_rel FUNCTION #############" << std::endl;
-                m_map_request_sended = sendInitialPose();
-            }
 
+                m_map_request_sended = sendInitialPose();
+
+            }
         }
-    
     }
 }
 
 void Navigation::setamclX(double x){
     m_amcl_pX = x;
-
 }
 
 void Navigation::setamclY(double y){
     m_amcl_pY = y;
 }
 
-void Navigation::setTact(int wait){
-    m_tact = wait;
-}
-
 void Navigation::setMapArea(int area){
     m_area = area;
-    //std::cout << "m_area: " << m_area << std::endl; 
 }
 
 double Navigation::getGoalPosX(){
@@ -448,7 +457,6 @@ bool Navigation::getSendInitial(){
 
 bool Navigation::getSendGoal(){
     navigation_step();
-    std::cout << "CALL NAVIGATION_STEP" << std::endl;
     return m_send_goal;
 }
 

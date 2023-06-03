@@ -1,0 +1,4 @@
+source;share/edu_robocup_rescue_stack/local_setup.bash
+source;share/edu_robocup_rescue_stack/local_setup.dsv
+source;share/edu_robocup_rescue_stack/local_setup.sh
+source;share/edu_robocup_rescue_stack/local_setup.zsh

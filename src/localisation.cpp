@@ -27,13 +27,13 @@ void Localisation::setPosOrientation(float x_orient, float y_orient, float z_ori
 }
 
 void Localisation::calcualateYawZ(){
-    //convert quaternion in euler angle
+    // convert quaternion in euler angle
     float t0 = +2.0 * (m_w_orient * m_x_orient + m_y_orient * m_z_orient);  
     float t1 = +1.0 - 2.0 * (m_x_orient * m_x_orient + m_y_orient * m_y_orient);
     m_roll_x = atan2(t0, t1);
 
     float t2 = +2.0 * (m_w_orient * m_y_orient - m_z_orient * m_x_orient);
-    //Fallunterscheidung für asin
+    // case differentation
     if(t2 > 1.0){
         t2 = 1.0;
     } else {
@@ -46,11 +46,9 @@ void Localisation::calcualateYawZ(){
     }
     m_pitch_y = asin(t2);
     
-
     float t3 = +2.0 * (m_w_orient * m_z_orient + m_x_orient * m_y_orient);
     float t4 = +1.0 - 2.0 * (m_y_orient * m_y_orient + m_z_orient * m_z_orient);
     m_yaw_z = atan2(t3, t4);
-
 
     m_control->setPosYaw(m_x, m_y, m_yaw_z);
 }
@@ -79,11 +77,13 @@ void Localisation::recognize_area() {
 }
 
 void Localisation::determine_initialpose() {
-    m_sensor_offset_x = 0.0; //0.09 -> only needed, when not noted in eduard.sdf // sensor offset in x-direction
+    
+    // sensor offset in x-direction, only needed, when not noted in eduard.sdf 
+    // As it is noted in eduard.sdf the offset is 0.0
+
+    m_sensor_offset_x = 0.0; 
     m_yawZ_strich = m_yaw_z + M_PI;
     
-
-
     //calculate sensor offset
     
     if (m_yawZ_strich < ( M_PI / 2.0 )) 
@@ -128,6 +128,7 @@ void Localisation::determine_initialpose() {
         m_off270 = m_y_off;
     }
 
+    // adding offset to distance measurements
     m_dist0_r = m_dist0 + m_off0;
     m_dist90_r = m_dist90 + m_off90;
     m_dist180_r = m_dist180 + m_off180;
@@ -135,7 +136,7 @@ void Localisation::determine_initialpose() {
 
 
     // equialize pitch when ramp in x-direction
-    m_ramp_angle1 = (15.0 / 180.0) * M_PI; // ankle ramp = 15 degree
+    m_ramp_angle1 = (15.0 / 180.0) * M_PI; // ankle ramp of TER0_ramp = 15 degree
     m_gamma1 = M_PI - m_ramp_angle1; // 165 deg. 
     m_ramp_angle2 = (75.0 / 180.0) * M_PI; // ankle between ramp and wall = 75 deg. 
     m_gamma2 = M_PI - m_ramp_angle2;    // 105 deg. 
@@ -157,23 +158,18 @@ void Localisation::determine_initialpose() {
             m_beta = M_PI - m_ramp_angle1 - abs(m_pitch_y);
             m_dist180_r = m_dist180_r * (sin(m_beta) / sin(m_ramp_angle1));
         }
+        
+        m_x_map_origin_off = 0.472;
+        m_y_map_origin_off = 0.617;
+        
         m_x_pos = m_dist0_r - 0.472;//0.524;  // Wie können die Zahlen durch den Laser bestimmt werden?
         m_y_pos = m_dist90_r - 0.617;    //0.617       
         break;
         }
     case 2: // ramp 1
         {
-        //m_relYaw = m_yaw180 + m_yaw_z;
-        
-        //m_delta_pitch = m_relYaw * sin(m_pitch_y); // without roll impact
-
-        //double c_roll = cos(m_roll_x);
-        //double s_roll = sin(m_roll_x);
-        //double P_axis_roll[3] = {0, sin(m_pitch_y)*c_roll, cos(m_pitch_y)* c_roll + s_roll * sin(m_pitch_y)};
 
         m_pitch_y_strich = abs(m_pitch_y) - m_ramp_angle1;
-        //td::cout << "pitch_strich: " << pitch_new << std::endl;
-
 
         if (m_pitch_y_strich < 0.0) //positive pitch
         {   

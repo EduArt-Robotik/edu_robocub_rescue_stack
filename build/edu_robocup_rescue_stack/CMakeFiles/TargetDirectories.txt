@@ -1,0 +1,10 @@
+/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack/CMakeFiles/uninstall.dir
+/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack/CMakeFiles/edu_robocup_rescue_stack_uninstall.dir
+/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack/CMakeFiles/edu_robocup_rescue_stack_node.dir
+/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack/CMakeFiles/test.dir
+/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack/CMakeFiles/edit_cache.dir
+/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack/CMakeFiles/rebuild_cache.dir
+/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack/CMakeFiles/list_install_components.dir
+/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack/CMakeFiles/install.dir
+/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack/CMakeFiles/install/local.dir
+/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/build/edu_robocup_rescue_stack/CMakeFiles/install/strip.dir

@@ -36,7 +36,7 @@ install(TARGETS edu_robocup_rescue_stack_node
   DESTINATION lib/${PROJECT_NAME})
 
 
-install(DIRECTORY launch config params map   #Added config + map
+install(DIRECTORY launch config_ekf params map   #Added config + map
   DESTINATION share/${PROJECT_NAME}/
 )
 

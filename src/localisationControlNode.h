@@ -30,26 +30,7 @@ class LocalisationControlNode : public rclcpp::Node
 
     private:
 
-    int m_wait;
     bool m_send_goal; 
-    bool m_goal_sended;
-    bool m_send_initial_pose;
-    bool m_initial_pose_sended;
-
-    bool m_initial_pose_set;
-
-    float m_yawZ;
-    float m_yawZ_strich;
-    float m_yawZ_rays;
-    
-    int m_n_laserrays;
-    int m_i_0;
-    int m_i_90;
-    int m_i_180;
-    int m_i_270;
-
-    int m_area;
-    float m_pitch_rel; 
 
     void scan_callback(sensor_msgs::msg::LaserScan msg_scan);
 
@@ -73,23 +54,23 @@ class LocalisationControlNode : public rclcpp::Node
     void nav_timer();
 
     //Initialisierung Subscriber
-    rclcpp::Subscription<nav_msgs::msg::Odometry>::SharedPtr subscriber_odom_;
-    rclcpp::Subscription<std_msgs::msg::Float64MultiArray>::SharedPtr subscriber_state_est_;
-    rclcpp::Subscription<sensor_msgs::msg::LaserScan>::SharedPtr subscriber_laserscan_;
-    rclcpp::Subscription<geometry_msgs::msg::PoseWithCovarianceStamped>::SharedPtr subscriber_amcl_pose_;
-    rclcpp::Subscription<sensor_msgs::msg::Imu>::SharedPtr subscriber_imu_;
+    rclcpp::Subscription<nav_msgs::msg::Odometry>::SharedPtr m_subscriber_odom;
+    rclcpp::Subscription<std_msgs::msg::Float64MultiArray>::SharedPtr m_subscriber_state_est;
+    rclcpp::Subscription<sensor_msgs::msg::LaserScan>::SharedPtr m_subscriber_laserscan;
+    rclcpp::Subscription<geometry_msgs::msg::PoseWithCovarianceStamped>::SharedPtr m_subscriber_amcl_pose;
+    rclcpp::Subscription<sensor_msgs::msg::Imu>::SharedPtr m_subscriber_imu;
 
     //Initialisierung Publisher
-    rclcpp::Publisher<std_msgs::msg::Float64MultiArray>::SharedPtr publisher_state_est_;
-    rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr publisher_vel_;
-    rclcpp::Publisher<sensor_msgs::msg::LaserScan>::SharedPtr publisher_slam_scan_;
-    rclcpp::Publisher<geometry_msgs::msg::PoseStamped>::SharedPtr publisher_goal_pose_;
-    rclcpp::Publisher<geometry_msgs::msg::PoseWithCovarianceStamped>::SharedPtr publisher_initial_pose_;
-    rclcpp::Publisher<rosgraph_msgs::msg::Clock>::SharedPtr publisher_clock_time_;
+    rclcpp::Publisher<std_msgs::msg::Float64MultiArray>::SharedPtr m_publisher_state_est;
+    rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr m_publisher_vel;
+    rclcpp::Publisher<sensor_msgs::msg::LaserScan>::SharedPtr m_publisher_slam_scan;
+    rclcpp::Publisher<geometry_msgs::msg::PoseStamped>::SharedPtr m_publisher_goal_pose;
+    rclcpp::Publisher<geometry_msgs::msg::PoseWithCovarianceStamped>::SharedPtr m_publisher_initial_pose;
+    rclcpp::Publisher<rosgraph_msgs::msg::Clock>::SharedPtr m_publisher_clock_time;
 
     //Initialisierung Timer
-    rclcpp::TimerBase::SharedPtr timer_;
-    rclcpp::TimerBase::SharedPtr timer_clock_;
+    rclcpp::TimerBase::SharedPtr m_timer;
+    rclcpp::TimerBase::SharedPtr m_timer_clock;
 
     //Initialisierung Variablen 
     Control *m_control;

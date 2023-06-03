@@ -10,9 +10,6 @@ Control::Control() {
     m_speed = 0;
     m_x_dest = -10;
     m_y_dest = 10;
-
-   
-    //m_loadMap->startLoadMap();   -> kommt in eine Funktion
 }
 
 
@@ -21,28 +18,17 @@ void Control::calculateAngleSpeed() {
     float delta_x = m_x_dest - m_x;
     float delta_y = m_y_dest - m_y;
     
-    //Ausgabe
-    //std::cout << "x:" << x << std::endl;
-    //std::cout << "y:" << y << std::endl;
-    //std::cout << "delta_x:" << delta_x << std::endl;
-    //std::cout << "delta_y:" << delta_y << std::endl;
-    
     float delta_dist = sqrt((delta_x*delta_x) + (delta_y*delta_y));
-    
-    //Ausgabe
-    //std::cout << "delta_dist:" << delta_dist << std::endl;
     
     float delta_phi = (atan2(delta_y, delta_x))- m_yaw_z; 
     
-    // Begrenzung des Drehwinkels Phi
+    // limit of angle phi
     if(delta_phi < -M_PI){
         delta_phi += 2*M_PI;
         }
     if(delta_phi > M_PI){
         delta_phi -= 2*M_PI;
         };
-
-    //std::cout << "delta_phi:" << delta_phi << std::endl;
     
     m_angle = delta_phi;
     

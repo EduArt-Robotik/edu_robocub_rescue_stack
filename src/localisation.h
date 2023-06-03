@@ -18,6 +18,9 @@ class Localisation{
     float m_z_orient;
     float m_w_orient;
 
+    float m_x_map_origin_off;
+    float m_y_map_origin_off;
+
     float m_roll_x;
     float m_pitch_y;
     float m_yaw_z;
@@ -61,11 +64,10 @@ class Localisation{
     float m_yaw_z1;
     float m_yaw_z2;
 
-    //float m_pitch_axix_rolled;
     
     int m_area;
     float m_pitch_y_strich;
-    //float m_pitch_axis_rolled;
+
     float m_pitch_roll;
 
     float m_amcl_x;
