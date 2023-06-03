@@ -15,9 +15,10 @@ Localisation::Localisation(Control *control){
 
     m_control = control;
 }
-void Localisation::setPosOrientation(float x_orient, float y_orient, float z_orient, float w_orient){  //float x, float y,
-    m_x = 1; //FALSCH GEÄNDET -> muss x sein
-    m_y = 1; //FALSCH GEÄNDET -> muss y sein
+void Localisation::setPosOrientation(float x_orient, float y_orient, float z_orient, float w_orient){
+    m_x = 1.0;
+    m_y = 1.0;
+    
     m_x_orient = x_orient;
     m_y_orient = y_orient;
     m_z_orient = z_orient;
@@ -55,9 +56,12 @@ void Localisation::calcualateYawZ(){
 
 void Localisation::recognize_area() {
 
-    // recognize ramp 
+    // the recognize_area-function identifies the area the robot drives on
+    // Based on the recognition the maps are loaded by the map-loader
+
     m_diff_x_y = abs(m_pitch_y) + abs(m_roll_x);
 
+    // conditions of the if- and else if- statements are angles and positions measured by IMU and AMCL to identify the spesific area
     if ((m_diff_x_y < 0.20)&&(m_amcl_x < 2.1)){
 
         m_area = 1; // straight 1
@@ -149,27 +153,21 @@ void Localisation::determine_initialpose() {
         {
         
         m_pitch_y_strich = m_pitch_y;
-
-        if (m_pitch_y < 0.0){ // exqualize pitch of laserray 180
-            m_beta = M_PI - m_gamma;
-            m_dist180_r = m_dist180_r * (sin(m_beta) / sin(m_gamma));
-        } else if (m_pitch_y > 0.001)
-        {   
-            m_beta = M_PI - m_ramp_angle1 - abs(m_pitch_y);
-            m_dist180_r = m_dist180_r * (sin(m_beta) / sin(m_ramp_angle1));
-        }
         
-        m_x_map_origin_off = 0.472;
+        m_x_map_origin_off = 0.472; // Offset caused by map Origin-Point, see map-config-file
         m_y_map_origin_off = 0.617;
         
-        m_x_pos = m_dist0_r - 0.472;//0.524;  // Wie können die Zahlen durch den Laser bestimmt werden?
-        m_y_pos = m_dist90_r - 0.617;    //0.617       
+        // Initial-Position
+        m_x_pos = m_dist0_r - m_x_map_origin_off;
+        m_y_pos = m_dist90_r - m_y_map_origin_off;    
+        
         break;
+        
         }
     case 2: // ramp 1
         {
 
-        m_pitch_y_strich = abs(m_pitch_y) - m_ramp_angle1;
+        m_pitch_y_strich = abs(m_pitch_y) - m_ramp_angle1;  // calculating relative pitch to ramp-level
 
         if (m_pitch_y_strich < 0.0) //positive pitch
         {   
@@ -191,8 +189,16 @@ void Localisation::determine_initialpose() {
             m_beta0 = M_PI - m_ramp_angle1 - abs(m_pitch_y_strich);
             m_dist0_r = m_dist0_r * (sin(m_beta0) / sin(m_ramp_angle1)) + 1.0; //offset because robot drove on streight 1
         }
-        m_x_pos = 2.552962 - m_dist180_r + 1.411 + 0.5746 - 0.05; //+ 0.24;  // Wie können die Zahlen durch den Laser bestimmt werden?
-        m_y_pos = m_dist90_r - 0.68;    // 0.617  
+
+        float level_lenght_ramp1 = 2.553;   // length of the level of ramp1
+        m_x_map_origin_off = 1.411;
+        m_y_map_origin_off = 0.68;
+        float senor_height_off = 0.5445;    // Offset caused because of the laser-scanner is 0.139. Value the map is longer then the level.
+        
+        // Initial-Position
+        m_x_pos = level_lenght_ramp1 - m_dist180_r + m_x_map_origin_off + senor_height_off; 
+        m_y_pos = m_dist90_r - m_y_map_origin_off;      
+        
         break;
         }
     case 3: //ramp 3
@@ -212,13 +218,22 @@ void Localisation::determine_initialpose() {
 
         if(isinf(m_dist0_r)) {
 
-            m_x_pos = m_dist0_r + 2.487 - 0.1; //1.936   // Starting point map ramp2
-            m_y_pos = m_dist90_r - 0.617; 
+            m_x_map_origin_off = 1.985;
+            m_y_map_origin_off = - 0.617;
+            m_manual_correction_off = 0,402; // offset to make the keepout-filter fitting for ramp 2
+
+            // Initial-Position
+            m_x_pos = m_dist0_r + m_x_map_origin_off + m_manual_correction_off ; 
+            m_y_pos = m_dist90_r - m_y_map_origin_off; 
 
         } else {
-            m_x_pos = m_dist0_r + 2.487 - 0.1; //1.936   // Starting point map ramp2
-            m_y_pos = 1.9 - m_dist270_r;  // widest width of the track 
+            m_global_pos_left_wall = 1.9;   // using left wall of ramp2 as orientation-point
+            
+            // Initial-Position
+            m_x_pos = m_dist0_r + m_global_pos_left_wall + m_manual_correction_off; 
+            m_y_pos = m_y_map_origin_off - m_dist270_r;  
         }  
+        
         break;
         }
         
@@ -226,38 +241,19 @@ void Localisation::determine_initialpose() {
     case 4:
         {
         m_pitch_y_strich = m_pitch_y;
-        m_x_pos = 7.3 - m_dist180_r;
-        m_y_pos = 1.9 - m_dist270_r;
+        
+        m_global_pos_left_wall = 1.9;   // using left wall of streight 2 as orientation-point
+        m_x_map_origin_off = 4.376;
+        m_manual_correction_off = 0.5;
+        float level_lenght_streight2 = 2.43;
+        
+        // Initial-Position
+        m_x_pos = m_x_map_origin_off + m_manual_correction_off + level_lenght_streight2 - m_dist180_r;
+        m_y_pos =  m_global_pos_left_wall - m_dist270_r;
+        
         break;
         }
     }
-    //std::cout << "beta: " << m_beta << std::endl;
-    //std::cout << "sinus beta :" << sin(m_beta) << std::endl;
-    //std::cout << "sinus mramp angle: " << sin(m_ramp_angle) << std::endl;
-    //std::cout << "sinus m_gamma: " << sin(m_gamma) << std::endl;
-
-
-    //std::cout << "off_0: " << m_off0 << std::endl;
-    //std::cout << "off_90: " << m_off90 << std::endl;
-    //std::cout << "off_180: " << m_off180 << std::endl;
-    //std::cout << "off_270: " << m_dist270 << std::endl;
-
-
-
-    //std::cout << "msg_slan_scan_0: " << m_dist0_r << std::endl;
-    //std::cout << "msg_slan_scan_90: " << m_dist90_r << std::endl;
-    //std::cout << "msg_slan_scan_180: " << m_dist180_r << std::endl;
-    //std::cout << "msg_slan_scan_270: " << m_dist270_r << std::endl;
-
-    //std::cout << "AREA: " << m_area << std::endl;
-    //std::cout << "amclX: " << m_amcl_x << std::endl;
-    //std::cout << "amclY: " << m_amcl_y << std::endl;
-
-    //std::cout << "roll_x:" << m_roll_x<< std::endl;
-    //std::cout << "pitch_y:" << m_pitch_y << std::endl;
-    //std::cout << "yaw_z:" << m_yaw_z << std::endl;
-
-    //std::cout << "m_pitch_y_strich:" << m_pitch_y_strich << std::endl;
 
 }
 

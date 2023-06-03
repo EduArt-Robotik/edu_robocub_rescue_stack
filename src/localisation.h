@@ -34,6 +34,8 @@ class Localisation{
     float m_x_off;
     float m_y_off;
     float m_sensor_offset_x;
+    float m_manual_correction_off;
+    float m_global_pos_left_wall;
 
     float m_dist0;
     float m_dist90;
