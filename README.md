@@ -77,7 +77,7 @@ Durch beide Implementierung kann die Map gewechselt werden. Die Implementierung 
 
 - Die speziell für den Eduard-Offroad-Roboter generierten "Lattice-Primitives", die sich in diesem Repository im gleichnamigen Ordner befinden, sind im geklonten navigation2-Ordner unter /navigation2/nav2_smac_planner/lattice_primitves abzuspeichern. Ohne die lattice_primitives ist die Performance des Paners deutlich schlechter. 
 
-### Launch:
+#### Launch:
 
 1. Gazebo starten:  
     `ros2 launch edu_simulation eduard.launch.py`
