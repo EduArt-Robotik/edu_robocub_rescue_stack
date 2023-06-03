@@ -193,7 +193,7 @@ void Localisation::determine_initialpose() {
         float level_lenght_ramp1 = 2.553;   // length of the level of ramp1
         m_x_map_origin_off = 1.411;
         m_y_map_origin_off = 0.68;
-        float senor_height_off = 0.5445;    // Offset caused because of the laser-scanner is 0.139. Value the map is longer then the level.
+        float senor_height_off = 0.5255;    // Offset caused because of the laser-scanner is 0.139. Value the map is longer then the level.
         
         // Initial-Position
         m_x_pos = level_lenght_ramp1 - m_dist180_r + m_x_map_origin_off + senor_height_off; 
@@ -218,9 +218,9 @@ void Localisation::determine_initialpose() {
 
         if(isinf(m_dist0_r)) {
 
-            m_x_map_origin_off = 0; //1.985;
+            m_x_map_origin_off = 1.985;
             m_y_map_origin_off = - 0.617;
-            m_manual_correction_off = 0.402; // offset to make the keepout-filter fitting for ramp 2
+            m_manual_correction_off = 0.5; // offset to make the keepout-filter fitting for ramp 2
 
             // Initial-Position
             m_x_pos = m_dist0_r + m_x_map_origin_off + m_manual_correction_off ; 
@@ -229,6 +229,10 @@ void Localisation::determine_initialpose() {
         } else {
             m_global_pos_left_wall = 1.9;   // using left wall of ramp2 as orientation-point
             
+            m_x_map_origin_off = 1.985;
+            m_y_map_origin_off = - 0.617;
+            m_manual_correction_off = 0.402;
+
             // Initial-Position
             m_x_pos = m_dist0_r + m_x_map_origin_off + m_manual_correction_off; 
             m_y_pos = m_global_pos_left_wall -  m_dist270_r;  
