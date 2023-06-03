@@ -63,10 +63,7 @@ Durch beide Implementierung kann die Map gewechselt werden. Die Implementierung 
 
 ## Steuerung
 
-- c++ Programm
-- Testen mit TERO rampe
-- zusätzliche einleitende Wort
-- Verwendung von Gazebo
+Im Rahmen der Suche nach einem Konzept zum Durchqueren der Parqours wurden zwei Algorithmen entwickelt. Ein Algorithmus wurde vollständig neu programmiert, der Andere basiert zu großen Teilen auf dem ROS Navigation Stack 2. Die Algorithmen sind in C++ programmiert. Alle Tests der beiden Algorithmen wurden in Gazebo mit einem Eduard-Offroad-Roboter auf der TER0_ramp-Strecke durchgeführt.
 
 ### Algorithmus mit Verwendung der Nav2 Navigationsbibliotheken
 
@@ -105,7 +102,7 @@ Durch beide Implementierung kann die Map gewechselt werden. Die Implementierung 
 
 ##### Ablauf:
 
-Wie bereits erklärt, bietet die auf zwei Dimensionen basierende Positionserkennung mit AMCL nicht die Möglichkeit einer kontinuierlichen Lokalisierung über den gesamten drei-dimensionalen Kurs. Aufgrund dessen ist abhängig von der aktuellen Ebene (Gerade 1, Rampe 1, Rampe 2 oder Gerade 2) eine spezifische Karte zu laden in der die Roboter-Position jeweils neu zu initialisieren ist. 
+Wie bereits erklärt, bietet die auf zwei Dimensionen basierende Positionserkennung mit AMCL nicht die Möglichkeit einer kontinuierlichen Lokalisierung über den gesamten drei-dimensionalen Kurs. Aufgrund dessen ist abhängig von der aktuellen Ebene (Gerade 1, Rampe 1, Rampe 2 oder Gerade 2) eine spezifische Karte mit Hilfe von [Load Map](README.md#Implementierung des Map Wechsel) zu laden in der die Roboter-Position jeweils neu zu initialisieren ist. 
 
 ![Strecke: Ter0_Ramp](https://github.com/EduArt-Robotik/edu_robocub_rescue_stack/blob/main/docs/bev_strecke.png)
 
