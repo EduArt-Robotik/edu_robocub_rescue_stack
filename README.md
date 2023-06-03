@@ -102,7 +102,7 @@ Im Rahmen der Suche nach einem Konzept zum Durchqueren der Parqours wurden zwei 
 
 ##### Ablauf:
 
-Wie bereits erklärt, bietet die auf zwei Dimensionen basierende Positionserkennung mit AMCL nicht die Möglichkeit einer kontinuierlichen Lokalisierung über den gesamten drei-dimensionalen Kurs. Aufgrund dessen ist abhängig von der aktuellen Ebene (Gerade 1, Rampe 1, Rampe 2 oder Gerade 2) eine spezifische Karte mit Hilfe von [Load Map](README.md#Implementierung des Map Wechsel) zu laden in der die Roboter-Position jeweils neu zu initialisieren ist. 
+Wie bereits erklärt, bietet die auf zwei Dimensionen basierende Positionserkennung mit AMCL nicht die Möglichkeit einer kontinuierlichen Lokalisierung über den gesamten drei-dimensionalen Kurs. Aufgrund dessen ist abhängig von der aktuellen Ebene (Gerade 1, Rampe 1, Rampe 2 oder Gerade 2) eine spezifische Karte mit Hilfe von [LoadMap](README.md#Implementierung des Map Wechsel) zu laden in der die Roboter-Position jeweils neu zu initialisieren ist. 
 
 ![Strecke: Ter0_Ramp](https://github.com/EduArt-Robotik/edu_robocub_rescue_stack/blob/main/docs/bev_strecke.png)
 
