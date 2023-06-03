@@ -96,7 +96,7 @@ Durch beide Implementierung kann die Map gewechselt werden. Die Implementierung 
 
 4. „Eduard Offroad“ im Reiter „Insert“ auswählen und in der nähe des Koordinatenursprungs (Blaue Z-Achse) platzieren.
 
-5. Navigations- & Steuerungs-Algorithmus starten:
+5. Navigations- & Steuerungs-Algorithmus starten:  
     `ros2 launch edu_robocup_rescue_stack navigation.launch.py`
 
 
