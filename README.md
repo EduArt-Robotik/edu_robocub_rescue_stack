@@ -71,19 +71,19 @@ To swap the map by activating and deactivating the map servers, it is necessary 
 
 ### Implementation of the map change
 
-##### Implementation of map change by load map
+##### Implementation where the current map is loaded
+To change a map by loading a new map, a client is created. With this client an asyncRequest with the desired map can be sent to the map server. Beside the desired ramp a callback function is passed, by which a successful change can be determined.
 
-To change a map using a load map, a client is created. With this client an asyncRequest with the desired map can be sent to the map server. Beside the desired ramp a callback function is passed, by which a successful change can be determined.
-##### Implementation of the Map Server Change for Test Purposes
+##### Implementation in which the current map server is activated for test purposes
 A new class was created to implement the map switch using lifecycle management. There the functions activeServices and deactiveService are provided, with which the Map_server can be activated or deactivated. The implementation was based on the ['service_client' of thehummingbird](https://github.com/thehummingbird/robotics_demos/blob/main/lifecycle_node/src/demo_lifecycle/src/service_client.cpp). 
 
 To get the current state and to trigger a state change an asyncRequest is sent. In contrast to the implementation of thehummingbird a callback function was passed. The callback function provieds feedback over the success/failure of an asyncRequest.
 
-###### Probleme bei der Implementierung der 4 Map Server
-Bei der Implementierung der 4 Map Server ist es zu dem Problem gekommen, dass beim Starten oft nicht alle Map Server Nodes und die AMCL Node vollständig gestartet wurden. Um dieses Problem zu lösen, wartet der Thread nun zu Beginn (im Konstruktor des LocalisationControlNode ) für 2 Sekunden. Wenn nicht gewartet wird kann es zu Fehlern führen, da auf dem Map Server zugegriffen werden kann, obwohl der Node nicht bereit ist.
+###### Problems with the implementation of the 4 map servers
+During the implementation of the 4 map servers it came to the problem that during the startup often not all map server nodes and the AMCL Node were started completely. To solve this problem, the thread waited for 2 seconds at the beginning (in the constructor of the 'LocalisationControlNode' ). If not waited it can lead to errors because the map server can be accessed although the node is not ready.
 
-#### Vergleich 
-Durch beide Implementierung kann die Map gewechselt werden. Die Implementierung mittels MapServer Wechsel ist deutlich aufwändiger als die Implementierung Load Map. Deshalb wurde sich Letztendlich für die Implementierung mittels Load Map entschieden.
+#### Comparison 
+By both implementation the map can be changed. The implementation by means of MapServer change is clearly more complex than the implementation by loding a new map within one map server. Therefore the implementation where the map is reloaded was chosen in the end.
 
 ## Control
 
