@@ -94,9 +94,8 @@ bool Navigation::counter(bool c_start_) {
 bool Navigation::sendGoalPose(){
 
     if (!m_goal_sended) {
-        m_send_goal = true;
-        return false;  
-    } else {
+        m_send_goal = true;  
+    } else if (m_goal_sended){
         m_send_goal = false;
         return true; 
     } 
