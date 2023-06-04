@@ -265,12 +265,13 @@ After the robot has turned in the correct direction, it starts to move forward. 
 The robot needs the odometry data from the localization libraries for this algorithm. On the way from point 2 to point 3, the robot drives until it has crossed the edge and tilts downward. The algorithm notices this because then the pitch angle is greater than or equal to 0.1 and the roll angle is greater than 0.
 This allows the robot to change ramps at an optimal angle. 
 
-#### Implementierungsdetails:
-Der Algorithmus wurde bisher mit dem Gazebo Roboter Model eduard_offroad getestet und die Implementation ist speziell darauf zugeschnitten. Um das Gazebo Roboter Model eduard_offroad zu steuern, muss eine 'geometry_msgs::msg::Twist' unter '/cmd_vel' gesendet werden. In dem 'linear.x' Wert wird die Forwärtsgeschwindigkeit und in dem 'angular.z' Wert die Drehgeschwindigkeit um den Yaw Winkel des Roboters übergeben.
+#### Implementation details:
+The algorithm has been tested so far with the Gazebo Robot Model eduard_offroad and the implementation is specific to it. To control the Gazebo robot model eduard_offroad, a 'geometry_msgs::msg::Twist' must be sent under '/cmd_vel'. In the 'linear.x' value the forward speed and in the 'angular.z' value the rotation speed around the yaw angle of the robot is passed.
 
 #### Probleme :
-Der Algorithmus hat prinzipiell funktioniert, solange es keine Probleme mit der Lokalisierung gab. Die Lokalisierung hatte an den selben Stellen besonders viele Probleme wie der  Algorithmus, der die Navigationsbibliothek verwendet (siehe [hier](README.md#Fehlerhafte-Lokalisierung) ). Die Navigationsschritte sind sehr fehleranfällig. Es kam zu dem Fehler, dass zu früh, oder gar nicht in den nächsten Navigationsschritt gesprungen wurde. Wenn der Roboter sich an einer anderen Stelle befindet, die nicht bei der Planung des jeweiligen Navigationsschritt beachtet worden ist, ist die weiterfahrt des Roboter nicht möglich und es führt ob zu unfällen.
-Zusätzlich sind die physikalischen Eigenschaften des Robotermodells noch nicht komplett ausgereift, weshalb der Roboter bei der Rampenüberquerung unter Umständen in eine instabile Lage gekippt ist und z.B. gehüpft oder ganz auf die Seite gekippt ist.
+
+The navigation steps are very error-prone. It happened that the algorithmen jumped to the next navigation step too early or not at all. Additionally, there were problems with the localization, as already described for the alogrithm that used Nav2. (see [here](README.md#Erroneous-Localization) ). If the robot is in a different place, which was not considered during the planning of the respective navigation step, the further travel of the robot is not possible and it leads ob to accidents.
+In addition, the physical properties of the robot model are not yet fully developed, which is why the robot may have tipped into an unstable position when crossing the ramp and, for example, hopped or tipped completely onto its side.
 
 ### Results
 Both algorithms are currently based on features, such as angles and hard-coded target positions, which must be specifically adapted to a parqour.
