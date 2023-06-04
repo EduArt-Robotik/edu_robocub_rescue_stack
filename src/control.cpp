@@ -10,6 +10,9 @@ Control::Control() {
     m_speed = 0;
     m_x_dest = -10;
     m_y_dest = 10;
+
+    m_times = 10;
+
 }
 
 

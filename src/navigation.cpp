@@ -16,12 +16,8 @@ Navigation::Navigation(LoadMap *loadMap) {
     m_goal_oZ = 0.0;
     m_goal_oW = 0.0;
 
-    m_goal_achived = false;
-    m_new_goal_set = false;
-
     m_send_goal = false;
     m_goal_sended = false;
-    m_start_area1 = true;
     m_map_sended = false;
     m_send_initial = false;
     m_initial_sended = false;
@@ -33,7 +29,8 @@ Navigation::Navigation(LoadMap *loadMap) {
     m_travel_backwards = false;
 
     m_c_start = false;
-    m_c_fin = false;
+    m_count = 0;
+    m_map_request_sended = false;
 
     string repository_path = "/home/daniel/ros2_ws/src/edu_robocub_rescue_stack";
     m_map1 = repository_path + "/map/map_1.yaml";
@@ -363,11 +360,11 @@ void Navigation::navigation_step(){
     }
 }
 
-void Navigation::loadMap(string m_url){
+void Navigation::loadMap(string url){
     
     if (!m_map_request_sended) {
         
-        m_loadMap -> startLoadMap(1s, m_url);
+        m_loadMap -> startLoadMap(1s, url);
         m_map_request_sended = true;
         m_send_goalpose = true;  
     }
@@ -375,12 +372,12 @@ void Navigation::loadMap(string m_url){
     m_loadmapStatus = m_loadMap -> getLoadStatus();
 }
 
-void Navigation::navigate(string m_url){
+void Navigation::navigate(string url){
 
     
     if (!m_map_request_sended) {   
         
-        loadMap(m_url);
+        loadMap(url);
 
     } else if (m_send_goalpose) {
         
@@ -390,7 +387,7 @@ void Navigation::navigate(string m_url){
 
     } else if (m_send_initial){
 
-        m_c_fin = counter(m_c_start);
+        bool m_c_fin = counter(m_c_start);
         m_c_start = false;
 
         if (m_c_fin) {

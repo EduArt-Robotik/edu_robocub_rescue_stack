@@ -9,6 +9,8 @@ using namespace std::chrono_literals;
 LoadMap::LoadMap(std::shared_ptr<rclcpp::Client<nav2_msgs::srv::LoadMap>> client_load_map)
 {
   m_client_load_map = client_load_map;
+  m_map_sended = false; 
+
 }
 
 

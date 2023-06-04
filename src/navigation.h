@@ -33,9 +33,6 @@ class Navigation //: public rclcpp::Node
     int m_area;
     int m_area_saved; 
 
-    bool m_goal_achived;
-    bool m_new_goal_set;
-
     bool m_send_goal;
     bool m_goal_sended;
     bool m_send_initial;
@@ -43,15 +40,8 @@ class Navigation //: public rclcpp::Node
     bool m_map_sended;
     bool m_send_goalpose;
      
-    
-    bool m_start_area1;
-    bool m_start_area2;
-    bool m_start_area3;
-    bool m_start_area4;
     bool m_loadmapStatus;
     bool m_map_request_sended;
-    bool m_stop_goal;
-    bool m_initialize;
     bool m_travel_forward;
     bool m_travel_backwards;
     bool m_turn;
@@ -66,10 +56,9 @@ class Navigation //: public rclcpp::Node
     
     int m_count;
     bool m_c_start;
-    bool m_c_fin;
 
-    void navigate(string m_url);
-    void loadMap(string m_url);
+    void navigate(string url);
+    void loadMap(string url);
     bool sendInitialPose();
     bool sendGoalPose();
     void navigation_step();

@@ -21,12 +21,8 @@ class Control
     float m_speed;
     float m_x_dest;
     float m_y_dest;
-    int m_times = 10;
-    float m_dist0;
-    float m_dist45;
-    float m_dist90;
-    float m_dist135;
-    float m_dist180;
+    int m_times;
+
 
 
     void calculateAngleSpeed();
