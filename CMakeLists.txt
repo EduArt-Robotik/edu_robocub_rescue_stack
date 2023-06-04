@@ -21,7 +21,7 @@ find_package(nav_msgs REQUIRED)
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
-add_executable(edu_robocup_rescue_stack_node src/edu_robocup_rescue_stack_node.cpp src/localistionControlNode.cpp src/control.cpp src/localisation.cpp src/navigation.cpp src/loadMap.cpp)
+add_executable(edu_robocup_rescue_stack_node src/edu_robocup_rescue_stack_node.cpp src/localistionControlNode.cpp src/localisation.cpp src/navigation.cpp src/loadMap.cpp)
 
 ament_target_dependencies(edu_robocup_rescue_stack_node rclcpp geometry_msgs nav_msgs nav2_msgs std_msgs sensor_msgs lifecycle_msgs rclcpp_lifecycle)
 
