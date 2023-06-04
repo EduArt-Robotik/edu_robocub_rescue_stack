@@ -4,11 +4,11 @@
 
 ### Prerequisites:
 
-- For the simulation the [edu_simulation-repository](https://github.com/EduArt-Robotik/edu_simulation) needs to be cloned in a local folder.
+- For simulation, the [edu_simulation-repository](https://github.com/EduArt-Robotik/edu_simulation) needs to be cloned to your local computer.
 
-- In order to use the Nav2 Navigation Stack function library the [navigation2-repostiory](https://github.com/ros-planning/navigation2) needs to be cloned in a local folder. 
+- In order to use the Nav2 Navigation Stack function library, the [navigation2-repostiory](https://github.com/ros-planning/navigation2) needs to be cloned to your local computer. 
 
-- The [lattice_primitves](https://github.com/EduArt-Robotik/edu_robocub_rescue_stack/tree/main/lattice_primitives) generated especially for the eduard offroad robot, which are located in this repository in the folder "lattice_primitives", have to be stored in the cloned navigation2-repository under the path `/navigation2/nav2_smac_planner/lattice_primitves`.
+- The [lattice_primitves](https://github.com/EduArt-Robotik/edu_robocub_rescue_stack/tree/main/lattice_primitives) which are generated specifically for theeduard offroad robot and are located in the "lattice_primitives" folder in this repository, must be placed in the cloned navigation2 repository under the path `/navigation2/nav2_smac_planner/lattice_primitves`.
 
 ### Launch:
 
