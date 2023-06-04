@@ -30,7 +30,9 @@ class LocalisationControlNode : public rclcpp::Node
 
     private:
 
-    bool m_send_goal; 
+    bool m_send_goal;
+
+    int m_wait;
 
     void scan_callback(sensor_msgs::msg::LaserScan msg_scan);
 

@@ -14,13 +14,13 @@ LocalisationControlNode::LocalisationControlNode(): Node("localisation_control")
     m_navigation = new Navigation(lp);
     
     //subscriber
-    m_subscriber_odom= this->create_subscription<nav_msgs::msg::Odometry>("/odom", 1, std::bind(&LocalisationControlNode::odom_callback, this, std::placeholders::_1));
+    //m_subscriber_odom= this->create_subscription<nav_msgs::msg::Odometry>("/odom", 1, std::bind(&LocalisationControlNode::odom_callback, this, std::placeholders::_1));
     m_subscriber_laserscan = this->create_subscription<sensor_msgs::msg::LaserScan>("/demo/laser/out", rclcpp::QoS(rclcpp::SensorDataQoS()), std::bind(&LocalisationControlNode::scan_callback, this, std::placeholders::_1));
     m_subscriber_amcl_pose= this->create_subscription<geometry_msgs::msg::PoseWithCovarianceStamped>("/amcl_pose", 1, std::bind(&LocalisationControlNode::amcl_pose_callback, this, std::placeholders::_1));
     m_subscriber_imu= this->create_subscription<sensor_msgs::msg::Imu>("/imu/data", rclcpp::QoS(rclcpp::SensorDataQoS()), std::bind(&LocalisationControlNode::imu_callback, this, std::placeholders::_1));
     
     //publisher
-    m_publisher_state_est = this->create_publisher<std_msgs::msg::Float64MultiArray>("/state_est", 10);
+    //m_publisher_state_est = this->create_publisher<std_msgs::msg::Float64MultiArray>("/state_est", 10);
     m_publisher_vel = this->create_publisher<geometry_msgs::msg::Twist>("/cmd_vel", 10);
     m_publisher_slam_scan = this->create_publisher<sensor_msgs::msg::LaserScan>("/scan", 10);
     m_publisher_goal_pose = this->create_publisher<geometry_msgs::msg::PoseStamped>("/goal_pose", 10);
@@ -31,7 +31,8 @@ LocalisationControlNode::LocalisationControlNode(): Node("localisation_control")
     m_timer = this->create_wall_timer(500ms, std::bind(&LocalisationControlNode::timer_callback, this));
     m_timer_clock = this->create_wall_timer(50ms, std::bind(&LocalisationControlNode::timer_clock_callback, this));
     
-
+    m_wait = 0;
+    m_send_goal = false;
     }
 
 void LocalisationControlNode::imu_callback(const sensor_msgs::msg::Imu::SharedPtr msg_imu)
@@ -44,31 +45,22 @@ void LocalisationControlNode::imu_callback(const sensor_msgs::msg::Imu::SharedPt
     m_localisation->setPosOrientation(x_orient_imu, y_orient_imu, z_orient_imu, w_orient_imu);
 }
 
-void LocalisationControlNode::odom_callback(const nav_msgs::msg::Odometry::SharedPtr msg_odom) 
+/*void LocalisationControlNode::odom_callback(const nav_msgs::msg::Odometry::SharedPtr msg_odom) 
 {   
-    //Position
-    float x = msg_odom->pose.pose.position.x;
-    float y = msg_odom->pose.pose.position.y;
-    
-    //Orientation
-    float x_orient = msg_odom->pose.pose.orientation.x;
-    float y_orient = msg_odom->pose.pose.orientation.y;
-    float z_orient = msg_odom->pose.pose.orientation.z;
-    float w_orient = msg_odom->pose.pose.orientation.w;
 
     std_msgs::msg::Float64MultiArray obs_state_vector_x_y_yaw;
     obs_state_vector_x_y_yaw.data = {m_localisation->getX(), m_localisation->getY(), m_localisation->getYawZ()};
 
     publish_estimated_state(obs_state_vector_x_y_yaw);
-}
+}*/
 
 void LocalisationControlNode::timer_callback()
 {
     setting_goal_pose();
     
-    auto message = geometry_msgs::msg::Twist();
-    message.linear.x = m_control->getSpeed();
-    message.angular.z = m_control->getAngle();
+    //auto message = geometry_msgs::msg::Twist();
+    //message.linear.x = m_control->getSpeed();
+    //message.angular.z = m_control->getAngle();
      
 }
 
@@ -81,14 +73,14 @@ void LocalisationControlNode::timer_clock_callback()
     m_publisher_clock_time->publish(message_time);   
 }
 
-void LocalisationControlNode::publish_estimated_state(std_msgs::msg::Float64MultiArray state_vec_msg)
+/*void LocalisationControlNode::publish_estimated_state(std_msgs::msg::Float64MultiArray state_vec_msg)
 {
     // publishing the estimated pose and orientation
     auto message_pose = std_msgs::msg::Float64MultiArray();
     message_pose.data = state_vec_msg.data;
     
     m_publisher_state_est->publish(message_pose);
-}
+}*/
 
 void LocalisationControlNode::scan_callback(sensor_msgs::msg::LaserScan msg_scan)
 {
@@ -192,10 +184,10 @@ void LocalisationControlNode::setting_goal_pose(){
     } 
     
     // sending goal-pose
-    int wait = wait + 500;
+    m_wait = m_wait + 500;
 
     // waiting 2000ms to send the goal the first time
-    if(wait >= 2000){
+    if(m_wait >= 2000){
          m_send_goal = m_navigation->getSendGoal();
     }
 

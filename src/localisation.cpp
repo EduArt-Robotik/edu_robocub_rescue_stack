@@ -59,22 +59,22 @@ void Localisation::recognize_area() {
     // the recognize_area-function identifies the area the robot drives on
     // Based on the recognition the maps are loaded by the map-loader
 
-    m_diff_x_y = abs(m_pitch_y) + abs(m_roll_x);
+    float diff_x_y = abs(m_pitch_y) + abs(m_roll_x);
 
     // conditions of the if- and else if- statements are angles and positions measured by IMU and AMCL to identify the spesific area
-    if ((m_diff_x_y < 0.20)&&(m_amcl_x < 2.1)){
+    if ((diff_x_y < 0.20)&&(m_amcl_x < 2.1)){
 
         m_area = 1; // straight 1
 
-    } else if ((m_amcl_x >= 2.2)&&(m_diff_x_y > 0.20)&&((((m_pitch_y >= -0.27)&&(m_pitch_y < 0.0))&&((abs(m_yaw_z) >= 0.0)&&(abs(m_yaw_z) < (M_PI / 2.0)))) || (((m_pitch_y <= 0.27)&&(m_pitch_y >= 0.0))&&((abs(m_yaw_z) >= (M_PI / 2.0))&& (abs(m_yaw_z) <= M_PI))))) {
+    } else if ((m_amcl_x >= 2.2)&&(diff_x_y > 0.20)&&((((m_pitch_y >= -0.27)&&(m_pitch_y < 0.0))&&((abs(m_yaw_z) >= 0.0)&&(abs(m_yaw_z) < (M_PI / 2.0)))) || (((m_pitch_y <= 0.27)&&(m_pitch_y >= 0.0))&&((abs(m_yaw_z) >= (M_PI / 2.0))&& (abs(m_yaw_z) <= M_PI))))) {
 
         m_area = 2; //ramp 1
 
-    } else if ((m_diff_x_y > 0.20)&&((((m_pitch_y <= 0.27)&&(m_pitch_y > 0.0))&&((abs(m_yaw_z) >= 0.0)&&(abs(m_yaw_z) < (M_PI / 2.0)))) || (((m_pitch_y >= -0.27)&&(m_pitch_y <= 0.0))&&((abs(m_yaw_z) >= (M_PI / 2.0))&& (abs(m_yaw_z) <= M_PI))))) {
+    } else if ((diff_x_y > 0.20)&&((((m_pitch_y <= 0.27)&&(m_pitch_y > 0.0))&&((abs(m_yaw_z) >= 0.0)&&(abs(m_yaw_z) < (M_PI / 2.0)))) || (((m_pitch_y >= -0.27)&&(m_pitch_y <= 0.0))&&((abs(m_yaw_z) >= (M_PI / 2.0))&& (abs(m_yaw_z) <= M_PI))))) {
         
         m_area = 3; //ramp 2
 
-    } else if ((m_diff_x_y < 0.20)&&(m_amcl_x > 4.0)){
+    } else if ((diff_x_y < 0.20)&&(m_amcl_x > 4.0)){
 
         m_area = 4; // straight 2
     }

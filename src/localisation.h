@@ -73,7 +73,7 @@ class Localisation{
 
     float m_amcl_x;
     float m_amcl_y;
-    float m_diff_x_y;
+
     
 
     

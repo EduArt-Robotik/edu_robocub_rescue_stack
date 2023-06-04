@@ -35,10 +35,11 @@ Navigation::Navigation(LoadMap *loadMap) {
     m_c_start = false;
     m_c_fin = false;
 
-    m_map1 = "/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/map/map_1.yaml";
-    m_map2 = "/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/map/map_2.yaml";
-    m_map3 = "/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/map/map_3.yaml";
-    m_map4 = "/home/daniel/ros2_ws/src/edu_robocub_rescue_stack/map/map_4.yaml";
+    string repository_path = "/home/daniel/ros2_ws/src/edu_robocub_rescue_stack";
+    m_map1 = repository_path + "/map/map_1.yaml";
+    m_map2 = repository_path + "/map/map_2.yaml";
+    m_map3 = repository_path + "/map/map_3.yaml";
+    m_map4 = repository_path + "/map/map_4.yaml";
 }
 
     /*
@@ -97,10 +98,12 @@ bool Navigation::sendGoalPose(){
 
     if (!m_goal_sended) {
         m_send_goal = true;
-    } else if (m_goal_sended) {
+        return false;  
+    } else {
         m_send_goal = false;
         return true; 
-    }   
+    } 
+    
 }
 
 bool Navigation::sendInitialPose(){
@@ -125,8 +128,6 @@ void Navigation::map_swap(int m_area) {
 }
 
 void Navigation::navigation_step(){
-    
-    std::cout << "m_amcl_X: " << m_amcl_pX << std::endl;
 
     map_swap(m_area);
 
