@@ -1,6 +1,6 @@
 # edu_robotcub_stack 4maps
 
-It is not recommended to continue working on this implementation. It is recommended to continue working on the (implementation that uses the Navigation Stack 2)[https://github.com/EduArt-Robotik/edu_robocub_rescue_stack].
+It is not recommended to continue working on this implementation. It is recommended to continue working on the [implementation that uses the Navigation Stack 2](https://github.com/EduArt-Robotik/edu_robocub_rescue_stack).
 
 ## launch
 ros2 launch edu_robocup_rescue_stack edu_control.launch.py 
