@@ -88,10 +88,9 @@ Durch beide Implementierung kann die Map gewechselt werden. Die Implementierung 
 
 ## Control
 
-Two algorithms were developed and tested as part of the search for a concept for traversing the parqours. One algorithm dosn't use the ROS Navigation Stack 2, the other is largely based on the ROS Navigation Stack 2. The algorithms are programmed in C++. All tests of the two algorithms were performed in Gazebo with an [Eduard offroad robot](https://github.com/EduArt-Robotik/edu_simulation/tree/feature/sand_gravel_ramp/model/eduard_offroad) on the [TER0_ramp](https://github.com/EduArt-Robotik/edu_simulation/tree/feature/sand_gravel_ramp/model/TER0_ramp) track.
+This repository branch contains an algorithm that uses navigation stack 2 (Nav2). As part of the search for the concept of traversing the course, two algorithms were developed and tested. One algorithm does not use ROS Nav2 or any other third party navigation library, the other is the algorithm mentioned earlier, which is using ROS Nav2. Both are developed in C++. All tests of the two algorithms were performed in Gazebo with an [Eduard offroad robot](https://github.com/EduArt-Robotik/edu_simulation/tree/feature/sand_gravel_ramp/model/eduard_offroad) on the [TER0_ramp](https://github.com/EduArt-Robotik/edu_simulation/tree/feature/sand_gravel_ramp/model/TER0_ramp) track.
 
-### Algorithm using the Nav2 navigation stack
-
+### Algorithm using Nav2
 This branch contains the source code of the algorithmen using Navigation Stack 2.
 
 #### Navigation:
