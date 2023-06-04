@@ -238,19 +238,19 @@ The robot travels to the points one after the other. Note that point 2 is offset
 4th map: yellow
 
 #### Navigationsteps:
-0. step: drive to point 1, the driving direction is forward and map 1 is loaded.
-1st step: drive to point 2, observe pitch angle and change state when robot has driven onto first ramp
-2nd step: load map 2 and drive to point 2
-3rd step: drive to point 3, observe pitch and roll angle and change state when the robot changed ramps.
-4th step: load map3 and drive to point 4. Observe roll and pitch angle to change state when robot moves from the ramp to the straight part.
-5th Step: load 4th map and continue to move towards point 4.
-6th step: move to point 5.
-7th step: change driving direction backwards and drive towards point 6.
-8th step: drive to point 7, watch pitch angle to change state when robot drives on ramp.
-9th step: load 3th map and continue to drive towards point 7
-10th step: drive to point 2, watch pitch and roll angle to change state when robot changed ramps.
-Step 11: Load 2nd map and drive towards point 1. Observe roll and pitch angle to change state when robot moves from the ramp to the straight part.
-Step 12: load 1st map and continue driving towards point 1.
+0. step: drive to 1st point, the driving direction is forward and map 1 is loaded.
+1st step: drive to 2nd point, observe pitch angle and change state when robot has driven onto first ramp
+2nd step: load 2nd map and still drive to 2nd point
+3rd step: drive to 3th point, observe pitch and roll angle and change state when the robot changed ramps
+4th step: load 3th map and drive to 4th point, observe roll and pitch angle and change state when robot moves from the ramp to the straight part
+5th Step: load 4th map and continue to move towards 4th point
+6th step: move to 5th point
+7th step: change driving direction backwards and drive towards the 6th point
+8th step: drive to 7th point, watch pitch angle to change state when robot drives on ramp
+9th step: load 3th map and continue to drive towards 7th point
+10th step: drive to 2th point, watch pitch and roll angle to change state when robot changed ramps
+Step 11: Load 2nd map and drive towards 1st point, observe roll and pitch angle to change state when robot moves from the ramp to the straight part
+Step 12: load 1st map and continue driving towards 1st point.
 Step 13: move to the starting point.
 
 Der Algorithmus geht davon aus, dass der Roboter zu Beginn auf einen fest definierten Startpunkt (Streckenanfang) gesetzt wurde. Der Algorithmus besteht im Wesentlichen aus zwei Zustände: Drehen (auf der Stelle) und Fahren (geradeaus vorwärts). Außerdem wird kontinuierlich (unabhängig vom Zustand) geprüft, ob der Roboter in Richtung des aktuellen Zielpunktes gedreht ist. Sollte dies nicht der Fall sein, stoppt der Roboter und beginnt sich zu drehen.
