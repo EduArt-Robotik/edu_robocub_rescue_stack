@@ -61,9 +61,9 @@ Bei der Implementierung der 4 Map Server ist es zu dem Problem gekommen, dass be
 #### Vergleich 
 Durch beide Implementierung kann die Map gewechselt werden. Die Implementierung mittels MapServer Wechsel ist deutlich aufwändiger als die Implementierung Load Map. Deshalb wurde sich Letztendlich für die Implementierung mittels Load Map entschieden.
 
-## Steuerung
+## Control
 
-Im Rahmen der Suche nach einem Konzept zum Durchqueren der Parqours wurden zwei Algorithmen entwickelt. Ein Algorithmus wurde vollständig neu programmiert, der Andere basiert zu großen Teilen auf dem ROS Navigation Stack 2. Die Algorithmen sind in C++ programmiert. Alle Tests der beiden Algorithmen wurden in Gazebo mit einem Eduard-Offroad-Roboter auf der TER0_ramp-Strecke durchgeführt.
+Two algorithms were developed as part of the search for a concept for traversing the parqours. One algorithm was completely reprogrammed, the other is largely based on the ROS Navigation Stack 2. The algorithms are programmed in C++. All tests of the two algorithms were performed in Gazebo with an Eduard offroad robot on the TER0_ramp track.
 
 ### Algorithm using the Nav2 navigation stack
 
