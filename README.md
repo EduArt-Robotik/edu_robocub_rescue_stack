@@ -102,7 +102,7 @@ Im Rahmen der Suche nach einem Konzept zum Durchqueren der Parqours wurden zwei 
 
 ##### Process:
 
-As explained earlier, position detection based on two dimensions with AMCL does not provide the possibility of continuous localization over the entire three-dimensional course. Due to this, depending on the current level (straight 1, ramp 1, ramp 2 oder straight 2), a specific map needs to be loaded with the help of [LoadMap](README.md#Implementierung-des-Map-Wechsels) in which the robot pisition has to be reinitialized every time.
+As explained earlier, position detection based on two dimensions with AMCL does not provide the possibility of continuous localization over the entire three-dimensional course. Due to this, depending on the current level (straight 1, ramp 1, ramp 2 oder straight 2), a specific map needs to be loaded ([LoadMap](README.md#Implementierung-des-Map-Wechsels)) in which the robot pisition has to be reinitialized every time.
 
 ![Strecke: Ter0_Ramp](https://github.com/EduArt-Robotik/edu_robocub_rescue_stack/blob/main/docs/bev_strecke.png)
 
