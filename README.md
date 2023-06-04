@@ -65,24 +65,24 @@ Durch beide Implementierung kann die Map gewechselt werden. Die Implementierung 
 
 Im Rahmen der Suche nach einem Konzept zum Durchqueren der Parqours wurden zwei Algorithmen entwickelt. Ein Algorithmus wurde vollständig neu programmiert, der Andere basiert zu großen Teilen auf dem ROS Navigation Stack 2. Die Algorithmen sind in C++ programmiert. Alle Tests der beiden Algorithmen wurden in Gazebo mit einem Eduard-Offroad-Roboter auf der TER0_ramp-Strecke durchgeführt.
 
-### Algorithmus mit Verwendung der Nav2 Navigationsbibliotheken
+### Algorithm using the Nav2 navigation stack
 
-#### Voraussetzung:
+#### Prerequisites:
 
-- Für die Simulation ist das lokale klonen des [edu_simulation-repositorys](https://github.com/EduArt-Robotik/edu_simulation) notwendig.
+- For the simulation the [edu_simulation-repository](https://github.com/EduArt-Robotik/edu_simulation) needs to be cloned in a local folder.
 
-- Um auf den Navigation Stack zugreifen zu können, ist das [navigation2-repostiory](https://github.com/ros-planning/navigation2) lokal zu klonen. 
+- In order to use the Nav2 Navigation Stack function library the [navigation2-repostiory](https://github.com/ros-planning/navigation2) needs to be cloned in a local folder. 
 
-- Die speziell für den Eduard-Offroad-Roboter generierten [lattice_primitves](https://github.com/EduArt-Robotik/edu_robocub_rescue_stack/tree/main/lattice_primitives), die sich in diesem Repository im gleichnamigen Ordner befinden, sind im geklonten navigation2-Ordner unter /navigation2/nav2_smac_planner/lattice_primitves abzuspeichern. Ohne die lattice_primitives ist die Performance des Planers deutlich schlechter. 
+- The [lattice_primitves](https://github.com/EduArt-Robotik/edu_robocub_rescue_stack/tree/main/lattice_primitives) generated especially for the eduard offroad robot, which are located in this repository in the folder "lattice_primitives", have to be stored in the cloned navigation2-repository under the path `/navigation2/nav2_smac_planner/lattice_primitves`.
 
 #### Launch:
 
-1. Gazebo starten:  
+1. Launch Gazebo:  
     `ros2 launch edu_simulation eduard.launch.py`
 
-2. Parqour „TER0_ramp“ im Reiter „Insert“ auswählen und platzieren.
+2. Select parqour „TER0_ramp“ in the „Insert“ tab and place it in the free space.
 
-3. Parqour anklicken und in linker Leiste pose einstellen:  
+3. Click on parqour and set pose in left bar:  
     x: 3,14  
     y: 0,6  
     z: 0,00  
@@ -90,11 +90,11 @@ Im Rahmen der Suche nach einem Konzept zum Durchqueren der Parqours wurden zwei 
     pitch: 0,00  
     yaw: 0,00  
 
-    → Die Ziel-Positionen des Algorithmus sind darauf ausgelegt, dass der Parqour sich auf dieser Postion im Globalen-Koordinatensystem befindet.
+    → The target positions of this algorithm are designed to have the parqour located at that position in the global coordinate system.
 
-4. „Eduard Offroad“ im Reiter „Insert“ auswählen und in der nähe des Koordinatenursprungs (Blaue Z-Achse) platzieren.
+4. Choose „Eduard Offroad“ in the „Insert“ tab and place it close to the coordinate origin (blue Z-axis).
 
-5. Navigations- & Steuerungs-Algorithmus starten:  
+5. Launch navigation and control algorithm.
     `ros2 launch edu_robocup_rescue_stack navigation.launch.py`
 
 
@@ -279,12 +279,12 @@ Der Algorithmus hat prinzipiell funktioniert, solange es keine Probleme mit der 
 Zusätzlich sind die physikalischen Eigenschaften des Robotermodells noch nicht komplett ausgereift, weshalb der Roboter bei der Rampenüberquerung unter Umständen in eine instabile Lage gekippt ist und z.B. gehüpft oder ganz auf die Seite gekippt ist.
 
 ### Ergebnisse und Ausblick
-Beide Algorithmen basieren derzeit auf Merkmalen, wie Winkel und hartkodierte Ziel-Positionen, die spezifisch an einen Parqour angepasst werden müssen. 
+Both algorithms are currently based on features, such as angles and hard-coded target positions, which must be specifically adapted to a parqour.
 
-Der selbstgeschriebene Algorithmus ohne Nav2 Navigationsbibliotheken ist sehr fehleranfällig. Da keine externen Plugins in dem Algorithmus verwendet werden, sind teile des Algorithmus auf andere Systeme übertragbar. Probleme durch virtuelle Kollisionsbereiche entfallen vollständig. Zudem macht es den Algorithmus resourcensparender. Aufwändig ist die Ziel-Auswahl sowie Anpassung der Ziel-Postionen an einen optimalen Lauf. Mit der Komplexität des Parqours steigt außerdem die Anzahl der zu vergebenden Ziele, da der Roboter von einem Ziel zum Anderen nur auf einer geraden Trajektorie fahren kann. Dies macht die Anpassung des Algorithmus für andere Parqours sehr aufwendig und ist deshalb nicht zu empfehlen. Des Weiteren bezieht der Algorithmus keine Umwelt-Informationen in die Steuerung des Roboters mit ein, wodurch keine situativen Entscheidungen möglich sind.  
+The self-written algorithm without Nav2 navigation libraries is very error-prone. Since no external plugins are used in the algorithm, parts of the algorithm are transferable to other systems. Problems caused by virtual collision areas are completely eliminated. It also makes the algorithm more resource efficient. The target selection as well as the adjustment of the target postions to an optimal run is time-consuming. Also, as the complexity of the parqour increases, so does the number of targets to be assigned, since the robot can only travel from one target to another on a straight trajectory. This makes the adaptation of the algorithm for other parqours very complex and is therefore not recommended. Furthermore, the algorithm does not include environmental information into the control of the robot, which means that situational decisions are not possible.
 
-Der Algorithmus mit Verwendung der Nav2 Navigationsbibliotheken ist derzeit noch wenig robust, durch viele Plugins und komplexe Berechnungen ist die Funktion abhängig von der aktuell verfügbaren Rechenleistung. Programme die im Hintergrund während der Simulation laufen oder viele dicht aufeinanderfolgende Test-Durchläufe führten oft zu einer Verschlechterung in der Performance. Problematisch bei der Ausführung waren meist die Situationen, die unter dem Punkt „fehlerhafte Lokalisierung“ beschrieben sind. Ist eine dieser Situationen früh in der Simulation aufgetreten, so führte dies wie beschrieben zu einer bereits zu Beginn deutlichen Verschlechterung der Lokalisierung und der Roboter ist meist nach zwei Durchläufen aus einem der ebenfalls unter dem Punkt „fehlerhafte Lokalisierung“ beschriebenen Fehler steckengeblieben. Kam es zu wenigen oder keinen dieser außerordentlichen Situationen, die zu einem erhöhten Schlupf führten, so konnte der Roboter in vielen Fällen mehr als fünf Durchläufe stabil durchfahren. Funktioniert die Lokalisierung, so wird mittels der Form des Keepout-Filters an der richtigen Stelle eine Trajektorie erzwungen, wodurch der Roboter sehr Schlupf-arm von der Einen auf die andere Rampe überfahren kann. Auch wenn aufgrund des Pfad-Planers und des Keepout-Filters, die vorzugebenden Ziel-Positionen nicht so genau anzupassen sind wie bei dem anderen Algorithmus, so kostet es dennoch etwas Zeit, die optimale Form des Keepout-Filters zu finden. Die  Frage ist jedoch auch, ob eine so genaue Anpassung bei einer robusteren Lokalisierung noch notwendig ist. Besonders der Obstacle-Layer auf der Costmap in Verbindung mit dem Pfad-Planer bietet zudem noch den Vorteil, dass situativ auf die Umwelt reagiert werden kann. Erscheint ein Hindernis vor dem Roboter, so bildet der Obstacle-Layer dieses in Echtzeit in der Costmap ab. Basierend auf diesen Informationen kann der Pfad-Planer eine Trajektorie um das Hindernis herum planen. Die Bestimmung der Initialisierungs-Position in jeder neu geladenen Karte trägt, trotz der Neigung zu einem geringen systematischen Fehler, zu einer wesentlichen Verbesserung der Lokalisierung bei. Ein sehr nützlicher Nebeneffekt ist zudem, dass der Roboter aufgrund der Eigenbestimmung der Initialisierungs-Position zu Beginn auf eine beliebige Start-Position auf der ersten Gerade im Parqour gestellt werden kann, von wo aus er dann den Durchlauf startet. 
+The algorithm using the Nav2 navigation libraries is currently not very robust, due to many plugins and complex calculations, the function is dependent on the currently available computing power. Programs running in the background during simulation or many test runs in close succession often led to a deterioration in performance. The situations described under the section "incorrect localization" were mostly problematic during the execution. If one of these situations occurred early in the simulation, it led to a significant degradation of the localization already at the beginning, as described, and the robot usually got stuck after two runs from one of the errors also described under the section " incorrect localization". If there were few or none of these extraordinary situations that resulted in increased slippage, the robot was able to make more than five runs in a stable manner in many cases. If the localization works, the shape of the keepout filter is used to force a trajectory at the correct location, allowing the robot to cross from one ramp to the other with very little slip. Even though, due to the path planner and the keepout filter, the target positions to be predefined do not have to be adjusted as precisely as with the other algorithm, it still takes some time to find the optimal form of the keepout filter. However, the question is also whether such a precise adjustment is still necessary with a more robust localization. Especially the obstacle layer on the costmap in combination with the path planner offers the additional advantage of being able to react situationally to the environment. If an obstacle appears in front of the robot, the obstacle layer maps it in real time in the costmap. Based on this information, the path planner can plan a trajectory around the obstacle. The determination of the initialization position in each newly loaded map, despite its tendency to a small systematic error, contributes to a significant improvement in localization. A very useful side effect is also that, due to the self-determination of the initialization position at the beginning, the robot can be set to any start position on the first straight in the parqour, from where it then starts the run.
 
-Die wesentliche Erkenntnis der Arbeit ist, dass Situationen in denen an den Rädern des Roboters viel Schlupf entsteht zu einer deutlichen Verschlechterung der Lokalisierung führen. Ein solides Funktionieren der Algorithmen, bei geringerem Aufkommen dieser Situationen zeigt, dass das Problem aktuell nicht an der Steuerung liegt, sondern an der Lokalisierung.
+The main finding of the work is that situations in which a lot of slippage occurs at the wheels of the robot lead to a significant degradation of localization. A solid functioning of the algorithms, with less occurrence of these situations, shows that the problem is currently not with the control, but with the localization.
 
-Im Hinblick auf diese Erkenntnis, empfiehlt es sich im Rahmen einer möglichen Weiterarbeit den Fokus auf die Lokalisierung genauer gesagt auf die Verbesserung der Odometrie zu legen. Ein möglicher Lösungsansatz wäre die Fusion der Odometie mit der IMU unter zuhilfenahme eines Kalman-Filters. Der AMCL kann dadurch basierend auf der gefilterten Odometrie eine bessere Positions-Schätzung durchführen. Einen vorimplementierten Kalman-Filter bietet zum Beispiel [robot_localisation](http://docs.ros.org/en/noetic/api/robot_localization/html/index.html). Des Weiteren wäre eine Verbesserung der Initialisierungs-Position wichtig. Diese Schätzung könnte zum Beispiel durch einen RANSAC-Algorithmus stabiler gemacht werden.
+In view of this finding, it is recommended to focus on the localization, or more precisely on the improvement of the odometry, in the context of a possible further work. A possible solution approach would be the fusion of the odometry with the IMU using a Kalman filter. The AMCL can then perform a better position estimation based on the filtered odometry. For example, a pre-implemented Kalman filter is provided by [robot_localisation](http://docs.ros.org/en/noetic/api/robot_localization/html/index.html). Furthermore, an improvement of the initialization position would be important. This estimate could be made more stable, for example, by a RANSAC algorithm.
