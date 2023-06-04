@@ -238,25 +238,25 @@ The robot travels to the points one after the other. Note that point 2 is offset
 4th map: yellow
 
 #### Navigationsteps:
-0. step: drive to 1st point, the driving direction is forward and map 1 is loaded.
-1st step: drive to 2nd point, observe pitch angle and change state when robot has driven onto first ramp
-2nd step: load 2nd map and still drive to 2nd point
-3rd step: drive to 3th point, observe pitch and roll angle and change state when the robot changed ramps
-4th step: load 3th map and drive to 4th point, observe roll and pitch angle and change state when robot moves from the ramp to the straight part
-5th Step: load 4th map and continue to move towards 4th point
-6th step: move to 5th point
-7th step: change driving direction backwards and drive towards the 6th point
-8th step: drive to 7th point, watch pitch angle to change state when robot drives on ramp
+0. step: drive to 1st point, the driving direction is forward and 1st map is loaded.
+1st step: drive to 2nd point, observe pitch angle and change state when the robot has driven onto first ramp
+2nd step: load 2nd map and continue driving to 2nd point
+3rd step: drive to 3rd point, observe pitch and roll angle and change state when robot has changed ramp
+4th step: load 3rd map and drive to 4th point, observe roll and pitch angle and change state when robot moved from ramp to straight part
+5th step: load 4th map and continue to 4th point
+6th step: drive to the 5th point
+7th step: change driving direction backwards and drive to the 6th point
+8th step: drive to 7th point, observe pitch angle and change state when robot goes on the ramp
 9th step: load 3th map and continue to drive towards 7th point
 10th step: drive to 2th point, watch pitch and roll angle to change state when robot changed ramps
 Step 11: Load 2nd map and drive towards 1st point, observe roll and pitch angle to change state when robot moves from the ramp to the straight part
 Step 12: load 1st map and continue driving towards 1st point.
 Step 13: move to the starting point.
 
-Der Algorithmus geht davon aus, dass der Roboter zu Beginn auf einen fest definierten Startpunkt (Streckenanfang) gesetzt wurde. Der Algorithmus besteht im Wesentlichen aus zwei Zustände: Drehen (auf der Stelle) und Fahren (geradeaus vorwärts). Außerdem wird kontinuierlich (unabhängig vom Zustand) geprüft, ob der Roboter in Richtung des aktuellen Zielpunktes gedreht ist. Sollte dies nicht der Fall sein, stoppt der Roboter und beginnt sich zu drehen.
+The algorithm assumes that the robot was set to a fixed starting point (start of track) at the beginning. The algorithm essentially consists of two states: turning (on the spot) and driving (straight forward). In addition, it continuously checks (regardless of the state) whether the robot has turned in the direction of the current target point. If this is not the case, the robot stops and starts turning.
 
-#### Drehen:
-Bei einer Drehung dreht sich der Roboter so weit, bis er gerade auf diesen nächsten Punkt zufahren kann. Er stoppt mit der Drehbewegung, wenn er sich innerhalb eines Toleranzbereiches des anfangs für die Drehung berechneten Winkels befindet. Es wurde ein Toleranzbereich festgelegt, der einerseits möglichst genau ist, allerdings nicht zu fein, da die Winkeldifferenz nur in einem festdefinierten Takt berechnet wird und sich der Roboter deshalb möglichst wenig über das Ziel hinausdrehen soll. Diese Toleranz wurde durch Tests in der Simulation ermittelt. Während der Drehung wird der Roboter vom Algorithmus auf der Stelle gedreht und legt keinen Weg mit der Drehung zurück. Dadurch bleibt der Wendekreis sehr klein und der Roboter läuft nicht in Gefahr, ungewollt gegen eine Wand zu fahren.
+#### Rotation:
+During a rotation, the robot turns until it can just move towards this next point. The rotation stops when it is within a tolerance range of the angle initially calculated for the rotation. A tolerance range was defined, which on the one hand is as precise as possible, but not too fine, since the angle difference is only calculated in a fixed cycle and the robot should therefore turn as little as possible beyond the target. This tolerance was determined by tests in the simulation. During the rotation, the robot is turned on the spot by the algorithm. As a result, the turning circle remains very small and the robot does not run the risk of unintentionally hitting a wall.
 
 #### Fahren:
 Nachdem der Roboter in die jeweils richtige Richtung gedreht ist, beginnt er mit der Vorwärtsfahrt.  Je näher der Roboter dem aktuellen Zielpunkt kommt, desto langsamer fährt er. Sobald sich der Roboter in einem bestimmten Toleranzradius um den aktuellen Zielpunkt befindet, wird der Zielpunkt aktualisiert und der Robotor beginnt auf den nächsten Zielpunkt zuzufahren. 
