@@ -221,13 +221,12 @@ To improve the localization, the algorithm publishes an initialization position 
 Both the inflation-layer and the keepout-filter are represented as collision regions in the costmap. Since the "jump" from one ramp to the other is very uncontrolled, it has happened that the robot lands within these collision areas. If this is the case, the path planner cannot calculate a path to the target position and the robot stops at that position. One approach to solving this problem would be to adjust the recovery mode of the robot, which is defined in the Nav2 behavour-tree.
 
 
-### Selbstgeschriebener Algorithmus ohne Navigationsbibliotheken
+### Algorithm that does not use third-party navigation library
 
+In addition to the algorithm described above, another algorithm has been developed which (apart from using functions of the localization libraries) does not use any functions of the Nav2 libraries. The source code for this algorithm is available in branch [4maps](https://github.com/EduArt-Robotik/edu_robocub_rescue_stack/tree/4maps).
+In this algorithm there are 4 partial maps as well as 14 navigation-steps (the reason for using 4 maps can be read [here](README.md#problems-amcl)). The robot moves through the defined points one after the other. These points are located on the route model for the TER1 route and are permanently implemented, which is why the algorithm can primarily only be used for this route. The points are located on the ramp as follows:
 
-Neben dem oben beschriebenen Algorithmus, wurde ein weiterer Algorithmus entwickelt, der (abgesehen von Verwendung von Funktionen der Lokalisierungsbibliotheken) komplett selbstgeschrieben ist und keine Funktionen der Navigationsbibliotheken verwendet. Der Source Code für diesen Algorithmus liegt im branch [4maps](https://github.com/EduArt-Robotik/edu_robocub_rescue_stack/tree/4maps).
-In diesem Algorithmus gibt es 4 Teilkarten sowie 14 navigation-steps (der Grund für die Verwendung von 4 Karten kann [hier](README.md#probleme-amcl) nachgelesen werden). Der Roboter fährt dabei sukzessive die definierten Punkte ab. Diese Punkte befinden sich auf dem Streckenmodell für die TER1 Strecke und sind fest implementiert, weshalb der Algorithmus primär nur für diese Strecke eingesetzt werden kann. Die Punkte befinden sich folgendermaßen auf der Rampe:
-
-![Rampe Punkte](https://github.com/EduArt-Robotik/edu_robocub_rescue_stack/blob/main/docs/4MapsDestPos.jpg?raw=true "Rampe mit von dem Algorithmus verwendet Punkten")
+![Track Points](https://github.com/EduArt-Robotik/edu_robocub_rescue_stack/blob/main/docs/4MapsDestPos.jpg?raw=true "Track and used Points")
 
 Die Roboter fährt dabei die Punkte der Reihe nach ab. Zu bemerken ist, dass Punkt 2 im Vergleich zu Punkt 7 versetzt ist und Punkt 3 im Vergleich zu Punkt 8. Damit wurde sichergestellt, dass der Roboter beim Überqueren der Rampe weder auf dem Hinweg (Punkt 2 zu 3) noch auf dem Rückweg (Punkt 7 zu 8) gegen eine Wand fährt sondern etwas weiter rampen-aufwärts die Verschränkung überquert und dann leicht nach unten fällt.
 
