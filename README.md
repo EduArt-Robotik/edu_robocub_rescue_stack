@@ -6,7 +6,7 @@
 
 - For simulation, the [edu_simulation-repository](https://github.com/EduArt-Robotik/edu_simulation) needs to be cloned to your local computer.
 
-- In order to use the Navigation Stack 2 (Nav2) function library, the [navigation2-repostiory](https://github.com/ros-planning/navigation2) needs to be cloned to your local computer. 
+- In order to use the (Navigation Stack 2 (Nav2))[https://navigation.ros.org/] function library, the [navigation2-repostiory](https://github.com/ros-planning/navigation2) needs to be cloned to your local computer. 
 
 - The [lattice_primitves](https://github.com/EduArt-Robotik/edu_robocub_rescue_stack/tree/main/lattice_primitives) which are generated specifically for theeduard offroad robot and are located in the "lattice_primitives" folder in this repository, must be placed in the cloned navigation2 repository under the path `/navigation2/nav2_smac_planner/lattice_primitves`.
 
@@ -88,7 +88,7 @@ Durch beide Implementierung kann die Map gewechselt werden. Die Implementierung 
 
 ## Control
 
-This repository branch contains an algorithm that uses navigation stack 2 (Nav2). As part of the search for the concept of traversing the course, two algorithms were developed and tested. One algorithm does not use ROS Nav2 or any other third party navigation library, the other is the algorithm mentioned earlier, which is using ROS Nav2. Both are developed in C++. All tests of the two algorithms were performed in Gazebo with an [Eduard offroad robot](https://github.com/EduArt-Robotik/edu_simulation/tree/feature/sand_gravel_ramp/model/eduard_offroad) on the [TER0_ramp](https://github.com/EduArt-Robotik/edu_simulation/tree/feature/sand_gravel_ramp/model/TER0_ramp) track.
+This repository branch contains an algorithm that uses [navigation stack 2 (Nav2)](https://navigation.ros.org/). As part of the search for the concept of traversing the course, two algorithms were developed and tested. One algorithm does not use ROS Nav2 or any other third party navigation library, the other is the algorithm mentioned earlier, which is using ROS Nav2. Both are developed in C++. All tests of the two algorithms were performed in Gazebo with an [Eduard offroad robot](https://github.com/EduArt-Robotik/edu_simulation/tree/feature/sand_gravel_ramp/model/eduard_offroad) on the [TER0_ramp](https://github.com/EduArt-Robotik/edu_simulation/tree/feature/sand_gravel_ramp/model/TER0_ramp) track.
 
 ### Algorithm using Nav2
 This branch contains the source code of the algorithmen using Navigation Stack 2.
@@ -128,7 +128,7 @@ Depending on the origin point of the map (siehe [Karten-Konfigurations-Datei](ma
 
 #### ROS Navigation Stack 2:
 
-The actual navigation through the course is based on the ROS Nav2. A path planner subscribes to the published target positions and then plans a path through a costmap to the target. Because of large differences in height between specific areas of the two ramps, the secure driving from one ramp the the other is not everywere possible. For that reason a keepout-filter above the costmap ensures that the transition takes place at a safe place. Once a valid path is found, a "FollowPath" plugin controls the robot movement along the path. A Behaviour Tree controls the regeneration behaviour of the robot in special cases, such as the robot deviating from the path or getting stuck.
+The actual navigation through the course is based on the ROS [Nav2](https://navigation.ros.org/). A path planner subscribes to the published target positions and then plans a path through a costmap to the target. Because of large differences in height between specific areas of the two ramps, the secure driving from one ramp the the other is not everywere possible. For that reason a keepout-filter above the costmap ensures that the transition takes place at a safe place. Once a valid path is found, a "FollowPath" plugin controls the robot movement along the path. A Behaviour Tree controls the regeneration behaviour of the robot in special cases, such as the robot deviating from the path or getting stuck.
 
 ##### Path-Planner:
 
