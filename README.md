@@ -283,7 +283,7 @@ The algorithm using the Nav2 navigation libraries is currently not very robust, 
 
 It was decided to use the algorithm using Nav2, and it is recommended to use this algorithm for all further improvements.
 
-## outlook
+## Outlook
 
 The main finding of the work is that situations in which a lot of slippage occurs at the wheels of the robot lead to a significant degradation of localization. A solid functioning of the algorithms, with less occurrence of these situations, shows that the problem is currently not with the control, but with the localization.
 
