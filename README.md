@@ -258,12 +258,12 @@ The algorithm assumes that the robot was set to a fixed starting point (start of
 #### Rotation:
 During a rotation, the robot turns until it can just move towards this next point. The rotation stops when it is within a tolerance range of the angle initially calculated for the rotation. A tolerance range was defined, which on the one hand is as precise as possible, but not too fine, since the angle difference is only calculated in a fixed cycle and the robot should therefore turn as little as possible beyond the target. This tolerance was determined by tests in the simulation. During the rotation, the robot is turned on the spot by the algorithm. As a result, the turning circle remains very small and the robot does not run the risk of unintentionally hitting a wall.
 
-#### Fahren:
-Nachdem der Roboter in die jeweils richtige Richtung gedreht ist, beginnt er mit der Vorwärtsfahrt.  Je näher der Roboter dem aktuellen Zielpunkt kommt, desto langsamer fährt er. Sobald sich der Roboter in einem bestimmten Toleranzradius um den aktuellen Zielpunkt befindet, wird der Zielpunkt aktualisiert und der Robotor beginnt auf den nächsten Zielpunkt zuzufahren. 
+#### Driving:
+After the robot has turned in the correct direction, it starts to move forward.  The closer the robot gets to the current target point, the slower it moves. As soon as the robot is within a certain tolerance radius around the current target point, the target point is updated and the robot starts moving towards the next target point. 
 
-#### Besonderheit beim Überqueren der Rampenverschränkung:
-Der Roboter benötigt für diesen Algorithmus die Odometrie Daten aus den Lokalisierungsbibliotheken. Auf dem Weg von Punkt 2 zu Punkt 3 fährt der Roboter solange, bis er die Kante überfahren hat und nach unten kippt. Dies merkt der Algorithmus, weil dann der Pitch-Winkel größer oder gleich 0,1 und der Roll-Winkel größer als 0 ist.
-Dies ermöglicht es, dass der Roboter in einem optimalen Winkel die Rampen wechselt. 
+#### Special case when crossing the ramp entanglement:
+The robot needs the odometry data from the localization libraries for this algorithm. On the way from point 2 to point 3, the robot drives until it has crossed the edge and tilts downward. The algorithm notices this because then the pitch angle is greater than or equal to 0.1 and the roll angle is greater than 0.
+This allows the robot to change ramps at an optimal angle. 
 
 #### Implementierungsdetails:
 Der Algorithmus wurde bisher mit dem Gazebo Roboter Model eduard_offroad getestet und die Implementation ist speziell darauf zugeschnitten. Um das Gazebo Roboter Model eduard_offroad zu steuern, muss eine 'geometry_msgs::msg::Twist' unter '/cmd_vel' gesendet werden. In dem 'linear.x' Wert wird die Forwärtsgeschwindigkeit und in dem 'angular.z' Wert die Drehgeschwindigkeit um den Yaw Winkel des Roboters übergeben.
@@ -272,7 +272,7 @@ Der Algorithmus wurde bisher mit dem Gazebo Roboter Model eduard_offroad geteste
 Der Algorithmus hat prinzipiell funktioniert, solange es keine Probleme mit der Lokalisierung gab. Die Lokalisierung hatte an den selben Stellen besonders viele Probleme wie der  Algorithmus, der die Navigationsbibliothek verwendet (siehe [hier](README.md#Fehlerhafte-Lokalisierung) ). Die Navigationsschritte sind sehr fehleranfällig. Es kam zu dem Fehler, dass zu früh, oder gar nicht in den nächsten Navigationsschritt gesprungen wurde. Wenn der Roboter sich an einer anderen Stelle befindet, die nicht bei der Planung des jeweiligen Navigationsschritt beachtet worden ist, ist die weiterfahrt des Roboter nicht möglich und es führt ob zu unfällen.
 Zusätzlich sind die physikalischen Eigenschaften des Robotermodells noch nicht komplett ausgereift, weshalb der Roboter bei der Rampenüberquerung unter Umständen in eine instabile Lage gekippt ist und z.B. gehüpft oder ganz auf die Seite gekippt ist.
 
-#### Results
+### Results
 Both algorithms are currently based on features, such as angles and hard-coded target positions, which must be specifically adapted to a parqour.
 
 The self-written algorithm without Nav2 navigation libraries is very error-prone. Since no external plugins are used in the algorithm, parts of the algorithm are transferable to other systems. Problems caused by virtual collision areas are completely eliminated. It also makes the algorithm more resource efficient. Both the target selection and the adjustment of the target postions to an optimal run is time consuming. Also, as the complexity of the parqour increases, so does the number of targets to be assigned, since the robot can only travel from one target to another on a straight trajectory. This makes the adaptation of the algorithm for other parqours very complex and is therefore not recommended. Furthermore, the algorithm does not include environmental information into the control of the robot, which means that situational decisions are not possible.
@@ -281,7 +281,7 @@ The algorithm using the Nav2 navigation libraries is currently not very robust, 
 
 It was decided to use the algorithm using Nav2, and it is recommended to use this algorithm for all further improvements.
 
-### outlook
+## outlook
 
 The main finding of the work is that situations in which a lot of slippage occurs at the wheels of the robot lead to a significant degradation of localization. A solid functioning of the algorithms, with less occurrence of these situations, shows that the problem is currently not with the control, but with the localization.
 
