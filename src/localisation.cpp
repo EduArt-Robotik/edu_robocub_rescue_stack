@@ -216,7 +216,7 @@ void Localisation::determine_initialpose() {
 
         float level_lenght_ramp1 = 2.553;   // length of the level of ramp1
         x_map_origin_off = 1.411;
-        y_map_origin_off = 0.68;
+        y_map_origin_off = 0.617;
         float senor_height_off = 0.5255;    // Offset caused because of the laser-scanner is 0.139. Value the map is longer then the level.
         
         // Initial-Position
