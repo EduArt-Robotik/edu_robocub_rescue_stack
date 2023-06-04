@@ -30,17 +30,17 @@ target_include_directories(edu_robocup_rescue_stack_node PUBLIC
   $<INSTALL_INTERFACE:include>)
   
 
-target_compile_features(edu_robocup_rescue_stack_node PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+target_compile_features(edu_robocup_rescue_stack_node PUBLIC c_std_99 cxx_std_17)  
 
 install(TARGETS edu_robocup_rescue_stack_node
   DESTINATION lib/${PROJECT_NAME})
 
 
-install(DIRECTORY launch config_ekf params map   #Added config + map
+install(DIRECTORY launch config_ekf params map  
   DESTINATION share/${PROJECT_NAME}/
 )
 
-install(DIRECTORY keepout   #Added config + map
+install(DIRECTORY keepout   
   DESTINATION share/${PROJECT_NAME}/
 )
 
