@@ -227,32 +227,31 @@ In addition to the algorithm described above, another algorithm has been develop
 In this algorithm there are 4 partial maps as well as 14 navigation-steps (the reason for using 4 maps can be read [here](README.md#problems-amcl)). The robot moves through the defined points one after the other. These points are located on the route model for the TER1 route and are permanently implemented, which is why the algorithm can primarily only be used for this route. The points are located on the ramp as follows:
 
 ![Track Points](https://github.com/EduArt-Robotik/edu_robocub_rescue_stack/blob/main/docs/4MapsDestPos.jpg?raw=true "Track and used Points")
-
-Die Roboter fährt dabei die Punkte der Reihe nach ab. Zu bemerken ist, dass Punkt 2 im Vergleich zu Punkt 7 versetzt ist und Punkt 3 im Vergleich zu Punkt 8. Damit wurde sichergestellt, dass der Roboter beim Überqueren der Rampe weder auf dem Hinweg (Punkt 2 zu 3) noch auf dem Rückweg (Punkt 7 zu 8) gegen eine Wand fährt sondern etwas weiter rampen-aufwärts die Verschränkung überquert und dann leicht nach unten fällt.
+The robot travels to the points one after the other. Note that point 2 is offset from point 7 and point 3 is offset from point 8 to ensure that the robot does not hit a wall on the way from (point 2 to 3) or on the way back (point 7 to 8). The roboter crosses the entanglement a little further up the ramp and then drops slightly down.
 
 ![Rampe Maps](https://github.com/EduArt-Robotik/edu_robocub_rescue_stack/blob/main/docs/4MapsMaps.jpg?raw=true "Rampe mit Maps")
 
 #### Maps:
-1. Map: grün,
-2. Map: rot
-3. Map: blau
-4. Map: gelb
+1st map: green,
+2nd map: red
+3rd map: blue
+4th map: yellow
 
 #### Navigationsteps:
-0. Step: fahre auf Punk 1 zu, die Fahrtrichtung ist forwärts und Map 1 ist geladen
-1. Step: fahre auf Punkt 2 zu, beobachte pitch-Winkel und wechsle Zustand, wenn der Roboter auf die erste Rampe gefahren ist
-2. Step: lade Map2 und fahre auf Punkt 2 zu
-3. Step: fahre auf Punkt 3 zu, beobachte pitch und roll-Winkel wechsle Zustand, wenn der Roboter über die "Klippe" gefahren ist.
-4. Step: lade Map3 und fahre auf Punkt 4 zu. Beobachte roll und Pitch winkel um Zustand zu wechseln, wenn Roboter von der Rampe auf, den geraden Teil fährt.
-5. Step: lade Map4 und fahre weiter auf Punkt 4 zu
-6. Step: fahre auf Punkt 5 zu.
-7. Step: ändere Fahrrichtung Rückwärts und fahre auf Punkt 6 zu.
-8. Step: fahre auf Punkt 7 zu, beobachte pitch-Winkel um zustand zu Wechseln, wenn Roboter auf Rampe fährt
-9. Step: lade Map3 und fahre weiter auf Punkt 7 zu
-10. Step: Fahre auf Punkt 2 zu, beobachte pitch und roll-Winkel wechsel Zustand, wenn der Roboter über die "Klippe" gefahren ist.
-11. Step: lade Map2 und fahre auf Punkt 1 zu. Beobachte roll und Pitch Winkel um Zustand zu wechseln, wenn Roboter von der Rampe auf, den geraden Teil fährt.
-12. Step: lade Map1 und fahre weiter auf Punkt 1 zu.
-13. Step: fahre auf den Startpunkt zu.
+0. step: drive to point 1, the driving direction is forward and map 1 is loaded.
+1st step: drive to point 2, observe pitch angle and change state when robot has driven onto first ramp
+2nd step: load map 2 and drive to point 2
+3rd step: drive to point 3, observe pitch and roll angle and change state when the robot changed ramps.
+4th step: load map3 and drive to point 4. Observe roll and pitch angle to change state when robot moves from the ramp to the straight part.
+5th Step: load 4th map and continue to move towards point 4.
+6th step: move to point 5.
+7th step: change driving direction backwards and drive towards point 6.
+8th step: drive to point 7, watch pitch angle to change state when robot drives on ramp.
+9th step: load 3th map and continue to drive towards point 7
+10th step: drive to point 2, watch pitch and roll angle to change state when robot changed ramps.
+Step 11: Load 2nd map and drive towards point 1. Observe roll and pitch angle to change state when robot moves from the ramp to the straight part.
+Step 12: load 1st map and continue driving towards point 1.
+Step 13: move to the starting point.
 
 Der Algorithmus geht davon aus, dass der Roboter zu Beginn auf einen fest definierten Startpunkt (Streckenanfang) gesetzt wurde. Der Algorithmus besteht im Wesentlichen aus zwei Zustände: Drehen (auf der Stelle) und Fahren (geradeaus vorwärts). Außerdem wird kontinuierlich (unabhängig vom Zustand) geprüft, ob der Roboter in Richtung des aktuellen Zielpunktes gedreht ist. Sollte dies nicht der Fall sein, stoppt der Roboter und beginnt sich zu drehen.
 
