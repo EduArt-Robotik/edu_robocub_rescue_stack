@@ -8,9 +8,9 @@
 
 - In order to use the [Navigation Stack 2 (Nav2)](https://navigation.ros.org/) function library, the [navigation2-repostiory](https://github.com/ros-planning/navigation2) needs to be cloned to your local computer. 
 
-- The [lattice_primitves](https://github.com/EduArt-Robotik/edu_robocub_rescue_stack/tree/main/lattice_primitives) which are generated specifically for the eduard offroad robot and are located in the "lattice_primitives" folder in this repository, must be placed in the cloned navigation2 repository under the path `/navigation2/nav2_smac_planner/lattice_primitves`. Then the absolute path to the lattice_primitves-folder is to add inside the nav2_edu_params.yaml-file to the parameter "lattice_filepath" at the planner_server. 
+- The [lattice_primitves](https://github.com/EduArt-Robotik/edu_robocub_rescue_stack/tree/main/lattice_primitives) which are generated specifically for the eduard offroad robot and are located in the "lattice_primitives" folder in this repository, must be placed in the cloned navigation2 repository under the path `/navigation2/nav2_smac_planner/lattice_primitves`. Then the absolute path to the lattice_primitves-folder is to add inside the nav2_edu_params.yaml-file to the parameter "lattice_filepath" (line 502) at the planner_server. 
 
-- The absolute path to this repository has to be set in the "repository_path"-variable inside the constructor of navigation.cpp. 
+- The absolute path to this repository has to be set in the "repository_path"-variable (line 35) inside the constructor of navigation.cpp. 
 
 ### Launch:
 

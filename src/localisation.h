@@ -1,4 +1,3 @@
-#include "control.h"
 #include <vector>
 #include <cmath>
 #include <iostream>
@@ -36,13 +35,11 @@ class Localisation{
     float m_amcl_y;
 
         
-    Control *m_control; 
-    //Navigation *m_navigation;
 
     void calcualateYawZ();
 
     public:
-    Localisation(Control *control);
+    Localisation();
 
     void setPosOrientation(float x_orient, float y_orient, float z_orient, float w_orient); //float x, float y, 
     float getX();

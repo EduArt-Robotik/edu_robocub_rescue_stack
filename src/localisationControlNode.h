@@ -17,7 +17,6 @@
 
 #define _USE_MATH_DEFINES
 #include <cmath>
-
 #include "localisation.h"
 #include "navigation.h"
 
@@ -75,11 +74,9 @@ class LocalisationControlNode : public rclcpp::Node
     rclcpp::TimerBase::SharedPtr m_timer_clock;
 
     //Initialisierung Variablen 
-    Control *m_control;
-    //Control *ls_control;
+
     Localisation *m_localisation;
     Navigation *m_navigation;
-    //LoadMap *m_loadMap;
 
     //state topic neccessary for getstate and change state 
     static constexpr char const * map_server_load_map_topic = "/map_server/load_map";

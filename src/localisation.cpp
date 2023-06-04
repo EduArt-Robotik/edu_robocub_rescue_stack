@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Localisation::Localisation(Control *control){
+Localisation::Localisation(){
     m_x = 0;
     m_y = 0;
     m_x_orient = 0;
@@ -23,7 +23,6 @@ Localisation::Localisation(Control *control){
     m_amcl_x = 0;
     m_amcl_y = 0;
 
-    m_control = control;
 }
 void Localisation::setPosOrientation(float x_orient, float y_orient, float z_orient, float w_orient){
     m_x = 1.0;
@@ -61,7 +60,6 @@ void Localisation::calcualateYawZ(){
     float t4 = +1.0 - 2.0 * (m_y_orient * m_y_orient + m_z_orient * m_z_orient);
     m_yaw_z = atan2(t3, t4);
 
-    m_control->setPosYaw(m_x, m_y, m_yaw_z);
 }
 
 void Localisation::recognize_area() {
