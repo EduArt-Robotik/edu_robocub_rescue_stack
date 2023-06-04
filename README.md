@@ -1,11 +1,36 @@
 # edu_robotcub_rescue_stack
 
-## launch
-ros2 launch edu_robocup_rescue_stack edu_control.launch.py 
+## setup:
 
-## Team
+### Prerequisites:
 
-Katarina, Jakob, Daniel
+- For the simulation the [edu_simulation-repository](https://github.com/EduArt-Robotik/edu_simulation) needs to be cloned in a local folder.
+
+- In order to use the Nav2 Navigation Stack function library the [navigation2-repostiory](https://github.com/ros-planning/navigation2) needs to be cloned in a local folder. 
+
+- The [lattice_primitves](https://github.com/EduArt-Robotik/edu_robocub_rescue_stack/tree/main/lattice_primitives) generated especially for the eduard offroad robot, which are located in this repository in the folder "lattice_primitives", have to be stored in the cloned navigation2-repository under the path `/navigation2/nav2_smac_planner/lattice_primitves`.
+
+### Launch:
+
+1. Launch Gazebo:  
+    `ros2 launch edu_simulation eduard.launch.py`
+
+2. Select parqour „TER0_ramp“ in the „Insert“ tab and place it in the free space.
+
+3. Click on parqour and set pose in left bar:  
+    x: 3,14  
+    y: 0,6  
+    z: 0,00  
+    roll: 0,00  
+    pitch: 0,00  
+    yaw: 0,00  
+
+    → The target positions of this algorithm are designed to have the parqour located at that position in the global coordinate system.
+
+4. Choose „Eduard Offroad“ in the „Insert“ tab and place it close to the coordinate origin (blue Z-axis).
+
+5. Launch navigation and control algorithm.
+    `ros2 launch edu_robocup_rescue_stack navigation.launch.py`
 
 ## Einleitung / Aufgabenstellung
 
@@ -66,37 +91,6 @@ Durch beide Implementierung kann die Map gewechselt werden. Die Implementierung 
 Two algorithms were developed as part of the search for a concept for traversing the parqours. One algorithm dosn't use the ROS Navigation Stack 2, the other is largely based on the ROS Navigation Stack 2. The algorithms are programmed in C++. All tests of the two algorithms were performed in Gazebo with an [Eduard offroad robot](https://github.com/EduArt-Robotik/edu_simulation/tree/feature/sand_gravel_ramp/model/eduard_offroad) on the [TER0_ramp](https://github.com/EduArt-Robotik/edu_simulation/tree/feature/sand_gravel_ramp/model/TER0_ramp) track.
 
 ### Algorithm using the Nav2 navigation stack
-
-#### Prerequisites:
-
-- For the simulation the [edu_simulation-repository](https://github.com/EduArt-Robotik/edu_simulation) needs to be cloned in a local folder.
-
-- In order to use the Nav2 Navigation Stack function library the [navigation2-repostiory](https://github.com/ros-planning/navigation2) needs to be cloned in a local folder. 
-
-- The [lattice_primitves](https://github.com/EduArt-Robotik/edu_robocub_rescue_stack/tree/main/lattice_primitives) generated especially for the eduard offroad robot, which are located in this repository in the folder "lattice_primitives", have to be stored in the cloned navigation2-repository under the path `/navigation2/nav2_smac_planner/lattice_primitves`.
-
-#### Launch:
-
-1. Launch Gazebo:  
-    `ros2 launch edu_simulation eduard.launch.py`
-
-2. Select parqour „TER0_ramp“ in the „Insert“ tab and place it in the free space.
-
-3. Click on parqour and set pose in left bar:  
-    x: 3,14  
-    y: 0,6  
-    z: 0,00  
-    roll: 0,00  
-    pitch: 0,00  
-    yaw: 0,00  
-
-    → The target positions of this algorithm are designed to have the parqour located at that position in the global coordinate system.
-
-4. Choose „Eduard Offroad“ in the „Insert“ tab and place it close to the coordinate origin (blue Z-axis).
-
-5. Launch navigation and control algorithm.
-    `ros2 launch edu_robocup_rescue_stack navigation.launch.py`
-
 
 #### Navigation:
 
@@ -285,7 +279,12 @@ Both algorithms are currently based on features, such as angles and hard-coded t
 The self-written algorithm without Nav2 navigation libraries is very error-prone. Since no external plugins are used in the algorithm, parts of the algorithm are transferable to other systems. Problems caused by virtual collision areas are completely eliminated. It also makes the algorithm more resource efficient. Both the target selection and the adjustment of the target postions to an optimal run is time consuming. Also, as the complexity of the parqour increases, so does the number of targets to be assigned, since the robot can only travel from one target to another on a straight trajectory. This makes the adaptation of the algorithm for other parqours very complex and is therefore not recommended. Furthermore, the algorithm does not include environmental information into the control of the robot, which means that situational decisions are not possible.
 
 The algorithm using the Nav2 navigation libraries is currently not very robust, due to many plugins and complex calculations, the function is dependent on the currently available computing power. Programs running in the background during simulation or many test runs in close succession often led to a deterioration in performance. The situations described under the section "incorrect localization" were mostly problematic during the execution. If one of these situations occurred early in the simulation, it led to a significant degradation of the localization already at the beginning, as described, and the robot usually got stuck after two runs from one of the errors also described under the section " incorrect localization". If there were few or none of these extraordinary situations that resulted in increased slippage, the robot was able to make more than five runs in a stable manner in many cases. If the localization works, the shape of the keepout filter is used to force a trajectory at the correct location, allowing the robot to cross from one ramp to the other with very little slip. Even though, due to the path planner and the keepout filter, the target positions to be predefined do not have to be adjusted as precisely as with the other algorithm, it still takes some time to find the optimal form of the keepout filter. However, the question is also whether such a precise adjustment is still necessary with a more robust localization. Especially the obstacle layer on the costmap in combination with the path planner offers the additional advantage of being able to react situationally to the environment. If an obstacle appears in front of the robot, the obstacle layer maps it in real time in the costmap. Based on this information, the path planner can plan a trajectory around the obstacle. The determination of the initialization position in each newly loaded map, despite its tendency to a small systematic error, contributes to a significant improvement in localization. A very useful side effect is also that, due to the self-determination of the initialization position at the beginning, the robot can be set to any start position on the first straight in the parqour, from where it then starts the run.
+Eventually it was decided to use the algorithm with the Navigation Stack 2.
 
 The main finding of the work is that situations in which a lot of slippage occurs at the wheels of the robot lead to a significant degradation of localization. A solid functioning of the algorithms, with less occurrence of these situations, shows that the problem is currently not with the control, but with the localization.
 
 In view of this finding, it is recommended to focus on the localization, or more precisely on the improvement of the odometry, in the context of a possible further work. A possible solution approach would be the fusion of the odometry with the IMU using a Kalman filter. The AMCL can then perform a better position estimation based on the filtered odometry. For example, a pre-implemented Kalman filter is provided by [robot_localisation](http://docs.ros.org/en/noetic/api/robot_localization/html/index.html). Furthermore, an improvement of the initialization position would be important. This estimate could be made more stable, for example, by a RANSAC algorithm.
+
+## Team
+
+Katarina, Jakob, Daniel
