@@ -8,7 +8,9 @@
 
 - In order to use the (Navigation Stack 2 (Nav2))[https://navigation.ros.org/] function library, the [navigation2-repostiory](https://github.com/ros-planning/navigation2) needs to be cloned to your local computer. 
 
-- The [lattice_primitves](https://github.com/EduArt-Robotik/edu_robocub_rescue_stack/tree/main/lattice_primitives) which are generated specifically for theeduard offroad robot and are located in the "lattice_primitives" folder in this repository, must be placed in the cloned navigation2 repository under the path `/navigation2/nav2_smac_planner/lattice_primitves`.
+- The [lattice_primitves](https://github.com/EduArt-Robotik/edu_robocub_rescue_stack/tree/main/lattice_primitives) which are generated specifically for the eduard offroad robot and are located in the "lattice_primitives" folder in this repository, must be placed in the cloned navigation2 repository under the path `/navigation2/nav2_smac_planner/lattice_primitves`. Then the absolute path to the lattice_primitves-folder is to add inside the nav2_edu_params.yaml-file to the parameter "lattice_filepath" at the planner_server. 
+
+- The absolute path to this repository has to be set in the "repository_path"-variable inside the constructor of navigation.cpp. 
 
 ### Launch:
 
@@ -35,7 +37,7 @@
 ## Introduction / Task
 
 The goal is to design a concept for autonomous driving of the Eduard offroad robot through a simulated parqour. 
-The robot is to traverse a predefined parqour  ([(TER 1)Sand/Grave](https://rrl.robocup.org/wp-content/uploads/2022/05/RoboCup2022_AssemblyGuide_Final.pdf)) as many times and as fast as possible. When it reaches the end of the (TER 1)Sand/Grave parqour, the robot shall backtrack (without making a 180° turn). The robot must first cross a flat element, then drive up a ramp, get onto another ramp, drive down this ramp and finally drive on a flat element to its end. A particular difficulty is crossing the ramp.
+The robot is designed to traverse a predefined parqour  ([(TER 1)Sand/Grave](https://rrl.robocup.org/wp-content/uploads/2022/05/RoboCup2022_AssemblyGuide_Final.pdf)) as many times and as fast as possible. When it reaches the end of the (TER1 )Sand/Grave parqour, the robot shall backtrack (without making a 180° turn). The robot must first cross a flat element, then drive up a ramp, get onto another ramp, drive down this ramp and finally drive on a flat element to its end. A particular difficulty is crossing from one ramp to the other ramp.
 
 ## Orientation and localization
 
@@ -43,7 +45,7 @@ To steer the robot through the parqour the current position is needed at any tim
 
 ### AMCL - Adaptive Monte Carlo Localisation
 
-The AMCL is an algorithm that uses a particle filter to estimate the position and orientation of a robot in a known map, based on information from a 2D laser scanner and odometry. The AMCL has to initialize the particle filter with the initial pose of the robot, otherwise it starts at the origin of the reference coordinate system (Here: map_frame). The particles that should represent the pose of the robot are randomly distributed in space at the beginning. If the robot moves (motion-update), the algorithm uses the initialization position and the odometry information to make a prediction for the robot position more specifically the new position of the particles. Subsequently, the laser scanner performs a measurement that is compared to the predicted particle positions. Then the algorithm weights the particles according to the match with the measurement. Particles with higher weights have a higher probability of representing the actual pose. A process called resampling rejects particles with low weighting on it. This again adjusts the particle set more to the more likely outcome and thus improves the position estimate. The algorithm repeats these steps several times. The final estimate of the pose is calculated based on the weights of the particles, with higher weighted particles having a greater impact on the result. In addition to the pose, AMCL also publishes the transformation from the odometry coordinate system (odom_frame) to the global coordinate system (map_frame). [source_1](https://roboticsknowledgebase.com/wiki/state-estimation/adaptive-monte-carlo-localization/), [source_2](https://tams.informatik.uni-hamburg.de/lectures/2020ss/seminar/ir/doc/jtb_7328242_final.pdf)
+The AMCL is an algorithm, that uses a particle filter to estimate the position and orientation of a robot in a known map, based on information from a 2D laser scanner and odometry. The AMCL has to initialize the particle filter with the initial pose of the robot, otherwise it starts at the origin of the reference coordinate system (Here: map_frame). The particles that should represent the pose of the robot are randomly distributed in space at the beginning. If the robot moves (motion-update), the algorithm uses the initialization position and the odometry information to make a prediction for the robot position more specifically the new position of the particles. Subsequently, the laser scanner performs a measurement that is compared to the predicted particle positions. Then the algorithm weights the particles according to the match with the measurement. Particles with higher weights have a higher probability of representing the actual pose. A process called resampling rejects particles with low weighting on it. This again adjusts the particle set more to the more likely outcome and thus improves the position estimate. The algorithm repeats these steps several times. The final estimate of the pose is calculated based on the weights of the particles, with higher weighted particles having a greater impact on the result. In addition to the pose, AMCL also publishes the transformation from the odometry coordinate system (odom_frame) to the global coordinate system (map_frame). [source_1](https://roboticsknowledgebase.com/wiki/state-estimation/adaptive-monte-carlo-localization/), [source_2](https://tams.informatik.uni-hamburg.de/lectures/2020ss/seminar/ir/doc/jtb_7328242_final.pdf)
 
 ### Multiple maps
 
@@ -281,7 +283,7 @@ The algorithm using the Nav2 navigation libraries is currently not very robust, 
 
 It was decided to use the algorithm using Nav2, and it is recommended to use this algorithm for all further improvements.
 
-## outlook
+## Outlook
 
 The main finding of the work is that situations in which a lot of slippage occurs at the wheels of the robot lead to a significant degradation of localization. A solid functioning of the algorithms, with less occurrence of these situations, shows that the problem is currently not with the control, but with the localization.
 
