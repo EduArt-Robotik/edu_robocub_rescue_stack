@@ -32,22 +32,23 @@
 5. Launch navigation and control algorithm.
     `ros2 launch edu_robocup_rescue_stack navigation.launch.py`
 
-## Einleitung / Aufgabenstellung
+## Introduction / Task
 
-Ziel ist es ein Konzept für das autonome Fahren des Eduard-Offroad-Roboters durch einen simulierten Parqour zu entwerfen. 
-Der Roboter soll einen vordefinierten Parqour ([(TER 1)Sand/Grave](https://rrl.robocup.org/wp-content/uploads/2022/05/RoboCup2022_AssemblyGuide_Final.pdf)) so oft und so schnell wie möglich durchqueren. Wenn er am Ende des (TER 1)Sand/Grave Parqour angekommen ist, soll der Roboter rückwärts (ohne eine 180° Drehung) zurückfahren. Der Roboter muss zuerst ein flaches Element überfahren, dann ein Rampe hinauffahren, auf eine andere Rampe gelangen, diese dann wieder hinunterfahren und zuletzt auf einem flaches Element bis zu dessen Ende fahren. Eine besondere Schwierigkeit ist dass Überqueren der Rampe.
+The goal is to design a concept for autonomous driving of the Eduard offroad robot through a simulated parqour. 
+The robot is to traverse a predefined parqour  ([(TER 1)Sand/Grave](https://rrl.robocup.org/wp-content/uploads/2022/05/RoboCup2022_AssemblyGuide_Final.pdf)) as many times and as fast as possible. When it reaches the end of the (TER 1)Sand/Grave parqour, the robot shall backtrack (without making a 180° turn). The robot must first cross a flat element, then drive up a ramp, get onto another ramp, drive down this ramp and finally drive on a flat element to its end. A particular difficulty is crossing the ramp.
 
-## Orientierung und Lokalisierung
-Um den Roboter durch den Parqour zu Steuern wird zu jedem Zeitpunkt die aktuelle Position benötigt. Um die Position zu erhalten, wurde sich für die Adaptive Monte Carlo Localization (AMCL) entschieden. Der für die Lokalisierung verwendete Algorithmus wird von der open-source Bibliothek Nav2 der Navigation Community bereitgestellt. Er benötigt einen 2D Laserscanner und eine zuvor erstellte Map. Der Laserscanner wurde dafür in dem Gazebo Robotermodell hinzugefügt. [source: Github nav2_amcl](https://github.com/ros-planning/navigation2/tree/main/nav2_amcl)
+## Orientation and localization
+
+To steer the robot through the parqour the current position is needed at any time. To obtain the position, Adaptive Monte Carlo Localization (AMCL) was chosen. The algorithm used for the localization is provided by the open-source library [Nav2](https://navigation.ros.org/). It requires a 2D laser scanner and a previously created map. The laser scanner was added to the [Gazebo robot model](https://github.com/EduArt-Robotik/edu_simulation/tree/feature/sand_gravel_ramp/model/eduard_offroad). [source: Github nav2_amcl](https://github.com/ros-planning/navigation2/tree/main/nav2_amcl)
 
 ### AMCL - Adaptive Monte Carlo Localisation
 
 The AMCL is an algorithm that uses a particle filter to estimate the position and orientation of a robot in a known map, based on information from a 2D laser scanner and odometry. The AMCL has to initialize the particle filter with the initial pose of the robot, otherwise it starts at the origin of the reference coordinate system (Here: map_frame). The particles that should represent the pose of the robot are randomly distributed in space at the beginning. If the robot moves (motion-update), the algorithm uses the initialization position and the odometry information to make a prediction for the robot position more specifically the new position of the particles. Subsequently, the laser scanner performs a measurement that is compared to the predicted particle positions. Then the algorithm weights the particles according to the match with the measurement. Particles with higher weights have a higher probability of representing the actual pose. A process called resampling rejects particles with low weighting on it. This again adjusts the particle set more to the more likely outcome and thus improves the position estimate. The algorithm repeats these steps several times. The final estimate of the pose is calculated based on the weights of the particles, with higher weighted particles having a greater impact on the result. In addition to the pose, AMCL also publishes the transformation from the odometry coordinate system (odom_frame) to the global coordinate system (map_frame). [source_1](https://roboticsknowledgebase.com/wiki/state-estimation/adaptive-monte-carlo-localization/), [source_2](https://tams.informatik.uni-hamburg.de/lectures/2020ss/seminar/ir/doc/jtb_7328242_final.pdf)
 
-### Probleme AMCL
+### Multiple maps
 
-Der Parkour ist dreidimensional. Neben ebenen Flächen ist auch eine Rampe enthalten. Die Positionserkennung mit AMCL ist aber nur für eine ebene Fläche entwickelt worden. Bei der Entwicklung eines Robotersteuerungsalgorithmus mit nur einer Map sind deshalb Probleme bei der Positionserkennung aufgetreten. Zum Beispiel erkannte der Roboter, wenn er auf der Ebene steht die Rampe als Wand und wenn er auf der Rampe steht Ebene als Wand. Um dem Abhilfe zu schaffen wurde hier für beide Rampen und beide ebene Fläche je eine Map implementiert.
-Außerdem konnte der verwendete AMCL-Algorithmus durch die Symmetrie der Strecke nicht unterscheiden, auf welchem Teil der Strecke er sich befindet. 
+The parkour is three-dimensional. In addition to flat surfaces, it also includes ramps. However, position recognition with AMCL has only been developed for a two-dimensional flat surface. Therefore, when developing a robot control algorithm with only one map, position detection problems have been encountered. For example, the robot recognized the ramp as a wall when standing on the level surface and the level as a wall when standing on the ramp. To remedy this, a map was implemented for both ramps and both flat surfaces.
+In addition, the AMCL algorithm used could not distinguish which part of the track it was on due to the symmetry of the track. 
 
 ### Map Generieren 
 
@@ -268,9 +269,9 @@ This allows the robot to change ramps at an optimal angle.
 #### Implementation details:
 The algorithm has been tested so far with the Gazebo Robot Model eduard_offroad and the implementation is specific to it. To control the Gazebo robot model eduard_offroad, a 'geometry_msgs::msg::Twist' must be sent under '/cmd_vel'. In the 'linear.x' value the forward speed and in the 'angular.z' value the rotation speed around the yaw angle of the robot is passed.
 
-#### Probleme :
+#### Problems :
 
-The navigation steps are very error-prone. It happened that the algorithmen jumped to the next navigation step too early or not at all. Additionally, there were problems with the localization, as already described for the alogrithm that used Nav2. (see [here](README.md#Erroneous-Localization) ). If the robot is in a different place, which was not considered during the planning of the respective navigation step, the further travel of the robot is not possible and it leads ob to accidents.
+The navigation steps are very error-prone. It happened that the algorithmen jumped to the next navigation step too early or not at all. Additionally, there were problems with the localization, as already described for the alogrithm that used Nav2. (see [here](README.md#Incorrect-localization) ). If the robot is in a different place, which was not considered during the planning of the respective navigation step, the further travel of the robot is not possible and it leads ob to accidents.
 In addition, the physical properties of the robot model are not yet fully developed, which is why the robot may have tipped into an unstable position when crossing the ramp and, for example, hopped or tipped completely onto its side.
 
 ### Results
