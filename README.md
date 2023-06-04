@@ -188,7 +188,7 @@ The following is a list and description of problems and errors that occurred at 
 
 ##### TF_NAN_INPUT-Error
 
-Original-Fehler:  
+Original-error:  
 Error: Ignoring transform for child_frame_id “odom” from authority “Authority undetectable” because of nan value in the transform (nan nan nan) (0.000000 0.000000 -0.770181 0.637825)
 
 During the test runs on the obstacle course in Gazebo, the error occurred more often when two or more wheels of the robot were not in contact with the road, for example when "jumping" from one ramp to the other or when braking too hard on the ramp, which lifted the rear wheels.
