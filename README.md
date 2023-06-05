@@ -59,14 +59,14 @@ from SteveMacenski was used. The generation was started with the [online_async_l
 
 ### Switching maps
 
-To change the map, two implementation options were compared. A new map can either be loaded in a map server and a completely new map server can be started for each map. Both options worked.
+To change the map, two implementation options were compared. A new map can either be loaded in a map server or a completely new map server can be activated for each map. Both options worked. A new map is loaded in this repository to change the maps.
 
-To provide a map for the Nav2 system, a map server is used. The map server node provides the map at startup. With load_map the map can also be exchanged while the map server node is already running. Instead of swapping the map, the whole map server can be "swapped" by activating and deactivating the map servers as mentioned above. This is possible because a map server is a 'LifecycleNode'. [source: Map_server.cpp line 65](https://github.com/ros-planning/navigation2/blob/main/nav2_map_server/src/map_server/map_server.cpp)
+To provide a map for the Nav2 system, a map server is used. The map server node provides the map at startup. With load_map the map can also be exchanged while the map server node is already running. Instead of swapping the map, the whole map server can be swapped by activating and deactivating the map servers as mentioned above. This is possible because a map server is a 'LifecycleNode'. [source: Map_server.cpp line 65](https://github.com/ros-planning/navigation2/blob/main/nav2_map_server/src/map_server/map_server.cpp)
 
 A LifecycleNode has four primary states: Unconfigured, Inactivate, Active, Finalized. Initially, each LifecyleNode is in the Unconfigured state, which can be transformed to the Inactive state. From the state, the node can become Active by puplishing the map and making it available to other nodes, such as the AMCL node.
 To change the maps, four map servers are launched at startup (with amcl_4maps.launch.py), one for each map. [source](https://design.ros2.org/articles/node_lifecycle.html)
 
-#### Terminal
+#### Testing form the Linux Terminal
 For testing purposes first a map change was executed by commands in the terminal. To load a new map `ros2 service call /map_server/load_map nav2_msgs/srv/LoadMap "{map_url: /ros/maps/map.yaml}"` must be executed. [source](https://github.com/ros-planning/navigation2/blob/main/nav2_map_server/README.md) 
 
 To swap the map by activating and deactivating the map servers, it is necessary to query the current state of the nodes and to be able to trigger the state change. To get the current lifecycle state for the example node named map_server ros2 service call `/map_server/get_state lifecycle_msgs/GetState` can be executed. To change the state from Unconfigured to Inactive `ros2 lifecycle set /map_server configure` or `ros2 service call /lc_talker/change_state lifecycle_msgs/ChangeState "{transition: {id: 2}}"` can be executed. [source](https://index.ros.org/p/lifecycle/)
@@ -83,14 +83,14 @@ To get the current state and to trigger a state change an asyncRequest is sent. 
 
 ###### Problems with the implementation of the 4 map servers
 During the implementation of the 4 map servers it often came to the problem that not all map server nodes as well as the AMCL node were started completely during the startup.
-To solve this problem, the thread waited for 2 seconds at the beginning (in the constructor of the 'LocalisationControlNode' ). Not forcing the programm to wait can cause errors, because the map server can be accessed and the node is not ready.
+To solve this problem, the thread waited for 2 seconds at the beginning (in the constructor of the 'LocalisationControlNode' ). Not forcing the programm to wait can cause errors, because the map server could be accessed while the node is not ready.
 
 #### Comparison 
 With both implementations the maps can be exchanged. The implementation by means of MapServer change is clearly more complex than the implementation that loads a new map within one map server. Therefore the implementation in which the map is reloaded was chosen in the end.
 
 ## Control
 
-This repository branch contains an algorithm that uses [navigation stack 2 (Nav2)](https://navigation.ros.org/). As part of the search for the concept of traversing the course, two algorithms were developed and tested. One algorithm does not use any third party navigation library, the other is the algorithm mentioned earlier, which is using the ROS Navigation Stack 2. Both are developed in C++. All tests of the two algorithms were performed in Gazebo with an [Eduard offroad robot](https://github.com/EduArt-Robotik/edu_simulation/tree/feature/sand_gravel_ramp/model/eduard_offroad) on the [TER0_ramp](https://github.com/EduArt-Robotik/edu_simulation/tree/feature/sand_gravel_ramp/model/TER0_ramp) track.
+This repository branch contains an algorithm that uses [navigation stack 2 (Nav2)](https://navigation.ros.org/). As part of the search for the concept of traversing the course, two algorithms were developed and tested. One algorithm does not use any third party navigation library for navigation, the other is the algorithm mentioned earlier, which is using the ROS Navigation Stack 2. Both use Nav2 AMCL Algorithmen for localisation and are developed in C++. All tests of the two algorithms were performed in Gazebo with an [Eduard offroad robot](https://github.com/EduArt-Robotik/edu_simulation/tree/feature/sand_gravel_ramp/model/eduard_offroad) on the [TER0_ramp](https://github.com/EduArt-Robotik/edu_simulation/tree/feature/sand_gravel_ramp/model/TER0_ramp) track.
 
 ### Algorithm using Nav2
 This branch contains the source code of the algorithmen that uses the ROS Navigation Stack 2.
@@ -105,7 +105,7 @@ As explained earlier, position detection based on two dimensions with AMCL does 
 
 The robot must also be given a new target, which it must approach on the map. A beneficial procedure is to load the layer-specific map at the beginning, then to send the target position and finally to initialize the robot pose.
 
-Intuitively, one would send the target position to the path planner after the robot position has been initialized, but since the robot should preferably have no pitch and roll angle for an accurate determination of the initialization position, the program has to wait until it is straight again after "jumping" over the ramp. The waiting-duration is set to 1.0 seconds. The algorithm then checks the status of the robot. Immediately assigning the new target prevents the robot from orienting itself back to the previous target (old map) in the meantime and instead allows it to move directly in the right direction (new target).
+Intuitively, one would send the target position to the path planner after the robot position has been initialized. For one use case, this is a disadvantage: After the robot has changed the ramp, it wobbles. For an accurate determination of the initialization position, it should not have a pitch and roll angle. Therefore, the program must wait until the robot is straight again after changing the ramp and then determine and publish the initial position. The waiting-duration is set to 1.0 seconds. The algorithm then checks the status of the robot. Immediately assigning the new target prevents the robot from orienting itself back to the previous target (old map) in the meantime and instead allows it to move directly in the right direction (new target).
 
 Based on different angle constellations as well as the current X/Y-position, the currently traveled plane can be identified. The registration of a change of the plane is followed by the loading of a new map, the navigation to a new destination selected depending on the plane as well as on the current direction of movement, and the initialization of the new robot pose. This procedure is identical for each map.
 
