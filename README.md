@@ -234,26 +234,26 @@ The robot travels to the points one after the other. Note that point 2 is offset
 ![Rampe Maps](https://github.com/EduArt-Robotik/edu_robocub_rescue_stack/blob/main/docs/4MapsMaps.jpg?raw=true "Rampe mit Maps")
 
 #### Maps:
-1st map: green,
-2nd map: red
-3rd map: blue
-4th map: yellow
+1st map: green  
+2nd map: red  
+3rd map: blue  
+4th map: yellow  
 
 #### Navigationsteps:
-0. step: drive to 1st point, the driving direction is forward and 1st map is loaded.
-1st step: drive to 2nd point, observe pitch angle and change state when the robot has driven onto first ramp
-2nd step: load 2nd map and continue driving to 2nd point
-3rd step: drive to 3rd point, observe pitch and roll angle and change state when robot has changed ramp
-4th step: load 3rd map and drive to 4th point, observe roll and pitch angle and change state when robot moved from ramp to straight part
-5th step: load 4th map and continue to 4th point
-6th step: drive to the 5th point
-7th step: change driving direction backwards and drive to the 6th point
-8th step: drive to 7th point, observe pitch angle and change state when robot goes on the ramp
-9th step: load 3th map and continue to drive towards 7th point
-10th step: drive to 2th point, watch pitch and roll angle to change state when robot changed ramps
-Step 11: Load 2nd map and drive towards 1st point, observe roll and pitch angle to change state when robot moves from the ramp to the straight part
-Step 12: load 1st map and continue driving towards 1st point.
-Step 13: move to the starting point.
+0. step: drive to 1st point, the driving direction is forward and 1st map is loaded.  
+1st step: drive to 2nd point, observe pitch angle and change state when the robot has driven onto first ramp.  
+2nd step: load 2nd map and continue driving to 2nd point.  
+3rd step: drive to 3rd point, observe pitch and roll angle and change state when robot has changed ramp.  
+4th step: load 3rd map and drive to 4th point, observe roll and pitch angle and change state when robot moved from ramp to straight part.  
+5th step: load 4th map and continue to 4th point.  
+6th step: drive to the 5th point.  
+7th step: change driving direction backwards and drive to the 6th point.  
+8th step: drive to 7th point, observe pitch angle and change state when robot goes on the ramp.  
+9th step: load 3th map and continue to drive towards 7th point.  
+10th step: drive to 2th point, watch pitch and roll angle to change state when robot changed ramps.  
+Step 11: Load 2nd map and drive towards 1st point, observe roll and pitch angle to change state when robot moves from the ramp to the straight part.  
+Step 12: load 1st map and continue driving towards 1st point.  
+Step 13: move to the starting point.  
 
 The algorithm assumes that the robot was set to a fixed starting point (start of track) at the beginning. The algorithm essentially consists of two states: turning (on the spot) and driving (straight forward). In addition, it continuously checks (regardless of the state) whether the robot has turned in the direction of the current target point. If this is not the case, the robot stops and starts turning.
 
